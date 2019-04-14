@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="迁移自简书，格式可能未经校对。 以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再">
+  <meta name="description" content="以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再小心了。 decode(map) 之后 int 会变成 float64 思考一">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/">
   <meta property="og:title" content="Go encoding json 的几个坑 | 在水异方">
-  <meta property="og:description" content="迁移自简书，格式可能未经校对。 以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再小心了。 decode(map) 之后 int 会变成 float64 思考一"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2018-08-27T20:28:35&#43;08:00">
@@ -405,10 +405,6 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<blockquote>
-<p>迁移自简书，格式可能未经校对。</p>
-</blockquote>
-
 <p>以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再小心了。</p>
 
 <h2 id="decode-map-之后-int-会变成-float64">decode(map) 之后 int 会变成 float64</h2>
@@ -462,6 +458,12 @@ encoder.Encode(...)
 </code></pre>
 
 <p>现在很多人使用 Go 只是提供一个简单的 json 给客户端，html 字符，其实不太会搞出什么麻烦，有时候也就懒得处理了。</p>
+
+<h2 id="不能处理递归指针-会死循环">不能处理递归指针（会死循环）</h2>
+
+<p>如果对象的属性是指向自己的指针（例如循环列表），marshal 时会陷入死循环。在 dump 复杂对象时需要注意。</p>
+
+<p>println 函数没有这个问题，因为会把指针直接打印出地址。</p>
 
 <h2 id="最后">最后</h2>
 
@@ -613,13 +615,13 @@ encoder.Encode(...)
   
   <div class="post-nav-item">
     <div class="meta-nav">下一页</div>
-    <a href="/post/jianshu/%E5%85%B3%E4%BA%8E%E6%97%A5%E5%BF%97%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/" rel="next">关于日志的几个想法</a>
+    <a href="/post/jianshu/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%8D%E7%9B%B4%E8%A7%89%E7%8E%B0%E8%B1%A1/" rel="next">关于计算机的一些反直觉现象</a>
   </div>
   
   
   <div class="post-nav-item">
     <div class="meta-nav">上一页</div>
-    <a href="/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/" rel="prev">整理一套 Go 的轮子</a>
+    <a href="/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/" rel="prev">HttpClient 的几个点</a>
   </div>
   
 </div>

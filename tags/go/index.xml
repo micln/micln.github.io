@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Go on 在水异方</title>
+    <title>go on 在水异方</title>
     <link>/tags/go/</link>
-    <description>Recent content in Go on 在水异方</description>
+    <description>Recent content in go on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sun, 14 Apr 2019 11:20:27 +0800</lastBuildDate>
@@ -35,7 +35,7 @@
       <pubDate>Mon, 27 Aug 2018 20:28:35 +0800</pubDate>
       
       <guid>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</guid>
-      <description>迁移自简书，格式可能未经校对。 以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再</description>
+      <description>以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再小心了。 decode(map) 之后 int 会变成 float64 思考一</description>
     </item>
     
     <item>
