@@ -229,9 +229,85 @@ vendor/xxx.com/com/projB/registry/go.mod:module xxx.com/com/projB/registry
     </item>
     
     <item>
+      <title>Go encoding json 的几个坑</title>
+      <link>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</link>
+      <pubDate>Mon, 27 Aug 2018 20:28:35 +0800</pubDate>
+      
+      <guid>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</guid>
+      <description>
+
+&lt;p&gt;以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再小心了。&lt;/p&gt;
+
+&lt;h2 id=&#34;decode-map-之后-int-会变成-float64&#34;&gt;decode(map) 之后 int 会变成 float64&lt;/h2&gt;
+
+&lt;p&gt;思考一下，把一个 map encode 之后再 decode，结果和原来的 map 是否相等？直觉上肯定是对的，然而&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;看一段代码（&lt;a href=&#34;https://play.golang.org/p/DHb-kZNHidd）：&#34; target=&#34;_blank&#34;&gt;https://play.golang.org/p/DHb-kZNHidd）：&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;m := make(map[int]interface{})
+m1 := make(map[int]interface{})
+
+m[2] = 3
+
+b, _ := json.Marshal(m)
+json.Unmarshal(b, &amp;amp;m1)
+
+fmt.Println(m)	// map[2:3]
+fmt.Println(m1)	// map[2:3]
+fmt.Println(reflect.DeepEqual(m, m1))	// false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;看起来是不是很诡异，打印出来的都一模一样，然而两个却不相等。是不是 &lt;code&gt;DeepEqual&lt;/code&gt; 里藏着什么猫腻？按照&lt;a href=&#34;https://github.com/golang/go/blob/master/src/reflect/deepequal.go#L149&#34; target=&#34;_blank&#34;&gt;代码注释&lt;/a&gt;， 只要每个元素都相等，整个 map 就相等。&lt;/p&gt;
+
+&lt;p&gt;难不成这个2和3有问题？我们再打印一下看看：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;fmt.Printf(&amp;quot;%T %T&amp;quot;, m[2], m1[2])
+// int float64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个时候发现，decode 出来的数字被悄悄地变成了 float64。后来发现，其实官方也早有&lt;a href=&#34;https://golang.org/pkg/encoding/json/#Unmarshal&#34; target=&#34;_blank&#34;&gt;说明&lt;/a&gt;。只是这种不起眼的功能平时没注意。&lt;/p&gt;
+
+&lt;p&gt;如果上面例子里改成 &lt;code&gt;m[2] = 3.0&lt;/code&gt;，结果就正常了。参见：&lt;a href=&#34;https://play.golang.org/p/vAC1BXc7nCO&#34; target=&#34;_blank&#34;&gt;https://play.golang.org/p/vAC1BXc7nCO&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;encoding-时自动追加-n&#34;&gt;encoding 时自动追加 &amp;lsquo;\n&amp;rsquo;&lt;/h2&gt;
+
+&lt;p&gt;跑 &lt;code&gt;Unit Testing&lt;/code&gt; 时遇到的。在 github 上看到有人问到过这个问题，官方给的理由是&lt;a href=&#34;https://github.com/golang/go/issues/7767&#34; target=&#34;_blank&#34;&gt;看起来舒服&lt;/a&gt;。不得不说，Go Team 在写 std 时真是太随意了。&lt;/p&gt;
+
+&lt;p&gt;暂时没想到特别好的解决方案，在自己的工具类 &lt;a href=&#34;https://sourcegraph.com/github.com/Kretech/xgo/-/blob/encoding/json.go&#34; target=&#34;_blank&#34;&gt;JsonEncode&lt;/a&gt; 里手动给去掉了。因为一般使用的 json 末尾都是 &lt;code&gt;}&lt;/code&gt; &lt;code&gt;]&lt;/code&gt;。后面或许会加个全局的开关来配置？&lt;/p&gt;
+
+&lt;h2 id=&#34;默认情况下会开启-escapehtml&#34;&gt;默认情况下会开启 &lt;code&gt;escapeHTML&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;严格来说不能算坑，但确实跟我之前的习惯不太一样。而且要关闭的时候，还不能直接设置，得绕个大弯：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;buffer := &amp;amp;bytes.Buffer{}
+encoder := json.NewEncoder(buffer)
+encoder.SetEscapeHTML(false)
+
+// 到这才算 init 完成
+
+encoder.Encode(...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;现在很多人使用 Go 只是提供一个简单的 json 给客户端，html 字符，其实不太会搞出什么麻烦，有时候也就懒得处理了。&lt;/p&gt;
+
+&lt;h2 id=&#34;不能处理递归指针-会死循环&#34;&gt;不能处理递归指针（会死循环）&lt;/h2&gt;
+
+&lt;p&gt;如果对象的属性是指向自己的指针（例如循环列表），marshal 时会陷入死循环。在 dump 复杂对象时需要注意。&lt;/p&gt;
+
+&lt;p&gt;println 函数没有这个问题，因为会把指针直接打印出地址。&lt;/p&gt;
+
+&lt;h2 id=&#34;最后&#34;&gt;最后&lt;/h2&gt;
+
+&lt;p&gt;建议大家使用的自己也能稍微封装一下，至少在各种特殊场景下能自己掌控住。尤其 Go 很多官方包不像 Java 那样接口先行，而且 Go 还不支持继承，以至于在项目大了后想替换个 struct 非常痛苦。&lt;/p&gt;
+
+&lt;p&gt;另外我自己也在尝试对这些问题&lt;a href=&#34;https://www.jianshu.com/p/10d556a4c60f&#34; target=&#34;_blank&#34;&gt;做一些整理&lt;/a&gt;，欢迎加入。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>HttpClient 的几个点</title>
       <link>/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/</link>
-      <pubDate>Mon, 10 Sep 2018 20:22:26 +0800</pubDate>
+      <pubDate>Sun, 26 Aug 2018 20:22:26 +0800</pubDate>
       
       <guid>/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/</guid>
       <description>&lt;blockquote&gt;
@@ -309,7 +385,7 @@ vendor/xxx.com/com/projB/registry/go.mod:module xxx.com/com/projB/registry
     <item>
       <title>关于日志的几个想法</title>
       <link>/post/jianshu/%E5%85%B3%E4%BA%8E%E6%97%A5%E5%BF%97%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/</link>
-      <pubDate>Thu, 30 Aug 2018 21:02:45 +0800</pubDate>
+      <pubDate>Sat, 25 Aug 2018 21:02:45 +0800</pubDate>
       
       <guid>/post/jianshu/%E5%85%B3%E4%BA%8E%E6%97%A5%E5%BF%97%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/</guid>
       <description>
@@ -375,80 +451,6 @@ vendor/xxx.com/com/projB/registry/go.mod:module xxx.com/com/projB/registry
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://tech.lede.com/2017/06/30/rd/server/loggingHabit/&#34; target=&#34;_blank&#34;&gt;优秀日志实践准则&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Go encoding json 的几个坑</title>
-      <link>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</link>
-      <pubDate>Mon, 27 Aug 2018 20:28:35 +0800</pubDate>
-      
-      <guid>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</guid>
-      <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再小心了。&lt;/p&gt;
-
-&lt;h2 id=&#34;decode-map-之后-int-会变成-float64&#34;&gt;decode(map) 之后 int 会变成 float64&lt;/h2&gt;
-
-&lt;p&gt;思考一下，把一个 map encode 之后再 decode，结果和原来的 map 是否相等？直觉上肯定是对的，然而&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;看一段代码（&lt;a href=&#34;https://play.golang.org/p/DHb-kZNHidd）：&#34; target=&#34;_blank&#34;&gt;https://play.golang.org/p/DHb-kZNHidd）：&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;m := make(map[int]interface{})
-m1 := make(map[int]interface{})
-
-m[2] = 3
-
-b, _ := json.Marshal(m)
-json.Unmarshal(b, &amp;amp;m1)
-
-fmt.Println(m)	// map[2:3]
-fmt.Println(m1)	// map[2:3]
-fmt.Println(reflect.DeepEqual(m, m1))	// false
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;看起来是不是很诡异，打印出来的都一模一样，然而两个却不相等。是不是 &lt;code&gt;DeepEqual&lt;/code&gt; 里藏着什么猫腻？按照&lt;a href=&#34;https://github.com/golang/go/blob/master/src/reflect/deepequal.go#L149&#34; target=&#34;_blank&#34;&gt;代码注释&lt;/a&gt;， 只要每个元素都相等，整个 map 就相等。&lt;/p&gt;
-
-&lt;p&gt;难不成这个2和3有问题？我们再打印一下看看：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;fmt.Printf(&amp;quot;%T %T&amp;quot;, m[2], m1[2])
-// int float64
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这个时候发现，decode 出来的数字被悄悄地变成了 float64。后来发现，其实官方也早有&lt;a href=&#34;https://golang.org/pkg/encoding/json/#Unmarshal&#34; target=&#34;_blank&#34;&gt;说明&lt;/a&gt;。只是这种不起眼的功能平时没注意。&lt;/p&gt;
-
-&lt;p&gt;如果上面例子里改成 &lt;code&gt;m[2] = 3.0&lt;/code&gt;，结果就正常了。参见：&lt;a href=&#34;https://play.golang.org/p/vAC1BXc7nCO&#34; target=&#34;_blank&#34;&gt;https://play.golang.org/p/vAC1BXc7nCO&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;encoding-时自动追加-n&#34;&gt;encoding 时自动追加 &amp;lsquo;\n&amp;rsquo;&lt;/h2&gt;
-
-&lt;p&gt;跑 &lt;code&gt;Unit Testing&lt;/code&gt; 时遇到的。在 github 上看到有人问到过这个问题，官方给的理由是&lt;a href=&#34;https://github.com/golang/go/issues/7767&#34; target=&#34;_blank&#34;&gt;看起来舒服&lt;/a&gt;。不得不说，Go Team 在写 std 时真是太随意了。&lt;/p&gt;
-
-&lt;p&gt;暂时没想到特别好的解决方案，在自己的工具类 &lt;a href=&#34;https://sourcegraph.com/github.com/Kretech/xgo/-/blob/encoding/json.go&#34; target=&#34;_blank&#34;&gt;JsonEncode&lt;/a&gt; 里手动给去掉了。因为一般使用的 json 末尾都是 &lt;code&gt;}&lt;/code&gt; &lt;code&gt;]&lt;/code&gt;。后面或许会加个全局的开关来配置？&lt;/p&gt;
-
-&lt;h2 id=&#34;默认情况下会开启-escapehtml&#34;&gt;默认情况下会开启 &lt;code&gt;escapeHTML&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;严格来说不能算坑，但确实跟我之前的习惯不太一样。而且要关闭的时候，还不能直接设置，得绕个大弯：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;buffer := &amp;amp;bytes.Buffer{}
-encoder := json.NewEncoder(buffer)
-encoder.SetEscapeHTML(false)
-
-// 到这才算 init 完成
-
-encoder.Encode(...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;现在很多人使用 Go 只是提供一个简单的 json 给客户端，html 字符，其实不太会搞出什么麻烦，有时候也就懒得处理了。&lt;/p&gt;
-
-&lt;h2 id=&#34;最后&#34;&gt;最后&lt;/h2&gt;
-
-&lt;p&gt;建议大家使用的自己也能稍微封装一下，至少在各种特殊场景下能自己掌控住。尤其 Go 很多官方包不像 Java 那样接口先行，而且 Go 还不支持继承，以至于在项目大了后想替换个 struct 非常痛苦。&lt;/p&gt;
-
-&lt;p&gt;另外我自己也在尝试对这些问题&lt;a href=&#34;https://www.jianshu.com/p/10d556a4c60f&#34; target=&#34;_blank&#34;&gt;做一些整理&lt;/a&gt;，欢迎加入。&lt;/p&gt;
 </description>
     </item>
     

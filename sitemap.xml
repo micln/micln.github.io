@@ -9,6 +9,13 @@
   
     <url>
     
+      <loc>/tags/go/</loc>
+      <lastmod>2019-04-14T11:20:27+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
       <loc>/post/gomod/</loc>
       <lastmod>2019-04-14T11:20:27+08:00</lastmod>
     </url>
@@ -22,13 +29,6 @@
     <url>
     
       <loc>/tags/</loc>
-      <lastmod>2019-04-14T11:20:27+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-  
-    <url>
-    
-      <loc>/tags/go/</loc>
       <lastmod>2019-04-14T11:20:27+08:00</lastmod>
       <priority>0</priority>
     </url>
@@ -123,32 +123,6 @@
   
     <url>
     
-      <loc>/tags/httpclient/</loc>
-      <lastmod>2018-09-10T20:22:26+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-  
-    <url>
-    
-      <loc>/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/</loc>
-      <lastmod>2018-09-10T20:22:26+08:00</lastmod>
-    </url>
-  
-    <url>
-    
-      <loc>/categories/kretech/</loc>
-      <lastmod>2018-09-10T20:22:26+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-  
-    <url>
-    
-      <loc>/post/jianshu/%E5%85%B3%E4%BA%8E%E6%97%A5%E5%BF%97%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/</loc>
-      <lastmod>2018-08-30T21:02:45+08:00</lastmod>
-    </url>
-  
-    <url>
-    
       <loc>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</loc>
       <lastmod>2018-08-27T20:28:35+08:00</lastmod>
     </url>
@@ -158,6 +132,32 @@
       <loc>/tags/encoding/</loc>
       <lastmod>2018-08-27T20:28:35+08:00</lastmod>
       <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/httpclient/</loc>
+      <lastmod>2018-08-26T20:22:26+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/</loc>
+      <lastmod>2018-08-26T20:22:26+08:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/categories/kretech/</loc>
+      <lastmod>2018-08-26T20:22:26+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/jianshu/%E5%85%B3%E4%BA%8E%E6%97%A5%E5%BF%97%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/</loc>
+      <lastmod>2018-08-25T21:02:45+08:00</lastmod>
     </url>
   
     <url>
