@@ -17,7 +17,7 @@
       <pubDate>Wed, 02 Oct 2013 23:11:58 +0800</pubDate>
       
       <guid>/post/csdn/longest-ordered-subsequence-onlogn%E8%A7%A3%E6%B3%95-stl/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 维护一个单调队列，对于每一个新的元素： 如果大于队尾元素，补在后面； 否则替换掉最小的大于它的数，这里用</description>
+      <description></description>
     </item>
     
   </channel>
