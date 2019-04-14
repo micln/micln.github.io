@@ -453,7 +453,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 分钟阅读时间
+    0 分钟阅读时间
   </span>
   
 
@@ -497,7 +497,65 @@
 
   
   <div class="article-style" itemprop="articleBody">
-    迁移自简书，格式可能未经校对。 事件经过： 收到反馈测试环境某个服务打开 swagger ，进程会卡死 根据经验，初步判定是有死循环。 在本地启动该服务，打开 swagger ，发
+    
+
+<blockquote>
+<p>迁移自简书，格式可能未经校对。</p>
+</blockquote>
+
+<h3 id="事件经过">事件经过：</h3>
+
+<ol>
+<li>收到反馈测试环境某个服务打开 swagger ，进程会卡死</li>
+<li>根据经验，初步判定是有死循环。</li>
+<li>在本地启动该服务，打开 swagger ，发现 CPU 单核100%，确认有死循环</li>
+<li>pprof 抓取 cpu profile</li>
+</ol>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/444689-09f40a9ba477adc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cpu profile" /></p>
+
+<ol>
+<li>在 marshal 前后打断点，对于特定链接，marshal 没结束(没看到 done 日志)</li>
+<li>更换为官方 json 库，恢复正常。确认是 json-iterator 导致</li>
+</ol>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/444689-48997521bb661586.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" /></p>
+
+<ol>
+<li>在其他项目做同样操作，未能复现问题。对比jsoniter 版本，初步判定是版本过老导致。</li>
+<li>通过 debug，确认是下面这个循环走不出来</li>
+<li>升级 jsoniter ，恢复正常</li>
+</ol>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/444689-db03ec2a8790b391.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" /></p>
+
+<ol>
+<li>到官方一看，这个bug 很早就解决了。但是出事的服务还在依赖 2017-8-9 的版本。（修复链接：<a href="https://github.com/json-iterator/go/commit/f7063353029dd177a959dbf6b29f48746441fbfa#diff-34ab17b5ece86461ae47905134a8d94c）" target="_blank">https://github.com/json-iterator/go/commit/f7063353029dd177a959dbf6b29f48746441fbfa#diff-34ab17b5ece86461ae47905134a8d94c）</a></li>
+</ol>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/444689-f323b426f928371c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" /></p>
+
+<h3 id="第二个问题-为什么整个程序会假死">第二个问题，为什么整个程序会假死</h3>
+
+<p>按理说，for{} 会造成单个协程停不下，CPU 单核打满都好理解，但为什么会让整个进程死掉？</p>
+
+<p>原因在于 GC标记前，需要通知所有 goroutine 停下来，但是问题协程一直停不下来，而正常协程都已经停下来在等待。所以对外无法正常服务，看起就是死掉了。</p>
+
+<h3 id="暴露的问题">暴露的问题</h3>
+
+<ul>
+<li>对 Go 底层完全 hold 不住</li>
+<li>第三方依赖管理不规范</li>
+</ul>
+
+<h3 id="参考链接">参考链接</h3>
+
+<ul>
+<li>历史四年的关于for{}的抢占式讨论 <a href="https://github.com/golang/go/issues/10958" target="_blank">https://github.com/golang/go/issues/10958</a></li>
+<li>Goroutine调度实例简要分析 <a href="https://tonybai.com/2017/11/23/the-simple-analysis-of-goroutine-schedule-examples/" target="_blank">https://tonybai.com/2017/11/23/the-simple-analysis-of-goroutine-schedule-examples/</a></li>
+<li>滴滴大佬如何定位 golang 进程 hang 死的 bug <a href="https://gocn.vip/article/441" target="_blank">https://gocn.vip/article/441</a></li>
+</ul>
+
   </div>
   
 
@@ -1059,7 +1117,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 分钟阅读时间
+    2 分钟阅读时间
   </span>
   
 
@@ -1103,117 +1161,7 @@
 
   
   <div class="article-style" itemprop="articleBody">
-    
-
-<blockquote>
-<p>迁移自简书，格式可能未经校对。</p>
-</blockquote>
-
-<p>这里只会记录在学习 Redis 源码时觉得比较好玩的地方，不会一五一十的讲细节。</p>
-
-<h2 id="内存分配">内存分配</h2>
-
-<p><code>zmalloc</code> 在实际 <code>malloc</code> 到的内存前面加一个 <code>size</code> 。</p>
-
-<pre><code class="language-c">void *zmalloc(size_t size) {
-    void *ptr = malloc(size+PREFIX_SIZE);
-    *((size_t*)ptr) = size;
-    update_zmalloc_stat_alloc(size+PREFIX_SIZE);
-    return (char*)ptr+PREFIX_SIZE;
-}
-</code></pre>
-
-<h2 id="动态字符串-sds">动态字符串 sds</h2>
-
-<p><code>sds</code> 在基础的 <code>char*</code> 前面加一段 <code>header</code> 来记录信息（类似于 Go 实现）。</p>
-
-<pre><code class="language-c">// 除了 sdshdr64，还有 sdshdr32、sdshdr16... 区分不同的长度上限
-struct __attribute__ ((__packed__)) sdshdr64 {
-    uint64_t len; /* used */
-    uint64_t alloc; /* excluding the header and null terminator */
-    unsigned char flags; /* 3 lsb of type, 5 unused bits */
-    char buf[];
-};
-
-sds sdsnewlen(const void *init, size_t initlen) {
-    ...
-    sh = s_malloc(hdrlen+initlen+1);
-    s = (char*)sh+hdrlen;	// 实际字符串
-    memcpy(s, init, initlen);
-    return s;
-}
-</code></pre>
-
-<h2 id="字典-dict">字典 dict</h2>
-
-<ul>
-<li><p>基本数据结构</p>
-
-<ul>
-<li>dictEntry：键值对。（冲突处理：开链）</li>
-<li>dictht：哈希表。记录使用情况用来 <code>rehash</code></li>
-<li>dict
-<code>c
-typedef struct dict {
-dictType *type; // 不同type有不同的hash算法
-void *privdata;
-dictht ht[2];   // 两个 ht 来实现渐进式的 rehash
-long rehashidx; /* rehashing not in progress if rehashidx == -1 */
-unsigned long iterators; /* number of iterators currently running */
-} dict;
-</code></li>
-</ul></li>
-
-<li><p>哈希算法</p></li>
-
-<li><p>rehash：冲突元素太多时扩容。通过两个哈希表进行</p>
-
-<ul>
-<li>渐进式策略：</li>
-<li>每次执行操作时转移一个</li>
-<li>定时每次转移100个</li>
-</ul></li>
-
-<li><p>数据操作</p>
-
-<ul>
-<li>每次操作前尽可能进行一次 <code>rehash</code>。</li>
-<li><code>rehash</code> 时，要依次在两个表里查询；其他操作类似。</li>
-</ul></li>
-</ul>
-
-<h2 id="跳跃表-zset">跳跃表 zset</h2>
-
-<ul>
-<li>数据结构
-
-<ul>
-<li>span</li>
-</ul></li>
-</ul>
-
-<h2 id="整数集合-intset">整数集合 intset</h2>
-
-<ul>
-<li>数据结构
-
-<ul>
-<li><code>encoding</code> 记录元素大小，对于小的数字，使用 <code>int16_t</code> 来节省内存。</li>
-</ul></li>
-<li>resize
-
-<ul>
-<li>先分配足够内存，再调用 <code>memmove</code> 函数进行搬移</li>
-<li>单向升级，只有在插入元素的时候，如果 <code>encoding</code> 过小时会进行</li>
-</ul></li>
-</ul>
-
-<h1 id="鸣谢">鸣谢</h1>
-
-<ul>
-<li><a href="https://zcheng.ren/tags/redis/" target="_blank">Redis源码剖析</a></li>
-</ul>
-
+    迁移自简书，格式可能未经校对。 这里只会记录在学习 Redis 源码时觉得比较好玩的地方，不会一五一十的讲细节。 内存分配 zmalloc 在实际 malloc 到的内存前面加一个 size 。 void
   </div>
   
 
