@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JSON on 在水异方</title>
+    <link>/tags/json/</link>
+    <description>Recent content in JSON on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 25 Mar 2019 00:22:45 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/json/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Json Iterator 在 swagger 下卡死程序的排查</title>
+      <link>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</link>
+      <pubDate>Mon, 25 Mar 2019 00:22:45 +0800</pubDate>
+      
+      <guid>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</guid>
+      <description>迁移自简书，格式可能未经校对。 事件经过： 收到反馈测试环境某个服务打开 swagger ，进程会卡死 根据经验，初步判定是有死循环。 在本地启动该服务，打开 swagger ，发</description>
+    </item>
+    
+    <item>
+      <title>Go encoding json 的几个坑</title>
+      <link>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</link>
+      <pubDate>Mon, 27 Aug 2018 20:28:35 +0800</pubDate>
+      
+      <guid>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</guid>
+      <description>迁移自简书，格式可能未经校对。 以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再</description>
+    </item>
+    
+    <item>
+      <title>JSON 入门笔记</title>
+      <link>/post/csdn/json-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 14 May 2013 12:49:58 +0800</pubDate>
+      
+      <guid>/post/csdn/json-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 对象元素 obj = {&amp;ldquo;name&amp;rdquo;:&amp;ldquo;Jom&amp;rdquo;}; document.writeln(obj.name); 数组 obj = [&amp;ldquo;name&amp;rdquo;,&amp;ldquo;Jom&amp;rdquo;]; document.writeln(obj); 对象数组 obj = [{&amp;ldquo;name&amp;rdquo;:&amp;ldquo;Jom&amp;rdquo;}]; document.writeln(obj[0].name); 与字符串转换 txt = &amp;ldquo;{\&amp;ldquo;name\&amp;rdquo;:\&amp;ldquo;Jank\&amp;ldquo;}&amp;rdquo;; obj = eval(&amp;ldquo;(&amp;rdquo;+txt+&amp;ldquo;)&amp;rdquo;); document.writeln(obj.name); JSON的值： 数字（整数或浮点</description>
+    </item>
+    
+  </channel>
+</rss>

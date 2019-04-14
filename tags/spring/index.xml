@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring on 在水异方</title>
+    <link>/tags/spring/</link>
+    <description>Recent content in Spring on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 15 Jun 2018 21:03:34 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>好用的 Cache API</title>
+      <link>/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/</link>
+      <pubDate>Fri, 15 Jun 2018 21:03:34 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/</guid>
+      <description>迁移自简书，格式可能未经校对。 最近看到了几种加缓存的方法，整理对比一下。 拿一个case来说，我们要去数据库取一条用户记录，迫于性能，还要加一</description>
+    </item>
+    
+  </channel>
+</rss>

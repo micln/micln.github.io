@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ubuntu on 在水异方</title>
+    <link>/tags/ubuntu/</link>
+    <description>Recent content in ubuntu on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 21 Jul 2014 14:16:52 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ubuntu 安装 wps.deb</title>
+      <link>/post/csdn/ubuntu-%E5%AE%89%E8%A3%85-wps.deb/</link>
+      <pubDate>Mon, 21 Jul 2014 14:16:52 +0800</pubDate>
+      
+      <guid>/post/csdn/ubuntu-%E5%AE%89%E8%A3%85-wps.deb/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 首先到官网下载最新版本，由于官网只提供了32bit版本，所以只能下载这个。 wget http://wdl1.cache.wps.cn/wps/download/Linux/unstable/wps-office_8.1.0.3724~b1p2_i386.deb 安装 sudo dpkg -i wps-office_8.1.0.3724~b1p2_i386.deb 这个时候如</description>
+    </item>
+    
+  </channel>
+</rss>

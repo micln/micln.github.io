@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SSIS on 在水异方</title>
+    <link>/tags/ssis/</link>
+    <description>Recent content in SSIS on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 25 Dec 2016 04:06:10 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/ssis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SSIS 笔记</title>
+      <link>/post/jianshu/ssis-%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 25 Dec 2016 04:06:10 +0800</pubDate>
+      
+      <guid>/post/jianshu/ssis-%E7%AC%94%E8%AE%B0/</guid>
+      <description>迁移自简书，格式可能未经校对。 下载 &amp;amp; 安装 使用 Visio Studio 2012 开发时，要选 SQL Server Data Tools 但是！！它其实装的是2010版！！所以装好后只能从 vs2010 里建 IS 项目 如果要从</description>
+    </item>
+    
+  </channel>
+</rss>

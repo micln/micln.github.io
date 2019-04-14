@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qtree_testing on 在水异方</title>
+    <link>/tags/qtree_testing/</link>
+    <description>Recent content in Qtree_testing on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 20 Nov 2012 13:14:53 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/qtree_testing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Qtree_testing</title>
+      <link>/post/csdn/qtree_testing/</link>
+      <pubDate>Tue, 20 Nov 2012 13:14:53 +0800</pubDate>
+      
+      <guid>/post/csdn/qtree_testing/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 testing&amp;hellip; #include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstring&amp;gt; #include &amp;lt;cstdlib&amp;gt; #include &amp;lt;cmath&amp;gt; using namespace std; const int maxn=10010; const int maxm=maxn*2; const int maxu=maxn*4; const int maxt=maxn*10; const int oo=1993101215; int test,n,e,indexs,dep,tot,lca,debug; int id; //重链编号 int node; //线段树节点 int pre[maxm],other[maxm],last[maxm],w[maxm]; //</description>
+    </item>
+    
+  </channel>
+</rss>

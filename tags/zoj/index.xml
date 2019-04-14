@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ZOJ on 在水异方</title>
+    <link>/tags/zoj/</link>
+    <description>Recent content in ZOJ on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 27 Jun 2013 02:34:39 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/zoj/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ZOJ 3203 Light Bulb</title>
+      <link>/post/csdn/zoj-3203-light-bulb/</link>
+      <pubDate>Thu, 27 Jun 2013 02:34:39 +0800</pubDate>
+      
+      <guid>/post/csdn/zoj-3203-light-bulb/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://openoj.awaysoft.com:8080/judge/problem/viewProblem.action?id=14179 三分入门题目 三分： 区间上求凸（凹）点时，把区间ad分为 abcd 其中 b = ( a+d) / 2 ; c = ( b + d) / 2; 比</description>
+    </item>
+    
+  </channel>
+</rss>

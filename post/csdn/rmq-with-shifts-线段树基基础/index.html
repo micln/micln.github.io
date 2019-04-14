@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.2.0">
+  <meta name="generator" content="Hugo 0.55.0" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="huiren">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 思路 看上去是个线段树，不过每个元素都移动，树结构本身无法实现这个功能，只能一个一个的修改，但是里面的">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/rmq-with-shifts-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9F%BA%E5%9F%BA%E7%A1%80/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" integrity="sha256-7rF6RaSKyh16288E3hVdzQtHyzatA2MQRGu0cf6pqqM=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="在水异方">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="在水异方">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/csdn/rmq-with-shifts-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9F%BA%E5%9F%BA%E7%A1%80/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@yifangtian">
+  <meta property="twitter:creator" content="@yifangtian">
+  
+  <meta property="og:site_name" content="在水异方">
+  <meta property="og:url" content="/post/csdn/rmq-with-shifts-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9F%BA%E5%9F%BA%E7%A1%80/">
+  <meta property="og:title" content="RMQ with Shifts 线段树基基础 | 在水异方">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 思路 看上去是个线段树，不过每个元素都移动，树结构本身无法实现这个功能，只能一个一个的修改，但是里面的"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="zh-Hans">
+  
+  <meta property="article:published_time" content="2013-08-22T00:11:02&#43;08:00">
+  
+  <meta property="article:modified_time" content="2013-08-22T00:11:02&#43;08:00">
+  
+
+  
+
+  
+
+  <title>RMQ with Shifts 线段树基基础 | 在水异方</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="搜索..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">在水异方</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/post">
+            
+            <span><i class="fas fa-file-alt"></i> Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span><i class="fas fa-tags"></i> Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/categories">
+            
+            <span><i class="fas fa-folder-open"></i> Categories</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">RMQ with Shifts 线段树基基础</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2013-08-22 00:11:02 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-08-22 00:11:02 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/csdn/rmq-with-shifts-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9F%BA%E5%9F%BA%E7%A1%80/#disqus_thread"></a>
+  
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/usc/">usc</a>, 
+    
+    <a href="/categories/csdn/">csdn</a>
+    
+  </span>
+  
+  
+
+
+  
+    
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/rmq/">RMQ</a>
+  
+</div>
+
+
+
+
+    <br>
+
+    <div class="article-style" itemprop="articleBody">
+      <blockquote>
+<p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
+</blockquote>
+
+<p><div class="htmledit_views" id="content_views">
+ <h2>
+  思路
+ </h2>
+ <div>
+  看上去是个线段树，不过每个元素都移动，树结构本身无法实现这个功能，只能一个一个的修改，但是里面的技巧还是有的。学长的代码都上百行了，贴一帖我的60行代码，细节上有点优化处理。
+ </div>
+ <h2>
+  代码
+ </h2>
+ <div>
+  <pre><code class="language-cpp">#include &lt;cstdio&gt;
+#define N 101010
+struct rec{
+    int l,r,v;
+}t[N*5];
+int n,m,a[N],p[30];
+int minn(int a,int b){
+    if (a&lt;b) return a;
+    return b;
+}
+void build(int root, int l, int r){
+    t[root].l = l;
+    t[root].r = r;
+    if ( l==r ) {
+        t[root].v = a[l];
+        return ;
+    }
+    int mid = (l+r)/2;
+    build(root*2,l,mid);
+    build(root*2+1,mid+1,r);
+    t[root].v = minn(t[root*2].v,t[root*2+1].v);
+}
+void update(int root, int x){
+    if ( t[root].l == x &amp;&amp; t[root].r == x ) {
+        t[root].v = a[x];
+        return ;
+    }
+    int mid = (t[root].l+t[root].r)/2;
+    if ( mid &lt; x ) update(root*2+1,x);
+    else update(root*2,x);
+    t[root].v = minn(t[root*2].v,t[root*2+1].v);
+}
+int getv(int root,int l,int r){
+    if ( t[root].l == l &amp;&amp; t[root].r == r ) {
+        return t[root].v;
+    }
+    int mid = (t[root].l+t[root].r)/2;
+    if ( l&gt;mid ) return getv(root*2+1,l,r);
+    if ( r&lt;=mid) return getv(root*2,l,r);
+    return minn(getv(root*2,l,mid),getv(root*2+1,mid+1,r));
+}
+int main(){
+    scanf(&ldquo;%d%d&rdquo;,&amp;n,&amp;m);
+    for (int i(1);i&lt;=n;i++){
+        scanf(&ldquo;%d&rdquo;,&amp;a[i]);
+    }scanf(&rdquo;\n&rdquo;);
+    build(1,1,n);
+    while (m&ndash;){
+        char c,c2;
+        scanf(&ldquo;%c%c%c%c%c%c&rdquo;,&amp;c,&amp;c2,&amp;c2,&amp;c2,&amp;c2,&amp;c2);
+        if ( c==&lsquo;q&rsquo; ){
+            int ax,bx;
+            scanf(&ldquo;%d,%d)\n&rdquo;,&amp;ax,&amp;bx);
+            printf(&ldquo;%d\n&rdquo;,getv(1,ax,bx));
+        }else{
+            int j = 0;
+            while ( scanf(&ldquo;%d,&rdquo;,&amp;p[++j])==1 ); j&ndash;;
+            scanf(&ldquo;)\n&rdquo;);
+            int tt=a[p[1]];
+            for ( int i(1);i&lt;j;i++ ) a[p[i]] = a[p[i+1]];
+            a[p[j]] = tt;
+            for ( int i(1);i&lt;=j;i++) update(1,p[i]);
+        }
+    }
+    return 0;
+}</code></pre>
+  <br/>
+  <h2>
+   题目
+  </h2>
+ </div>
+ <div>
+  <br/>
+  <div id="main">
+   <center>
+    <h2>
+     Problem K: RMQ with Shifts
+    </h2>
+    <span class="green">
+     Time Limit:
+    </span>
+    1 Sec
+    <span class="green">
+     Memory Limit:
+    </span>
+    128 MB
+    <br/>
+    <span class="green">
+     Submit:
+    </span>
+    12
+    <span class="green">
+     Solved:
+    </span>
+    5
+    <br/>
+    [
+    <a href="submitpage.php?cid=1007&amp;pid=10&amp;langmask=0" rel="nofollow">
+     Submit
+    </a>
+    ][
+    <a href="problemstatus.php?id=1048" rel="nofollow">
+     Status
+    </a>
+    ][
+    <a href="bbs.php?pid=1048&amp;cid=1007" rel="nofollow">
+     Web Board
+    </a>
+    ] [
+    <a href="admin/problem_edit.php?id=&amp;getkey=01D9EBD553" rel="nofollow">
+     Edit
+    </a>
+    ]
+   </center>
+   <h2>
+    Description
+   </h2>
+   <div class="content">
+    <div>
+     In the traditional RMQ (Range Minimum Query) problem, we have a static array A. Then for each query (L, R) (L&lt;=R), we report the minimum value among A[L], A[L+1], …, A[R]. Note that the indices start from 1, i.e. the left-most element is A[1].
+    </div>
+    <div>
+     In this problem, the array A is no longer static: we need to support another operation shift(i1, i2, i3, …, ik) (i1&lt;i2&lt;&hellip;&lt;ik, k&gt;1): we do a left “circular shift” of A[i1], A[i2], …, A[ik].
+    </div>
+    <div>
+     For example, if A={6, 2, 4, 8, 5, 1, 4}, then shift(2, 4, 5, 7) yields {6, 8, 4, 5, 4, 1, 2}. After that, shift(1,2) yields {8, 6, 4, 5, 4, 1, 2}.
+    </div>
+    <p>
+    </p>
+   </div>
+   <h2>
+    Input
+   </h2>
+   <div class="content">
+    <p>
+     There will be only one test case, beginning with two integers n, q (1&lt;=n&lt;=100,000, 1&lt;=q&lt;=120,000), the number of integers in array A, and the number of operations. The next line contains n positive integers not greater than 100,000, the initial elements
+ in array A. Each of the next q lines contains an operation. Each operation is formatted as a string having no more than 30 characters, with no space characters inside. All operations are guaranteed to be valid. Warning: The dataset is large, better to use
+ faster I/O methods.
+    </p>
+    <p>
+    </p>
+   </div>
+   <h2>
+    Output
+   </h2>
+   <div class="content">
+    <p>
+     For each query, print the minimum value (rather than index) in the requested range.
+    </p>
+    <p>
+    </p>
+   </div>
+   <h2>
+    Sample Input
+   </h2>
+   <div class="content">
+    <span class="sampledata">
+     7 56 2 4 8 5 1 4query(3,7)shift(2,4,5,7)query(1,4)shift(1,2)query(2,2)
+    </span>
+   </div>
+   <h2>
+    Sample Output
+   </h2>
+   <div class="content">
+    <span class="sampledata">
+     146
+    </span>
+   </div>
+   <h2>
+    HINT
+   </h2>
+   <div class="content">
+    <p>
+    </p>
+   </div>
+   <center>
+    [
+    <a href="submitpage.php?cid=1007&amp;pid=10&amp;langmask=0" rel="nofollow">
+     Submit
+    </a>
+    ][
+    <a href="problemstatus.php?id=1048" rel="nofollow">
+     Status
+    </a>
+    ][
+    <a href="bbs.php?pid=1048&amp;cid=1007" rel="nofollow">
+     Web Board
+    </a>
+    ]
+   </center>
+   <div id="foot">
+    <center>
+     <p>
+      <a href="setlang.php?lang=ko" rel="nofollow">
+       한국어
+      </a>
+      <a href="setlang.php?lang=cn" rel="nofollow">
+       中文
+      </a>
+      <a href="setlang.php?lang=fa" rel="nofollow">
+       فارسی
+      </a>
+      <a href="setlang.php?lang=en" rel="nofollow">
+       English
+      </a>
+      <a href="setlang.php?lang=th" rel="nofollow">
+       ไทย
+      </a>
+      <br/>
+      Anything about the Problems, Please Contact Admin:
+      <a href="mailto:root@localhost" rel="nofollow">
+       admin
+      </a>
+      <br/>
+      All Copyright Reserved 2010-2013
+      <a href="./" rel="nofollow">
+       HUSTOJ
+      </a>
+      TEAM
+      <br/>
+      <a href="gpl-2.0.txt" rel="nofollow">
+       <span class="green">
+        GPL2.0
+       </span>
+      </a>
+      2003-2013
+      <a href="http://code.google.com/p/hustoj/" rel="nofollow">
+       HUSTOJ Project
+      </a>
+      TEAM
+      <br/>
+     </p>
+    </center>
+   </div>
+  </div>
+ </div>
+</div></p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/rmq/">RMQ</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">huiren</a></h5>
+    <h6 class="card-subtitle">Code Artisan</h6>
+    <p class="card-text" itemprop="description">问渠那得清如许，为有源头活水来</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/micln" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://t.me/betterCode" target="_blank" rel="noopener">
+          <i class="fab fa-telegram"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://m.igetget.com/share/user/YPA7ryGqdNlxLQQXYgMQVOpDa3e4ob" target="_blank" rel="noopener">
+          <i class="fab fa-earlybirds"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.zhihu.com/people/zhang-xing-71" target="_blank" rel="noopener">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/post/csdn/notonlysuccess-%E7%BA%BF%E6%AE%B5%E6%A0%91-%E9%AB%98%E4%BA%BA%E6%8E%A8%E8%8D%90/" rel="next">notonlysuccess 线段树 高人推荐</a>
+  </div>
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/post/csdn/hoj-2651-pie/" rel="prev">HOJ 2651 PIE</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhr" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//zhr.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "搜索...",
+        'results': "搜索结果",
+        'no_results': "没有找到结果"
+      };
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.9c79bd36ad5b530cf8825d78d951c339.js"></script>
+
+  </body>
+</html>
+

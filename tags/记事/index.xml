@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>记事 on 在水异方</title>
+    <link>/tags/%E8%AE%B0%E4%BA%8B/</link>
+    <description>Recent content in 记事 on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 13 Sep 2015 16:24:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/%E8%AE%B0%E4%BA%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>悲剧</title>
+      <link>/post/typecho/beiju/</link>
+      <pubDate>Sun, 13 Sep 2015 16:24:00 +0800</pubDate>
+      
+      <guid>/post/typecho/beiju/</guid>
+      <description>悲剧就是善的冲突。至少，是不坏的冲突。 因为想离职的事情跟我最敬爱的刘杰老师聊了一会人生，最后伤了老师的心。一个初来乍到的小毛孩，怎么可能跟一</description>
+    </item>
+    
+    <item>
+      <title>重开博客</title>
+      <link>/post/typecho/blogagain/</link>
+      <pubDate>Fri, 11 Sep 2015 15:09:00 +0800</pubDate>
+      
+      <guid>/post/typecho/blogagain/</guid>
+      <description>先呵呵一下表示对自己的鄙视，明明不是写博的料却分要三番五次的开开开，开了又不写字。这次重开有两个基础，一是最近发现需要一个记录点点滴滴，二是</description>
+    </item>
+    
+    <item>
+      <title>归零</title>
+      <link>/post/typecho/zero/</link>
+      <pubDate>Thu, 05 Feb 2015 03:30:36 +0800</pubDate>
+      
+      <guid>/post/typecho/zero/</guid>
+      <description>2015，真是倒霉。 回家前一天，实验室一个同学没有锁好门。下午饭时实验室被窃。她的一台笔记本，一部手机，我的移动硬盘，身份证，学生证。 在派出</description>
+    </item>
+    
+    <item>
+      <title>开学60天小记</title>
+      <link>/post/typecho/47-%E5%BC%80%E5%AD%A660%E5%A4%A9%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Fri, 09 Nov 2012 18:30:00 +0800</pubDate>
+      
+      <guid>/post/typecho/47-%E5%BC%80%E5%AD%A660%E5%A4%A9%E5%B0%8F%E8%AE%B0/</guid>
+      <description>&lt;p&gt;我是否也要像其他人一样写下：不知不觉来大学已经两个月了，咦！竟然恰好是两个月！满心是莫名的欢喜。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>/post/typecho/45-hello-world/</link>
+      <pubDate>Sun, 28 Oct 2012 18:28:00 +0800</pubDate>
+      
+      <guid>/post/typecho/45-hello-world/</guid>
+      <description>&lt;p&gt;又是一次Wordpress，希望这次可以好好的走下去，不要再只是闹着玩玩。&lt;/p&gt;
+
+&lt;p&gt;大学了，或许会成为一个新的起点，希望在这里能够记下重生后的点点滴滴。当然，不可能每件事情都在这里留下，还有我的轻博客和微博以及人人，各种工具一起用，效果或许会更好点，信息更全面一点吧。至于各个博客地址，个人资料里会有更新。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>博客建设日志</title>
+      <link>/post/typecho/85-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Thu, 03 Jun 2010 12:27:00 +0800</pubDate>
+      
+      <guid>/post/typecho/85-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/</guid>
+      <description>&lt;p&gt;每个人心中都有一个理想的博客，这些并不是那些通用博客服务商能提供的，于是我选择自己动手搭建，用心逐雕。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Review on 在水异方</title>
+    <link>/tags/review/</link>
+    <description>Recent content in Review on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 25 Sep 2016 10:32:33 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/review/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Code Review 那点事儿</title>
+      <link>/post/jianshu/code-review-%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/</link>
+      <pubDate>Sun, 25 Sep 2016 10:32:33 +0800</pubDate>
+      
+      <guid>/post/jianshu/code-review-%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/</guid>
+      <description>迁移自简书，格式可能未经校对。 这周也帮其他人看了看代码，发现大家对一些规范不以为然，所以我想借这个机会聊聊。代码规范的重要性说的太多了，我来</description>
+    </item>
+    
+  </channel>
+</rss>

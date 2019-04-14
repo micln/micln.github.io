@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.2.0">
+  <meta name="generator" content="Hugo 0.55.0" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="huiren">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Calf Flac It is said that if you give an infinite number of cows an infinite number of heavy-duty laptops (with very large keys), that they will ultimately produce all the world&rsquo;s great palindromes. Your job will be to detect these bovine beauties. Ignore punctuation, whitespace, numbers, and">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/usaco-section-1.3.5-calf-flac/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" integrity="sha256-7rF6RaSKyh16288E3hVdzQtHyzatA2MQRGu0cf6pqqM=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="在水异方">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="在水异方">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/csdn/usaco-section-1.3.5-calf-flac/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@yifangtian">
+  <meta property="twitter:creator" content="@yifangtian">
+  
+  <meta property="og:site_name" content="在水异方">
+  <meta property="og:url" content="/post/csdn/usaco-section-1.3.5-calf-flac/">
+  <meta property="og:title" content="USACO Section 1.3.5 Calf Flac | 在水异方">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Calf Flac It is said that if you give an infinite number of cows an infinite number of heavy-duty laptops (with very large keys), that they will ultimately produce all the world&rsquo;s great palindromes. Your job will be to detect these bovine beauties. Ignore punctuation, whitespace, numbers, and"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="zh-Hans">
+  
+  <meta property="article:published_time" content="2013-05-22T11:03:07&#43;08:00">
+  
+  <meta property="article:modified_time" content="2013-05-22T11:03:07&#43;08:00">
+  
+
+  
+
+  
+
+  <title>USACO Section 1.3.5 Calf Flac | 在水异方</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="搜索..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">在水异方</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/post">
+            
+            <span><i class="fas fa-file-alt"></i> Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span><i class="fas fa-tags"></i> Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/categories">
+            
+            <span><i class="fas fa-folder-open"></i> Categories</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">USACO Section 1.3.5 Calf Flac</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2013-05-22 11:03:07 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-05-22 11:03:07 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 22, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/csdn/usaco-section-1.3.5-calf-flac/#disqus_thread"></a>
+  
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/usc/">usc</a>, 
+    
+    <a href="/categories/csdn/">csdn</a>
+    
+  </span>
+  
+  
+
+
+  
+    
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/usaco/">USACO</a>
+  
+  <a class="badge badge-light" href="/tags/algorithm/">Algorithm</a>
+  
+  <a class="badge badge-light" href="/tags/acm/">ACM</a>
+  
+</div>
+
+
+
+
+    <br>
+
+    <div class="article-style" itemprop="articleBody">
+      <blockquote>
+<p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
+</blockquote>
+
+<p><div class="htmledit_views" id="content_views">
+ <h2>
+  <strong>
+   题目
+  </strong>
+ </h2>
+ <p>
+  <strong>
+  </strong>
+ </p>
+ <table border="1" cellpadding="1" cellspacing="1">
+  <tbody>
+   <tr>
+    <td>
+     <center style="font-family:'文泉驿微米黑';font-size:14px;">
+      <strong>
+       <span style="font-size:48px;">
+        Calf Flac
+       </span>
+      </strong>
+      <br/>
+     </center>
+     <p style="font-family:'文泉驿微米黑';font-size:14px;">
+      It is said that if you give an infinite number of cows an infinite number of heavy-duty laptops (with very large keys), that they will ultimately produce all the world&rsquo;s great palindromes. Your job will be to detect
+ these bovine beauties.
+     </p>
+     <p style="font-family:'文泉驿微米黑';font-size:14px;">
+      Ignore punctuation, whitespace, numbers, and case when testing for palindromes, but keep these extra characters around so that you can print them out as the answer; just consider the letters <code>A-Z' and</code>a-z&rsquo;.
+     </p>
+     <p style="font-family:'文泉驿微米黑';font-size:14px;">
+      Find the largest palindrome in a string no more than 20,000 characters long. The largest palindrome is guaranteed to be at most 2,000 characters long before whitespace and punctuation are removed.
+     </p>
+     <h3 style="font-family:'文泉驿微米黑';">
+      PROGRAM NAME: calfflac
+     </h3>
+     <h3 style="font-family:'文泉驿微米黑';">
+      INPUT FORMAT
+     </h3>
+     <span style="font-family:'文泉驿微米黑';font-size:14px;">
+      A file with no more than 20,000 characters. The file has one or more lines which, when taken together, represent one long string. No line is longer than 80 characters (not counting the newline at the end).
+     </span>
+     <h3 style="font-family:'文泉驿微米黑';">
+      SAMPLE INPUT (file calfflac.in)
+     </h3>
+     <pre>Confucius say: Madam, I&rsquo;m Adam.
+</pre>
+     <h3 style="font-family:'文泉驿微米黑';">
+      OUTPUT FORMAT
+     </h3>
+     <p style="font-family:'文泉驿微米黑';font-size:14px;">
+      The first line of the output should be the length of the longest palindrome found. The next line or lines should be the actual text of the palindrome (without any surrounding white space or punctuation but with
+ all other characters) printed on a line (or more than one line if newlines are included in the palindromic text). If there are multiple palindromes of longest length, output the one that appears first.
+     </p>
+     <h3 style="font-family:'文泉驿微米黑';">
+      SAMPLE OUTPUT (file calfflac.out)
+     </h3>
+     <pre>11
+Madam, I&rsquo;m Adam</pre>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <h2>
+  <strong>
+   思路
+  </strong>
+ </h2>
+ <p>
+  找回文串，首先想到便是枚举中间，向两头扩展。
+ </p>
+ <p>
+  这个题目麻烦的地方在于有很多干扰的字符，这时处理的方法有两种：
+ </p>
+ <p>
+  第一在最开始把那些垃圾字符放一边，最后输出的时候补上。
+ </p>
+ <p>
+  第二最开始不用处理，而是扩展的时候进行判断是不是合法字符。
+ </p>
+ <p>
+  听上去第二种简单一点，但是真正写起来第一种的优势就很明显了，因为第二种在枚举的时候要判断，扩展的时候要判断，如果是复制粘贴的代码的话一处错了还得改别处。
+ </p>
+ <p>
+  总之很蛋疼。我两种方法都写了，但是第一种代码短了差不多20行。下面贴的也是第一种的。
+ </p>
+ <h2>
+  <strong>
+   代码
+  </strong>
+ </h2>
+ <p>
+ </p>
+ <pre><code class="language-cpp">/*
+ID: zhrln1
+LANG: C++
+TASK: calfflac
+*/
+#include &lt;cstdio&gt;
+char s[22222],ss[22222],ch;
+int l,ls,b[22222];
+int trun(char c){
+    if (c&gt;=&lsquo;a&rsquo; &amp;&amp; c&lt;=&lsquo;z&rsquo;) return c;
+    if (c&gt;=&lsquo;A&rsquo; &amp;&amp; c&lt;=&lsquo;Z&rsquo;) return c+&lsquo;a&rsquo;-&lsquo;A&rsquo;;
+    return 0;
+}
+int main(){
+    freopen(&ldquo;calfflac.in&rdquo;,&ldquo;r&rdquo;,stdin);
+    freopen(&ldquo;calfflac.out&rdquo;,&ldquo;w&rdquo;,stdout);
+    ss[0]=s[0]=&lsquo;#&rsquo;;
+    while (scanf(&ldquo;%c&rdquo;,&amp;ch)!=EOF){
+        ss[++ls]=ch;
+        if (trun(ch)) {
+            s[++l]=trun(ch);
+            b[l]=ls;
+        }
+    }
+    int ans=1,ansi=1,j1,j2;
+    for (int i(2);i&lt;=l;i++){
+        for (j1=i,j2=i;j1&gt;1 &amp;&amp; j2&lt;l &amp;&amp; s[j1-1]==s[j2+1];j1&ndash;,j2++);
+        if (j2-j1+1&gt;ans) {
+            ans=j2-j1+1;
+            ansi=j1;
+        }
+        if (s[i]!=s[i+1]) continue;
+        for (j1=i,j2=i+1;j1&gt;1 &amp;&amp; j2&lt;l &amp;&amp; s[j1-1]==s[j2+1];j1&ndash;,j2++);
+        if (j2-j1+1&gt;ans){
+            ans=j2-j1+1;
+            ansi=j1;
+        }
+    }
+    printf(&ldquo;%d\n&rdquo;,ans);
+    int p=0;
+    for (int i(b[ansi]);p&lt;ans;i++){
+        printf(&ldquo;%c&rdquo;,ss[i]);
+        if (trun(ss[i])) p++;
+    }
+    printf(&rdquo;\n&rdquo;);
+    return 0;
+}
+</code></pre>
+ <br/>
+ <br/>
+ <p>
+ </p>
+</div></p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/usaco/">USACO</a>
+  
+  <a class="badge badge-light" href="/tags/algorithm/">Algorithm</a>
+  
+  <a class="badge badge-light" href="/tags/acm/">ACM</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">huiren</a></h5>
+    <h6 class="card-subtitle">Code Artisan</h6>
+    <p class="card-text" itemprop="description">问渠那得清如许，为有源头活水来</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/micln" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://t.me/betterCode" target="_blank" rel="noopener">
+          <i class="fab fa-telegram"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://m.igetget.com/share/user/YPA7ryGqdNlxLQQXYgMQVOpDa3e4ob" target="_blank" rel="noopener">
+          <i class="fab fa-earlybirds"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.zhihu.com/people/zhang-xing-71" target="_blank" rel="noopener">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>相关</h3>
+        <ul>
+          
+          <li><a href="/post/csdn/usaco-section-1.3.3-barn-repair/">USACO Section 1.3.3 Barn Repair</a></li>
+          
+          <li><a href="/post/csdn/usaco-section-1.3.2-mixing-milk/">USACO Section 1.3.2 Mixing Milk</a></li>
+          
+          <li><a href="/post/csdn/usaco-section-1.2.5-palindromic-squares/">USACO Section 1.2.5 Palindromic Squares</a></li>
+          
+          <li><a href="/post/csdn/usaco-section-1.2.3-transformations/">USACO Section 1.2.3 Transformations</a></li>
+          
+          <li><a href="/post/csdn/usaco-section-1.2.4-name-that-number/">USACO Section 1.2.4 Name That Number</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/post/csdn/usaco-section-1.3.6-prime-cryptarithm/" rel="next">USACO Section 1.3.6 Prime Cryptarithm</a>
+  </div>
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/post/csdn/usaco-section-1.3.3-barn-repair/" rel="prev">USACO Section 1.3.3 Barn Repair</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhr" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//zhr.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "搜索...",
+        'results': "搜索结果",
+        'no_results': "没有找到结果"
+      };
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.9c79bd36ad5b530cf8825d78d951c339.js"></script>
+
+  </body>
+</html>
+

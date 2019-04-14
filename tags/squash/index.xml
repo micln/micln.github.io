@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Squash on 在水异方</title>
+    <link>/tags/squash/</link>
+    <description>Recent content in Squash on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 06 Nov 2016 21:40:20 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/squash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Github Squash 的一点坑</title>
+      <link>/post/jianshu/github-squash-%E7%9A%84%E4%B8%80%E7%82%B9%E5%9D%91/</link>
+      <pubDate>Sun, 06 Nov 2016 21:40:20 +0800</pubDate>
+      
+      <guid>/post/jianshu/github-squash-%E7%9A%84%E4%B8%80%E7%82%B9%E5%9D%91/</guid>
+      <description>迁移自简书，格式可能未经校对。 Github 新出的squash 功能可以使主仓的log 更加干净，但是有个恶心的情况： fetch company/master -&amp;gt; my/master -&amp;gt; my/dev devlop my/dev (10 commit) &amp;ndash;&amp;gt; squash &amp;ndash;&amp;gt; company/master (1 commit) modify my/dev (11</description>
+    </item>
+    
+  </channel>
+</rss>

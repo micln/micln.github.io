@@ -1,0 +1,1042 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>在水异方 on 在水异方</title>
+    <link>/</link>
+    <description>Recent content in 在水异方 on 在水异方</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 14 Apr 2019 11:20:27 +0800</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Go Module 实践中的问题（持续更新）</title>
+      <link>/post/gomod/</link>
+      <pubDate>Sun, 14 Apr 2019 11:20:27 +0800</pubDate>
+      
+      <guid>/post/gomod/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;项目逐渐都切到了 go mod，用的时候遇到了各种奇奇怪怪的坑，记录一下。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;流程实践&#34;&gt;流程实践&lt;/h2&gt;
+
+&lt;h3 id=&#34;语义化版本&#34;&gt;语义化版本&lt;/h3&gt;
+
+&lt;p&gt;Go mod 在设计时没有支持诸如 &lt;code&gt;&amp;gt;2.0&lt;/code&gt;, &lt;code&gt;~3.4&lt;/code&gt;, &lt;code&gt;^4.0&lt;/code&gt; 这样场景的语法。而是以语义化版本的约定来处理：&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;x.y.z&lt;/code&gt; ≈ &lt;code&gt;^x.y&lt;/code&gt; + &lt;code&gt;&amp;lt;=y.z&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;实际中，对于内部频繁升级的 common 包，每次改动都需要 &lt;code&gt;y+=1&lt;/code&gt; 才能保证兼容性。为此我专门搞了个&lt;a href=&#34;https://github.com/micln/gt&#34; target=&#34;_blank&#34;&gt;小玩意&lt;/a&gt;来升级 y，可以通过 hook 在 push 前先 &lt;code&gt;gt ft&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;有个比较恶心的问题，common 包的版本号长期维持在 &lt;code&gt;1.y.0&lt;/code&gt; 且 y 很大。暂时没用解决的办法，后面再看看 &lt;code&gt;x&lt;/code&gt; 能有什么新玩法。&lt;/p&gt;
+
+&lt;h3 id=&#34;不同分支依赖冲突&#34;&gt;不同分支依赖冲突&lt;/h3&gt;
+
+&lt;p&gt;如图，一个常见的场景，多人开发项目时，有可能在开发过程中使用了不同的依赖包，在合并代码的时候也会冲突。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/04/14/5cb2ad7c07f41.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;以前的办法是有个专门的 vendor 分支，把有关依赖的变动串行化。&lt;/p&gt;
+
+&lt;p&gt;但是用了 gomod 后，如果你只在 vendor 分支 里加了依赖没有用，&lt;code&gt;go mod tidy&lt;/code&gt; 时又会把依赖给去掉。&lt;/p&gt;
+
+&lt;h2 id=&#34;异常问题处理&#34;&gt;异常问题处理&lt;/h2&gt;
+
+&lt;h3 id=&#34;go-replace-替换大小写时不支持同时依赖大小写&#34;&gt;go replace 替换大小写时不支持同时依赖大小写&lt;/h3&gt;
+
+&lt;p&gt;P-&amp;gt;A
+P-&amp;gt;xx-&amp;gt;a&lt;/p&gt;
+
+&lt;p&gt;天真以为把 A replace a 就好了。还是会报同时用了大小写的错。&lt;/p&gt;
+
+&lt;p&gt;只有当所有依赖都依赖 A，但是 github 已经改成 a 时，才能 replace。&lt;/p&gt;
+
+&lt;p&gt;问题最初是由于 github.com/sirupsen/logrus 更换大小写引起，如果项目全用 Sirupsen 是可以 replace 的，后来有了混用就不行了。终极解决办法是干掉 logrus 。。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;凡是随意修改包路径、函数签名的 Go Libs，基本上都被我列入黑名单了。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;build-xx-ambiguous-import-xx-in-multiple-modules&#34;&gt;build xx: ambiguous import: xx in multiple modules:&lt;/h3&gt;
+
+&lt;p&gt;通常是在没有使用语义化版本时，对一个包有不同版本的依赖导致。例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;build xxx.com/com/projA: cannot load xxx.com/com/projB/model: ambiguous import: found xxx.com/com/projB/model in multiple modules:
+	xxx.com/com/projB v0.0.0-20181119101949-92ae1f75b49a (.../pkg/mod/xxx.com/com/projB@v0.0.0-20181119101949-92ae1f75b49a/model)
+	xxx.com/com/projB/model v0.0.0-20190311082816-bfb94e79a84f (.../pkg/mod/xxx.com/com/projB/model@v0.0.0-20190311082816-bfb94e79a84f)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可以通过下面方式来找&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;fd go.mod | xargs grep -r projB
+vendor/xxx.com/com/base/go.mod:	xxx.com/com/projB/registry v0.0.0-20190312132550-a101ae8810b6 // indirect
+vendor/xxx.com/com/artemis/go.mod:	xxx.com/com/projB/app/goprojB v0.0.0-20190312132550-a101ae8810b6
+vendor/xxx.com/com/projB/registry/go.mod:module xxx.com/com/projB/registry
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;go-replace-不能替换依赖包的依赖&#34;&gt;go replace 不能替换依赖包的依赖&lt;/h3&gt;
+
+&lt;p&gt;我的项目P -&amp;gt; A&amp;amp;B，且 B-&amp;gt;A&lt;/p&gt;
+
+&lt;p&gt;如果把 A replace 成 A‘，只能修改 P-&amp;gt;A 的依赖， B-&amp;gt;A 是改不了的。&lt;/p&gt;
+
+&lt;p&gt;所以 replace 不能解决梯子的问题，要用 goproxy&lt;/p&gt;
+
+&lt;h3 id=&#34;go-get-error-loading-module-requirements&#34;&gt;go get: error loading module requirements&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;go clean -modcache
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;清理 modcache 几乎是各种问题的终极大杀器，但是成本也很高，需要你下次重拉所有 mod。如果公司内有 proxy 做 cache 的话会好一些。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>gt</title>
+      <link>/project/gt/</link>
+      <pubDate>Thu, 11 Apr 2019 23:39:11 +0800</pubDate>
+      
+      <guid>/project/gt/</guid>
+      <description>&lt;p&gt;abc&lt;/p&gt;
+
+&lt;p&gt;aaa&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Json Iterator 在 swagger 下卡死程序的排查</title>
+      <link>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</link>
+      <pubDate>Mon, 25 Mar 2019 00:22:45 +0800</pubDate>
+      
+      <guid>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;事件经过&#34;&gt;事件经过：&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;收到反馈测试环境某个服务打开 swagger ，进程会卡死&lt;/li&gt;
+&lt;li&gt;根据经验，初步判定是有死循环。&lt;/li&gt;
+&lt;li&gt;在本地启动该服务，打开 swagger ，发现 CPU 单核100%，确认有死循环&lt;/li&gt;
+&lt;li&gt;pprof 抓取 cpu profile&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload-images.jianshu.io/upload_images/444689-09f40a9ba477adc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;cpu profile&#34; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在 marshal 前后打断点，对于特定链接，marshal 没结束(没看到 done 日志)&lt;/li&gt;
+&lt;li&gt;更换为官方 json 库，恢复正常。确认是 json-iterator 导致&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload-images.jianshu.io/upload_images/444689-48997521bb661586.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;image.png&#34; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在其他项目做同样操作，未能复现问题。对比jsoniter 版本，初步判定是版本过老导致。&lt;/li&gt;
+&lt;li&gt;通过 debug，确认是下面这个循环走不出来&lt;/li&gt;
+&lt;li&gt;升级 jsoniter ，恢复正常&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload-images.jianshu.io/upload_images/444689-db03ec2a8790b391.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;image.png&#34; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;到官方一看，这个bug 很早就解决了。但是出事的服务还在依赖 2017-8-9 的版本。（修复链接：&lt;a href=&#34;https://github.com/json-iterator/go/commit/f7063353029dd177a959dbf6b29f48746441fbfa#diff-34ab17b5ece86461ae47905134a8d94c）&#34; target=&#34;_blank&#34;&gt;https://github.com/json-iterator/go/commit/f7063353029dd177a959dbf6b29f48746441fbfa#diff-34ab17b5ece86461ae47905134a8d94c）&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload-images.jianshu.io/upload_images/444689-f323b426f928371c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;image.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;第二个问题-为什么整个程序会假死&#34;&gt;第二个问题，为什么整个程序会假死&lt;/h3&gt;
+
+&lt;p&gt;按理说，for{} 会造成单个协程停不下，CPU 单核打满都好理解，但为什么会让整个进程死掉？&lt;/p&gt;
+
+&lt;p&gt;原因在于 GC标记前，需要通知所有 goroutine 停下来，但是问题协程一直停不下来，而正常协程都已经停下来在等待。所以对外无法正常服务，看起就是死掉了。&lt;/p&gt;
+
+&lt;h3 id=&#34;暴露的问题&#34;&gt;暴露的问题&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;对 Go 底层完全 hold 不住&lt;/li&gt;
+&lt;li&gt;第三方依赖管理不规范&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;参考链接&#34;&gt;参考链接&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;历史四年的关于for{}的抢占式讨论 &lt;a href=&#34;https://github.com/golang/go/issues/10958&#34; target=&#34;_blank&#34;&gt;https://github.com/golang/go/issues/10958&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Goroutine调度实例简要分析 &lt;a href=&#34;https://tonybai.com/2017/11/23/the-simple-analysis-of-goroutine-schedule-examples/&#34; target=&#34;_blank&#34;&gt;https://tonybai.com/2017/11/23/the-simple-analysis-of-goroutine-schedule-examples/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;滴滴大佬如何定位 golang 进程 hang 死的 bug &lt;a href=&#34;https://gocn.vip/article/441&#34; target=&#34;_blank&#34;&gt;https://gocn.vip/article/441&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>关于计算机的一些反直觉现象</title>
+      <link>/post/jianshu/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%8D%E7%9B%B4%E8%A7%89%E7%8E%B0%E8%B1%A1/</link>
+      <pubDate>Sat, 23 Mar 2019 15:37:33 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%8D%E7%9B%B4%E8%A7%89%E7%8E%B0%E8%B1%A1/</guid>
+      <description>
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;背景&lt;/p&gt;
+
+&lt;p&gt;最近想写一些简单的非技术文章，希望能给其他行业的说明白计算机所能和所不能，方便大家用好计算机这个工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;为什么数据都有了-但是不让我查询和统计&#34;&gt;为什么数据都有了，但是不让我查询和统计？&lt;/h2&gt;
+
+&lt;p&gt;思考：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;如果计算机记录了每个用户读了哪本书，那么是不是也很容易知道一本书被哪些用户读过？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;你可能会觉得理所当然。&lt;/p&gt;
+
+&lt;p&gt;但是，答案其实是 No。关键在于索引，什么是索引呢，举个例子：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;如果我要在字典里取找“李”这个字，常见的办法是在字典目录里先找“木”字头的所有字，假如找出100个，再到这些字里找到“李”。&lt;/p&gt;
+
+&lt;p&gt;反过来，我能不能先找“子”为底的所有字，再从中找“李”呢？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;想法是好的，但现实是，没有哪本字典能提供这样的功能。&lt;/p&gt;
+
+&lt;p&gt;之所以我们能先找“木”字头而不能先找“子”字底，是因为字典帮我们提供了一份“木”字头的目录而没有提供后者的目录。&lt;/p&gt;
+
+&lt;p&gt;这个目录，在计算机里就称作“&lt;strong&gt;索引&lt;/strong&gt;”（&lt;strong&gt;Index&lt;/strong&gt;）。&lt;/p&gt;
+
+&lt;p&gt;我们一般会说，字典为“木”字头建立了索引，但是没有为“子”字底建立索引。如果我们也为“子”建立一份索引，就可以反过来查到“李”字了。顺便，我们也可以在索引里面直接数出“子”字底的字有多少个。&lt;/p&gt;
+
+&lt;p&gt;回到思考题，我们知道用户读过的书，但却不能统计一本书的阅读用户。你就大概猜到了，记录每个用户读了哪些书，潜台词就是我在“用户”维度建立了索引，但是却不一定也给“书”的维度建立了索引。&lt;/p&gt;
+
+&lt;p&gt;再举个例子加深你的理解&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;如果你在大街上随便问一个人读过哪些书，他可以很快答出来。&lt;/p&gt;
+
+&lt;p&gt;但是，如果要问你大街上有哪些人读过某一本书，你可能就需要大费周折了。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这是因为，当一本书被一个人读了之后。虽然是“书”和“人”这两个主体发生了关联。但是，只有人的脑子里记录了这个关联，书店并不会记录这本书被某人读了。人脑记住的这份关联，就是索引。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HttpClient 的几个点</title>
+      <link>/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/</link>
+      <pubDate>Mon, 10 Sep 2018 20:22:26 +0800</pubDate>
+      
+      <guid>/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;越来越多的应用里需要依赖大量的对外请求（内部服务或第三方平台）。但是很多的 client 只有基本的请求，这在复杂的场景里根本无法应对各种问题，所以我试图整理一下之前遇到的坑，也是封装一个 httpClient 所需要支持的地方。&lt;/p&gt;
+
+&lt;p&gt;重试策略：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;立即重试&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;延时重试&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;动态延时，1s 2s 4s 8s &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;频率限制&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;全局 Pool&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;针对同一服务下，排队&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;配置级别：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;全局&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;服务级&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;调用方&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;服务方&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Request&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;日志记什么：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;请求耗时&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;请求信息&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;url = host + path&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;args = header + query + form&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;请求结果&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;response header 一定得记&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;如果结果是简单数据，比如 json，就全记下&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;如果对方接口挂了，返回了 nginx 错误HTML，比如5xx，要记录&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;如果是文本文件流，可以记录关键部分；如果是二进制，至少记下 md5 + size&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;TraceId（参考 &lt;a href=&#34;https://www.jianshu.com/p/73346f667f3d&#34; target=&#34;_blank&#34;&gt;https://www.jianshu.com/p/73346f667f3d&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>关于日志的几个想法</title>
+      <link>/post/jianshu/%E5%85%B3%E4%BA%8E%E6%97%A5%E5%BF%97%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/</link>
+      <pubDate>Thu, 30 Aug 2018 21:02:45 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E5%85%B3%E4%BA%8E%E6%97%A5%E5%BF%97%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;场景还原&#34;&gt;场景还原&lt;/h2&gt;
+
+&lt;p&gt;先说个场景：&lt;/p&gt;
+
+&lt;p&gt;APP上某个操作出现了 &lt;code&gt;系统异常。错误码：abc012&lt;/code&gt;，我们收到错误码之后，可以一次性查出这条请求完整的请求路径，穿越了哪几个服务，出错的代码堆栈信息，甚至中间发生了哪些 SQL 查询。这样我们基本在脑子里复现整个场景了。&lt;/p&gt;
+
+&lt;p&gt;其中涉及的几个地方：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;错误码：很多时候并不能得到这个错误截图，我们可以用户反馈的时间、用户ID、功能大致定位到。错误码放在全局的 &lt;code&gt;response header&lt;/code&gt; 里&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;请求轨迹：在请求来的时候加个 traceId，这个 traceId 注入到后面的 logger 和 client，这样所有的log就都能识别了。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;堆栈信息：像 Php Java 可以很方便的在出现 ERROR 时把堆栈信息跑出去（Php还能记录每个函数的调用参数）。我们用 Go 比较麻烦一些，要专门加个记录 stack 的 error 类型。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;SQL日志：这个看需要了，如果你的 ORM 框架对钩子支持好，加起来也不是难事。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;日志框架&#34;&gt;日志框架&lt;/h2&gt;
+
+&lt;p&gt;功能上，个人觉得有个强大的 Hook 就够了。这样每个团队都可以根据自己需要来加自己需要的东西&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Hook&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;继承 context&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;必要时候输出代码位置信息&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Keyword&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Extra Map&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;输出和存储&#34;&gt;输出和存储&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;格式：支持不同环境下不同的格式，比如dev模式，关键字就挺好。线上可能需要以json格式打到相关的日志服务里。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;分卷存储：有的框架会按照日期来分文件，个人觉得没必要，可以用 logrotate 这样专业的工具来做。还有一种思路，用 rsyslog 把日志导出到你的日志服务里去，本机的日志，不用存多少就可以删掉了。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;监控报警&#34;&gt;监控报警&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;如果性能没那么苛刻，推荐直接集成 Sentry&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;如果团队实力比较强，可以根据日志做各种分析和监控，参考 &lt;a href=&#34;http://open-falcon.com/&#34; target=&#34;_blank&#34;&gt;open-falcon&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tech.lede.com/2017/06/30/rd/server/loggingHabit/&#34; target=&#34;_blank&#34;&gt;优秀日志实践准则&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Go encoding json 的几个坑</title>
+      <link>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</link>
+      <pubDate>Mon, 27 Aug 2018 20:28:35 +0800</pubDate>
+      
+      <guid>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再小心了。&lt;/p&gt;
+
+&lt;h2 id=&#34;decode-map-之后-int-会变成-float64&#34;&gt;decode(map) 之后 int 会变成 float64&lt;/h2&gt;
+
+&lt;p&gt;思考一下，把一个 map encode 之后再 decode，结果和原来的 map 是否相等？直觉上肯定是对的，然而&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;看一段代码（&lt;a href=&#34;https://play.golang.org/p/DHb-kZNHidd）：&#34; target=&#34;_blank&#34;&gt;https://play.golang.org/p/DHb-kZNHidd）：&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;m := make(map[int]interface{})
+m1 := make(map[int]interface{})
+
+m[2] = 3
+
+b, _ := json.Marshal(m)
+json.Unmarshal(b, &amp;amp;m1)
+
+fmt.Println(m)	// map[2:3]
+fmt.Println(m1)	// map[2:3]
+fmt.Println(reflect.DeepEqual(m, m1))	// false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;看起来是不是很诡异，打印出来的都一模一样，然而两个却不相等。是不是 &lt;code&gt;DeepEqual&lt;/code&gt; 里藏着什么猫腻？按照&lt;a href=&#34;https://github.com/golang/go/blob/master/src/reflect/deepequal.go#L149&#34; target=&#34;_blank&#34;&gt;代码注释&lt;/a&gt;， 只要每个元素都相等，整个 map 就相等。&lt;/p&gt;
+
+&lt;p&gt;难不成这个2和3有问题？我们再打印一下看看：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;fmt.Printf(&amp;quot;%T %T&amp;quot;, m[2], m1[2])
+// int float64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个时候发现，decode 出来的数字被悄悄地变成了 float64。后来发现，其实官方也早有&lt;a href=&#34;https://golang.org/pkg/encoding/json/#Unmarshal&#34; target=&#34;_blank&#34;&gt;说明&lt;/a&gt;。只是这种不起眼的功能平时没注意。&lt;/p&gt;
+
+&lt;p&gt;如果上面例子里改成 &lt;code&gt;m[2] = 3.0&lt;/code&gt;，结果就正常了。参见：&lt;a href=&#34;https://play.golang.org/p/vAC1BXc7nCO&#34; target=&#34;_blank&#34;&gt;https://play.golang.org/p/vAC1BXc7nCO&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;encoding-时自动追加-n&#34;&gt;encoding 时自动追加 &amp;lsquo;\n&amp;rsquo;&lt;/h2&gt;
+
+&lt;p&gt;跑 &lt;code&gt;Unit Testing&lt;/code&gt; 时遇到的。在 github 上看到有人问到过这个问题，官方给的理由是&lt;a href=&#34;https://github.com/golang/go/issues/7767&#34; target=&#34;_blank&#34;&gt;看起来舒服&lt;/a&gt;。不得不说，Go Team 在写 std 时真是太随意了。&lt;/p&gt;
+
+&lt;p&gt;暂时没想到特别好的解决方案，在自己的工具类 &lt;a href=&#34;https://sourcegraph.com/github.com/Kretech/xgo/-/blob/encoding/json.go&#34; target=&#34;_blank&#34;&gt;JsonEncode&lt;/a&gt; 里手动给去掉了。因为一般使用的 json 末尾都是 &lt;code&gt;}&lt;/code&gt; &lt;code&gt;]&lt;/code&gt;。后面或许会加个全局的开关来配置？&lt;/p&gt;
+
+&lt;h2 id=&#34;默认情况下会开启-escapehtml&#34;&gt;默认情况下会开启 &lt;code&gt;escapeHTML&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;严格来说不能算坑，但确实跟我之前的习惯不太一样。而且要关闭的时候，还不能直接设置，得绕个大弯：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;buffer := &amp;amp;bytes.Buffer{}
+encoder := json.NewEncoder(buffer)
+encoder.SetEscapeHTML(false)
+
+// 到这才算 init 完成
+
+encoder.Encode(...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;现在很多人使用 Go 只是提供一个简单的 json 给客户端，html 字符，其实不太会搞出什么麻烦，有时候也就懒得处理了。&lt;/p&gt;
+
+&lt;h2 id=&#34;最后&#34;&gt;最后&lt;/h2&gt;
+
+&lt;p&gt;建议大家使用的自己也能稍微封装一下，至少在各种特殊场景下能自己掌控住。尤其 Go 很多官方包不像 Java 那样接口先行，而且 Go 还不支持继承，以至于在项目大了后想替换个 struct 非常痛苦。&lt;/p&gt;
+
+&lt;p&gt;另外我自己也在尝试对这些问题&lt;a href=&#34;https://www.jianshu.com/p/10d556a4c60f&#34; target=&#34;_blank&#34;&gt;做一些整理&lt;/a&gt;，欢迎加入。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>整理一套 Go 的轮子</title>
+      <link>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</link>
+      <pubDate>Sat, 18 Aug 2018 01:26:15 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Github：&lt;a href=&#34;https://github.com/Kretech/xgo&#34; target=&#34;_blank&#34;&gt;https://github.com/Kretech/xgo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;缘起是因为 Go 的很多语法太啰嗦，也许 Go 官方为了通用性牺牲了简洁，而我们日常更青睐于 &lt;code&gt;约定优于配置&lt;/code&gt;，所以我们需要对我们的80%情况做一些优化。&lt;/p&gt;
+
+&lt;p&gt;整理了哪些东西：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;常见的 utils 库&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;类似于随机数 &lt;code&gt;rand(100)&lt;/code&gt;、转下划线 &lt;code&gt;word.UnderlineCase(&#39;HelloWorld&#39;)&lt;/code&gt;等等
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;基础数据结构&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;科班都学过的链表、树、图以及这些数据结构上的基本算法&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;略复杂的数据结构&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Array&lt;/code&gt; + &lt;code&gt;Dict&lt;/code&gt; 类似于 &lt;code&gt;Php&lt;/code&gt; 里的 &lt;code&gt;array&lt;/code&gt;。在性能不那么要命的地方用起来很爽&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Redis&lt;/code&gt; 基本数据结构：跳跃表&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Redis 学习笔记</title>
+      <link>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 05 Aug 2018 01:16:07 +0800</pubDate>
+      
+      <guid>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这里只会记录在学习 Redis 源码时觉得比较好玩的地方，不会一五一十的讲细节。&lt;/p&gt;
+
+&lt;h2 id=&#34;内存分配&#34;&gt;内存分配&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;zmalloc&lt;/code&gt; 在实际 &lt;code&gt;malloc&lt;/code&gt; 到的内存前面加一个 &lt;code&gt;size&lt;/code&gt; 。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void *zmalloc(size_t size) {
+    void *ptr = malloc(size+PREFIX_SIZE);
+    *((size_t*)ptr) = size;
+    update_zmalloc_stat_alloc(size+PREFIX_SIZE);
+    return (char*)ptr+PREFIX_SIZE;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;动态字符串-sds&#34;&gt;动态字符串 sds&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;sds&lt;/code&gt; 在基础的 &lt;code&gt;char*&lt;/code&gt; 前面加一段 &lt;code&gt;header&lt;/code&gt; 来记录信息（类似于 Go 实现）。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;// 除了 sdshdr64，还有 sdshdr32、sdshdr16... 区分不同的长度上限
+struct __attribute__ ((__packed__)) sdshdr64 {
+    uint64_t len; /* used */
+    uint64_t alloc; /* excluding the header and null terminator */
+    unsigned char flags; /* 3 lsb of type, 5 unused bits */
+    char buf[];
+};
+
+sds sdsnewlen(const void *init, size_t initlen) {
+    ...
+    sh = s_malloc(hdrlen+initlen+1);
+    s = (char*)sh+hdrlen;	// 实际字符串
+    memcpy(s, init, initlen);
+    return s;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;字典-dict&#34;&gt;字典 dict&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;基本数据结构&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;dictEntry：键值对。（冲突处理：开链）&lt;/li&gt;
+&lt;li&gt;dictht：哈希表。记录使用情况用来 &lt;code&gt;rehash&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;dict
+&lt;code&gt;c
+typedef struct dict {
+dictType *type; // 不同type有不同的hash算法
+void *privdata;
+dictht ht[2];   // 两个 ht 来实现渐进式的 rehash
+long rehashidx; /* rehashing not in progress if rehashidx == -1 */
+unsigned long iterators; /* number of iterators currently running */
+} dict;
+&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;哈希算法&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;rehash：冲突元素太多时扩容。通过两个哈希表进行&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;渐进式策略：&lt;/li&gt;
+&lt;li&gt;每次执行操作时转移一个&lt;/li&gt;
+&lt;li&gt;定时每次转移100个&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;数据操作&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;每次操作前尽可能进行一次 &lt;code&gt;rehash&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rehash&lt;/code&gt; 时，要依次在两个表里查询；其他操作类似。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;跳跃表-zset&#34;&gt;跳跃表 zset&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;数据结构
+
+&lt;ul&gt;
+&lt;li&gt;span&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;整数集合-intset&#34;&gt;整数集合 intset&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;数据结构
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;encoding&lt;/code&gt; 记录元素大小，对于小的数字，使用 &lt;code&gt;int16_t&lt;/code&gt; 来节省内存。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;resize
+
+&lt;ul&gt;
+&lt;li&gt;先分配足够内存，再调用 &lt;code&gt;memmove&lt;/code&gt; 函数进行搬移&lt;/li&gt;
+&lt;li&gt;单向升级，只有在插入元素的时候，如果 &lt;code&gt;encoding&lt;/code&gt; 过小时会进行&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;鸣谢&#34;&gt;鸣谢&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://zcheng.ren/tags/redis/&#34; target=&#34;_blank&#34;&gt;Redis源码剖析&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Laravel Eloquent whereHas 的一个优化</title>
+      <link>/post/jianshu/laravel-eloquent-wherehas-%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Tue, 26 Jun 2018 21:07:21 +0800</pubDate>
+      
+      <guid>/post/jianshu/laravel-eloquent-wherehas-%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;用 Laravel 很久了，whereHas 简直是连表大杀器，本来需要写大量 SQL 的查询用 whereHas 都可以很快的实现。不过在一些场景里，遇到了严重的性能问题。&lt;/p&gt;
+
+&lt;p&gt;我们有个A表，大约是百万级数据，与之关联的有个B表，大约万级数据。在做关联查询的时候我们自然使用 &lt;code&gt;A::whereHas(&#39;b&#39;, function(){...})&lt;/code&gt;  。&lt;/p&gt;
+
+&lt;p&gt;后来发现了许多慢查询，仔细一看发现，Laravel 的 &lt;code&gt;whereHas&lt;/code&gt; 在生成 SQL 的时候会使用 &lt;code&gt;select * from A where exists ( select * from b where ... )&lt;/code&gt; 。当我们的左表远远大于右表时，A 表就成了性能瓶颈。&lt;/p&gt;
+
+&lt;p&gt;最直接的方法当然是拆成两条 SQL，但是嫌麻烦，还得一条条优化。再加上我们很多 SQL 都是靠各种工具生成，所以改起来也挺麻烦。&lt;/p&gt;
+
+&lt;p&gt;于是就考虑加了个 &lt;code&gt;whereHasIn&lt;/code&gt; 的方法，接口参数跟 &lt;code&gt;whereHas&lt;/code&gt; 一致，只不过在生成 SQL 的时候会生成 &lt;code&gt;select * from A where A.id in (select id from B)&lt;/code&gt;。这样就不需要改什么 SQL 了，只要在调用 &lt;code&gt;A::whereHas()&lt;/code&gt; 的地方加两个字符变成 &lt;code&gt;A::whereHasIn()&lt;/code&gt; 就搞定了。在实际中，我们这条查询的耗时从几秒一下降低到了20毫秒。&lt;/p&gt;
+
+&lt;p&gt;下面是一个实现的 demo，暂时只支持 一对多的情况。如果大家有什么更好的想法，一起讨论讨论。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+
+use Illuminate\Database\Eloquent\Relations;
+
+abstract class AbstractModel
+{
+    /**
+     * whereHas 的 where in 实现
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @param string $relationName
+     * @param callable $callable
+     * @return Builder
+     *
+     * @throws Exception
+     */
+    public function scopeWhereHasIn($builder, $relationName, callable $callable)
+    {
+        $relationNames = explode(&#39;.&#39;, $relationName);
+        $nextRelation = implode(&#39;.&#39;, array_slice($relationNames, 1));
+
+        $method = $relationNames[0];
+        /** @var Relations\BelongsTo|Relations\HasOne $relation */
+        $relation = Relations\Relation::noConstraints(function () use ($method) {
+            return $this-&amp;gt;$method();
+        });
+
+        /** @var Builder $in */
+        $in = $relation-&amp;gt;getQuery()-&amp;gt;whereHasIn($nextRelation, $callable);
+
+        if ($relation instanceof Relations\BelongsTo) {
+            return $builder-&amp;gt;whereIn($relation-&amp;gt;getForeignKey(), $in-&amp;gt;select($relation-&amp;gt;getOwnerKey()));
+        } elseif ($relation instanceof Relations\HasOne) {
+            return $builder-&amp;gt;whereIn($this-&amp;gt;getKeyName(), $in-&amp;gt;select($relation-&amp;gt;getForeignKeyName()));
+        }
+
+        throw new Exception(__METHOD__ . &amp;quot; 不支持 &amp;quot; . get_class($relation));
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>好用的 Cache API</title>
+      <link>/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/</link>
+      <pubDate>Fri, 15 Jun 2018 21:03:34 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;最近看到了几种加缓存的方法，整理对比一下。&lt;/p&gt;
+
+&lt;p&gt;拿一个case来说，我们要去数据库取一条用户记录，迫于性能，还要加一层缓存。我们针对这个问题看看几种使用姿势的对比。&lt;/p&gt;
+
+&lt;p&gt;Laravel 中 Facades 做法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$person = Cache::remember(&amp;quot;person.{$id}&amp;quot;, 5, function () use ($id) {
+    return PersonDao::find($id);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Spring Cache 的做法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@Cache(key = &amp;quot;person#id&amp;quot;, ttl = 5)
+public Person getPerson(Integer id) {
+    return PersonDao.find(id);
+}
+
+Person person = repository.getPerson();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;备注：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PersonDao.find 表示从DB里去拿数据&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这两种方法看起来都很简单，除了必要的语法格式，你需要写的代码就是：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;cache 函数或标记，表明需要缓存&lt;/li&gt;
+&lt;li&gt;key 不解释&lt;/li&gt;
+&lt;li&gt;ttl 不解释&lt;/li&gt;
+&lt;li&gt;func… 回源数据&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;基本上可以说是要啥写啥了，不啰嗦。&lt;/p&gt;
+
+&lt;p&gt;其实 Php 和 Java 的语法很接近，两种方法在两种语言里都适用。不过 Php 需要第三方的注解支持；Java 需要 8 以上来支持 lambda。&lt;/p&gt;
+
+&lt;p&gt;简单的东西一定面临扩展性的问题，我们来看一看他们的可能性。&lt;/p&gt;
+
+&lt;p&gt;如果我们要更换缓存驱动怎么办？&lt;/p&gt;
+
+&lt;p&gt;Laravel&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Cache::store(&#39;redis&#39;)-&amp;gt;remember(...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Spring&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@Cache(driver = redisCache.class)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;依然很简单。&lt;/p&gt;
+
+&lt;p&gt;有些时候，在使用 redis 作为缓存的时候，我们会用不同的编码&lt;/p&gt;
+
+&lt;p&gt;Laravel&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Cache::store(&#39;redis&#39;)-&amp;gt;encoding(&#39;json&#39;)-&amp;gt;remember(...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Spring&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@Cache(encoding = JsonEncoding.class)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;方法其实是相似的，一般的，Lavavel 利用自己习惯的链式操作和 Php 的不定参数，可以让你随时传入自己个性化的需求。Spring 也利用 Annotation 来实现类似的效果。&lt;/p&gt;
+
+&lt;p&gt;更多的，Laravel 和 Spring Boot 都遵循了约定优于配置的原则，使得在大多数情况下，你都不需要传这些，只需要使用全局的默认配置就能满足需求。也就是上面的最方便的办法。&lt;/p&gt;
+
+&lt;p&gt;简单的方法介绍完了，我们来聊聊 Go 里的做法&lt;/p&gt;
+
+&lt;p&gt;刚刚接手一个 Go 项目，里面看到是这样处理缓存的：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;proxy := Proxy{
+    Prefered: RedisAdapter{
+        RedisClient
+    },
+    Backup: DaoAdapter{
+        PersonDao
+    }
+}
+person := proxy.Get(&#39;xxx&#39;).(Person)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;是不是一下看懵逼了，我也是，这还是简化的版本。真正实现一个这样的功能，大约新增了三个实现了数个空接口新类和几个方法。&lt;/p&gt;
+
+&lt;p&gt;更蛋疼的，这三个类都是类型相关的，换句话说，list/detail 两种功能各自都需要3个类，换个 model 也不能复用。更悲催的，因为 IDE 对 Go 的 interface 分析都不太好，当你阅读别人的代码的时候，你完全不知道哪里是哪里。&lt;/p&gt;
+
+&lt;p&gt;所以，这里想尝试一下，能否在 Go 里使用上面的简单方法处理缓存。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;id := 9
+
+person := remember(&amp;quot;key&amp;quot;, 30 * time.Second, func() interface{} {
+    return PersonDao.find(id)
+}).(*Person)
+
+// 或者更 Go 一点
+
+var person Person
+remember(&amp;amp;person, &amp;quot;key&amp;quot;, 30 * time.Second, func(iface interface{}) {
+    *iface.(*Person) = *PersonDao.find(id)
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;比较烦的是，Go 不支持泛型，定义函数的时候要尽可能少依赖类型。常用的办法是把类型传入。&lt;/p&gt;
+
+&lt;p&gt;前者看起来简单，但有个很要命的地方，你需要很严格的把 Person 类进行序列化。否则从 cache 里取出来后类型可能会丢，导致断言失败。&lt;/p&gt;
+
+&lt;p&gt;那么，第二种办法可以吗？或者说，在 Go 里能不能通过简单标记的办法来实现多态？&lt;/p&gt;
+
+&lt;p&gt;我只能说，不好弄。&lt;/p&gt;
+
+&lt;p&gt;Spring 里很多注解效果，都是靠动态代理实现的（相当于 Php 里阉割版的 __call )。但遗憾的是，Go 目前不能支持这一特性。如果要硬上的话，也可以，搞出来可能跟我接的代码挺像的。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Laravel 学习路线</title>
+      <link>/post/jianshu/laravel-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</link>
+      <pubDate>Wed, 21 Mar 2018 10:21:55 +0800</pubDate>
+      
+      <guid>/post/jianshu/laravel-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;入门&#34;&gt;入门&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;官方文档 &lt;a href=&#34;https://laravel.com/docs/&#34; target=&#34;_blank&#34;&gt;英文&lt;/a&gt; &lt;a href=&#34;https://laravel-china.org/docs/laravel/&#34; target=&#34;_blank&#34;&gt;中文&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;深入理解&#34;&gt;深入理解&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;《&lt;a href=&#34;http://fata.lapland.name&#34; target=&#34;_blank&#34;&gt;From Apprentice To Artisan&lt;/a&gt;》
+讲Laravel内部设计的小册子，能帮你了解laravel的整体实现&lt;/li&gt;
+&lt;li&gt;《&lt;a href=&#34;https://github.com/LeoYang90/laravel-source-analysis&#34; target=&#34;_blank&#34;&gt;详解Laravel源码&lt;/a&gt;》
+分模块去介绍源码&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;开发相关&#34;&gt;开发相关&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://plugins.jetbrains.com/plugin/7532-laravel-plugin&#34; target=&#34;_blank&#34;&gt;Laravel Plugin for PhpStorm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/barryvdh/laravel-ide-helper&#34; target=&#34;_blank&#34;&gt;Laravel ide-helper for PhpStorm&lt;/a&gt;
+识别各种魔术方法，包括 Facedes 和 Eloquent 等。最好先了解 &lt;a href=&#34;http://docs.phpdoc.org/references/phpdoc/index.html&#34; target=&#34;_blank&#34;&gt;PhpDoc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;社区&#34;&gt;社区&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://laravel-china.org/&#34; target=&#34;_blank&#34;&gt;Laravel China&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Laravel ORM 模块图</title>
+      <link>/post/jianshu/laravel-orm-%E6%A8%A1%E5%9D%97%E5%9B%BE/</link>
+      <pubDate>Sat, 03 Mar 2018 11:23:45 +0800</pubDate>
+      
+      <guid>/post/jianshu/laravel-orm-%E6%A8%A1%E5%9D%97%E5%9B%BE/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;还会更新，只是懒得整理，先堆这里了&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://upload-images.jianshu.io/upload_images/444689-02a5a41f8b02ad93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;image.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;PlatUML 代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@startuml
+
+&#39; 底层驱动部分
+class DatabaseManager{
+    connection() factory的大脑
+}
+class ConnectionFactory{
+    newConnection()
+}
+
+interface Connection {
+    defaultBuilder
+    defaultGrammar
+    defaultProcesser
+    run()   // 真正到DB里跑SQL的
+}
+interface Connector {
+    connect()
+}
+
+package Query|Schema {
+    interface Grammar
+    interface Processer
+    note right of Processer: 对数据库返回值的二次拼装
+    class QueryBuilder {
+        IConnection
+        IGrammar
+        IProcesser
+
+        paginate()
+    }
+}
+
+DatabaseManager *--&amp;gt; ConnectionFactory
+DatabaseManager *--&amp;gt; Connection
+DatabaseManager *--&amp;gt; Connector
+
+ConnectionFactory *--&amp;gt; Connection
+ConnectionFactory *--&amp;gt; Connector
+
+Connection --|&amp;gt; Grammar
+Connection --|&amp;gt; Processer
+QueryBuilder --|&amp;gt; Grammar
+QueryBuilder --|&amp;gt; Processer
+
+Connection -- QueryBuilder
+
+
+&#39; Eloquent
+package Eloquent{
+    abstract class Relation{
+        Ebuilder
+
+        constraints
+    }
+    class EBuilder{
+        model
+        scopes
+        earerLoad
+        macro
+
+        first()
+        has()
+    }
+    class model{
+        scopes
+        events
+
+        __call()
+        serialize()
+    }
+}
+
+@enduml
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>理想的数据库操作库</title>
+      <link>/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/</link>
+      <pubDate>Tue, 16 Jan 2018 11:45:42 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;ORM 于创业项目快速迭代的重要性不言而喻。我也一直在不停地寻找更好的方案。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;造了个轮子：&lt;a href=&#34;https://github.com/Kretech/Loulan&#34; target=&#34;_blank&#34;&gt;Loulan-java&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;市面上有些不错的 orm 框架，诸如 &lt;a href=&#34;https://laravel.com/docs/5.8/eloquent&#34; target=&#34;_blank&#34;&gt;Laravel&lt;/a&gt;、&lt;a href=&#34;https://guides.rubyonrails.org/&#34; target=&#34;_blank&#34;&gt;Ror&lt;/a&gt;、&lt;a href=&#34;http://gorm.io/&#34; target=&#34;_blank&#34;&gt;Gorm&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;参考这些整理并增加了下面的特征：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;OR Mapping 约定及自定义的mapping规则，书写简单，不能每个字段都写一堆标记&lt;/li&gt;
+&lt;li&gt;Scalable 只需简单配置，支持各个级别的分库分表分读写&lt;/li&gt;
+&lt;li&gt;Hook / Plugin 支持各个级别的hook，支持自定义插件/中间件&lt;/li&gt;
+&lt;li&gt;Functional QueryBuilder 良好的细节屏蔽，需要语法简约，支持复用，可扩展，容易支持缓存&lt;/li&gt;
+&lt;li&gt;Pagination 简单的分页接口支持&lt;/li&gt;
+&lt;li&gt;Relations Eager Loading 预加载&lt;/li&gt;
+&lt;li&gt;Collections 兼容链式操作的集合框架&lt;/li&gt;
+&lt;li&gt;Mutators / Casting&lt;/li&gt;
+&lt;li&gt;Full SQL 诸如事务、联表、简单计算等&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>sftp 配置笔记整理</title>
+      <link>/post/jianshu/sftp-%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/</link>
+      <pubDate>Sun, 04 Jun 2017 23:55:00 +0800</pubDate>
+      
+      <guid>/post/jianshu/sftp-%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;缘由：网上google出来的东西要么排版太丑要么啥都没有&lt;/p&gt;
+
+&lt;h1 id=&#34;安装&#34;&gt;安装&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;apt install vsftpd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;限制目录&#34;&gt;限制目录&lt;/h1&gt;
+
+&lt;h3 id=&#34;ftp&#34;&gt;ftp&lt;/h3&gt;
+
+&lt;p&gt;在 &lt;code&gt;/etc/vsftpd.conf&lt;/code&gt; 里有个 &lt;code&gt;local_root=/home/sftp_root&lt;/code&gt;。测试发现， 只对不加密的ftp有效。&lt;/p&gt;
+
+&lt;h3 id=&#34;sftp&#34;&gt;sftp&lt;/h3&gt;
+
+&lt;p&gt;要限制sftp的权限，都要通过限制ssh访问的方式。大概方法是：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;建立一个用来限制目录的组 sftp-users&lt;/li&gt;
+&lt;li&gt;建立一个专门用来登陆sftp的用户 sftpu1，并加入到上面的组里&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;在sshd里限制这个组的访问空间&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;建用户组&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;groupadd sftp-users
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;建用户并加到组里&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;useradd -g sftp-users -s /bin/false sftp
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;限制该组的活动空间&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;在 &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt; 里追加以下内容&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Match Group sftpuser
+    ChrootDirectory /home/sftp_root
+    ForceCommand internal-sftp 
+    AllowTcpForwarding no 
+    X11Forwarding no 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;改完之后记得让ssh重读配置&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo service sshd reload
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;但是，这样基本上要求你的ssh用户和sftp用户没法是同一个人了&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

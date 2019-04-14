@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HOJ on 在水异方</title>
+    <link>/tags/hoj/</link>
+    <description>Recent content in HOJ on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 27 Jun 2013 16:56:29 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/hoj/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HOJ 2651 PIE</title>
+      <link>/post/csdn/hoj-2651-pie/</link>
+      <pubDate>Thu, 27 Jun 2013 16:56:29 +0800</pubDate>
+      
+      <guid>/post/csdn/hoj-2651-pie/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hit.edu.cn/hoj/problem/view?id=2651 很简单的二分枚举， 要注意的是 1、一共是 f+1 个人（包括他自己） 2、精度问题。。被吭了好久，我把面</description>
+    </item>
+    
+  </channel>
+</rss>

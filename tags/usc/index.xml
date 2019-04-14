@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>USC on 在水异方</title>
+    <link>/tags/usc/</link>
+    <description>Recent content in USC on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 08 Oct 2014 10:09:31 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/usc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>USC 1329 Decode 坑坑坑gets</title>
+      <link>/post/csdn/usc-1329-decode-%E5%9D%91%E5%9D%91%E5%9D%91gets/</link>
+      <pubDate>Wed, 08 Oct 2014 10:09:31 +0800</pubDate>
+      
+      <guid>/post/csdn/usc-1329-decode-%E5%9D%91%E5%9D%91%E5%9D%91gets/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 其实一贯都是用string来着。。 其实后来看刘汝佳的书又喜欢上了fgets然后一路过关斩将来着。。 这</description>
+    </item>
+    
+  </channel>
+</rss>

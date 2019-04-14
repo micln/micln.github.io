@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SAP on 在水异方</title>
+    <link>/tags/sap/</link>
+    <description>Recent content in SAP on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 05 Feb 2013 15:00:43 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/sap/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SAP算法心得 ~转的吧</title>
+      <link>/post/csdn/sap%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97-~%E8%BD%AC%E7%9A%84%E5%90%A7/</link>
+      <pubDate>Tue, 05 Feb 2013 15:00:43 +0800</pubDate>
+      
+      <guid>/post/csdn/sap%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97-~%E8%BD%AC%E7%9A%84%E5%90%A7/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 网络最大流算法是网络流算法的基础，实现方法很多，但时间复杂度与编程复杂 度难于兼顾。一方面，诸如预流推</description>
+    </item>
+    
+  </channel>
+</rss>

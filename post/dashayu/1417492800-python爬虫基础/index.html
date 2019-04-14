@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.2.0">
+  <meta name="generator" content="Hugo 0.55.0" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="huiren">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="本文通过工具从以前的 html 转成 markdown，格式可能有问题。 基本的抓取 import urllib content = urllib.urlopen(&#39;http://www.x.com&#39;).read() 使用代理服务器 proxy = urllib2.ProxyHandler({&#39;http&#39;:&#39;http://host:port&#39;}) opener = urllib2.build_opener(proxy, urllib2.HTTPHandler) urllib2.install_opener(opener) content = urllib2.urlopen(&#39;http://www.xxxx.com&#39;).read() Cookie import urllib2, cookielib cookie = urllib2.HTTPCookieProcessor(cookielib.CookieJar()) opener = urllib2.build_opener(cookie, urllib2.HTTPHandler) urllib2.install_opener(opener)">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="/post/dashayu/1417492800-python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" integrity="sha256-7rF6RaSKyh16288E3hVdzQtHyzatA2MQRGu0cf6pqqM=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="在水异方">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="在水异方">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/dashayu/1417492800-python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@yifangtian">
+  <meta property="twitter:creator" content="@yifangtian">
+  
+  <meta property="og:site_name" content="在水异方">
+  <meta property="og:url" content="/post/dashayu/1417492800-python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">
+  <meta property="og:title" content="python爬虫基础 | 在水异方">
+  <meta property="og:description" content="本文通过工具从以前的 html 转成 markdown，格式可能有问题。 基本的抓取 import urllib content = urllib.urlopen(&#39;http://www.x.com&#39;).read() 使用代理服务器 proxy = urllib2.ProxyHandler({&#39;http&#39;:&#39;http://host:port&#39;}) opener = urllib2.build_opener(proxy, urllib2.HTTPHandler) urllib2.install_opener(opener) content = urllib2.urlopen(&#39;http://www.xxxx.com&#39;).read() Cookie import urllib2, cookielib cookie = urllib2.HTTPCookieProcessor(cookielib.CookieJar()) opener = urllib2.build_opener(cookie, urllib2.HTTPHandler) urllib2.install_opener(opener)"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="zh-Hans">
+  
+  <meta property="article:published_time" content="2014-12-02T12:00:00&#43;08:00">
+  
+  <meta property="article:modified_time" content="2014-12-02T12:00:00&#43;08:00">
+  
+
+  
+
+  
+
+  <title>python爬虫基础 | 在水异方</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="搜索..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">在水异方</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/post">
+            
+            <span><i class="fas fa-file-alt"></i> Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span><i class="fas fa-tags"></i> Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/categories">
+            
+            <span><i class="fas fa-folder-open"></i> Categories</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">python爬虫基础</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2014-12-02 12:00:00 &#43;0800 CST" itemprop="datePublished">
+<meta content="2014-12-02 12:00:00 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Dec 2, 2014</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/dashayu/1417492800-python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/#disqus_thread"></a>
+  
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/dashayu.tk/">dashayu.tk</a>
+    
+  </span>
+  
+  
+
+
+  
+    
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    
+
+
+    <br>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<blockquote>
+<p>本文通过工具从以前的 html 转成 markdown，格式可能有问题。</p>
+</blockquote>
+
+<h3 id="基本的抓取">基本的抓取</h3>
+
+<pre><code>import urllib
+content = urllib.urlopen('http://www.x.com').read()
+
+</code></pre>
+
+<h3 id="使用代理服务器">使用代理服务器</h3>
+
+<pre><code>proxy = urllib2.ProxyHandler({'http':'http://host:port'}) 
+opener = urllib2.build_opener(proxy, urllib2.HTTPHandler) 
+urllib2.install_opener(opener) 
+content = urllib2.urlopen('http://www.xxxx.com').read()
+
+</code></pre>
+
+<h3 id="cookie">Cookie</h3>
+
+<pre><code>import urllib2, cookielib 
+cookie = urllib2.HTTPCookieProcessor(cookielib.CookieJar()) 
+opener = urllib2.build_opener(cookie, urllib2.HTTPHandler) 
+urllib2.install_opener(opener) 
+content = urllib2.urlopen('http://www.xxx.com').read()
+
+</code></pre>
+
+<h3 id="post-数据">POST 数据</h3>
+
+<p>比如说需要向 <a href="http://www.xxx.com/post/" target="_blank">http://www.xxx.com/post/</a> 接口 POST 数据 name=’liluo’, age=’21’, blog=’<a href="http://liluo.org’" target="_blank">http://liluo.org’</a></p>
+
+<p>首先需要准备数据</p>
+
+<pre><code>data = urllib.urlencode({ 
+    'name': 'liluo', 
+    'age' : '21', 
+    'blog': 'http://liluo.org' 
+})
+
+</code></pre>
+
+<p>然后生成并发送 HTTP 请求</p>
+
+<pre><code>req = urllib2.Request(url='http://www.xxx.com/post/', data=data) 
+ret = urllib2.urlopen(req).read()
+
+</code></pre>
+
+<h3 id="伪装成浏览器">伪装成浏览器</h3>
+
+<p>很多网站不喜欢爬虫（比如糗事百科），发送的请求会被拒绝。这个时候我们可以用修改 HTTP headers 信息来伪装成浏览器:</p>
+
+<pre><code>headers = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.168 Safari/535.19'
+} 
+req = urllib2.Request( 
+    url = 'http://www.xxx.com', 
+    headers = headers 
+) 
+ret = urllib2.urlopen(req).read()
+
+</code></pre>
+
+<h3 id="绕过-反盗链">绕过“反盗链”</h3>
+
+<p>某些网站（再比如糗事百科）图片会有所谓的反盗链设置，其实就是检查 HTTP 请求的 headers 里的 referer 是否来自该网站。所以只需改下 headers:</p>
+
+<pre><code>headers = {'Referer': 'http://www.qiushibai.com' } 
+req = urllib2.Request( 
+    url = 'http://qiushibaike.com/', 
+    headers = headers
+)
+
+</code></pre>
+
+    </div>
+
+    
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">huiren</a></h5>
+    <h6 class="card-subtitle">Code Artisan</h6>
+    <p class="card-text" itemprop="description">问渠那得清如许，为有源头活水来</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/micln" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://t.me/betterCode" target="_blank" rel="noopener">
+          <i class="fab fa-telegram"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://m.igetget.com/share/user/YPA7ryGqdNlxLQQXYgMQVOpDa3e4ob" target="_blank" rel="noopener">
+          <i class="fab fa-earlybirds"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.zhihu.com/people/zhang-xing-71" target="_blank" rel="noopener">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/post/typecho/ubuntu_deepin/" rel="next">xbuntu 添加 Deepin 软件源 2014.2</a>
+  </div>
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/post/dashayu/1417406400-tkinter%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev">Tkinter学习笔记</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhr" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//zhr.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "搜索...",
+        'results': "搜索结果",
+        'no_results': "没有找到结果"
+      };
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.9c79bd36ad5b530cf8825d78d951c339.js"></script>
+
+  </body>
+</html>
+

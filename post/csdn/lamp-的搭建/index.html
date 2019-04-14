@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.2.0">
+  <meta name="generator" content="Hugo 0.55.0" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="huiren">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 用了无数次的XAMPP，终于自己搭一次了。。。。 安装 Linux 我装的是ubuntu。。 安装 Apache2 apt-get install apache2 装好之后，">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/lamp-%E7%9A%84%E6%90%AD%E5%BB%BA/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" integrity="sha256-7rF6RaSKyh16288E3hVdzQtHyzatA2MQRGu0cf6pqqM=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="在水异方">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="在水异方">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/csdn/lamp-%E7%9A%84%E6%90%AD%E5%BB%BA/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@yifangtian">
+  <meta property="twitter:creator" content="@yifangtian">
+  
+  <meta property="og:site_name" content="在水异方">
+  <meta property="og:url" content="/post/csdn/lamp-%E7%9A%84%E6%90%AD%E5%BB%BA/">
+  <meta property="og:title" content="LAMP 的搭建 | 在水异方">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 用了无数次的XAMPP，终于自己搭一次了。。。。 安装 Linux 我装的是ubuntu。。 安装 Apache2 apt-get install apache2 装好之后，"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="zh-Hans">
+  
+  <meta property="article:published_time" content="2013-10-15T21:13:16&#43;08:00">
+  
+  <meta property="article:modified_time" content="2013-10-15T21:13:16&#43;08:00">
+  
+
+  
+
+  
+
+  <title>LAMP 的搭建 | 在水异方</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="搜索..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">在水异方</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/post">
+            
+            <span><i class="fas fa-file-alt"></i> Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#tags">
+            
+            <span><i class="fas fa-tags"></i> Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/categories">
+            
+            <span><i class="fas fa-folder-open"></i> Categories</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">LAMP 的搭建</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2013-10-15 21:13:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2013-10-15 21:13:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 15, 2013</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/csdn/lamp-%E7%9A%84%E6%90%AD%E5%BB%BA/#disqus_thread"></a>
+  
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/usc/">usc</a>, 
+    
+    <a href="/categories/csdn/">csdn</a>
+    
+  </span>
+  
+  
+
+
+  
+    
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/lamp/">LAMP</a>
+  
+</div>
+
+
+
+
+    <br>
+
+    <div class="article-style" itemprop="articleBody">
+      <blockquote>
+<p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
+</blockquote>
+
+<p><div class="htmledit_views" id="content_views">
+ <blockquote style="border:none;">
+  <p>
+   用了无数次的XAMPP，终于自己搭一次了。。。。
+  </p>
+  <p>
+  </p>
+  <hr/>
+  <br/>
+  <p>
+  </p>
+  <h3>
+   安装 Linux
+  </h3>
+ </blockquote>
+ <blockquote style="border:none;">
+  <p>
+   我装的是ubuntu。。
+  </p>
+  <p>
+   <br/>
+  </p>
+  <h3>
+   安装 Apache2
+  </h3>
+  <p>
+  </p>
+  <pre><code class="language-plain">apt-get install apache2</code></pre>
+  装好之后，apache 的配置目录是 /etc/apache2 ，localhost 的目录是 /var/www/
+  <p>
+  </p>
+  <p>
+   打开浏览器看到 it works 说明装好了。
+  </p>
+  <p>
+   <br/>
+  </p>
+  <h3>
+   安装 Mysql
+  </h3>
+  <p>
+  </p>
+  <pre><code class="language-plain">apt-get install mysql-server-5.5 mysql-client-5.5</code></pre>
+  注意安装过程中要设置root账户密码，
+  <p>
+  </p>
+  <p>
+   <br/>
+  </p>
+  <h3>
+   安装 php 和 Apache php5 模块
+  </h3>
+  <p>
+  </p>
+  <pre><code class="language-plain">apt-get install php5 php5-mysql libapache2-mod-php5</code></pre>
+  装好之后重启apache可以加载上php服务
+  <p>
+  </p>
+  <p>
+  </p>
+  <pre><code class="language-html">/etc/init.d/apache2 restart                      // ubuntu 10.04 以上的用户请看下面</code></pre>
+  <p>
+   注意：ubuntu  10.04 以后修改了启动方式，对于服务的开启也不能去使用 init.d 了。需要用 service apache2 restart 。其他服务类似。
+  </p>
+  <p>
+   <br/>
+  </p>
+  <p>
+   接下来，把首页的 index.html 改成 index.php 里面随便加一句 &lt;?php echo &ldquo;ok!&rdquo;; ?&gt; 。打开localhost能显示说明安装成功。
+  </p>
+  <p>
+  </p>
+  <p>
+   <br/>
+  </p>
+  <h3>
+   安装 phpMyAdmin
+  </h3>
+  <p>
+  </p>
+  <pre><code class="language-plain">apt-get install phpmyadmin</code></pre>
+  注意一下安装目录在 /usr/share/phpmyadmin/ ，需要链接到 站点目录下
+  <p>
+  </p>
+  <p>
+  </p>
+  <pre><code class="language-plain">sudo ln -s /usr/share/phpmyadmin /var/www</code></pre>
+  进入 localhost/phpmyadmin/ 即可进入
+  <p>
+  </p>
+  <p>
+   <br/>
+  </p>
+  <p>
+   参考资料：
+   <a href="http://wiki.linuxdeepin.com/index.php?title=LAMP%E6%9C%8D%E5%8A%A1" rel="nofollow">
+    <a href="http://wiki.linuxdeepin.com/index.php?title=LAMP%E6%9C%8D%E5%8A%A1" target="_blank">http://wiki.linuxdeepin.com/index.php?title=LAMP%E6%9C%8D%E5%8A%A1</a>
+   </a>
+  </p>
+ </blockquote>
+</div></p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/lamp/">LAMP</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">huiren</a></h5>
+    <h6 class="card-subtitle">Code Artisan</h6>
+    <p class="card-text" itemprop="description">问渠那得清如许，为有源头活水来</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/micln" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://t.me/betterCode" target="_blank" rel="noopener">
+          <i class="fab fa-telegram"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://m.igetget.com/share/user/YPA7ryGqdNlxLQQXYgMQVOpDa3e4ob" target="_blank" rel="noopener">
+          <i class="fab fa-earlybirds"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.zhihu.com/people/zhang-xing-71" target="_blank" rel="noopener">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/post/csdn/ubuntu-%E5%AE%89%E8%A3%85-hustoj/" rel="next">ubuntu 安装 HUSTOJ</a>
+  </div>
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/post/csdn/%E9%9D%9E%E6%8A%80%E6%9C%AF%E8%B4%B4%E8%AE%B0%E6%B9%96%E5%8D%97%E7%9C%81%E7%AC%AC%E4%B9%9D%E5%B1%8A%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B/" rel="prev">【非技术贴】记湖南省第九届程序设计大赛</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhr" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//zhr.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "搜索...",
+        'results': "搜索结果",
+        'no_results': "没有找到结果"
+      };
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.9c79bd36ad5b530cf8825d78d951c339.js"></script>
+
+  </body>
+</html>
+

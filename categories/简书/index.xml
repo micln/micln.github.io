@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>简书 on 在水异方</title>
+    <link>/categories/%E7%AE%80%E4%B9%A6/</link>
+    <description>Recent content in 简书 on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 25 Mar 2019 00:22:45 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/%E7%AE%80%E4%B9%A6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Json Iterator 在 swagger 下卡死程序的排查</title>
+      <link>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</link>
+      <pubDate>Mon, 25 Mar 2019 00:22:45 +0800</pubDate>
+      
+      <guid>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</guid>
+      <description>迁移自简书，格式可能未经校对。 事件经过： 收到反馈测试环境某个服务打开 swagger ，进程会卡死 根据经验，初步判定是有死循环。 在本地启动该服务，打开 swagger ，发</description>
+    </item>
+    
+    <item>
+      <title>关于计算机的一些反直觉现象</title>
+      <link>/post/jianshu/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%8D%E7%9B%B4%E8%A7%89%E7%8E%B0%E8%B1%A1/</link>
+      <pubDate>Sat, 23 Mar 2019 15:37:33 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%8D%E7%9B%B4%E8%A7%89%E7%8E%B0%E8%B1%A1/</guid>
+      <description>[TOC] 背景 最近想写一些简单的非技术文章，希望能给其他行业的说明白计算机所能和所不能，方便大家用好计算机这个工具。 为什么数据都有了，但是不让我查询</description>
+    </item>
+    
+    <item>
+      <title>HttpClient 的几个点</title>
+      <link>/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/</link>
+      <pubDate>Mon, 10 Sep 2018 20:22:26 +0800</pubDate>
+      
+      <guid>/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/</guid>
+      <description>迁移自简书，格式可能未经校对。 越来越多的应用里需要依赖大量的对外请求（内部服务或第三方平台）。但是很多的 client 只有基本的请求，这在复杂的场景里根</description>
+    </item>
+    
+    <item>
+      <title>关于日志的几个想法</title>
+      <link>/post/jianshu/%E5%85%B3%E4%BA%8E%E6%97%A5%E5%BF%97%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/</link>
+      <pubDate>Thu, 30 Aug 2018 21:02:45 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E5%85%B3%E4%BA%8E%E6%97%A5%E5%BF%97%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/</guid>
+      <description>迁移自简书，格式可能未经校对。 场景还原 先说个场景： APP上某个操作出现了 系统异常。错误码：abc012，我们收到错误码之后，可以一次性查出这</description>
+    </item>
+    
+    <item>
+      <title>Go encoding json 的几个坑</title>
+      <link>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</link>
+      <pubDate>Mon, 27 Aug 2018 20:28:35 +0800</pubDate>
+      
+      <guid>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</guid>
+      <description>迁移自简书，格式可能未经校对。 以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再</description>
+    </item>
+    
+    <item>
+      <title>整理一套 Go 的轮子</title>
+      <link>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</link>
+      <pubDate>Sat, 18 Aug 2018 01:26:15 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</guid>
+      <description>迁移自简书，格式可能未经校对。 Github：https://github.com/Kretech/xgo 缘起是因为 Go 的很多语法太啰嗦，也许 Go</description>
+    </item>
+    
+    <item>
+      <title>Redis 学习笔记</title>
+      <link>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 05 Aug 2018 01:16:07 +0800</pubDate>
+      
+      <guid>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>迁移自简书，格式可能未经校对。 这里只会记录在学习 Redis 源码时觉得比较好玩的地方，不会一五一十的讲细节。 内存分配 zmalloc 在实际 malloc 到的内存前面加一个 size 。 void</description>
+    </item>
+    
+    <item>
+      <title>Laravel Eloquent whereHas 的一个优化</title>
+      <link>/post/jianshu/laravel-eloquent-wherehas-%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Tue, 26 Jun 2018 21:07:21 +0800</pubDate>
+      
+      <guid>/post/jianshu/laravel-eloquent-wherehas-%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96/</guid>
+      <description>迁移自简书，格式可能未经校对。 用 Laravel 很久了，whereHas 简直是连表大杀器，本来需要写大量 SQL 的查询用 whereHas 都可以很快的实现。不过在一些场景里，遇</description>
+    </item>
+    
+    <item>
+      <title>好用的 Cache API</title>
+      <link>/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/</link>
+      <pubDate>Fri, 15 Jun 2018 21:03:34 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/</guid>
+      <description>迁移自简书，格式可能未经校对。 最近看到了几种加缓存的方法，整理对比一下。 拿一个case来说，我们要去数据库取一条用户记录，迫于性能，还要加一</description>
+    </item>
+    
+    <item>
+      <title>Laravel 学习路线</title>
+      <link>/post/jianshu/laravel-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</link>
+      <pubDate>Wed, 21 Mar 2018 10:21:55 +0800</pubDate>
+      
+      <guid>/post/jianshu/laravel-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</guid>
+      <description>迁移自简书，格式可能未经校对。 入门 官方文档 英文 中文 深入理解 《From Apprentice To Artisan》 讲Laravel内部设计的小册子，能帮你了解lara</description>
+    </item>
+    
+    <item>
+      <title>Laravel ORM 模块图</title>
+      <link>/post/jianshu/laravel-orm-%E6%A8%A1%E5%9D%97%E5%9B%BE/</link>
+      <pubDate>Sat, 03 Mar 2018 11:23:45 +0800</pubDate>
+      
+      <guid>/post/jianshu/laravel-orm-%E6%A8%A1%E5%9D%97%E5%9B%BE/</guid>
+      <description>迁移自简书，格式可能未经校对。 还会更新，只是懒得整理，先堆这里了 PlatUML 代码： @startuml &#39; 底层驱动部分 class DatabaseManager{ connection() factory的大脑 } class ConnectionFactory{ newConnection() } interface Connection { defaultBuilder defaultGrammar defaultProcesser run() //</description>
+    </item>
+    
+    <item>
+      <title>理想的数据库操作库</title>
+      <link>/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/</link>
+      <pubDate>Tue, 16 Jan 2018 11:45:42 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/</guid>
+      <description>ORM 于创业项目快速迭代的重要性不言而喻。我也一直在不停地寻找更好的方案。 造了个轮子：Loulan-java 市面上有些不错的 orm 框架，诸如 Lara</description>
+    </item>
+    
+    <item>
+      <title>sftp 配置笔记整理</title>
+      <link>/post/jianshu/sftp-%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/</link>
+      <pubDate>Sun, 04 Jun 2017 23:55:00 +0800</pubDate>
+      
+      <guid>/post/jianshu/sftp-%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/</guid>
+      <description>迁移自简书，格式可能未经校对。 缘由：网上google出来的东西要么排版太丑要么啥都没有 安装 apt install vsftpd 限制目录 ftp 在 /etc/vsftpd.conf 里有个 local_root=/</description>
+    </item>
+    
+    <item>
+      <title>SSIS 笔记</title>
+      <link>/post/jianshu/ssis-%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 25 Dec 2016 04:06:10 +0800</pubDate>
+      
+      <guid>/post/jianshu/ssis-%E7%AC%94%E8%AE%B0/</guid>
+      <description>迁移自简书，格式可能未经校对。 下载 &amp;amp; 安装 使用 Visio Studio 2012 开发时，要选 SQL Server Data Tools 但是！！它其实装的是2010版！！所以装好后只能从 vs2010 里建 IS 项目 如果要从</description>
+    </item>
+    
+    <item>
+      <title>Mac 基本开发环境</title>
+      <link>/post/jianshu/mac-%E5%9F%BA%E6%9C%AC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Mon, 19 Dec 2016 11:03:11 +0800</pubDate>
+      
+      <guid>/post/jianshu/mac-%E5%9F%BA%E6%9C%AC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description>迁移自简书，格式可能未经校对。 !/bin/sh # homebrew /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; # iTerm2 brew install Caskroom/cask/iterm2 # zsh zsh # .oh-my-zsh sh -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&amp;quot; # macdown brew install Caskroom/cask/macdown PhpStorm Dash macdown</description>
+    </item>
+    
+    <item>
+      <title>ngrok 搭建脚本</title>
+      <link>/post/jianshu/ngrok-%E6%90%AD%E5%BB%BA%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sat, 10 Dec 2016 00:11:33 +0800</pubDate>
+      
+      <guid>/post/jianshu/ngrok-%E6%90%AD%E5%BB%BA%E8%84%9A%E6%9C%AC/</guid>
+      <description>迁移自简书，格式可能未经校对。 推荐 https://github.com/fatedier/frp 比 ngrok 好用很多 看文档太复杂了，脑子又记不住，先贴这了。 需要的时候改一下DOMAIN 直接跑 参考自：https</description>
+    </item>
+    
+    <item>
+      <title>开坑，关于带团队</title>
+      <link>/post/jianshu/%E5%BC%80%E5%9D%91%E5%85%B3%E4%BA%8E%E5%B8%A6%E5%9B%A2%E9%98%9F/</link>
+      <pubDate>Sat, 03 Dec 2016 10:26:53 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E5%BC%80%E5%9D%91%E5%85%B3%E4%BA%8E%E5%B8%A6%E5%9B%A2%E9%98%9F/</guid>
+      <description>迁移自简书，格式可能未经校对。 大学时，我一直有个问题不明白。为什么我不是我的team里最厉害的，跟其它team的老大相比也不是那么耀眼，但我</description>
+    </item>
+    
+    <item>
+      <title>职场周年记</title>
+      <link>/post/jianshu/%E8%81%8C%E5%9C%BA%E5%91%A8%E5%B9%B4%E8%AE%B0/</link>
+      <pubDate>Sun, 13 Nov 2016 18:23:50 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E8%81%8C%E5%9C%BA%E5%91%A8%E5%B9%B4%E8%AE%B0/</guid>
+      <description>迁移自简书，格式可能未经校对。 突然发现，工作已经一年了。 87天日报，18篇周报，78000+字，算是记录。 前半年里，多是些完成一个清晰明确的</description>
+    </item>
+    
+    <item>
+      <title>Github Squash 的一点坑</title>
+      <link>/post/jianshu/github-squash-%E7%9A%84%E4%B8%80%E7%82%B9%E5%9D%91/</link>
+      <pubDate>Sun, 06 Nov 2016 21:40:20 +0800</pubDate>
+      
+      <guid>/post/jianshu/github-squash-%E7%9A%84%E4%B8%80%E7%82%B9%E5%9D%91/</guid>
+      <description>迁移自简书，格式可能未经校对。 Github 新出的squash 功能可以使主仓的log 更加干净，但是有个恶心的情况： fetch company/master -&amp;gt; my/master -&amp;gt; my/dev devlop my/dev (10 commit) &amp;ndash;&amp;gt; squash &amp;ndash;&amp;gt; company/master (1 commit) modify my/dev (11</description>
+    </item>
+    
+    <item>
+      <title>《德川家康》第一篇</title>
+      <link>/post/jianshu/%E5%BE%B7%E5%B7%9D%E5%AE%B6%E5%BA%B7%E7%AC%AC%E4%B8%80%E7%AF%87/</link>
+      <pubDate>Wed, 05 Oct 2016 01:27:20 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E5%BE%B7%E5%B7%9D%E5%AE%B6%E5%BA%B7%E7%AC%AC%E4%B8%80%E7%AF%87/</guid>
+      <description>迁移自简书，格式可能未经校对。 看到前5章，只能说是读起来很艰难。 满满的委曲求全的隐忍和男尊女卑，以及各种拗口的日本名词。 序言说这是二战后的作</description>
+    </item>
+    
+    <item>
+      <title>Code Review 那点事儿</title>
+      <link>/post/jianshu/code-review-%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/</link>
+      <pubDate>Sun, 25 Sep 2016 10:32:33 +0800</pubDate>
+      
+      <guid>/post/jianshu/code-review-%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/</guid>
+      <description>迁移自简书，格式可能未经校对。 这周也帮其他人看了看代码，发现大家对一些规范不以为然，所以我想借这个机会聊聊。代码规范的重要性说的太多了，我来</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sublime on 在水异方</title>
+    <link>/tags/sublime/</link>
+    <description>Recent content in Sublime on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 15 Apr 2013 17:42:40 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/sublime/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sublime Text 3 史上最性感的编辑器</title>
+      <link>/post/csdn/sublime-text-3-%E5%8F%B2%E4%B8%8A%E6%9C%80%E6%80%A7%E6%84%9F%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+      <pubDate>Mon, 15 Apr 2013 17:42:40 +0800</pubDate>
+      
+      <guid>/post/csdn/sublime-text-3-%E5%8F%B2%E4%B8%8A%E6%9C%80%E6%80%A7%E6%84%9F%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 ↑ ↑ ↑ ↑ ↑ 请看目录 ↑ ↑ ↑ ↑ ↑ 下载 / 安装 windows / MAC OS 官网下载，双击安装，这个都会吧～ linux linux下安装，一</description>
+    </item>
+    
+  </channel>
+</rss>

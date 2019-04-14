@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>鸡汤 on 在水异方</title>
+    <link>/tags/%E9%B8%A1%E6%B1%A4/</link>
+    <description>Recent content in 鸡汤 on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 31 Dec 2012 10:18:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/%E9%B8%A1%E6%B1%A4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>不是所有的记忆都美好</title>
+      <link>/post/typecho/%E4%B8%8D%E6%98%AF%E6%89%80%E6%9C%89%E7%9A%84%E8%AE%B0%E5%BF%86%E9%83%BD%E7%BE%8E%E5%A5%BD/</link>
+      <pubDate>Mon, 31 Dec 2012 10:18:00 +0800</pubDate>
+      
+      <guid>/post/typecho/%E4%B8%8D%E6%98%AF%E6%89%80%E6%9C%89%E7%9A%84%E8%AE%B0%E5%BF%86%E9%83%BD%E7%BE%8E%E5%A5%BD/</guid>
+      <description>不是所有的记忆都美好，不是所有的人都值得记忆，岁月的河流太漫长，大部分的人与事都会被无情地冲走，但是，与青春有关的一切，总会沉淀到河底，成为</description>
+    </item>
+    
+  </channel>
+</rss>

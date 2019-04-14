@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>互联网 on 在水异方</title>
+    <link>/tags/%E4%BA%92%E8%81%94%E7%BD%91/</link>
+    <description>Recent content in 互联网 on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 06 Jun 2014 20:21:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>云云二三</title>
+      <link>/post/typecho/57-%E4%BA%91%E4%BA%91%E4%BA%8C%E4%B8%89/</link>
+      <pubDate>Fri, 06 Jun 2014 20:21:00 +0800</pubDate>
+      
+      <guid>/post/typecho/57-%E4%BA%91%E4%BA%91%E4%BA%8C%E4%B8%89/</guid>
+      <description>才得知云云关门了。翻到一年前随便写的一篇云云的体验，没有回复。http://t.cn/zTU8GF7 往常写点东西吐个槽提个建议，多多少少会的</description>
+    </item>
+    
+    <item>
+      <title>fbvsGg</title>
+      <link>/post/typecho/f_b_g_o_o_g_l_e/</link>
+      <pubDate>Wed, 04 Jun 2014 07:58:00 +0800</pubDate>
+      
+      <guid>/post/typecho/f_b_g_o_o_g_l_e/</guid>
+      <description>突然想到一条为什么fb衰落的如此之快的原因？暂且跟 Google 比一下，google 起家靠的是技术，fb 起家考的是产品形态；google 的核心竞争力是信</description>
+    </item>
+    
+    <item>
+      <title>团购何来</title>
+      <link>/post/typecho/meituan/</link>
+      <pubDate>Wed, 04 Jun 2014 07:15:00 +0800</pubDate>
+      
+      <guid>/post/typecho/meituan/</guid>
+      <description>团购的立足点到底是帮用户省钱还是帮商家处理产能过剩？http://t.cn/RvIHX26</description>
+    </item>
+    
+    <item>
+      <title>泡沫</title>
+      <link>/post/typecho/paomo/</link>
+      <pubDate>Thu, 10 Apr 2014 07:59:00 +0800</pubDate>
+      
+      <guid>/post/typecho/paomo/</guid>
+      <description>十多年前互联网兴起的时候，这个炒那个炒，然后炒出了一堆泡沫。十年过去，移动互联网兴起，浮躁的90后们也按耐不住了。随便翻开一家科技媒体，都有</description>
+    </item>
+    
+    <item>
+      <title>WWDC, Apple&#39;s Ambition</title>
+      <link>/post/typecho/77-wwdc-apples-ambition/</link>
+      <pubDate>Mon, 10 Jun 2013 18:45:00 +0800</pubDate>
+      
+      <guid>/post/typecho/77-wwdc-apples-ambition/</guid>
+      <description>&lt;p&gt;很多人顽强地看完了WWDC，开始了惯有的各种吐槽。虽然我开始看的时候状态也差不多吧，尤其是看到第一个“产品”就是Finder Tabs，说实话，我个人不是很喜欢这个东西，以前在linux下就开始使用了但是感觉并不是多么的便捷。况且Finder本身可以打开一个智能窗口，这个功能很强大，很喜欢，让我目前没有看到tabs有什么重大的意义。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

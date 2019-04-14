@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Loulan on 在水异方</title>
+    <link>/tags/loulan/</link>
+    <description>Recent content in Loulan on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 16 Jan 2018 11:45:42 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/loulan/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>理想的数据库操作库</title>
+      <link>/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/</link>
+      <pubDate>Tue, 16 Jan 2018 11:45:42 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/</guid>
+      <description>ORM 于创业项目快速迭代的重要性不言而喻。我也一直在不停地寻找更好的方案。 造了个轮子：Loulan-java 市面上有些不错的 orm 框架，诸如 Lara</description>
+    </item>
+    
+  </channel>
+</rss>

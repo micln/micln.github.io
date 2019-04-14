@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ngrok on 在水异方</title>
+    <link>/tags/ngrok/</link>
+    <description>Recent content in ngrok on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sat, 10 Dec 2016 00:11:33 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/ngrok/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ngrok 搭建脚本</title>
+      <link>/post/jianshu/ngrok-%E6%90%AD%E5%BB%BA%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sat, 10 Dec 2016 00:11:33 +0800</pubDate>
+      
+      <guid>/post/jianshu/ngrok-%E6%90%AD%E5%BB%BA%E8%84%9A%E6%9C%AC/</guid>
+      <description>迁移自简书，格式可能未经校对。 推荐 https://github.com/fatedier/frp 比 ngrok 好用很多 看文档太复杂了，脑子又记不住，先贴这了。 需要的时候改一下DOMAIN 直接跑 参考自：https</description>
+    </item>
+    
+  </channel>
+</rss>

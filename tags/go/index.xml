@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on 在水异方</title>
+    <link>/tags/go/</link>
+    <description>Recent content in Go on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 14 Apr 2019 11:20:27 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go Module 实践中的问题（持续更新）</title>
+      <link>/post/gomod/</link>
+      <pubDate>Sun, 14 Apr 2019 11:20:27 +0800</pubDate>
+      
+      <guid>/post/gomod/</guid>
+      <description>项目逐渐都切到了 go mod，用的时候遇到了各种奇奇怪怪的坑，记录一下。 流程实践 语义化版本 Go mod 在设计时没有支持诸如 &amp;gt;2.0, ~3.4, ^4.0 这样场景的语法。而是以语</description>
+    </item>
+    
+    <item>
+      <title>Json Iterator 在 swagger 下卡死程序的排查</title>
+      <link>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</link>
+      <pubDate>Mon, 25 Mar 2019 00:22:45 +0800</pubDate>
+      
+      <guid>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</guid>
+      <description>迁移自简书，格式可能未经校对。 事件经过： 收到反馈测试环境某个服务打开 swagger ，进程会卡死 根据经验，初步判定是有死循环。 在本地启动该服务，打开 swagger ，发</description>
+    </item>
+    
+    <item>
+      <title>Go encoding json 的几个坑</title>
+      <link>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</link>
+      <pubDate>Mon, 27 Aug 2018 20:28:35 +0800</pubDate>
+      
+      <guid>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</guid>
+      <description>迁移自简书，格式可能未经校对。 以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再</description>
+    </item>
+    
+    <item>
+      <title>整理一套 Go 的轮子</title>
+      <link>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</link>
+      <pubDate>Sat, 18 Aug 2018 01:26:15 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</guid>
+      <description>迁移自简书，格式可能未经校对。 Github：https://github.com/Kretech/xgo 缘起是因为 Go 的很多语法太啰嗦，也许 Go</description>
+    </item>
+    
+    <item>
+      <title>好用的 Cache API</title>
+      <link>/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/</link>
+      <pubDate>Fri, 15 Jun 2018 21:03:34 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/</guid>
+      <description>迁移自简书，格式可能未经校对。 最近看到了几种加缓存的方法，整理对比一下。 拿一个case来说，我们要去数据库取一条用户记录，迫于性能，还要加一</description>
+    </item>
+    
+    <item>
+      <title>理想的数据库操作库</title>
+      <link>/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/</link>
+      <pubDate>Tue, 16 Jan 2018 11:45:42 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/</guid>
+      <description>ORM 于创业项目快速迭代的重要性不言而喻。我也一直在不停地寻找更好的方案。 造了个轮子：Loulan-java 市面上有些不错的 orm 框架，诸如 Lara</description>
+    </item>
+    
+  </channel>
+</rss>

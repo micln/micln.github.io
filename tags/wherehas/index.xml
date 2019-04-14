@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>whereHas on 在水异方</title>
+    <link>/tags/wherehas/</link>
+    <description>Recent content in whereHas on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 26 Jun 2018 21:07:21 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/wherehas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Laravel Eloquent whereHas 的一个优化</title>
+      <link>/post/jianshu/laravel-eloquent-wherehas-%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Tue, 26 Jun 2018 21:07:21 +0800</pubDate>
+      
+      <guid>/post/jianshu/laravel-eloquent-wherehas-%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96/</guid>
+      <description>迁移自简书，格式可能未经校对。 用 Laravel 很久了，whereHas 简直是连表大杀器，本来需要写大量 SQL 的查询用 whereHas 都可以很快的实现。不过在一些场景里，遇</description>
+    </item>
+    
+  </channel>
+</rss>

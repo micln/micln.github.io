@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sftp on 在水异方</title>
+    <link>/tags/sftp/</link>
+    <description>Recent content in sftp on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 04 Jun 2017 23:55:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/sftp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>sftp 配置笔记整理</title>
+      <link>/post/jianshu/sftp-%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/</link>
+      <pubDate>Sun, 04 Jun 2017 23:55:00 +0800</pubDate>
+      
+      <guid>/post/jianshu/sftp-%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/</guid>
+      <description>迁移自简书，格式可能未经校对。 缘由：网上google出来的东西要么排版太丑要么啥都没有 安装 apt install vsftpd 限制目录 ftp 在 /etc/vsftpd.conf 里有个 local_root=/</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>5611AH on 在水异方</title>
+    <link>/tags/5611ah/</link>
+    <description>Recent content in 5611AH on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 24 May 2013 17:52:31 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/5611ah/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>5611AH 数码管 引脚图</title>
+      <link>/post/csdn/5611ah-%E6%95%B0%E7%A0%81%E7%AE%A1-%E5%BC%95%E8%84%9A%E5%9B%BE/</link>
+      <pubDate>Fri, 24 May 2013 17:52:31 +0800</pubDate>
+      
+      <guid>/post/csdn/5611ah-%E6%95%B0%E7%A0%81%E7%AE%A1-%E5%BC%95%E8%84%9A%E5%9B%BE/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 arduino套装，给了个5611AH的数码管。在网上找不到现成的引脚图，无奈只好自己画了。初学ar</description>
+    </item>
+    
+  </channel>
+</rss>

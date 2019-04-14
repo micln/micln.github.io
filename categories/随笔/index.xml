@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>随笔 on 在水异方</title>
+    <link>/categories/%E9%9A%8F%E7%AC%94/</link>
+    <description>Recent content in 随笔 on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 25 Mar 2019 00:22:45 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Json Iterator 在 swagger 下卡死程序的排查</title>
+      <link>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</link>
+      <pubDate>Mon, 25 Mar 2019 00:22:45 +0800</pubDate>
+      
+      <guid>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</guid>
+      <description>迁移自简书，格式可能未经校对。 事件经过： 收到反馈测试环境某个服务打开 swagger ，进程会卡死 根据经验，初步判定是有死循环。 在本地启动该服务，打开 swagger ，发</description>
+    </item>
+    
+    <item>
+      <title>关于计算机的一些反直觉现象</title>
+      <link>/post/jianshu/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%8D%E7%9B%B4%E8%A7%89%E7%8E%B0%E8%B1%A1/</link>
+      <pubDate>Sat, 23 Mar 2019 15:37:33 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%8D%E7%9B%B4%E8%A7%89%E7%8E%B0%E8%B1%A1/</guid>
+      <description>[TOC] 背景 最近想写一些简单的非技术文章，希望能给其他行业的说明白计算机所能和所不能，方便大家用好计算机这个工具。 为什么数据都有了，但是不让我查询</description>
+    </item>
+    
+    <item>
+      <title>Go encoding json 的几个坑</title>
+      <link>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</link>
+      <pubDate>Mon, 27 Aug 2018 20:28:35 +0800</pubDate>
+      
+      <guid>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</guid>
+      <description>迁移自简书，格式可能未经校对。 以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再</description>
+    </item>
+    
+    <item>
+      <title>开坑，关于带团队</title>
+      <link>/post/jianshu/%E5%BC%80%E5%9D%91%E5%85%B3%E4%BA%8E%E5%B8%A6%E5%9B%A2%E9%98%9F/</link>
+      <pubDate>Sat, 03 Dec 2016 10:26:53 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E5%BC%80%E5%9D%91%E5%85%B3%E4%BA%8E%E5%B8%A6%E5%9B%A2%E9%98%9F/</guid>
+      <description>迁移自简书，格式可能未经校对。 大学时，我一直有个问题不明白。为什么我不是我的team里最厉害的，跟其它team的老大相比也不是那么耀眼，但我</description>
+    </item>
+    
+    <item>
+      <title>职场周年记</title>
+      <link>/post/jianshu/%E8%81%8C%E5%9C%BA%E5%91%A8%E5%B9%B4%E8%AE%B0/</link>
+      <pubDate>Sun, 13 Nov 2016 18:23:50 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E8%81%8C%E5%9C%BA%E5%91%A8%E5%B9%B4%E8%AE%B0/</guid>
+      <description>迁移自简书，格式可能未经校对。 突然发现，工作已经一年了。 87天日报，18篇周报，78000+字，算是记录。 前半年里，多是些完成一个清晰明确的</description>
+    </item>
+    
+  </channel>
+</rss>

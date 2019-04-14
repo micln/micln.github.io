@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2013 on 在水异方</title>
+    <link>/tags/2013/</link>
+    <description>Recent content in 2013 on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sat, 21 Dec 2013 23:48:31 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/2013/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2013~2014 第一学期课件整理</title>
+      <link>/post/csdn/2013~2014-%E7%AC%AC%E4%B8%80%E5%AD%A6%E6%9C%9F%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/</link>
+      <pubDate>Sat, 21 Dec 2013 23:48:31 +0800</pubDate>
+      
+      <guid>/post/csdn/2013~2014-%E7%AC%AC%E4%B8%80%E5%AD%A6%E6%9C%9F%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 坑爹的电信网，服务器访问不上了。 大家先将就一下吧。 基础班 时间 课件 详情 主讲 10.26 第零讲 ACM介绍 张慧仁 10.31 第</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dashayu.tk on 在水异方</title>
+    <link>/categories/dashayu.tk/</link>
+    <description>Recent content in dashayu.tk on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 02 Dec 2014 12:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/dashayu.tk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>python爬虫基础</title>
+      <link>/post/dashayu/1417492800-python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 02 Dec 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1417492800-python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 基本的抓取 import urllib content = urllib.urlopen(&#39;http://www.x.com&#39;).read() 使用代理服务器 proxy = urllib2.ProxyHandler({&#39;http&#39;:&#39;http://host:port&#39;}) opener = urllib2.build_opener(proxy, urllib2.HTTPHandler) urllib2.install_opener(opener) content = urllib2.urlopen(&#39;http://www.xxxx.com&#39;).read() Cookie import urllib2, cookielib cookie = urllib2.HTTPCookieProcessor(cookielib.CookieJar()) opener = urllib2.build_opener(cookie, urllib2.HTTPHandler) urllib2.install_opener(opener)</description>
+    </item>
+    
+    <item>
+      <title>Tkinter学习笔记</title>
+      <link>/post/dashayu/1417406400-tkinter%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 01 Dec 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1417406400-tkinter%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 [](#什么是tkinter)什么是Tkinter Tkinter（也叫Tk接口）</description>
+    </item>
+    
+    <item>
+      <title>python上手指南</title>
+      <link>/post/dashayu/1417060800-python%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Thu, 27 Nov 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1417060800-python%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 [](#资源列表：)资源列表： python 简明 Python 教程 浅显易懂，快速上手 Python快速教程</description>
+    </item>
+    
+    <item>
+      <title>cs203的那点事儿</title>
+      <link>/post/dashayu/1404273600-cs203%E7%9A%84%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/</link>
+      <pubDate>Wed, 02 Jul 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1404273600-cs203%E7%9A%84%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 这篇文章有三个标签LXMPGoHUSTOJ，在我接管服务器以前，这三个东西我是一</description>
+    </item>
+    
+    <item>
+      <title>Mac - tips</title>
+      <link>/post/dashayu/1404187200-mac-tips/</link>
+      <pubDate>Tue, 01 Jul 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1404187200-mac-tips/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 网络服务 查看端口占用</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>/post/dashayu/1404100800-about-me/</link>
+      <pubDate>Mon, 30 Jun 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1404100800-about-me/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 爱生活，爱思考 [](#兴趣爱好)兴趣爱好 编程技术 程序设计 服务端开发 前段折腾 嵌入式</description>
+    </item>
+    
+    <item>
+      <title>hello, gor</title>
+      <link>/post/dashayu/1404100800-hello-gor/</link>
+      <pubDate>Mon, 30 Jun 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1404100800-hello-gor/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 既然来了，就说说为什么来吧。 今天是个比较兴奋地日子，因为我的新显示器（AOC LV</description>
+    </item>
+    
+    <item>
+      <title>你的第一篇博客</title>
+      <link>/post/dashayu/1360296000-%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 08 Feb 2013 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1360296000-%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 感谢你使用Gor编写博客 本文位于 posts/first-blog.md , 你可以任意删掉,修改这个文件 文件开头是当前文</description>
+    </item>
+    
+    <item>
+      <title>acmtips</title>
+      <link>/post/dashayu/1349668800-acmtips/</link>
+      <pubDate>Mon, 08 Oct 2012 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1349668800-acmtips/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 var tt = [&#34;&#34;, &#34;一&#34;, &#34;二&#34;, &#34;三&#34;, &#34;四&#34;, &#34;五&#34;, &#34;六&#34;, &#34;七&#34;, &#34;八&#34;, &#34;九&#34;,</description>
+    </item>
+    
+  </channel>
+</rss>

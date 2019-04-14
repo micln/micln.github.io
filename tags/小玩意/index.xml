@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>小玩意 on 在水异方</title>
+    <link>/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F/</link>
+    <description>Recent content in 小玩意 on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 06 Oct 2015 09:03:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>一个自动签到的程序</title>
+      <link>/post/typecho/gosigner/</link>
+      <pubDate>Tue, 06 Oct 2015 09:03:00 +0800</pubDate>
+      
+      <guid>/post/typecho/gosigner/</guid>
+      <description>一直以来很想写一个自动签到的程序，因为很多免费工具网站不签到根本进行不下去。 问题的关键在于设计一个统一的签到流程。最开始想的很简单，就是一组</description>
+    </item>
+    
+    <item>
+      <title>一个跟随鼠标变换的心形图案</title>
+      <link>/post/typecho/mouseheart/</link>
+      <pubDate>Mon, 13 Oct 2014 09:16:00 +0800</pubDate>
+      
+      <guid>/post/typecho/mouseheart/</guid>
+      <description>请到演示地址里进行拖动鼠标吧！ 本来是想看看做一个跟随鼠标的时钟有多复杂，后来就觉得可以尝试做一个图案心，一定特别漂亮。 关于心形的方程可以在M</description>
+    </item>
+    
+  </channel>
+</rss>

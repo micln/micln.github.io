@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gomod on 在水异方</title>
+    <link>/tags/gomod/</link>
+    <description>Recent content in gomod on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 14 Apr 2019 11:20:27 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/gomod/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go Module 实践中的问题（持续更新）</title>
+      <link>/post/gomod/</link>
+      <pubDate>Sun, 14 Apr 2019 11:20:27 +0800</pubDate>
+      
+      <guid>/post/gomod/</guid>
+      <description>项目逐渐都切到了 go mod，用的时候遇到了各种奇奇怪怪的坑，记录一下。 流程实践 语义化版本 Go mod 在设计时没有支持诸如 &amp;gt;2.0, ~3.4, ^4.0 这样场景的语法。而是以语</description>
+    </item>
+    
+  </channel>
+</rss>

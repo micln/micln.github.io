@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IT技术堆 on 在水异方</title>
+    <link>/tags/it%E6%8A%80%E6%9C%AF%E5%A0%86/</link>
+    <description>Recent content in IT技术堆 on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 13 Oct 2015 03:15:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/it%E6%8A%80%E6%9C%AF%E5%A0%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>用程序去判断每个人说话的真假 - 写给新手的枚举介绍</title>
+      <link>/post/typecho/shui-shi-qian-feng/</link>
+      <pubDate>Tue, 13 Oct 2015 03:15:00 +0800</pubDate>
+      
+      <guid>/post/typecho/shui-shi-qian-feng/</guid>
+      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+
+&lt;p&gt;我们在以前的数学题中一定遇到过这样的问题：&lt;/p&gt;
+
+&lt;p&gt;A说xxxx
+B说xxx
+C说xxx&lt;/p&gt;
+
+&lt;p&gt;然后给一些条件，让你判断每个人说话的真假&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>xbuntu 添加 Deepin 软件源 2014.2</title>
+      <link>/post/typecho/ubuntu_deepin/</link>
+      <pubDate>Fri, 09 Jan 2015 05:28:00 +0800</pubDate>
+      
+      <guid>/post/typecho/ubuntu_deepin/</guid>
+      <description>&lt;p&gt;昨天&lt;code&gt;Deepin2014.2&lt;/code&gt;内置了&lt;code&gt;CrossOver Deepin专版&lt;/code&gt;，其中最大的惊喜莫过于&lt;code&gt;QQ&lt;/code&gt;的正常使用。越来越感觉到 Deepin 才是普通 Linux 用户的未来。所以整理了一下这份资料。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JS动画</title>
+      <link>/post/typecho/h5tricks_codingapp_com/</link>
+      <pubDate>Thu, 13 Nov 2014 11:06:00 +0800</pubDate>
+      
+      <guid>/post/typecho/h5tricks_codingapp_com/</guid>
+      <description>以后的Js演示都放在这里啦</description>
+    </item>
+    
+    <item>
+      <title>Linux学习笔记</title>
+      <link>/post/typecho/19-linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 05 Jun 2014 16:10:00 +0800</pubDate>
+      
+      <guid>/post/typecho/19-linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;以下所有命令基于 ubuntu12.04 系统。centos、rhel 慎重&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HP 4421s 啃到黑苹果</title>
+      <link>/post/typecho/54-hp-4421s-%E5%95%83%E5%88%B0%E9%BB%91%E8%8B%B9%E6%9E%9C/</link>
+      <pubDate>Sat, 01 Jun 2013 20:15:00 +0800</pubDate>
+      
+      <guid>/post/typecho/54-hp-4421s-%E5%95%83%E5%88%B0%E9%BB%91%E8%8B%B9%E6%9E%9C/</guid>
+      <description>&lt;p&gt;高考前后，RP掉到渣，电脑也各种犯毛病。无意中看到了一份比较不错的黑苹果安装视频教程，反正机子也各种毛病，破罐子摔摔看，看能不能摔出什么宝贝出来。&lt;/p&gt;
+
+&lt;p&gt;那时候还没有关于ProBook 4421s 的教程，很多人说这机子不能装！后来用工具测试果然显示不行.&lt;/p&gt;
+
+&lt;p&gt;那时候还不知道懒人版是什么东西只觉得自己好牛逼的，下载的都是原版自己提取自己配置到最后得知内核不兼容。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>博客建设日志</title>
+      <link>/post/typecho/85-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Thu, 03 Jun 2010 12:27:00 +0800</pubDate>
+      
+      <guid>/post/typecho/85-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/</guid>
+      <description>&lt;p&gt;每个人心中都有一个理想的博客，这些并不是那些通用博客服务商能提供的，于是我选择自己动手搭建，用心逐雕。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

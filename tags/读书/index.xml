@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>读书 on 在水异方</title>
+    <link>/tags/%E8%AF%BB%E4%B9%A6/</link>
+    <description>Recent content in 读书 on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sat, 08 Nov 2014 15:09:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/%E8%AF%BB%E4%B9%A6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>大清相国</title>
+      <link>/post/typecho/chentingjing/</link>
+      <pubDate>Sat, 08 Nov 2014 15:09:00 +0800</pubDate>
+      
+      <guid>/post/typecho/chentingjing/</guid>
+      <description>【大清相国】火车上一口气地把《大清相国》读完了。王岐山推荐的书，果然不一般。以往我们看广场小说都写的多么多么黑，且结局一定悲催地发人深省。但</description>
+    </item>
+    
+    <item>
+      <title>RoadNotTaken And 三境界</title>
+      <link>/post/typecho/road_not_taken_vs_sanjingjie/</link>
+      <pubDate>Fri, 29 Aug 2014 02:20:00 +0800</pubDate>
+      
+      <guid>/post/typecho/road_not_taken_vs_sanjingjie/</guid>
+      <description>突然觉得《The Road Not Taken》跟王国维先生的《三境界》有点像</description>
+    </item>
+    
+  </channel>
+</rss>

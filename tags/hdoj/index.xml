@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HDOJ on 在水异方</title>
+    <link>/tags/hdoj/</link>
+    <description>Recent content in HDOJ on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 27 Jun 2013 02:38:45 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/hdoj/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HDOJ 4152 ZZY’s Dilemma</title>
+      <link>/post/csdn/hdoj-4152-zzys-dilemma/</link>
+      <pubDate>Thu, 27 Jun 2013 02:38:45 +0800</pubDate>
+      
+      <guid>/post/csdn/hdoj-4152-zzys-dilemma/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hdu.edu.cn/showproblem.php?pid=4152 队长大人给某菜鸟赛出的题，但是却让我傻了半天。 裸暴力，由于数据弱，我直接用了位运算标记，其实</description>
+    </item>
+    
+    <item>
+      <title>HDOJ - 1318 Palindromes</title>
+      <link>/post/csdn/hdoj-1318-palindromes/</link>
+      <pubDate>Thu, 17 Jan 2013 13:36:47 +0800</pubDate>
+      
+      <guid>/post/csdn/hdoj-1318-palindromes/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hdu.edu.cn/showproblem.php?pid=1318 一般的字符串处理问题，一个共性：思路简单，代码繁琐。 譬如此题，首先会有一个问题要考虑：如何去</description>
+    </item>
+    
+    <item>
+      <title>HDOJ - 2045 RPG难题</title>
+      <link>/post/csdn/hdoj-2045-rpg%E9%9A%BE%E9%A2%98/</link>
+      <pubDate>Thu, 22 Nov 2012 21:01:27 +0800</pubDate>
+      
+      <guid>/post/csdn/hdoj-2045-rpg%E9%9A%BE%E9%A2%98/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目地址： http://acm.hdu.edu.cn/showproblem.php?pid=2045 算法思想： 1）有三种颜色，在涂某一块区域时，由于它的前一块区域已经确定，且相邻区域不能重</description>
+    </item>
+    
+    <item>
+      <title>HDOJ – 2043 密码</title>
+      <link>/post/csdn/hdoj-2043-%E5%AF%86%E7%A0%81/</link>
+      <pubDate>Thu, 22 Nov 2012 19:17:42 +0800</pubDate>
+      
+      <guid>/post/csdn/hdoj-2043-%E5%AF%86%E7%A0%81/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目地址： http://acm.hdu.edu.cn/showproblem.php?pid=2043 最基础的模拟题目，只要按照题目给出的要求进行判断即可。 代码如下： #include&amp;lt;iostream&amp;gt; #include&amp;lt;string&amp;gt; using namespace std; const string s=&amp;rdquo;~!@#$%^&amp;ldquo;; string ss; int n;</description>
+    </item>
+    
+  </channel>
+</rss>

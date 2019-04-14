@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>typecho on 在水异方</title>
+    <link>/categories/typecho/</link>
+    <description>Recent content in typecho on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 13 Oct 2015 03:15:00 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/typecho/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>用程序去判断每个人说话的真假 - 写给新手的枚举介绍</title>
+      <link>/post/typecho/shui-shi-qian-feng/</link>
+      <pubDate>Tue, 13 Oct 2015 03:15:00 +0800</pubDate>
+      
+      <guid>/post/typecho/shui-shi-qian-feng/</guid>
+      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+
+&lt;p&gt;我们在以前的数学题中一定遇到过这样的问题：&lt;/p&gt;
+
+&lt;p&gt;A说xxxx
+B说xxx
+C说xxx&lt;/p&gt;
+
+&lt;p&gt;然后给一些条件，让你判断每个人说话的真假&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>一个自动签到的程序</title>
+      <link>/post/typecho/gosigner/</link>
+      <pubDate>Tue, 06 Oct 2015 09:03:00 +0800</pubDate>
+      
+      <guid>/post/typecho/gosigner/</guid>
+      <description>一直以来很想写一个自动签到的程序，因为很多免费工具网站不签到根本进行不下去。 问题的关键在于设计一个统一的签到流程。最开始想的很简单，就是一组</description>
+    </item>
+    
+    <item>
+      <title>悲剧</title>
+      <link>/post/typecho/beiju/</link>
+      <pubDate>Sun, 13 Sep 2015 16:24:00 +0800</pubDate>
+      
+      <guid>/post/typecho/beiju/</guid>
+      <description>悲剧就是善的冲突。至少，是不坏的冲突。 因为想离职的事情跟我最敬爱的刘杰老师聊了一会人生，最后伤了老师的心。一个初来乍到的小毛孩，怎么可能跟一</description>
+    </item>
+    
+    <item>
+      <title>重开博客</title>
+      <link>/post/typecho/blogagain/</link>
+      <pubDate>Fri, 11 Sep 2015 15:09:00 +0800</pubDate>
+      
+      <guid>/post/typecho/blogagain/</guid>
+      <description>先呵呵一下表示对自己的鄙视，明明不是写博的料却分要三番五次的开开开，开了又不写字。这次重开有两个基础，一是最近发现需要一个记录点点滴滴，二是</description>
+    </item>
+    
+    <item>
+      <title>归零</title>
+      <link>/post/typecho/zero/</link>
+      <pubDate>Thu, 05 Feb 2015 03:30:36 +0800</pubDate>
+      
+      <guid>/post/typecho/zero/</guid>
+      <description>2015，真是倒霉。 回家前一天，实验室一个同学没有锁好门。下午饭时实验室被窃。她的一台笔记本，一部手机，我的移动硬盘，身份证，学生证。 在派出</description>
+    </item>
+    
+    <item>
+      <title>温故而知新</title>
+      <link>/post/typecho/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/</link>
+      <pubDate>Sun, 18 Jan 2015 02:00:00 +0800</pubDate>
+      
+      <guid>/post/typecho/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/</guid>
+      <description>温故不一定知新，不温故一定变傻！</description>
+    </item>
+    
+    <item>
+      <title>优秀是一种习惯</title>
+      <link>/post/typecho/excellence_is_habit/</link>
+      <pubDate>Sun, 11 Jan 2015 12:27:00 +0800</pubDate>
+      
+      <guid>/post/typecho/excellence_is_habit/</guid>
+      <description>优秀是一种习惯！ 而不是某一时刻的水平高低！！！ 习惯！！！</description>
+    </item>
+    
+    <item>
+      <title>xbuntu 添加 Deepin 软件源 2014.2</title>
+      <link>/post/typecho/ubuntu_deepin/</link>
+      <pubDate>Fri, 09 Jan 2015 05:28:00 +0800</pubDate>
+      
+      <guid>/post/typecho/ubuntu_deepin/</guid>
+      <description>&lt;p&gt;昨天&lt;code&gt;Deepin2014.2&lt;/code&gt;内置了&lt;code&gt;CrossOver Deepin专版&lt;/code&gt;，其中最大的惊喜莫过于&lt;code&gt;QQ&lt;/code&gt;的正常使用。越来越感觉到 Deepin 才是普通 Linux 用户的未来。所以整理了一下这份资料。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JS动画</title>
+      <link>/post/typecho/h5tricks_codingapp_com/</link>
+      <pubDate>Thu, 13 Nov 2014 11:06:00 +0800</pubDate>
+      
+      <guid>/post/typecho/h5tricks_codingapp_com/</guid>
+      <description>以后的Js演示都放在这里啦</description>
+    </item>
+    
+    <item>
+      <title>大清相国</title>
+      <link>/post/typecho/chentingjing/</link>
+      <pubDate>Sat, 08 Nov 2014 15:09:00 +0800</pubDate>
+      
+      <guid>/post/typecho/chentingjing/</guid>
+      <description>【大清相国】火车上一口气地把《大清相国》读完了。王岐山推荐的书，果然不一般。以往我们看广场小说都写的多么多么黑，且结局一定悲催地发人深省。但</description>
+    </item>
+    
+    <item>
+      <title>一个跟随鼠标变换的心形图案</title>
+      <link>/post/typecho/mouseheart/</link>
+      <pubDate>Mon, 13 Oct 2014 09:16:00 +0800</pubDate>
+      
+      <guid>/post/typecho/mouseheart/</guid>
+      <description>请到演示地址里进行拖动鼠标吧！ 本来是想看看做一个跟随鼠标的时钟有多复杂，后来就觉得可以尝试做一个图案心，一定特别漂亮。 关于心形的方程可以在M</description>
+    </item>
+    
+    <item>
+      <title>RoadNotTaken And 三境界</title>
+      <link>/post/typecho/road_not_taken_vs_sanjingjie/</link>
+      <pubDate>Fri, 29 Aug 2014 02:20:00 +0800</pubDate>
+      
+      <guid>/post/typecho/road_not_taken_vs_sanjingjie/</guid>
+      <description>突然觉得《The Road Not Taken》跟王国维先生的《三境界》有点像</description>
+    </item>
+    
+    <item>
+      <title>围棋·变·生命</title>
+      <link>/post/typecho/chess_game_over/</link>
+      <pubDate>Wed, 09 Jul 2014 03:51:00 +0800</pubDate>
+      
+      <guid>/post/typecho/chess_game_over/</guid>
+      <description>看围棋抢边界: 不愿费劲冒险只能就此game over, 冒险进击才有可能有收获. 生命便是如此，很多时候我们或懒惰或畏惧，以至于我们没有向前哪怕迈出一步，</description>
+    </item>
+    
+    <item>
+      <title>百家讲坛《春秋五霸》《战国七雄》感悟</title>
+      <link>/post/typecho/cqzg/</link>
+      <pubDate>Sat, 14 Jun 2014 16:29:00 +0800</pubDate>
+      
+      <guid>/post/typecho/cqzg/</guid>
+      <description>&lt;p&gt;花了两天时间看完《&lt;a href=&#34;http://kejiao.cntv.cn/C30425/videopage/&#34; target=&#34;_blank&#34;&gt;春秋五霸&lt;/a&gt;》《&lt;a href=&#34;http://tv.cntv.cn/videoset/C38845/&#34; target=&#34;_blank&#34;&gt;战国七雄&lt;/a&gt;》，不同于各种一家之言的是，李山教授尽可能地全面讲述历史，在过程中会把各家观点都摆出来做简单地对比，更加全面、客观地理解这个灿烂的时期。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>云云二三</title>
+      <link>/post/typecho/57-%E4%BA%91%E4%BA%91%E4%BA%8C%E4%B8%89/</link>
+      <pubDate>Fri, 06 Jun 2014 20:21:00 +0800</pubDate>
+      
+      <guid>/post/typecho/57-%E4%BA%91%E4%BA%91%E4%BA%8C%E4%B8%89/</guid>
+      <description>才得知云云关门了。翻到一年前随便写的一篇云云的体验，没有回复。http://t.cn/zTU8GF7 往常写点东西吐个槽提个建议，多多少少会的</description>
+    </item>
+    
+    <item>
+      <title>Linux学习笔记</title>
+      <link>/post/typecho/19-linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 05 Jun 2014 16:10:00 +0800</pubDate>
+      
+      <guid>/post/typecho/19-linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;以下所有命令基于 ubuntu12.04 系统。centos、rhel 慎重&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>fbvsGg</title>
+      <link>/post/typecho/f_b_g_o_o_g_l_e/</link>
+      <pubDate>Wed, 04 Jun 2014 07:58:00 +0800</pubDate>
+      
+      <guid>/post/typecho/f_b_g_o_o_g_l_e/</guid>
+      <description>突然想到一条为什么fb衰落的如此之快的原因？暂且跟 Google 比一下，google 起家靠的是技术，fb 起家考的是产品形态；google 的核心竞争力是信</description>
+    </item>
+    
+    <item>
+      <title>团购何来</title>
+      <link>/post/typecho/meituan/</link>
+      <pubDate>Wed, 04 Jun 2014 07:15:00 +0800</pubDate>
+      
+      <guid>/post/typecho/meituan/</guid>
+      <description>团购的立足点到底是帮用户省钱还是帮商家处理产能过剩？http://t.cn/RvIHX26</description>
+    </item>
+    
+    <item>
+      <title>泡沫</title>
+      <link>/post/typecho/paomo/</link>
+      <pubDate>Thu, 10 Apr 2014 07:59:00 +0800</pubDate>
+      
+      <guid>/post/typecho/paomo/</guid>
+      <description>十多年前互联网兴起的时候，这个炒那个炒，然后炒出了一堆泡沫。十年过去，移动互联网兴起，浮躁的90后们也按耐不住了。随便翻开一家科技媒体，都有</description>
+    </item>
+    
+    <item>
+      <title>WWDC, Apple&#39;s Ambition</title>
+      <link>/post/typecho/77-wwdc-apples-ambition/</link>
+      <pubDate>Mon, 10 Jun 2013 18:45:00 +0800</pubDate>
+      
+      <guid>/post/typecho/77-wwdc-apples-ambition/</guid>
+      <description>&lt;p&gt;很多人顽强地看完了WWDC，开始了惯有的各种吐槽。虽然我开始看的时候状态也差不多吧，尤其是看到第一个“产品”就是Finder Tabs，说实话，我个人不是很喜欢这个东西，以前在linux下就开始使用了但是感觉并不是多么的便捷。况且Finder本身可以打开一个智能窗口，这个功能很强大，很喜欢，让我目前没有看到tabs有什么重大的意义。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HP 4421s 啃到黑苹果</title>
+      <link>/post/typecho/54-hp-4421s-%E5%95%83%E5%88%B0%E9%BB%91%E8%8B%B9%E6%9E%9C/</link>
+      <pubDate>Sat, 01 Jun 2013 20:15:00 +0800</pubDate>
+      
+      <guid>/post/typecho/54-hp-4421s-%E5%95%83%E5%88%B0%E9%BB%91%E8%8B%B9%E6%9E%9C/</guid>
+      <description>&lt;p&gt;高考前后，RP掉到渣，电脑也各种犯毛病。无意中看到了一份比较不错的黑苹果安装视频教程，反正机子也各种毛病，破罐子摔摔看，看能不能摔出什么宝贝出来。&lt;/p&gt;
+
+&lt;p&gt;那时候还没有关于ProBook 4421s 的教程，很多人说这机子不能装！后来用工具测试果然显示不行.&lt;/p&gt;
+
+&lt;p&gt;那时候还不知道懒人版是什么东西只觉得自己好牛逼的，下载的都是原版自己提取自己配置到最后得知内核不兼容。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>电影《楚汉传奇》</title>
+      <link>/post/typecho/68-%E7%94%B5%E5%BD%B1%E6%A5%9A%E6%B1%89%E4%BC%A0%E5%A5%87/</link>
+      <pubDate>Mon, 20 May 2013 18:28:00 +0800</pubDate>
+      
+      <guid>/post/typecho/68-%E7%94%B5%E5%BD%B1%E6%A5%9A%E6%B1%89%E4%BC%A0%E5%A5%87/</guid>
+      <description>&lt;p&gt;这个电视最开始看，总觉得似曾相识。一拍大腿，发现全是新三国的演员。。。&lt;/p&gt;
+
+&lt;p&gt;简单地说就是康熙、张飞、鲁肃、吕布、许攸、荀彧、刘备及其儿子各种叛变后重新划分天下。对于剧情不想评论太多，感觉自己想看的很多东西没有演出来。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>不是所有的记忆都美好</title>
+      <link>/post/typecho/%E4%B8%8D%E6%98%AF%E6%89%80%E6%9C%89%E7%9A%84%E8%AE%B0%E5%BF%86%E9%83%BD%E7%BE%8E%E5%A5%BD/</link>
+      <pubDate>Mon, 31 Dec 2012 10:18:00 +0800</pubDate>
+      
+      <guid>/post/typecho/%E4%B8%8D%E6%98%AF%E6%89%80%E6%9C%89%E7%9A%84%E8%AE%B0%E5%BF%86%E9%83%BD%E7%BE%8E%E5%A5%BD/</guid>
+      <description>不是所有的记忆都美好，不是所有的人都值得记忆，岁月的河流太漫长，大部分的人与事都会被无情地冲走，但是，与青春有关的一切，总会沉淀到河底，成为</description>
+    </item>
+    
+    <item>
+      <title>开学60天小记</title>
+      <link>/post/typecho/47-%E5%BC%80%E5%AD%A660%E5%A4%A9%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Fri, 09 Nov 2012 18:30:00 +0800</pubDate>
+      
+      <guid>/post/typecho/47-%E5%BC%80%E5%AD%A660%E5%A4%A9%E5%B0%8F%E8%AE%B0/</guid>
+      <description>&lt;p&gt;我是否也要像其他人一样写下：不知不觉来大学已经两个月了，咦！竟然恰好是两个月！满心是莫名的欢喜。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>/post/typecho/45-hello-world/</link>
+      <pubDate>Sun, 28 Oct 2012 18:28:00 +0800</pubDate>
+      
+      <guid>/post/typecho/45-hello-world/</guid>
+      <description>&lt;p&gt;又是一次Wordpress，希望这次可以好好的走下去，不要再只是闹着玩玩。&lt;/p&gt;
+
+&lt;p&gt;大学了，或许会成为一个新的起点，希望在这里能够记下重生后的点点滴滴。当然，不可能每件事情都在这里留下，还有我的轻博客和微博以及人人，各种工具一起用，效果或许会更好点，信息更全面一点吧。至于各个博客地址，个人资料里会有更新。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>博客建设日志</title>
+      <link>/post/typecho/85-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Thu, 03 Jun 2010 12:27:00 +0800</pubDate>
+      
+      <guid>/post/typecho/85-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/</guid>
+      <description>&lt;p&gt;每个人心中都有一个理想的博客，这些并不是那些通用博客服务商能提供的，于是我选择自己动手搭建，用心逐雕。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

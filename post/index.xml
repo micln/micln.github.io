@@ -1,0 +1,1138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 在水异方</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 14 Apr 2019 11:20:27 +0800</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go Module 实践中的问题（持续更新）</title>
+      <link>/post/gomod/</link>
+      <pubDate>Sun, 14 Apr 2019 11:20:27 +0800</pubDate>
+      
+      <guid>/post/gomod/</guid>
+      <description>项目逐渐都切到了 go mod，用的时候遇到了各种奇奇怪怪的坑，记录一下。 流程实践 语义化版本 Go mod 在设计时没有支持诸如 &amp;gt;2.0, ~3.4, ^4.0 这样场景的语法。而是以语</description>
+    </item>
+    
+    <item>
+      <title>Json Iterator 在 swagger 下卡死程序的排查</title>
+      <link>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</link>
+      <pubDate>Mon, 25 Mar 2019 00:22:45 +0800</pubDate>
+      
+      <guid>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</guid>
+      <description>迁移自简书，格式可能未经校对。 事件经过： 收到反馈测试环境某个服务打开 swagger ，进程会卡死 根据经验，初步判定是有死循环。 在本地启动该服务，打开 swagger ，发</description>
+    </item>
+    
+    <item>
+      <title>关于计算机的一些反直觉现象</title>
+      <link>/post/jianshu/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%8D%E7%9B%B4%E8%A7%89%E7%8E%B0%E8%B1%A1/</link>
+      <pubDate>Sat, 23 Mar 2019 15:37:33 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%8D%E7%9B%B4%E8%A7%89%E7%8E%B0%E8%B1%A1/</guid>
+      <description>[TOC] 背景 最近想写一些简单的非技术文章，希望能给其他行业的说明白计算机所能和所不能，方便大家用好计算机这个工具。 为什么数据都有了，但是不让我查询</description>
+    </item>
+    
+    <item>
+      <title>HttpClient 的几个点</title>
+      <link>/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/</link>
+      <pubDate>Mon, 10 Sep 2018 20:22:26 +0800</pubDate>
+      
+      <guid>/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/</guid>
+      <description>迁移自简书，格式可能未经校对。 越来越多的应用里需要依赖大量的对外请求（内部服务或第三方平台）。但是很多的 client 只有基本的请求，这在复杂的场景里根</description>
+    </item>
+    
+    <item>
+      <title>关于日志的几个想法</title>
+      <link>/post/jianshu/%E5%85%B3%E4%BA%8E%E6%97%A5%E5%BF%97%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/</link>
+      <pubDate>Thu, 30 Aug 2018 21:02:45 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E5%85%B3%E4%BA%8E%E6%97%A5%E5%BF%97%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/</guid>
+      <description>迁移自简书，格式可能未经校对。 场景还原 先说个场景： APP上某个操作出现了 系统异常。错误码：abc012，我们收到错误码之后，可以一次性查出这</description>
+    </item>
+    
+    <item>
+      <title>Go encoding json 的几个坑</title>
+      <link>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</link>
+      <pubDate>Mon, 27 Aug 2018 20:28:35 +0800</pubDate>
+      
+      <guid>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</guid>
+      <description>迁移自简书，格式可能未经校对。 以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再</description>
+    </item>
+    
+    <item>
+      <title>整理一套 Go 的轮子</title>
+      <link>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</link>
+      <pubDate>Sat, 18 Aug 2018 01:26:15 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</guid>
+      <description>迁移自简书，格式可能未经校对。 Github：https://github.com/Kretech/xgo 缘起是因为 Go 的很多语法太啰嗦，也许 Go</description>
+    </item>
+    
+    <item>
+      <title>Redis 学习笔记</title>
+      <link>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 05 Aug 2018 01:16:07 +0800</pubDate>
+      
+      <guid>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>迁移自简书，格式可能未经校对。 这里只会记录在学习 Redis 源码时觉得比较好玩的地方，不会一五一十的讲细节。 内存分配 zmalloc 在实际 malloc 到的内存前面加一个 size 。 void</description>
+    </item>
+    
+    <item>
+      <title>Laravel Eloquent whereHas 的一个优化</title>
+      <link>/post/jianshu/laravel-eloquent-wherehas-%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Tue, 26 Jun 2018 21:07:21 +0800</pubDate>
+      
+      <guid>/post/jianshu/laravel-eloquent-wherehas-%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96/</guid>
+      <description>迁移自简书，格式可能未经校对。 用 Laravel 很久了，whereHas 简直是连表大杀器，本来需要写大量 SQL 的查询用 whereHas 都可以很快的实现。不过在一些场景里，遇</description>
+    </item>
+    
+    <item>
+      <title>好用的 Cache API</title>
+      <link>/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/</link>
+      <pubDate>Fri, 15 Jun 2018 21:03:34 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/</guid>
+      <description>迁移自简书，格式可能未经校对。 最近看到了几种加缓存的方法，整理对比一下。 拿一个case来说，我们要去数据库取一条用户记录，迫于性能，还要加一</description>
+    </item>
+    
+    <item>
+      <title>Laravel 学习路线</title>
+      <link>/post/jianshu/laravel-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</link>
+      <pubDate>Wed, 21 Mar 2018 10:21:55 +0800</pubDate>
+      
+      <guid>/post/jianshu/laravel-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</guid>
+      <description>迁移自简书，格式可能未经校对。 入门 官方文档 英文 中文 深入理解 《From Apprentice To Artisan》 讲Laravel内部设计的小册子，能帮你了解lara</description>
+    </item>
+    
+    <item>
+      <title>Laravel ORM 模块图</title>
+      <link>/post/jianshu/laravel-orm-%E6%A8%A1%E5%9D%97%E5%9B%BE/</link>
+      <pubDate>Sat, 03 Mar 2018 11:23:45 +0800</pubDate>
+      
+      <guid>/post/jianshu/laravel-orm-%E6%A8%A1%E5%9D%97%E5%9B%BE/</guid>
+      <description>迁移自简书，格式可能未经校对。 还会更新，只是懒得整理，先堆这里了 PlatUML 代码： @startuml &#39; 底层驱动部分 class DatabaseManager{ connection() factory的大脑 } class ConnectionFactory{ newConnection() } interface Connection { defaultBuilder defaultGrammar defaultProcesser run() //</description>
+    </item>
+    
+    <item>
+      <title>理想的数据库操作库</title>
+      <link>/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/</link>
+      <pubDate>Tue, 16 Jan 2018 11:45:42 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/</guid>
+      <description>ORM 于创业项目快速迭代的重要性不言而喻。我也一直在不停地寻找更好的方案。 造了个轮子：Loulan-java 市面上有些不错的 orm 框架，诸如 Lara</description>
+    </item>
+    
+    <item>
+      <title>sftp 配置笔记整理</title>
+      <link>/post/jianshu/sftp-%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/</link>
+      <pubDate>Sun, 04 Jun 2017 23:55:00 +0800</pubDate>
+      
+      <guid>/post/jianshu/sftp-%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/</guid>
+      <description>迁移自简书，格式可能未经校对。 缘由：网上google出来的东西要么排版太丑要么啥都没有 安装 apt install vsftpd 限制目录 ftp 在 /etc/vsftpd.conf 里有个 local_root=/</description>
+    </item>
+    
+    <item>
+      <title>SSIS 笔记</title>
+      <link>/post/jianshu/ssis-%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 25 Dec 2016 04:06:10 +0800</pubDate>
+      
+      <guid>/post/jianshu/ssis-%E7%AC%94%E8%AE%B0/</guid>
+      <description>迁移自简书，格式可能未经校对。 下载 &amp;amp; 安装 使用 Visio Studio 2012 开发时，要选 SQL Server Data Tools 但是！！它其实装的是2010版！！所以装好后只能从 vs2010 里建 IS 项目 如果要从</description>
+    </item>
+    
+    <item>
+      <title>Mac 基本开发环境</title>
+      <link>/post/jianshu/mac-%E5%9F%BA%E6%9C%AC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Mon, 19 Dec 2016 11:03:11 +0800</pubDate>
+      
+      <guid>/post/jianshu/mac-%E5%9F%BA%E6%9C%AC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description>迁移自简书，格式可能未经校对。 !/bin/sh # homebrew /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; # iTerm2 brew install Caskroom/cask/iterm2 # zsh zsh # .oh-my-zsh sh -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&amp;quot; # macdown brew install Caskroom/cask/macdown PhpStorm Dash macdown</description>
+    </item>
+    
+    <item>
+      <title>ngrok 搭建脚本</title>
+      <link>/post/jianshu/ngrok-%E6%90%AD%E5%BB%BA%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sat, 10 Dec 2016 00:11:33 +0800</pubDate>
+      
+      <guid>/post/jianshu/ngrok-%E6%90%AD%E5%BB%BA%E8%84%9A%E6%9C%AC/</guid>
+      <description>迁移自简书，格式可能未经校对。 推荐 https://github.com/fatedier/frp 比 ngrok 好用很多 看文档太复杂了，脑子又记不住，先贴这了。 需要的时候改一下DOMAIN 直接跑 参考自：https</description>
+    </item>
+    
+    <item>
+      <title>开坑，关于带团队</title>
+      <link>/post/jianshu/%E5%BC%80%E5%9D%91%E5%85%B3%E4%BA%8E%E5%B8%A6%E5%9B%A2%E9%98%9F/</link>
+      <pubDate>Sat, 03 Dec 2016 10:26:53 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E5%BC%80%E5%9D%91%E5%85%B3%E4%BA%8E%E5%B8%A6%E5%9B%A2%E9%98%9F/</guid>
+      <description>迁移自简书，格式可能未经校对。 大学时，我一直有个问题不明白。为什么我不是我的team里最厉害的，跟其它team的老大相比也不是那么耀眼，但我</description>
+    </item>
+    
+    <item>
+      <title>职场周年记</title>
+      <link>/post/jianshu/%E8%81%8C%E5%9C%BA%E5%91%A8%E5%B9%B4%E8%AE%B0/</link>
+      <pubDate>Sun, 13 Nov 2016 18:23:50 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E8%81%8C%E5%9C%BA%E5%91%A8%E5%B9%B4%E8%AE%B0/</guid>
+      <description>迁移自简书，格式可能未经校对。 突然发现，工作已经一年了。 87天日报，18篇周报，78000+字，算是记录。 前半年里，多是些完成一个清晰明确的</description>
+    </item>
+    
+    <item>
+      <title>Github Squash 的一点坑</title>
+      <link>/post/jianshu/github-squash-%E7%9A%84%E4%B8%80%E7%82%B9%E5%9D%91/</link>
+      <pubDate>Sun, 06 Nov 2016 21:40:20 +0800</pubDate>
+      
+      <guid>/post/jianshu/github-squash-%E7%9A%84%E4%B8%80%E7%82%B9%E5%9D%91/</guid>
+      <description>迁移自简书，格式可能未经校对。 Github 新出的squash 功能可以使主仓的log 更加干净，但是有个恶心的情况： fetch company/master -&amp;gt; my/master -&amp;gt; my/dev devlop my/dev (10 commit) &amp;ndash;&amp;gt; squash &amp;ndash;&amp;gt; company/master (1 commit) modify my/dev (11</description>
+    </item>
+    
+    <item>
+      <title>《德川家康》第一篇</title>
+      <link>/post/jianshu/%E5%BE%B7%E5%B7%9D%E5%AE%B6%E5%BA%B7%E7%AC%AC%E4%B8%80%E7%AF%87/</link>
+      <pubDate>Wed, 05 Oct 2016 01:27:20 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E5%BE%B7%E5%B7%9D%E5%AE%B6%E5%BA%B7%E7%AC%AC%E4%B8%80%E7%AF%87/</guid>
+      <description>迁移自简书，格式可能未经校对。 看到前5章，只能说是读起来很艰难。 满满的委曲求全的隐忍和男尊女卑，以及各种拗口的日本名词。 序言说这是二战后的作</description>
+    </item>
+    
+    <item>
+      <title>Code Review 那点事儿</title>
+      <link>/post/jianshu/code-review-%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/</link>
+      <pubDate>Sun, 25 Sep 2016 10:32:33 +0800</pubDate>
+      
+      <guid>/post/jianshu/code-review-%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/</guid>
+      <description>迁移自简书，格式可能未经校对。 这周也帮其他人看了看代码，发现大家对一些规范不以为然，所以我想借这个机会聊聊。代码规范的重要性说的太多了，我来</description>
+    </item>
+    
+    <item>
+      <title>用程序去判断每个人说话的真假 - 写给新手的枚举介绍</title>
+      <link>/post/typecho/shui-shi-qian-feng/</link>
+      <pubDate>Tue, 13 Oct 2015 03:15:00 +0800</pubDate>
+      
+      <guid>/post/typecho/shui-shi-qian-feng/</guid>
+      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+
+&lt;p&gt;我们在以前的数学题中一定遇到过这样的问题：&lt;/p&gt;
+
+&lt;p&gt;A说xxxx
+B说xxx
+C说xxx&lt;/p&gt;
+
+&lt;p&gt;然后给一些条件，让你判断每个人说话的真假&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>一个自动签到的程序</title>
+      <link>/post/typecho/gosigner/</link>
+      <pubDate>Tue, 06 Oct 2015 09:03:00 +0800</pubDate>
+      
+      <guid>/post/typecho/gosigner/</guid>
+      <description>一直以来很想写一个自动签到的程序，因为很多免费工具网站不签到根本进行不下去。 问题的关键在于设计一个统一的签到流程。最开始想的很简单，就是一组</description>
+    </item>
+    
+    <item>
+      <title>悲剧</title>
+      <link>/post/typecho/beiju/</link>
+      <pubDate>Sun, 13 Sep 2015 16:24:00 +0800</pubDate>
+      
+      <guid>/post/typecho/beiju/</guid>
+      <description>悲剧就是善的冲突。至少，是不坏的冲突。 因为想离职的事情跟我最敬爱的刘杰老师聊了一会人生，最后伤了老师的心。一个初来乍到的小毛孩，怎么可能跟一</description>
+    </item>
+    
+    <item>
+      <title>重开博客</title>
+      <link>/post/typecho/blogagain/</link>
+      <pubDate>Fri, 11 Sep 2015 15:09:00 +0800</pubDate>
+      
+      <guid>/post/typecho/blogagain/</guid>
+      <description>先呵呵一下表示对自己的鄙视，明明不是写博的料却分要三番五次的开开开，开了又不写字。这次重开有两个基础，一是最近发现需要一个记录点点滴滴，二是</description>
+    </item>
+    
+    <item>
+      <title>归零</title>
+      <link>/post/typecho/zero/</link>
+      <pubDate>Thu, 05 Feb 2015 03:30:36 +0800</pubDate>
+      
+      <guid>/post/typecho/zero/</guid>
+      <description>2015，真是倒霉。 回家前一天，实验室一个同学没有锁好门。下午饭时实验室被窃。她的一台笔记本，一部手机，我的移动硬盘，身份证，学生证。 在派出</description>
+    </item>
+    
+    <item>
+      <title>温故而知新</title>
+      <link>/post/typecho/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/</link>
+      <pubDate>Sun, 18 Jan 2015 02:00:00 +0800</pubDate>
+      
+      <guid>/post/typecho/%E6%B8%A9%E6%95%85%E8%80%8C%E7%9F%A5%E6%96%B0/</guid>
+      <description>温故不一定知新，不温故一定变傻！</description>
+    </item>
+    
+    <item>
+      <title>优秀是一种习惯</title>
+      <link>/post/typecho/excellence_is_habit/</link>
+      <pubDate>Sun, 11 Jan 2015 12:27:00 +0800</pubDate>
+      
+      <guid>/post/typecho/excellence_is_habit/</guid>
+      <description>优秀是一种习惯！ 而不是某一时刻的水平高低！！！ 习惯！！！</description>
+    </item>
+    
+    <item>
+      <title>xbuntu 添加 Deepin 软件源 2014.2</title>
+      <link>/post/typecho/ubuntu_deepin/</link>
+      <pubDate>Fri, 09 Jan 2015 05:28:00 +0800</pubDate>
+      
+      <guid>/post/typecho/ubuntu_deepin/</guid>
+      <description>&lt;p&gt;昨天&lt;code&gt;Deepin2014.2&lt;/code&gt;内置了&lt;code&gt;CrossOver Deepin专版&lt;/code&gt;，其中最大的惊喜莫过于&lt;code&gt;QQ&lt;/code&gt;的正常使用。越来越感觉到 Deepin 才是普通 Linux 用户的未来。所以整理了一下这份资料。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>python爬虫基础</title>
+      <link>/post/dashayu/1417492800-python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 02 Dec 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1417492800-python%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 基本的抓取 import urllib content = urllib.urlopen(&#39;http://www.x.com&#39;).read() 使用代理服务器 proxy = urllib2.ProxyHandler({&#39;http&#39;:&#39;http://host:port&#39;}) opener = urllib2.build_opener(proxy, urllib2.HTTPHandler) urllib2.install_opener(opener) content = urllib2.urlopen(&#39;http://www.xxxx.com&#39;).read() Cookie import urllib2, cookielib cookie = urllib2.HTTPCookieProcessor(cookielib.CookieJar()) opener = urllib2.build_opener(cookie, urllib2.HTTPHandler) urllib2.install_opener(opener)</description>
+    </item>
+    
+    <item>
+      <title>Tkinter学习笔记</title>
+      <link>/post/dashayu/1417406400-tkinter%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 01 Dec 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1417406400-tkinter%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 [](#什么是tkinter)什么是Tkinter Tkinter（也叫Tk接口）</description>
+    </item>
+    
+    <item>
+      <title>python上手指南</title>
+      <link>/post/dashayu/1417060800-python%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Thu, 27 Nov 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1417060800-python%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 [](#资源列表：)资源列表： python 简明 Python 教程 浅显易懂，快速上手 Python快速教程</description>
+    </item>
+    
+    <item>
+      <title>struts2 入门图解</title>
+      <link>/post/csdn/struts2-%E5%85%A5%E9%97%A8%E5%9B%BE%E8%A7%A3/</link>
+      <pubDate>Sun, 16 Nov 2014 15:46:42 +0800</pubDate>
+      
+      <guid>/post/csdn/struts2-%E5%85%A5%E9%97%A8%E5%9B%BE%E8%A7%A3/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 目录结构： ./project/ |- src/ | |- package1/a.java java source | |- package2/b.java | |- WebRoot/ | |- META-INF/ | |- MANIFEST.MF | |- WEB-INF/ | |- classes/ | | |- /.class 编译后自动生成 | | |- struts.xml | |- lib/ |</description>
+    </item>
+    
+    <item>
+      <title>JS动画</title>
+      <link>/post/typecho/h5tricks_codingapp_com/</link>
+      <pubDate>Thu, 13 Nov 2014 11:06:00 +0800</pubDate>
+      
+      <guid>/post/typecho/h5tricks_codingapp_com/</guid>
+      <description>以后的Js演示都放在这里啦</description>
+    </item>
+    
+    <item>
+      <title>大清相国</title>
+      <link>/post/typecho/chentingjing/</link>
+      <pubDate>Sat, 08 Nov 2014 15:09:00 +0800</pubDate>
+      
+      <guid>/post/typecho/chentingjing/</guid>
+      <description>【大清相国】火车上一口气地把《大清相国》读完了。王岐山推荐的书，果然不一般。以往我们看广场小说都写的多么多么黑，且结局一定悲催地发人深省。但</description>
+    </item>
+    
+    <item>
+      <title>一个跟随鼠标变换的心形图案</title>
+      <link>/post/typecho/mouseheart/</link>
+      <pubDate>Mon, 13 Oct 2014 09:16:00 +0800</pubDate>
+      
+      <guid>/post/typecho/mouseheart/</guid>
+      <description>请到演示地址里进行拖动鼠标吧！ 本来是想看看做一个跟随鼠标的时钟有多复杂，后来就觉得可以尝试做一个图案心，一定特别漂亮。 关于心形的方程可以在M</description>
+    </item>
+    
+    <item>
+      <title>USC 1329 Decode 坑坑坑gets</title>
+      <link>/post/csdn/usc-1329-decode-%E5%9D%91%E5%9D%91%E5%9D%91gets/</link>
+      <pubDate>Wed, 08 Oct 2014 10:09:31 +0800</pubDate>
+      
+      <guid>/post/csdn/usc-1329-decode-%E5%9D%91%E5%9D%91%E5%9D%91gets/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 其实一贯都是用string来着。。 其实后来看刘汝佳的书又喜欢上了fgets然后一路过关斩将来着。。 这</description>
+    </item>
+    
+    <item>
+      <title>UVa 437 The Tower of Babylon</title>
+      <link>/post/csdn/uva-437-the-tower-of-babylon/</link>
+      <pubDate>Tue, 30 Sep 2014 17:20:25 +0800</pubDate>
+      
+      <guid>/post/csdn/uva-437-the-tower-of-babylon/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 好久不水 开始深入算法了。 题目传送门 题目其实很简单，暴搜都可以，网上最多的解法都是记忆化搜索，效率应该</description>
+    </item>
+    
+    <item>
+      <title>RoadNotTaken And 三境界</title>
+      <link>/post/typecho/road_not_taken_vs_sanjingjie/</link>
+      <pubDate>Fri, 29 Aug 2014 02:20:00 +0800</pubDate>
+      
+      <guid>/post/typecho/road_not_taken_vs_sanjingjie/</guid>
+      <description>突然觉得《The Road Not Taken》跟王国维先生的《三境界》有点像</description>
+    </item>
+    
+    <item>
+      <title>UVa 10129 Play on Words</title>
+      <link>/post/csdn/uva-10129-play-on-words/</link>
+      <pubDate>Thu, 14 Aug 2014 20:54:58 +0800</pubDate>
+      
+      <guid>/post/csdn/uva-10129-play-on-words/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 好久不写代码果然手会生成屎 题目在 poj上也有 题意就是给你一堆单词，按首位顺序排列起来，问你有没有解。</description>
+    </item>
+    
+    <item>
+      <title>ubuntu 安装 wps.deb</title>
+      <link>/post/csdn/ubuntu-%E5%AE%89%E8%A3%85-wps.deb/</link>
+      <pubDate>Mon, 21 Jul 2014 14:16:52 +0800</pubDate>
+      
+      <guid>/post/csdn/ubuntu-%E5%AE%89%E8%A3%85-wps.deb/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 首先到官网下载最新版本，由于官网只提供了32bit版本，所以只能下载这个。 wget http://wdl1.cache.wps.cn/wps/download/Linux/unstable/wps-office_8.1.0.3724~b1p2_i386.deb 安装 sudo dpkg -i wps-office_8.1.0.3724~b1p2_i386.deb 这个时候如</description>
+    </item>
+    
+    <item>
+      <title>POJ 1017 Packets 悼念死去的模拟</title>
+      <link>/post/csdn/poj-1017-packets-%E6%82%BC%E5%BF%B5%E6%AD%BB%E5%8E%BB%E7%9A%84%E6%A8%A1%E6%8B%9F/</link>
+      <pubDate>Fri, 18 Jul 2014 18:51:34 +0800</pubDate>
+      
+      <guid>/post/csdn/poj-1017-packets-%E6%82%BC%E5%BF%B5%E6%AD%BB%E5%8E%BB%E7%9A%84%E6%A8%A1%E6%8B%9F/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很水，纯模拟 麻烦的地方在于，会面临多次用小件填充大件剩余。 最开始觉得不同大小时决策不一样</description>
+    </item>
+    
+    <item>
+      <title>围棋·变·生命</title>
+      <link>/post/typecho/chess_game_over/</link>
+      <pubDate>Wed, 09 Jul 2014 03:51:00 +0800</pubDate>
+      
+      <guid>/post/typecho/chess_game_over/</guid>
+      <description>看围棋抢边界: 不愿费劲冒险只能就此game over, 冒险进击才有可能有收获. 生命便是如此，很多时候我们或懒惰或畏惧，以至于我们没有向前哪怕迈出一步，</description>
+    </item>
+    
+    <item>
+      <title>cs203的那点事儿</title>
+      <link>/post/dashayu/1404273600-cs203%E7%9A%84%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/</link>
+      <pubDate>Wed, 02 Jul 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1404273600-cs203%E7%9A%84%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 这篇文章有三个标签LXMPGoHUSTOJ，在我接管服务器以前，这三个东西我是一</description>
+    </item>
+    
+    <item>
+      <title>Mac - tips</title>
+      <link>/post/dashayu/1404187200-mac-tips/</link>
+      <pubDate>Tue, 01 Jul 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1404187200-mac-tips/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 网络服务 查看端口占用</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>/post/dashayu/1404100800-about-me/</link>
+      <pubDate>Mon, 30 Jun 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1404100800-about-me/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 爱生活，爱思考 [](#兴趣爱好)兴趣爱好 编程技术 程序设计 服务端开发 前段折腾 嵌入式</description>
+    </item>
+    
+    <item>
+      <title>hello, gor</title>
+      <link>/post/dashayu/1404100800-hello-gor/</link>
+      <pubDate>Mon, 30 Jun 2014 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1404100800-hello-gor/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 既然来了，就说说为什么来吧。 今天是个比较兴奋地日子，因为我的新显示器（AOC LV</description>
+    </item>
+    
+    <item>
+      <title>百家讲坛《春秋五霸》《战国七雄》感悟</title>
+      <link>/post/typecho/cqzg/</link>
+      <pubDate>Sat, 14 Jun 2014 16:29:00 +0800</pubDate>
+      
+      <guid>/post/typecho/cqzg/</guid>
+      <description>&lt;p&gt;花了两天时间看完《&lt;a href=&#34;http://kejiao.cntv.cn/C30425/videopage/&#34; target=&#34;_blank&#34;&gt;春秋五霸&lt;/a&gt;》《&lt;a href=&#34;http://tv.cntv.cn/videoset/C38845/&#34; target=&#34;_blank&#34;&gt;战国七雄&lt;/a&gt;》，不同于各种一家之言的是，李山教授尽可能地全面讲述历史，在过程中会把各家观点都摆出来做简单地对比，更加全面、客观地理解这个灿烂的时期。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>云云二三</title>
+      <link>/post/typecho/57-%E4%BA%91%E4%BA%91%E4%BA%8C%E4%B8%89/</link>
+      <pubDate>Fri, 06 Jun 2014 20:21:00 +0800</pubDate>
+      
+      <guid>/post/typecho/57-%E4%BA%91%E4%BA%91%E4%BA%8C%E4%B8%89/</guid>
+      <description>才得知云云关门了。翻到一年前随便写的一篇云云的体验，没有回复。http://t.cn/zTU8GF7 往常写点东西吐个槽提个建议，多多少少会的</description>
+    </item>
+    
+    <item>
+      <title>Linux学习笔记</title>
+      <link>/post/typecho/19-linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 05 Jun 2014 16:10:00 +0800</pubDate>
+      
+      <guid>/post/typecho/19-linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;以下所有命令基于 ubuntu12.04 系统。centos、rhel 慎重&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>fbvsGg</title>
+      <link>/post/typecho/f_b_g_o_o_g_l_e/</link>
+      <pubDate>Wed, 04 Jun 2014 07:58:00 +0800</pubDate>
+      
+      <guid>/post/typecho/f_b_g_o_o_g_l_e/</guid>
+      <description>突然想到一条为什么fb衰落的如此之快的原因？暂且跟 Google 比一下，google 起家靠的是技术，fb 起家考的是产品形态；google 的核心竞争力是信</description>
+    </item>
+    
+    <item>
+      <title>团购何来</title>
+      <link>/post/typecho/meituan/</link>
+      <pubDate>Wed, 04 Jun 2014 07:15:00 +0800</pubDate>
+      
+      <guid>/post/typecho/meituan/</guid>
+      <description>团购的立足点到底是帮用户省钱还是帮商家处理产能过剩？http://t.cn/RvIHX26</description>
+    </item>
+    
+    <item>
+      <title>泡沫</title>
+      <link>/post/typecho/paomo/</link>
+      <pubDate>Thu, 10 Apr 2014 07:59:00 +0800</pubDate>
+      
+      <guid>/post/typecho/paomo/</guid>
+      <description>十多年前互联网兴起的时候，这个炒那个炒，然后炒出了一堆泡沫。十年过去，移动互联网兴起，浮躁的90后们也按耐不住了。随便翻开一家科技媒体，都有</description>
+    </item>
+    
+    <item>
+      <title>LED点阵的基本操作探索</title>
+      <link>/post/csdn/led%E7%82%B9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E6%8E%A2%E7%B4%A2/</link>
+      <pubDate>Mon, 07 Apr 2014 21:13:59 +0800</pubDate>
+      
+      <guid>/post/csdn/led%E7%82%B9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E6%8E%A2%E7%B4%A2/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 以 CL1588BS 8*8点阵 为例 引脚说明 这个家伙有上下两排共16个引脚，每个引脚负责一行（或一列的信号）。 当 行为高</description>
+    </item>
+    
+    <item>
+      <title>POJ 1273 Drainage Ditches 网络流模版</title>
+      <link>/post/csdn/poj-1273-drainage-ditches-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%A8%A1%E7%89%88/</link>
+      <pubDate>Wed, 02 Apr 2014 22:57:45 +0800</pubDate>
+      
+      <guid>/post/csdn/poj-1273-drainage-ditches-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%A8%A1%E7%89%88/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目传送门 网络流模版题，本想水一水，莫想到因为没好好看题给跪了。 题目大意就是 给你一堆水洼地，还有一些</description>
+    </item>
+    
+    <item>
+      <title>HDU 3887 Counting Offspring dfs序的运用 | 非递归</title>
+      <link>/post/csdn/hdu-3887-counting-offspring-dfs%E5%BA%8F%E7%9A%84%E8%BF%90%E7%94%A8-%E9%9D%9E%E9%80%92%E5%BD%92/</link>
+      <pubDate>Mon, 31 Mar 2014 21:59:58 +0800</pubDate>
+      
+      <guid>/post/csdn/hdu-3887-counting-offspring-dfs%E5%BA%8F%E7%9A%84%E8%BF%90%E7%94%A8-%E9%9D%9E%E9%80%92%E5%BD%92/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 一天时间做了两道 dfs序 的题， 都是 WA 不停，最后一道改成 100W的数组，一道改成双向边就AC了</description>
+    </item>
+    
+    <item>
+      <title>POJ 3321 Apple Tree dfs序的应用</title>
+      <link>/post/csdn/poj-3321-apple-tree-dfs%E5%BA%8F%E7%9A%84%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Mon, 31 Mar 2014 09:56:24 +0800</pubDate>
+      
+      <guid>/post/csdn/poj-3321-apple-tree-dfs%E5%BA%8F%E7%9A%84%E5%BA%94%E7%94%A8/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 dfs序 说来很简单，却从来没有想到过。必须得深刻反省一下到底自己学了些啥。 题目大意是给你一棵</description>
+    </item>
+    
+    <item>
+      <title>POJ 3461 Oulipo KMP练习</title>
+      <link>/post/csdn/poj-3461-oulipo-kmp%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Mon, 31 Mar 2014 09:34:47 +0800</pubDate>
+      
+      <guid>/post/csdn/poj-3461-oulipo-kmp%E7%BB%83%E4%B9%A0/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很长，其实就是字符串匹配。 所以，权当练习 KMP #include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstring&amp;gt; #define MB 10101 #define MA 1000100 char a[MA],b[MB]; int next[MB]; void prekmp(char* b) { next[0]=-1; int j=-1; for (</description>
+    </item>
+    
+    <item>
+      <title>webkit webApp 开发技术要点总结</title>
+      <link>/post/csdn/webkit-webapp-%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sat, 29 Mar 2014 12:29:31 +0800</pubDate>
+      
+      <guid>/post/csdn/webkit-webapp-%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 原文链接 如果你是一名前端er,又想在移动设备上开发出自己的应用，那怎么实现呢？幸好，webkit内核</description>
+    </item>
+    
+    <item>
+      <title>李开复：算法的力量 （完整版）</title>
+      <link>/post/csdn/%E6%9D%8E%E5%BC%80%E5%A4%8D%E7%AE%97%E6%B3%95%E7%9A%84%E5%8A%9B%E9%87%8F-%E5%AE%8C%E6%95%B4%E7%89%88/</link>
+      <pubDate>Sun, 22 Dec 2013 20:24:56 +0800</pubDate>
+      
+      <guid>/post/csdn/%E6%9D%8E%E5%BC%80%E5%A4%8D%E7%AE%97%E6%B3%95%E7%9A%84%E5%8A%9B%E9%87%8F-%E5%AE%8C%E6%95%B4%E7%89%88/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 算法的力量 李开复 2006年5月 算法是计算机科学领域最重要的基石之一，但却受到了国内一些程序员的冷落。</description>
+    </item>
+    
+    <item>
+      <title>2013~2014 第一学期课件整理</title>
+      <link>/post/csdn/2013~2014-%E7%AC%AC%E4%B8%80%E5%AD%A6%E6%9C%9F%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/</link>
+      <pubDate>Sat, 21 Dec 2013 23:48:31 +0800</pubDate>
+      
+      <guid>/post/csdn/2013~2014-%E7%AC%AC%E4%B8%80%E5%AD%A6%E6%9C%9F%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 坑爹的电信网，服务器访问不上了。 大家先将就一下吧。 基础班 时间 课件 详情 主讲 10.26 第零讲 ACM介绍 张慧仁 10.31 第</description>
+    </item>
+    
+    <item>
+      <title>整理一下Go环境需要的东西（水帖~）</title>
+      <link>/post/csdn/%E6%95%B4%E7%90%86%E4%B8%80%E4%B8%8Bgo%E7%8E%AF%E5%A2%83%E9%9C%80%E8%A6%81%E7%9A%84%E4%B8%9C%E8%A5%BF%E6%B0%B4%E5%B8%96~/</link>
+      <pubDate>Thu, 05 Dec 2013 10:01:51 +0800</pubDate>
+      
+      <guid>/post/csdn/%E6%95%B4%E7%90%86%E4%B8%80%E4%B8%8Bgo%E7%8E%AF%E5%A2%83%E9%9C%80%E8%A6%81%E7%9A%84%E4%B8%9C%E8%A5%BF%E6%B0%B4%E5%B8%96~/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 先声明 不是搭建教程。。 重做了个系统要重新搭环境，结果原来的很多站点的东西都没了，害我辛辛苦苦折腾了好</description>
+    </item>
+    
+    <item>
+      <title>USACO Section 1.4.3 The Clocks</title>
+      <link>/post/csdn/usaco-section-1.4.3-the-clocks/</link>
+      <pubDate>Thu, 28 Nov 2013 16:37:01 +0800</pubDate>
+      
+      <guid>/post/csdn/usaco-section-1.4.3-the-clocks/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 The Clocks IOI&amp;rsquo;94 - Day 2 Consider nine clocks arranged in a 3x3 array thusly: |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| | | | | | | | |&amp;mdash;O | |&amp;mdash;O | | O | | | | | | | |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| A B C |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |</description>
+    </item>
+    
+    <item>
+      <title>POJ 3041 Asteroids 匈牙利算法 二分图最大匹配</title>
+      <link>/post/csdn/poj-3041-asteroids-%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95-%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/</link>
+      <pubDate>Fri, 15 Nov 2013 16:23:18 +0800</pubDate>
+      
+      <guid>/post/csdn/poj-3041-asteroids-%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95-%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接： http://poj.org/problem?id=3041 看起来像个 DP 神马的。竟然是二分图匹配。。 看着啊，行与行之间相互独立，一个行可以就炸掉很多</description>
+    </item>
+    
+    <item>
+      <title>国际程序设计大赛一等奖作品欣赏</title>
+      <link>/post/csdn/%E5%9B%BD%E9%99%85%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E4%B8%80%E7%AD%89%E5%A5%96%E4%BD%9C%E5%93%81%E6%AC%A3%E8%B5%8F/</link>
+      <pubDate>Wed, 30 Oct 2013 18:50:14 +0800</pubDate>
+      
+      <guid>/post/csdn/%E5%9B%BD%E9%99%85%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E4%B8%80%E7%AD%89%E5%A5%96%E4%BD%9C%E5%93%81%E6%AC%A3%E8%B5%8F/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 国际程序设计大赛一等奖作品这个程序(omni.com)是97年的Mekka ’97 4K Intro比赛的一</description>
+    </item>
+    
+    <item>
+      <title>ufw 相关</title>
+      <link>/post/csdn/ufw-%E7%9B%B8%E5%85%B3/</link>
+      <pubDate>Tue, 29 Oct 2013 13:28:08 +0800</pubDate>
+      
+      <guid>/post/csdn/ufw-%E7%9B%B8%E5%85%B3/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 有些东西，死活都记不住。。 安装 ufw sudo apt-get install ufw 启用 ufw sudo ufw enable 全局限制访问 sudo ufw default deny 打开端口 sudo ufw allow 22 开放/禁止 IP</description>
+    </item>
+    
+    <item>
+      <title>ubuntu 安装 HUSTOJ</title>
+      <link>/post/csdn/ubuntu-%E5%AE%89%E8%A3%85-hustoj/</link>
+      <pubDate>Wed, 16 Oct 2013 01:46:40 +0800</pubDate>
+      
+      <guid>/post/csdn/ubuntu-%E5%AE%89%E8%A3%85-hustoj/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 安装好 LAMP 环境 方法： http://blog.csdn.net/kzzhr/article/details/12755671 下载 HUSTOJ HUSTOJ 主页 http://code.google.com/p/hustoj/ 我下载了 安装包 install.rxxxx.tar.gz 上传至服务器 #scp -r /home/foo/isntall foo@xxx.xx.xxx.xxx:/var/www 安装中的那些事儿～ install/README 中有详细的</description>
+    </item>
+    
+    <item>
+      <title>LAMP 的搭建</title>
+      <link>/post/csdn/lamp-%E7%9A%84%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Tue, 15 Oct 2013 21:13:16 +0800</pubDate>
+      
+      <guid>/post/csdn/lamp-%E7%9A%84%E6%90%AD%E5%BB%BA/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 用了无数次的XAMPP，终于自己搭一次了。。。。 安装 Linux 我装的是ubuntu。。 安装 Apache2 apt-get install apache2 装好之后，</description>
+    </item>
+    
+    <item>
+      <title>【非技术贴】记湖南省第九届程序设计大赛</title>
+      <link>/post/csdn/%E9%9D%9E%E6%8A%80%E6%9C%AF%E8%B4%B4%E8%AE%B0%E6%B9%96%E5%8D%97%E7%9C%81%E7%AC%AC%E4%B9%9D%E5%B1%8A%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B/</link>
+      <pubDate>Tue, 15 Oct 2013 01:27:15 +0800</pubDate>
+      
+      <guid>/post/csdn/%E9%9D%9E%E6%8A%80%E6%9C%AF%E8%B4%B4%E8%AE%B0%E6%B9%96%E5%8D%97%E7%9C%81%E7%AC%AC%E4%B9%9D%E5%B1%8A%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 昨天诸事不顺，看来还是可以攒点人品。 先说说比赛过程吧（这个比较有价值但很容易忘记） 继续昨天的诸事不顺</description>
+    </item>
+    
+    <item>
+      <title>Longest Ordered Subsequence   O(nlogn)解法 STL</title>
+      <link>/post/csdn/longest-ordered-subsequence-onlogn%E8%A7%A3%E6%B3%95-stl/</link>
+      <pubDate>Wed, 02 Oct 2013 23:11:58 +0800</pubDate>
+      
+      <guid>/post/csdn/longest-ordered-subsequence-onlogn%E8%A7%A3%E6%B3%95-stl/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 维护一个单调队列，对于每一个新的元素： 如果大于队尾元素，补在后面； 否则替换掉最小的大于它的数，这里用</description>
+    </item>
+    
+    <item>
+      <title>Java for ACM 小结</title>
+      <link>/post/csdn/java-for-acm-%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Wed, 25 Sep 2013 20:44:59 +0800</pubDate>
+      
+      <guid>/post/csdn/java-for-acm-%E5%B0%8F%E7%BB%93/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 一、提交格式代码 import java.util.; public class Main{ public static void main(String[] args){ Scanner cin = new Scanner(System.in)); } } 二、输入 cin.hasNext() 或 cin.hasNextInt() 或 cin.hasNextDouble() // 判断是否有下一个输入可以用 int n</description>
+    </item>
+    
+    <item>
+      <title>点集配对问题   集合DP 按位DP</title>
+      <link>/post/csdn/%E7%82%B9%E9%9B%86%E9%85%8D%E5%AF%B9%E9%97%AE%E9%A2%98-%E9%9B%86%E5%90%88dp-%E6%8C%89%E4%BD%8Ddp/</link>
+      <pubDate>Sun, 22 Sep 2013 12:53:49 +0800</pubDate>
+      
+      <guid>/post/csdn/%E7%82%B9%E9%9B%86%E9%85%8D%E5%AF%B9%E9%97%AE%E9%A2%98-%E9%9B%86%E5%90%88dp-%E6%8C%89%E4%BD%8Ddp/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 以前就开始看刘汝佳的白皮书了，不过眼高手低，没有码过，发现问题好多。于是开始敲一敲。 题意： 空间有n个</description>
+    </item>
+    
+    <item>
+      <title>notonlysuccess 线段树 高人推荐</title>
+      <link>/post/csdn/notonlysuccess-%E7%BA%BF%E6%AE%B5%E6%A0%91-%E9%AB%98%E4%BA%BA%E6%8E%A8%E8%8D%90/</link>
+      <pubDate>Sat, 31 Aug 2013 23:37:50 +0800</pubDate>
+      
+      <guid>/post/csdn/notonlysuccess-%E7%BA%BF%E6%AE%B5%E6%A0%91-%E9%AB%98%E4%BA%BA%E6%8E%A8%E8%8D%90/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 很早前写的那篇线段树专辑至今一直是本博客阅读点击量最大的一片文章,当时觉得挺自豪的,还去pku打广告</description>
+    </item>
+    
+    <item>
+      <title>RMQ with Shifts 线段树基基础</title>
+      <link>/post/csdn/rmq-with-shifts-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9F%BA%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Thu, 22 Aug 2013 00:11:02 +0800</pubDate>
+      
+      <guid>/post/csdn/rmq-with-shifts-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9F%BA%E5%9F%BA%E7%A1%80/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 思路 看上去是个线段树，不过每个元素都移动，树结构本身无法实现这个功能，只能一个一个的修改，但是里面的</description>
+    </item>
+    
+    <item>
+      <title>HOJ 2651 PIE</title>
+      <link>/post/csdn/hoj-2651-pie/</link>
+      <pubDate>Thu, 27 Jun 2013 16:56:29 +0800</pubDate>
+      
+      <guid>/post/csdn/hoj-2651-pie/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hit.edu.cn/hoj/problem/view?id=2651 很简单的二分枚举， 要注意的是 1、一共是 f+1 个人（包括他自己） 2、精度问题。。被吭了好久，我把面</description>
+    </item>
+    
+    <item>
+      <title>HDOJ 4152 ZZY’s Dilemma</title>
+      <link>/post/csdn/hdoj-4152-zzys-dilemma/</link>
+      <pubDate>Thu, 27 Jun 2013 02:38:45 +0800</pubDate>
+      
+      <guid>/post/csdn/hdoj-4152-zzys-dilemma/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hdu.edu.cn/showproblem.php?pid=4152 队长大人给某菜鸟赛出的题，但是却让我傻了半天。 裸暴力，由于数据弱，我直接用了位运算标记，其实</description>
+    </item>
+    
+    <item>
+      <title>ZOJ 3203 Light Bulb</title>
+      <link>/post/csdn/zoj-3203-light-bulb/</link>
+      <pubDate>Thu, 27 Jun 2013 02:34:39 +0800</pubDate>
+      
+      <guid>/post/csdn/zoj-3203-light-bulb/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://openoj.awaysoft.com:8080/judge/problem/viewProblem.action?id=14179 三分入门题目 三分： 区间上求凸（凹）点时，把区间ad分为 abcd 其中 b = ( a+d) / 2 ; c = ( b + d) / 2; 比</description>
+    </item>
+    
+    <item>
+      <title>WWDC，苹果的野心</title>
+      <link>/post/csdn/wwdc%E8%8B%B9%E6%9E%9C%E7%9A%84%E9%87%8E%E5%BF%83/</link>
+      <pubDate>Sat, 15 Jun 2013 10:28:07 +0800</pubDate>
+      
+      <guid>/post/csdn/wwdc%E8%8B%B9%E6%9E%9C%E7%9A%84%E9%87%8E%E5%BF%83/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 原题：《 WWDC2013，苹果向世界宣战 》，觉得有些太大了就撤掉了，直到第二天36Kr的报道也使用类</description>
+    </item>
+    
+    <item>
+      <title>WWDC, Apple&#39;s Ambition</title>
+      <link>/post/typecho/77-wwdc-apples-ambition/</link>
+      <pubDate>Mon, 10 Jun 2013 18:45:00 +0800</pubDate>
+      
+      <guid>/post/typecho/77-wwdc-apples-ambition/</guid>
+      <description>&lt;p&gt;很多人顽强地看完了WWDC，开始了惯有的各种吐槽。虽然我开始看的时候状态也差不多吧，尤其是看到第一个“产品”就是Finder Tabs，说实话，我个人不是很喜欢这个东西，以前在linux下就开始使用了但是感觉并不是多么的便捷。况且Finder本身可以打开一个智能窗口，这个功能很强大，很喜欢，让我目前没有看到tabs有什么重大的意义。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HP 4421s 啃到黑苹果</title>
+      <link>/post/typecho/54-hp-4421s-%E5%95%83%E5%88%B0%E9%BB%91%E8%8B%B9%E6%9E%9C/</link>
+      <pubDate>Sat, 01 Jun 2013 20:15:00 +0800</pubDate>
+      
+      <guid>/post/typecho/54-hp-4421s-%E5%95%83%E5%88%B0%E9%BB%91%E8%8B%B9%E6%9E%9C/</guid>
+      <description>&lt;p&gt;高考前后，RP掉到渣，电脑也各种犯毛病。无意中看到了一份比较不错的黑苹果安装视频教程，反正机子也各种毛病，破罐子摔摔看，看能不能摔出什么宝贝出来。&lt;/p&gt;
+
+&lt;p&gt;那时候还没有关于ProBook 4421s 的教程，很多人说这机子不能装！后来用工具测试果然显示不行.&lt;/p&gt;
+
+&lt;p&gt;那时候还不知道懒人版是什么东西只觉得自己好牛逼的，下载的都是原版自己提取自己配置到最后得知内核不兼容。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>区间插入求和  —  线段树入门（二）</title>
+      <link>/post/csdn/%E5%8C%BA%E9%97%B4%E6%8F%92%E5%85%A5%E6%B1%82%E5%92%8C-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8%E4%BA%8C/</link>
+      <pubDate>Wed, 29 May 2013 11:29:08 +0800</pubDate>
+      
+      <guid>/post/csdn/%E5%8C%BA%E9%97%B4%E6%8F%92%E5%85%A5%E6%B1%82%E5%92%8C-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8%E4%BA%8C/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 题目描述 Description 给你N个数，有两种操作： 1：给区间[a,b]的所有数增加X 2：询问区间[a,b]的数的</description>
+    </item>
+    
+    <item>
+      <title>数列操作  —  线段树入门</title>
+      <link>/post/csdn/%E6%95%B0%E5%88%97%E6%93%8D%E4%BD%9C-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Tue, 28 May 2013 22:42:10 +0800</pubDate>
+      
+      <guid>/post/csdn/%E6%95%B0%E5%88%97%E6%93%8D%E4%BD%9C-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 题目描述 Description 一行N个方格，开始每个格子里都有一个整数。现在动态地提出一些问题和修改：提问的形式是求</description>
+    </item>
+    
+    <item>
+      <title>CSDN模版修改</title>
+      <link>/post/csdn/csdn%E6%A8%A1%E7%89%88%E4%BF%AE%E6%94%B9/</link>
+      <pubDate>Sat, 25 May 2013 01:30:49 +0800</pubDate>
+      
+      <guid>/post/csdn/csdn%E6%A8%A1%E7%89%88%E4%BF%AE%E6%94%B9/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 序言 首先，你应该可以看到这个页面跟一般的CSDN页面不相同。这也是我们本文的目的。 必须承认，很多IT</description>
+    </item>
+    
+    <item>
+      <title>5611AH 数码管 引脚图</title>
+      <link>/post/csdn/5611ah-%E6%95%B0%E7%A0%81%E7%AE%A1-%E5%BC%95%E8%84%9A%E5%9B%BE/</link>
+      <pubDate>Fri, 24 May 2013 17:52:31 +0800</pubDate>
+      
+      <guid>/post/csdn/5611ah-%E6%95%B0%E7%A0%81%E7%AE%A1-%E5%BC%95%E8%84%9A%E5%9B%BE/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 arduino套装，给了个5611AH的数码管。在网上找不到现成的引脚图，无奈只好自己画了。初学ar</description>
+    </item>
+    
+    <item>
+      <title>USACO Section 1.3.6 Prime Cryptarithm</title>
+      <link>/post/csdn/usaco-section-1.3.6-prime-cryptarithm/</link>
+      <pubDate>Wed, 22 May 2013 11:07:06 +0800</pubDate>
+      
+      <guid>/post/csdn/usaco-section-1.3.6-prime-cryptarithm/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Prime Cryptarithm The following cryptarithm is a multiplication problem that can be solved by substituting digits from a specified set of N digits into the positions marked with *. If the set of prime digits {2,3,5,7} is selected, the cryptarithm is called a PRIME CRYPTARITHM. * * *</description>
+    </item>
+    
+    <item>
+      <title>USACO Section 1.3.5 Calf Flac</title>
+      <link>/post/csdn/usaco-section-1.3.5-calf-flac/</link>
+      <pubDate>Wed, 22 May 2013 11:03:07 +0800</pubDate>
+      
+      <guid>/post/csdn/usaco-section-1.3.5-calf-flac/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Calf Flac It is said that if you give an infinite number of cows an infinite number of heavy-duty laptops (with very large keys), that they will ultimately produce all the world&amp;rsquo;s great palindromes. Your job will be to detect these bovine beauties. Ignore punctuation, whitespace, numbers, and</description>
+    </item>
+    
+    <item>
+      <title>USACO Section 1.3.3 Barn Repair</title>
+      <link>/post/csdn/usaco-section-1.3.3-barn-repair/</link>
+      <pubDate>Wed, 22 May 2013 10:54:09 +0800</pubDate>
+      
+      <guid>/post/csdn/usaco-section-1.3.3-barn-repair/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Barn Repair It was a dark and stormy night that ripped the roof and gates off the stalls that hold Farmer John&amp;rsquo;s cows. Happily, many of the cows were on vacation, so the barn was not completely full. The cows spend the night in stalls that are arranged</description>
+    </item>
+    
+    <item>
+      <title>USACO Section 1.3.2 Mixing Milk</title>
+      <link>/post/csdn/usaco-section-1.3.2-mixing-milk/</link>
+      <pubDate>Wed, 22 May 2013 10:44:34 +0800</pubDate>
+      
+      <guid>/post/csdn/usaco-section-1.3.2-mixing-milk/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Mixing Milk Since milk packaging is such a low margin business, it is important to keep the price of the raw product (milk) as low as possible. Help Merry Milk Makers get the milk they need in the cheapest possible manner. The Merry Milk Makers company has several</description>
+    </item>
+    
+    <item>
+      <title>电影《楚汉传奇》</title>
+      <link>/post/typecho/68-%E7%94%B5%E5%BD%B1%E6%A5%9A%E6%B1%89%E4%BC%A0%E5%A5%87/</link>
+      <pubDate>Mon, 20 May 2013 18:28:00 +0800</pubDate>
+      
+      <guid>/post/typecho/68-%E7%94%B5%E5%BD%B1%E6%A5%9A%E6%B1%89%E4%BC%A0%E5%A5%87/</guid>
+      <description>&lt;p&gt;这个电视最开始看，总觉得似曾相识。一拍大腿，发现全是新三国的演员。。。&lt;/p&gt;
+
+&lt;p&gt;简单地说就是康熙、张飞、鲁肃、吕布、许攸、荀彧、刘备及其儿子各种叛变后重新划分天下。对于剧情不想评论太多，感觉自己想看的很多东西没有演出来。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux 系统问题整理</title>
+      <link>/post/csdn/linux-%E7%B3%BB%E7%BB%9F%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</link>
+      <pubDate>Sun, 19 May 2013 21:13:42 +0800</pubDate>
+      
+      <guid>/post/csdn/linux-%E7%B3%BB%E7%BB%9F%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 以下所有命令基于 ubuntu12.04 系统。centos、rhel 慎重 添加用户 useradd adduser 自动创建目录 添加 sudoers vim /etc/sudoers 修改主机名/机器</description>
+    </item>
+    
+    <item>
+      <title>点线计算</title>
+      <link>/post/csdn/%E7%82%B9%E7%BA%BF%E8%AE%A1%E7%AE%97/</link>
+      <pubDate>Sat, 18 May 2013 14:42:32 +0800</pubDate>
+      
+      <guid>/post/csdn/%E7%82%B9%E7%BA%BF%E8%AE%A1%E7%AE%97/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstdio&amp;gt; #include &amp;lt;cmath&amp;gt; using namespace std; struct Point{ double x,y; Point(){}; Point(double a,double b):x(a),y(b){} friend Point operator + (Point a,Point b){ return Point(a.x+b.x,a.y+b.y); } friend Point operator - (Point a,Point b){ return Point(a.x-b.x,a.y-b.y); } friend Point operator * (Point a,double b){ return Point(a.x*b,a.y*b); } friend Point operator</description>
+    </item>
+    
+    <item>
+      <title>JSON 入门笔记</title>
+      <link>/post/csdn/json-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 14 May 2013 12:49:58 +0800</pubDate>
+      
+      <guid>/post/csdn/json-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 对象元素 obj = {&amp;ldquo;name&amp;rdquo;:&amp;ldquo;Jom&amp;rdquo;}; document.writeln(obj.name); 数组 obj = [&amp;ldquo;name&amp;rdquo;,&amp;ldquo;Jom&amp;rdquo;]; document.writeln(obj); 对象数组 obj = [{&amp;ldquo;name&amp;rdquo;:&amp;ldquo;Jom&amp;rdquo;}]; document.writeln(obj[0].name); 与字符串转换 txt = &amp;ldquo;{\&amp;ldquo;name\&amp;rdquo;:\&amp;ldquo;Jank\&amp;ldquo;}&amp;rdquo;; obj = eval(&amp;ldquo;(&amp;rdquo;+txt+&amp;ldquo;)&amp;rdquo;); document.writeln(obj.name); JSON的值： 数字（整数或浮点</description>
+    </item>
+    
+    <item>
+      <title>AJAX 入门笔记</title>
+      <link>/post/csdn/ajax-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 13 May 2013 13:59:15 +0800</pubDate>
+      
+      <guid>/post/csdn/ajax-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 建立请求 var xmlhttp; if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari xmlhttp=new XMLHttpRequest(); } else {// code for IE6, IE5 xmlhttp=new ActiveXObject(&amp;ldquo;Microsoft.XMLHTTP&amp;rdquo;); } 发送请求 xmlhttp.open(&amp;ldquo;GET&amp;rdquo;,&amp;ldquo;kzzhr&amp;rdquo;,true); xmlhttp.send(); aa 输出内容 xmlhttp.onreadystatechange=function(){ if (xmlhttp.readyState==4 &amp;amp;&amp;amp; xmlhttp.status==200){ document.getElementById(&amp;ldquo;myDiv&amp;rdquo;).innerHTML=xmlhttp.responseText; } } 放置数</description>
+    </item>
+    
+    <item>
+      <title>Linux 小白软件包整理</title>
+      <link>/post/csdn/linux-%E5%B0%8F%E7%99%BD%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%95%B4%E7%90%86/</link>
+      <pubDate>Thu, 02 May 2013 16:31:35 +0800</pubDate>
+      
+      <guid>/post/csdn/linux-%E5%B0%8F%E7%99%BD%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%95%B4%E7%90%86/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 软件源 linuxdeepin 不怎么入流，但是个人觉得在国内做的很用心的一个 注意linuxdeepin 用的命令是 apt-get ####Ubuntu 源##</description>
+    </item>
+    
+    <item>
+      <title>表达式计算</title>
+      <link>/post/csdn/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97/</link>
+      <pubDate>Tue, 30 Apr 2013 14:34:18 +0800</pubDate>
+      
+      <guid>/post/csdn/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 输入一个表达式，计算出它的值。运算符有 + - × / （ ）。 思路 这是我们学栈时碰到的一个问题，大体方法是</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 3 史上最性感的编辑器</title>
+      <link>/post/csdn/sublime-text-3-%E5%8F%B2%E4%B8%8A%E6%9C%80%E6%80%A7%E6%84%9F%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+      <pubDate>Mon, 15 Apr 2013 17:42:40 +0800</pubDate>
+      
+      <guid>/post/csdn/sublime-text-3-%E5%8F%B2%E4%B8%8A%E6%9C%80%E6%80%A7%E6%84%9F%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 ↑ ↑ ↑ ↑ ↑ 请看目录 ↑ ↑ ↑ ↑ ↑ 下载 / 安装 windows / MAC OS 官网下载，双击安装，这个都会吧～ linux linux下安装，一</description>
+    </item>
+    
+    <item>
+      <title>POJ 1088 滑雪</title>
+      <link>/post/csdn/poj-1088-%E6%BB%91%E9%9B%AA/</link>
+      <pubDate>Sat, 23 Mar 2013 13:03:02 +0800</pubDate>
+      
+      <guid>/post/csdn/poj-1088-%E6%BB%91%E9%9B%AA/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 http://poj.org/problem?id=1088 思路 经典的记忆化搜索：搜索+记忆化 搜索：一个一个找，能滑就滑 记忆化：优化重复的路径，记录每个点</description>
+    </item>
+    
+    <item>
+      <title>USACO Section 1.2.5 Palindromic Squares</title>
+      <link>/post/csdn/usaco-section-1.2.5-palindromic-squares/</link>
+      <pubDate>Mon, 11 Mar 2013 18:15:41 +0800</pubDate>
+      
+      <guid>/post/csdn/usaco-section-1.2.5-palindromic-squares/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Palindromic Squares Rob Kolstad Palindromes are numbers that read the same forwards as backwards. The number 12321 is a typical palindrome. Given a number base B (2 &amp;lt;= B &amp;lt;= 20 base 10), print all the integers N (1 &amp;lt;= N &amp;lt;= 300 base 10) such that the</description>
+    </item>
+    
+    <item>
+      <title>USACO Section 1.2.3 Transformations</title>
+      <link>/post/csdn/usaco-section-1.2.3-transformations/</link>
+      <pubDate>Mon, 11 Mar 2013 16:04:47 +0800</pubDate>
+      
+      <guid>/post/csdn/usaco-section-1.2.3-transformations/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Transformations A square pattern of size N x N (1 &amp;lt;= N &amp;lt;= 10) black and white square tiles is transformed into another square pattern. Write a program that will recognize the minimum transformation that has been applied to the original pattern given the following list of possible</description>
+    </item>
+    
+    <item>
+      <title>USACO Section 1.2.4 Name That Number</title>
+      <link>/post/csdn/usaco-section-1.2.4-name-that-number/</link>
+      <pubDate>Tue, 05 Mar 2013 13:20:17 +0800</pubDate>
+      
+      <guid>/post/csdn/usaco-section-1.2.4-name-that-number/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Name That Number Among the large Wisconsin cattle ranchers, it is customary to brand cows with serial numbers to please the Accounting Department. The cow hands don&amp;rsquo;t appreciate the advantage of this filing system, though, and wish to call the members of their herd by a pleasing name</description>
+    </item>
+    
+    <item>
+      <title>USACO Section 1.2.2 Milking Cows</title>
+      <link>/post/csdn/usaco-section-1.2.2-milking-cows/</link>
+      <pubDate>Mon, 04 Mar 2013 22:23:21 +0800</pubDate>
+      
+      <guid>/post/csdn/usaco-section-1.2.2-milking-cows/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Milking Cows Three farmers rise at 5 am each morning and head for the barn to milk three cows. The first farmer begins milking his cow at time 300 (measured in seconds after 5 am) and ends at time 1000. The second farmer begins at time 700 and</description>
+    </item>
+    
+    <item>
+      <title>USACO Section 1.1.7 Broken Necklace</title>
+      <link>/post/csdn/usaco-section-1.1.7-broken-necklace/</link>
+      <pubDate>Mon, 04 Mar 2013 21:58:18 +0800</pubDate>
+      
+      <guid>/post/csdn/usaco-section-1.1.7-broken-necklace/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 （由于USACO在外部无法直接访问题库，所以把题目贴上，可以通过上面的目录跳过） Broken Necklace You have a necklace of N</description>
+    </item>
+    
+    <item>
+      <title>你的第一篇博客</title>
+      <link>/post/dashayu/1360296000-%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 08 Feb 2013 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1360296000-%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 感谢你使用Gor编写博客 本文位于 posts/first-blog.md , 你可以任意删掉,修改这个文件 文件开头是当前文</description>
+    </item>
+    
+    <item>
+      <title>假如女人是一种编程语言</title>
+      <link>/post/csdn/%E5%81%87%E5%A6%82%E5%A5%B3%E4%BA%BA%E6%98%AF%E4%B8%80%E7%A7%8D%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</link>
+      <pubDate>Thu, 07 Feb 2013 17:24:42 +0800</pubDate>
+      
+      <guid>/post/csdn/%E5%81%87%E5%A6%82%E5%A5%B3%E4%BA%BA%E6%98%AF%E4%B8%80%E7%A7%8D%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 计算机语言的实质其实是为了让人类能够更好与计算机打交道，最终结果都是通过编译成二进制代码或通过解释器</description>
+    </item>
+    
+    <item>
+      <title>SAP算法心得 ~转的吧</title>
+      <link>/post/csdn/sap%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97-~%E8%BD%AC%E7%9A%84%E5%90%A7/</link>
+      <pubDate>Tue, 05 Feb 2013 15:00:43 +0800</pubDate>
+      
+      <guid>/post/csdn/sap%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97-~%E8%BD%AC%E7%9A%84%E5%90%A7/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 网络最大流算法是网络流算法的基础，实现方法很多，但时间复杂度与编程复杂 度难于兼顾。一方面，诸如预流推</description>
+    </item>
+    
+    <item>
+      <title>那些 Helloworld</title>
+      <link>/post/csdn/%E9%82%A3%E4%BA%9B-helloworld/</link>
+      <pubDate>Sat, 02 Feb 2013 09:22:11 +0800</pubDate>
+      
+      <guid>/post/csdn/%E9%82%A3%E4%BA%9B-helloworld/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 先看那六个变态的： intn[]={0x48, 0x65,0x6C,0x6C, 0x6F,0x2C,0x20, 0x77,0x6F,0x72, 0x6C,0x64,0x21, 0x0A,0x00},*m=n; main(n){putchar (*m)!=&amp;rsquo;\0&amp;rsquo;?main (m++):exit(n++);} #include &amp;ldquo;stdafx.h&amp;rdquo; int main(){int i,n[]={(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt; 1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))+((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))), (((1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;( 1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))+((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))+ (1 &amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1 &amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))- ((1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1 )))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;( 1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))-(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1 )&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))+((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))) -((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))),((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1&amp;lt;&amp;lt;1) &amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt; 1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))),(((1&amp;lt;&amp;lt; 1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))-(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))), (((1&amp;lt;&amp;lt;1 )&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))- ((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1</description>
+    </item>
+    
+    <item>
+      <title>jQuery 入门笔记</title>
+      <link>/post/csdn/jquery-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 01 Feb 2013 20:35:14 +0800</pubDate>
+      
+      <guid>/post/csdn/jquery-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 添加jQuery库： &amp;lt;script src=&amp;ldquo;http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; PS： ../1/.. 可以找到1.. 的最高版本。 2.0.2 不再支持IE8- jQuery语法： $(selector).action() 文档</description>
+    </item>
+    
+    <item>
+      <title>POJ 题目分类与计划</title>
+      <link>/post/csdn/poj-%E9%A2%98%E7%9B%AE%E5%88%86%E7%B1%BB%E4%B8%8E%E8%AE%A1%E5%88%92/</link>
+      <pubDate>Thu, 31 Jan 2013 14:41:53 +0800</pubDate>
+      
+      <guid>/post/csdn/poj-%E9%A2%98%E7%9B%AE%E5%88%86%E7%B1%BB%E4%B8%8E%E8%AE%A1%E5%88%92/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 初期: 一.基本算法: (1)枚举. (poj1753,poj2965) (2)贪心(poj1328,poj2109,poj2586) (3)</description>
+    </item>
+    
+    <item>
+      <title>HDOJ - 1318 Palindromes</title>
+      <link>/post/csdn/hdoj-1318-palindromes/</link>
+      <pubDate>Thu, 17 Jan 2013 13:36:47 +0800</pubDate>
+      
+      <guid>/post/csdn/hdoj-1318-palindromes/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hdu.edu.cn/showproblem.php?pid=1318 一般的字符串处理问题，一个共性：思路简单，代码繁琐。 譬如此题，首先会有一个问题要考虑：如何去</description>
+    </item>
+    
+    <item>
+      <title>一些随便 更新中。。</title>
+      <link>/post/csdn/%E4%B8%80%E4%BA%9B%E9%9A%8F%E4%BE%BF-%E6%9B%B4%E6%96%B0%E4%B8%AD/</link>
+      <pubDate>Wed, 09 Jan 2013 19:37:01 +0800</pubDate>
+      
+      <guid>/post/csdn/%E4%B8%80%E4%BA%9B%E9%9A%8F%E4%BE%BF-%E6%9B%B4%E6%96%B0%E4%B8%AD/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 字体： http://url.cn/CtKsBe linux默认字体 http://url.cn/ClMeMA 苹果系统默认编程字体 http://url.cn/DNLRS8 一种不错的汉英搭配个人感觉 http://url.cn/A4NRay 这个，是我以前的编程字</description>
+    </item>
+    
+    <item>
+      <title>C语言初探 之 printf压栈顺序</title>
+      <link>/post/csdn/c%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-%E4%B9%8B-printf%E5%8E%8B%E6%A0%88%E9%A1%BA%E5%BA%8F/</link>
+      <pubDate>Tue, 08 Jan 2013 19:53:44 +0800</pubDate>
+      
+      <guid>/post/csdn/c%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-%E4%B9%8B-printf%E5%8E%8B%E6%A0%88%E9%A1%BA%E5%BA%8F/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 写在篇头： 在不同的编译器下结果不同，本例测试的环境为 devcpp5.3.0.1 。 ——————————————————————</description>
+    </item>
+    
+    <item>
+      <title>C语言初探 之 %p</title>
+      <link>/post/csdn/c%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-%E4%B9%8B-p/</link>
+      <pubDate>Fri, 04 Jan 2013 13:37:02 +0800</pubDate>
+      
+      <guid>/post/csdn/c%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-%E4%B9%8B-p/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 先看代码： int a=16,b=17,c=18; int *p,*q,*g; p=&amp;amp;a;q=&amp;amp;b;g=&amp;amp;c; printf(&amp;ldquo;%p %p %p\n&amp;rdquo;,a,b,c); printf(&amp;ldquo;%p %p %p\n&amp;rdquo;,&amp;amp;a,&amp;amp;b,&amp;amp;c); printf(&amp;ldquo;%8x %8x %8x\n&amp;rdquo;,&amp;amp;a,&amp;amp;b,&amp;amp;c); printf(&amp;ldquo;%8x %8x %8x\n&amp;rdquo;,p,q,g); %x 只是把同样的数值以不同的形式输出而已，因此如果要寻址，</description>
+    </item>
+    
+    <item>
+      <title>不是所有的记忆都美好</title>
+      <link>/post/typecho/%E4%B8%8D%E6%98%AF%E6%89%80%E6%9C%89%E7%9A%84%E8%AE%B0%E5%BF%86%E9%83%BD%E7%BE%8E%E5%A5%BD/</link>
+      <pubDate>Mon, 31 Dec 2012 10:18:00 +0800</pubDate>
+      
+      <guid>/post/typecho/%E4%B8%8D%E6%98%AF%E6%89%80%E6%9C%89%E7%9A%84%E8%AE%B0%E5%BF%86%E9%83%BD%E7%BE%8E%E5%A5%BD/</guid>
+      <description>不是所有的记忆都美好，不是所有的人都值得记忆，岁月的河流太漫长，大部分的人与事都会被无情地冲走，但是，与青春有关的一切，总会沉淀到河底，成为</description>
+    </item>
+    
+    <item>
+      <title>数字根介绍</title>
+      <link>/post/csdn/%E6%95%B0%E5%AD%97%E6%A0%B9%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Tue, 27 Nov 2012 09:26:36 +0800</pubDate>
+      
+      <guid>/post/csdn/%E6%95%B0%E5%AD%97%E6%A0%B9%E4%BB%8B%E7%BB%8D/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 数字根 参考链接： http://blog.renren.com/share/334504317/8581660295#nogo 定义 数字根（ Digital Root ）就是把一个数的各位数字相加，再将所得数的各位数字相加，直到所得数</description>
+    </item>
+    
+    <item>
+      <title>HDOJ - 2045 RPG难题</title>
+      <link>/post/csdn/hdoj-2045-rpg%E9%9A%BE%E9%A2%98/</link>
+      <pubDate>Thu, 22 Nov 2012 21:01:27 +0800</pubDate>
+      
+      <guid>/post/csdn/hdoj-2045-rpg%E9%9A%BE%E9%A2%98/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目地址： http://acm.hdu.edu.cn/showproblem.php?pid=2045 算法思想： 1）有三种颜色，在涂某一块区域时，由于它的前一块区域已经确定，且相邻区域不能重</description>
+    </item>
+    
+    <item>
+      <title>HDOJ – 2043 密码</title>
+      <link>/post/csdn/hdoj-2043-%E5%AF%86%E7%A0%81/</link>
+      <pubDate>Thu, 22 Nov 2012 19:17:42 +0800</pubDate>
+      
+      <guid>/post/csdn/hdoj-2043-%E5%AF%86%E7%A0%81/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目地址： http://acm.hdu.edu.cn/showproblem.php?pid=2043 最基础的模拟题目，只要按照题目给出的要求进行判断即可。 代码如下： #include&amp;lt;iostream&amp;gt; #include&amp;lt;string&amp;gt; using namespace std; const string s=&amp;rdquo;~!@#$%^&amp;ldquo;; string ss; int n;</description>
+    </item>
+    
+    <item>
+      <title>Qtree_testing</title>
+      <link>/post/csdn/qtree_testing/</link>
+      <pubDate>Tue, 20 Nov 2012 13:14:53 +0800</pubDate>
+      
+      <guid>/post/csdn/qtree_testing/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 testing&amp;hellip; #include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstring&amp;gt; #include &amp;lt;cstdlib&amp;gt; #include &amp;lt;cmath&amp;gt; using namespace std; const int maxn=10010; const int maxm=maxn*2; const int maxu=maxn*4; const int maxt=maxn*10; const int oo=1993101215; int test,n,e,indexs,dep,tot,lca,debug; int id; //重链编号 int node; //线段树节点 int pre[maxm],other[maxm],last[maxm],w[maxm]; //</description>
+    </item>
+    
+    <item>
+      <title>开学60天小记</title>
+      <link>/post/typecho/47-%E5%BC%80%E5%AD%A660%E5%A4%A9%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Fri, 09 Nov 2012 18:30:00 +0800</pubDate>
+      
+      <guid>/post/typecho/47-%E5%BC%80%E5%AD%A660%E5%A4%A9%E5%B0%8F%E8%AE%B0/</guid>
+      <description>&lt;p&gt;我是否也要像其他人一样写下：不知不觉来大学已经两个月了，咦！竟然恰好是两个月！满心是莫名的欢喜。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>/post/typecho/45-hello-world/</link>
+      <pubDate>Sun, 28 Oct 2012 18:28:00 +0800</pubDate>
+      
+      <guid>/post/typecho/45-hello-world/</guid>
+      <description>&lt;p&gt;又是一次Wordpress，希望这次可以好好的走下去，不要再只是闹着玩玩。&lt;/p&gt;
+
+&lt;p&gt;大学了，或许会成为一个新的起点，希望在这里能够记下重生后的点点滴滴。当然，不可能每件事情都在这里留下，还有我的轻博客和微博以及人人，各种工具一起用，效果或许会更好点，信息更全面一点吧。至于各个博客地址，个人资料里会有更新。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用程序去判断每个人说话的真假 - 写给新手的枚举介绍</title>
+      <link>/post/csdn/%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%8E%BB%E5%88%A4%E6%96%AD%E6%AF%8F%E4%B8%AA%E4%BA%BA%E8%AF%B4%E8%AF%9D%E7%9A%84%E7%9C%9F%E5%81%87-%E5%86%99%E7%BB%99%E6%96%B0%E6%89%8B%E7%9A%84%E6%9E%9A%E4%B8%BE%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Sat, 13 Oct 2012 11:09:11 +0800</pubDate>
+      
+      <guid>/post/csdn/%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%8E%BB%E5%88%A4%E6%96%AD%E6%AF%8F%E4%B8%AA%E4%BA%BA%E8%AF%B4%E8%AF%9D%E7%9A%84%E7%9C%9F%E5%81%87-%E5%86%99%E7%BB%99%E6%96%B0%E6%89%8B%E7%9A%84%E6%9E%9A%E4%B8%BE%E4%BB%8B%E7%BB%8D/</guid>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 背景 我们在以前的数学题中一定遇到过这样的问题： A说xxxx B说xxx C说xxx 然后给一些条件，让你判</description>
+    </item>
+    
+    <item>
+      <title>acmtips</title>
+      <link>/post/dashayu/1349668800-acmtips/</link>
+      <pubDate>Mon, 08 Oct 2012 12:00:00 +0800</pubDate>
+      
+      <guid>/post/dashayu/1349668800-acmtips/</guid>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 var tt = [&#34;&#34;, &#34;一&#34;, &#34;二&#34;, &#34;三&#34;, &#34;四&#34;, &#34;五&#34;, &#34;六&#34;, &#34;七&#34;, &#34;八&#34;, &#34;九&#34;,</description>
+    </item>
+    
+    <item>
+      <title>博客建设日志</title>
+      <link>/post/typecho/85-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Thu, 03 Jun 2010 12:27:00 +0800</pubDate>
+      
+      <guid>/post/typecho/85-%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/</guid>
+      <description>&lt;p&gt;每个人心中都有一个理想的博客，这些并不是那些通用博客服务商能提供的，于是我选择自己动手搭建，用心逐雕。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

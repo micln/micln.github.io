@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HttpClient on 在水异方</title>
+    <link>/tags/httpclient/</link>
+    <description>Recent content in HttpClient on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 10 Sep 2018 20:22:26 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/httpclient/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HttpClient 的几个点</title>
+      <link>/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/</link>
+      <pubDate>Mon, 10 Sep 2018 20:22:26 +0800</pubDate>
+      
+      <guid>/post/jianshu/httpclient-%E7%9A%84%E5%87%A0%E4%B8%AA%E7%82%B9/</guid>
+      <description>迁移自简书，格式可能未经校对。 越来越多的应用里需要依赖大量的对外请求（内部服务或第三方平台）。但是很多的 client 只有基本的请求，这在复杂的场景里根</description>
+    </item>
+    
+  </channel>
+</rss>
