@@ -2160,7 +2160,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 分钟阅读时间
+    0 分钟阅读时间
   </span>
   
 
@@ -2204,7 +2204,77 @@
 
   
   <div class="article-style" itemprop="articleBody">
-    此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很长，其实就是字符串匹配。 所以，权当练习 KMP #include &lt;cstdio&gt; #include &lt;cstring&gt; #define MB 10101 #define MA 1000100 char a[MA],b[MB]; int next[MB]; void prekmp(char* b) { next[0]=-1; int j=-1; for (
+    <blockquote>
+<p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
+</blockquote>
+
+<p><div class="htmledit_views" id="content_views">
+ <blockquote style="border:none;">
+  <p>
+   <a href="http://poj.org/problem?id=3461" rel="nofollow">
+    题目链接
+   </a>
+  </p>
+  <p>
+   题目很长，其实就是字符串匹配。
+  </p>
+  <p>
+   所以，权当练习 KMP
+  </p>
+  <p>
+  </p>
+  <pre><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#define MB 10101
+#define MA 1000100
+char a[MA],b[MB];
+int next[MB];</p>
+
+<p>void prekmp(char* b) {
+    next[0]=-1;
+    int j=-1;
+    for ( int i(1); b[i]; i++) {
+        while ( j!=-1 &amp;&amp; b[i]!=b[j+1]) j=next[j];
+        if ( b[i]==b[j+1] ) j++;
+        next[i]=j;
+    }
+}</p>
+
+<p>int kmp(char *a,char *b) {
+    int j=-1,ans=0;
+    for ( int i(0); a[i]; i++) {
+        while ( j!=-1 &amp;&amp; a[i]!=b[j+1] ) j=next[j];
+        if (a[i]==b[j+1]) j++;
+        if (!b[j+1]) {
+            ans++;
+            j=next[j];
+        }
+    }
+    return ans;
+}</p>
+
+<p>int main() {
+    int T;
+    freopen(&ldquo;in.txt&rdquo;,&ldquo;r&rdquo;,stdin);
+    for (scanf(&ldquo;%d\n&rdquo;,&amp;T); T&ndash;;) {
+        scanf(&ldquo;%s\n%s\n&rdquo;,b,a);
+        memset(next,0,sizeof(0));
+        prekmp(b);
+        printf(&ldquo;%d\n&rdquo;,kmp(a,b));
+    }
+    return 0;
+}
+</code></pre>
+  <br/>
+  <br/>
+  <p>
+  </p>
+  <p>
+   <br/>
+  </p>
+ </blockquote>
+</div></p>
+
   </div>
   
 

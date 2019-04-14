@@ -26,7 +26,7 @@
       <pubDate>Mon, 25 Mar 2019 00:22:45 +0800</pubDate>
       
       <guid>/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/</guid>
-      <description></description>
+      <description>迁移自简书，格式可能未经校对。 事件经过： 收到反馈测试环境某个服务打开 swagger ，进程会卡死 根据经验，初步判定是有死循环。 在本地启动该服务，打开 swagger ，发</description>
     </item>
     
     <item>
@@ -547,7 +547,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 31 Mar 2014 09:34:47 +0800</pubDate>
       
       <guid>/post/csdn/poj-3461-oulipo-kmp%E7%BB%83%E4%B9%A0/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很长，其实就是字符串匹配。 所以，权当练习 KMP #include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstring&amp;gt; #define MB 10101 #define MA 1000100 char a[MA],b[MB]; int next[MB]; void prekmp(char* b) { next[0]=-1; int j=-1; for (</description>
+      <description></description>
     </item>
     
     <item>
@@ -655,7 +655,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 02 Oct 2013 23:11:58 +0800</pubDate>
       
       <guid>/post/csdn/longest-ordered-subsequence-onlogn%E8%A7%A3%E6%B3%95-stl/</guid>
-      <description></description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 维护一个单调队列，对于每一个新的元素： 如果大于队尾元素，补在后面； 否则替换掉最小的大于它的数，这里用</description>
     </item>
     
     <item>
