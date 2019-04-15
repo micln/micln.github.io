@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>go on 在水异方</title>
+    <title>Go on 在水异方</title>
     <link>/tags/go/</link>
-    <description>Recent content in go on 在水异方</description>
+    <description>Recent content in Go on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 14 Apr 2019 11:20:27 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2019 19:51:18 +0800</lastBuildDate>
     
 	<atom:link href="/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>一个在线图服务的简单想法（草稿）</title>
+      <link>/post/graph_service/</link>
+      <pubDate>Mon, 15 Apr 2019 19:51:18 +0800</pubDate>
+      
+      <guid>/post/graph_service/</guid>
+      <description>背景 除了最基本的 web1.0 业务，越来越多的场景符合图（尤其是二分图）结构。比如 给文章打标签（二分图） 点赞、已阅（二分图） 社交关系网络（有向图） 以及相</description>
+    </item>
     
     <item>
       <title>Go Module 实践中的问题（持续更新）</title>

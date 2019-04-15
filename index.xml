@@ -5,8 +5,159 @@
     <description>Recent content in 在水异方 on 在水异方</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 14 Apr 2019 11:20:27 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2019 19:51:18 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>一个在线图服务的简单想法（草稿）</title>
+      <link>/post/graph_service/</link>
+      <pubDate>Mon, 15 Apr 2019 19:51:18 +0800</pubDate>
+      
+      <guid>/post/graph_service/</guid>
+      <description>
+
+&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+
+&lt;p&gt;除了最基本的 web1.0 业务，越来越多的场景符合图（尤其是二分图）结构。比如&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;给文章打标签（二分图）&lt;/li&gt;
+&lt;li&gt;点赞、已阅（二分图）&lt;/li&gt;
+&lt;li&gt;社交关系网络（有向图）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以及相关的统计需求。&lt;/p&gt;
+
+&lt;p&gt;常见的处理办法是为每个关联功能建立关系表、构建缓存、提供接口。大部分的代码简单而重复。&lt;/p&gt;
+
+&lt;p&gt;最近想在这方面做一些尝试，希望能从繁琐的基础建设里摆脱出来。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;关于图的基本概念不再赘述，可以参考专业的数据结构资料。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;常见的功能场景&#34;&gt;常见的功能场景&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;已知&lt;/th&gt;
+&lt;th&gt;求解&lt;/th&gt;
+&lt;th&gt;常用方案&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;一个点&lt;/td&gt;
+&lt;td&gt;相连所有点&lt;/td&gt;
+&lt;td&gt;redis.zset + db.list&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;两个点&lt;/td&gt;
+&lt;td&gt;是否连接&lt;/td&gt;
+&lt;td&gt;hash&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;一个点&lt;/td&gt;
+&lt;td&gt;计数：相连点总数&lt;/td&gt;
+&lt;td&gt;离线计算&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;除此之外，经常还会涉及&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;权重（weight）：通常用于排序&lt;/li&gt;
+&lt;li&gt;状态（status）：两点关系比较复杂时使用，个人觉得也可以直接用 weight 表示&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;设计思路&#34;&gt;设计思路&lt;/h2&gt;
+
+&lt;h3 id=&#34;存储及索引&#34;&gt;存储及索引&lt;/h3&gt;
+
+&lt;p&gt;不同的场景解决方案不同，存储和索引也不同（&lt;del&gt;好像是废话&lt;/del&gt;）。如果采用大而全的方式，必然会产生许多浪费。所以考虑在建立图的时候能指定存储方式和索引，类似于 &lt;code&gt;create table ... index&lt;/code&gt; 这样的定义。&lt;/p&gt;
+
+&lt;p&gt;考虑到不同的环境下使用的技术栈不同，还要提供统一的接口并提供一些驱动。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;针对大多数情况，数据库用 MySQL、MongoDB 来持久化存储所有的点线关系。&lt;/li&gt;
+&lt;li&gt;针对在线高并发场景，需要用 LocalCache、Redis 这样的缓存服务来存储热点数据。不过，缓存的逻辑不在我的考虑范围内，只提供 RedisDriver 来提供图的处理能力。后期可在此基础上再去封装 cache、proxy 等等。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;可用性&#34;&gt;可用性&lt;/h3&gt;
+
+&lt;p&gt;由于水平有限，暂时只能依靠存储服务的高可用来保证整个服务的可用性。&lt;/p&gt;
+
+&lt;p&gt;服务进程本身无状态，除了一些可以丢弃的 LocalCache 外。&lt;/p&gt;
+
+&lt;p&gt;服务节点支持水平扩容，允许部分节点挂掉。&lt;/p&gt;
+
+&lt;h3 id=&#34;性能&#34;&gt;性能&lt;/h3&gt;
+
+&lt;p&gt;如果数据热点分散，大概率还只能依靠DB的性能。热点数据，可以在 Redis 和 LocalCache 上做文章。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redis 集群目前已经比较成熟了，暂时不考虑太多。&lt;/li&gt;
+&lt;li&gt;LocalCache，如果节点很多，也可以考虑通过一致性哈希来分片，这样所有内存都能充分利用。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;进一步的，针对特定场景也可以考虑（不具有通用性）：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;针对稀疏图（点多边少），如果更多判断两个节点是否联通（也就是看边是否存在），可以把边序列化到布隆过滤器上，增加缓存容量&lt;/li&gt;
+&lt;li&gt;针对稠密图（点少边多），可以用 bitmap 等来压缩空间，进一步把整个矩阵来水平分割。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;接口&#34;&gt;接口&lt;/h3&gt;
+
+&lt;p&gt;除了标准的 HTTP 接口外，想加上标准化的 SDK，方便进一步优化。&lt;/p&gt;
+
+&lt;h2 id=&#34;详细设计&#34;&gt;详细设计&lt;/h2&gt;
+
+&lt;h3 id=&#34;数据结构&#34;&gt;数据结构&lt;/h3&gt;
+
+&lt;p&gt;基础数据模型&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;type Vertice struct {
+	Id uint64
+	Weight int64
+	Timestamp
+}
+
+type Edge struct {
+	Id uint64
+	From *Vertice
+	To *Vertice
+	Weight int64
+	Timestamp
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;具体实现驱动时要根据场景和存储系统做不同的序列化。&lt;/p&gt;
+
+&lt;h3 id=&#34;接口文档&#34;&gt;接口文档&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;接口
+
+&lt;ul&gt;
+&lt;li&gt;isConnect(g, a, b)&lt;/li&gt;
+&lt;li&gt;getConnections(g, a, order = asc, pager = [1,20])&lt;/li&gt;
+&lt;li&gt;setConnect(g, a, b, weight)&lt;/li&gt;
+&lt;li&gt;unConenct(g, a, b)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;管理接口
+
+&lt;ul&gt;
+&lt;li&gt;newGraph(g, index=edge)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Go Module 实践中的问题（持续更新）</title>
@@ -971,72 +1122,6 @@ package Eloquent{
 &lt;li&gt;Mutators / Casting&lt;/li&gt;
 &lt;li&gt;Full SQL 诸如事务、联表、简单计算等&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>sftp 配置笔记整理</title>
-      <link>/post/jianshu/sftp-%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/</link>
-      <pubDate>Sun, 04 Jun 2017 23:55:00 +0800</pubDate>
-      
-      <guid>/post/jianshu/sftp-%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/</guid>
-      <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;缘由：网上google出来的东西要么排版太丑要么啥都没有&lt;/p&gt;
-
-&lt;h1 id=&#34;安装&#34;&gt;安装&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;apt install vsftpd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;限制目录&#34;&gt;限制目录&lt;/h1&gt;
-
-&lt;h3 id=&#34;ftp&#34;&gt;ftp&lt;/h3&gt;
-
-&lt;p&gt;在 &lt;code&gt;/etc/vsftpd.conf&lt;/code&gt; 里有个 &lt;code&gt;local_root=/home/sftp_root&lt;/code&gt;。测试发现， 只对不加密的ftp有效。&lt;/p&gt;
-
-&lt;h3 id=&#34;sftp&#34;&gt;sftp&lt;/h3&gt;
-
-&lt;p&gt;要限制sftp的权限，都要通过限制ssh访问的方式。大概方法是：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;建立一个用来限制目录的组 sftp-users&lt;/li&gt;
-&lt;li&gt;建立一个专门用来登陆sftp的用户 sftpu1，并加入到上面的组里&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;在sshd里限制这个组的访问空间&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;建用户组&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;groupadd sftp-users
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;建用户并加到组里&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;useradd -g sftp-users -s /bin/false sftp
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;限制该组的活动空间&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;在 &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt; 里追加以下内容&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Match Group sftpuser
-    ChrootDirectory /home/sftp_root
-    ForceCommand internal-sftp 
-    AllowTcpForwarding no 
-    X11Forwarding no 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;改完之后记得让ssh重读配置&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo service sshd reload
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;但是，这样基本上要求你的ssh用户和sftp用户没法是同一个人了&lt;/p&gt;
 </description>
     </item>
     
