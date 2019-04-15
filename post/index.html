@@ -1158,7 +1158,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 分钟阅读时间
+    2 分钟阅读时间
   </span>
   
 
@@ -1202,117 +1202,7 @@
 
   
   <div class="article-style" itemprop="articleBody">
-    
-
-<blockquote>
-<p>迁移自简书，格式可能未经校对。</p>
-</blockquote>
-
-<p>这里只会记录在学习 Redis 源码时觉得比较好玩的地方，不会一五一十的讲细节。</p>
-
-<h2 id="内存分配">内存分配</h2>
-
-<p><code>zmalloc</code> 在实际 <code>malloc</code> 到的内存前面加一个 <code>size</code> 。</p>
-
-<pre><code class="language-c">void *zmalloc(size_t size) {
-    void *ptr = malloc(size+PREFIX_SIZE);
-    *((size_t*)ptr) = size;
-    update_zmalloc_stat_alloc(size+PREFIX_SIZE);
-    return (char*)ptr+PREFIX_SIZE;
-}
-</code></pre>
-
-<h2 id="动态字符串-sds">动态字符串 sds</h2>
-
-<p><code>sds</code> 在基础的 <code>char*</code> 前面加一段 <code>header</code> 来记录信息（类似于 Go 实现）。</p>
-
-<pre><code class="language-c">// 除了 sdshdr64，还有 sdshdr32、sdshdr16... 区分不同的长度上限
-struct __attribute__ ((__packed__)) sdshdr64 {
-    uint64_t len; /* used */
-    uint64_t alloc; /* excluding the header and null terminator */
-    unsigned char flags; /* 3 lsb of type, 5 unused bits */
-    char buf[];
-};
-
-sds sdsnewlen(const void *init, size_t initlen) {
-    ...
-    sh = s_malloc(hdrlen+initlen+1);
-    s = (char*)sh+hdrlen;	// 实际字符串
-    memcpy(s, init, initlen);
-    return s;
-}
-</code></pre>
-
-<h2 id="字典-dict">字典 dict</h2>
-
-<ul>
-<li><p>基本数据结构</p>
-
-<ul>
-<li>dictEntry：键值对。（冲突处理：开链）</li>
-<li>dictht：哈希表。记录使用情况用来 <code>rehash</code></li>
-<li>dict
-<code>c
-typedef struct dict {
-dictType *type; // 不同type有不同的hash算法
-void *privdata;
-dictht ht[2];   // 两个 ht 来实现渐进式的 rehash
-long rehashidx; /* rehashing not in progress if rehashidx == -1 */
-unsigned long iterators; /* number of iterators currently running */
-} dict;
-</code></li>
-</ul></li>
-
-<li><p>哈希算法</p></li>
-
-<li><p>rehash：冲突元素太多时扩容。通过两个哈希表进行</p>
-
-<ul>
-<li>渐进式策略：</li>
-<li>每次执行操作时转移一个</li>
-<li>定时每次转移100个</li>
-</ul></li>
-
-<li><p>数据操作</p>
-
-<ul>
-<li>每次操作前尽可能进行一次 <code>rehash</code>。</li>
-<li><code>rehash</code> 时，要依次在两个表里查询；其他操作类似。</li>
-</ul></li>
-</ul>
-
-<h2 id="跳跃表-zset">跳跃表 zset</h2>
-
-<ul>
-<li>数据结构
-
-<ul>
-<li>span</li>
-</ul></li>
-</ul>
-
-<h2 id="整数集合-intset">整数集合 intset</h2>
-
-<ul>
-<li>数据结构
-
-<ul>
-<li><code>encoding</code> 记录元素大小，对于小的数字，使用 <code>int16_t</code> 来节省内存。</li>
-</ul></li>
-<li>resize
-
-<ul>
-<li>先分配足够内存，再调用 <code>memmove</code> 函数进行搬移</li>
-<li>单向升级，只有在插入元素的时候，如果 <code>encoding</code> 过小时会进行</li>
-</ul></li>
-</ul>
-
-<h1 id="鸣谢">鸣谢</h1>
-
-<ul>
-<li><a href="https://zcheng.ren/tags/redis/" target="_blank">Redis源码剖析</a></li>
-</ul>
-
+    迁移自简书，格式可能未经校对。 这里只会记录在学习 Redis 源码时觉得比较好玩的地方，不会一五一十的讲细节。 内存分配 zmalloc 在实际 malloc 到的内存前面加一个 size 。 void
   </div>
   
 
@@ -1369,7 +1259,7 @@ unsigned long iterators; /* number of iterators currently running */
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 分钟阅读时间
+    0 分钟阅读时间
   </span>
   
 
@@ -1413,7 +1303,63 @@ unsigned long iterators; /* number of iterators currently running */
 
   
   <div class="article-style" itemprop="articleBody">
-    迁移自简书，格式可能未经校对。 用 Laravel 很久了，whereHas 简直是连表大杀器，本来需要写大量 SQL 的查询用 whereHas 都可以很快的实现。不过在一些场景里，遇
+    <blockquote>
+<p>迁移自简书，格式可能未经校对。</p>
+</blockquote>
+
+<p>用 Laravel 很久了，whereHas 简直是连表大杀器，本来需要写大量 SQL 的查询用 whereHas 都可以很快的实现。不过在一些场景里，遇到了严重的性能问题。</p>
+
+<p>我们有个A表，大约是百万级数据，与之关联的有个B表，大约万级数据。在做关联查询的时候我们自然使用 <code>A::whereHas('b', function(){...})</code>  。</p>
+
+<p>后来发现了许多慢查询，仔细一看发现，Laravel 的 <code>whereHas</code> 在生成 SQL 的时候会使用 <code>select * from A where exists ( select * from b where ... )</code> 。当我们的左表远远大于右表时，A 表就成了性能瓶颈。</p>
+
+<p>最直接的方法当然是拆成两条 SQL，但是嫌麻烦，还得一条条优化。再加上我们很多 SQL 都是靠各种工具生成，所以改起来也挺麻烦。</p>
+
+<p>于是就考虑加了个 <code>whereHasIn</code> 的方法，接口参数跟 <code>whereHas</code> 一致，只不过在生成 SQL 的时候会生成 <code>select * from A where A.id in (select id from B)</code>。这样就不需要改什么 SQL 了，只要在调用 <code>A::whereHas()</code> 的地方加两个字符变成 <code>A::whereHasIn()</code> 就搞定了。在实际中，我们这条查询的耗时从几秒一下降低到了20毫秒。</p>
+
+<p>下面是一个实现的 demo，暂时只支持 一对多的情况。如果大家有什么更好的想法，一起讨论讨论。</p>
+
+<pre><code class="language-php">&lt;?php
+
+use Illuminate\Database\Eloquent\Relations;
+
+abstract class AbstractModel
+{
+    /**
+     * whereHas 的 where in 实现
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @param string $relationName
+     * @param callable $callable
+     * @return Builder
+     *
+     * @throws Exception
+     */
+    public function scopeWhereHasIn($builder, $relationName, callable $callable)
+    {
+        $relationNames = explode('.', $relationName);
+        $nextRelation = implode('.', array_slice($relationNames, 1));
+
+        $method = $relationNames[0];
+        /** @var Relations\BelongsTo|Relations\HasOne $relation */
+        $relation = Relations\Relation::noConstraints(function () use ($method) {
+            return $this-&gt;$method();
+        });
+
+        /** @var Builder $in */
+        $in = $relation-&gt;getQuery()-&gt;whereHasIn($nextRelation, $callable);
+
+        if ($relation instanceof Relations\BelongsTo) {
+            return $builder-&gt;whereIn($relation-&gt;getForeignKey(), $in-&gt;select($relation-&gt;getOwnerKey()));
+        } elseif ($relation instanceof Relations\HasOne) {
+            return $builder-&gt;whereIn($this-&gt;getKeyName(), $in-&gt;select($relation-&gt;getForeignKeyName()));
+        }
+
+        throw new Exception(__METHOD__ . &quot; 不支持 &quot; . get_class($relation));
+    }
+}
+</code></pre>
+
   </div>
   
 

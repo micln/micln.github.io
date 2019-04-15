@@ -89,7 +89,7 @@
       <pubDate>Sun, 05 Aug 2018 01:16:07 +0800</pubDate>
       
       <guid>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description></description>
+      <description>迁移自简书，格式可能未经校对。 这里只会记录在学习 Redis 源码时觉得比较好玩的地方，不会一五一十的讲细节。 内存分配 zmalloc 在实际 malloc 到的内存前面加一个 size 。 void</description>
     </item>
     
     <item>
@@ -98,7 +98,7 @@
       <pubDate>Tue, 26 Jun 2018 21:07:21 +0800</pubDate>
       
       <guid>/post/jianshu/laravel-eloquent-wherehas-%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96/</guid>
-      <description>迁移自简书，格式可能未经校对。 用 Laravel 很久了，whereHas 简直是连表大杀器，本来需要写大量 SQL 的查询用 whereHas 都可以很快的实现。不过在一些场景里，遇</description>
+      <description></description>
     </item>
     
     <item>
@@ -565,7 +565,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sat, 29 Mar 2014 12:29:31 +0800</pubDate>
       
       <guid>/post/csdn/webkit-webapp-%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 原文链接 如果你是一名前端er,又想在移动设备上开发出自己的应用，那怎么实现呢？幸好，webkit内核</description>
+      <description></description>
     </item>
     
     <item>
@@ -574,7 +574,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sun, 22 Dec 2013 20:24:56 +0800</pubDate>
       
       <guid>/post/csdn/%E6%9D%8E%E5%BC%80%E5%A4%8D%E7%AE%97%E6%B3%95%E7%9A%84%E5%8A%9B%E9%87%8F-%E5%AE%8C%E6%95%B4%E7%89%88/</guid>
-      <description></description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 算法的力量 李开复 2006年5月 算法是计算机科学领域最重要的基石之一，但却受到了国内一些程序员的冷落。</description>
     </item>
     
     <item>
@@ -583,7 +583,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sat, 21 Dec 2013 23:48:31 +0800</pubDate>
       
       <guid>/post/csdn/2013~2014-%E7%AC%AC%E4%B8%80%E5%AD%A6%E6%9C%9F%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 坑爹的电信网，服务器访问不上了。 大家先将就一下吧。 基础班 时间 课件 详情 主讲 10.26 第零讲 ACM介绍 张慧仁 10.31 第</description>
+      <description></description>
     </item>
     
     <item>
@@ -700,7 +700,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 22 Aug 2013 00:11:02 +0800</pubDate>
       
       <guid>/post/csdn/rmq-with-shifts-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9F%BA%E5%9F%BA%E7%A1%80/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 思路 看上去是个线段树，不过每个元素都移动，树结构本身无法实现这个功能，只能一个一个的修改，但是里面的</description>
+      <description></description>
     </item>
     
     <item>
