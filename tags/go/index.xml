@@ -6,10 +6,28 @@
     <description>Recent content in Go on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 15 Apr 2019 19:51:18 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 14 May 2019 01:09:31 +0800</lastBuildDate>
     
 	<atom:link href="/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Goption：一个针对 Go struct 的代码生成器</title>
+      <link>/post/goption/</link>
+      <pubDate>Tue, 14 May 2019 01:09:31 +0800</pubDate>
+      
+      <guid>/post/goption/</guid>
+      <description>缘起 写代码里有个绕不开的话题就是如何写构造函数 Java 里有 JavaBean 作为标准，空构造参数 + 自定义的 setter C++ 里靠重载实现任意场景的构造 Python 里可以可以支持传你需要的</description>
+    </item>
+    
+    <item>
+      <title>一个会导致 go build panic 的 bug</title>
+      <link>/post/a_go_build_panic_bug/</link>
+      <pubDate>Tue, 14 May 2019 00:35:38 +0800</pubDate>
+      
+      <guid>/post/a_go_build_panic_bug/</guid>
+      <description>起因是因为犯懒，随手在一个函数体内定义一个类型 func foo() { type Article = map[string]interface{} } 看起来好像也很正常，突然有一天在 gowatch 的控制台里看到了 runtime: goroutine stack exceeds 1000000000-byte limit fatal error: stack overflow runtime stack: runtime.throw(0x1a556a1, 0xe)</description>
+    </item>
     
     <item>
       <title>一个在线图服务的简单想法（草稿）</title>

@@ -80,7 +80,7 @@
       <pubDate>Tue, 26 Jun 2018 21:07:21 +0800</pubDate>
       
       <guid>/post/jianshu/laravel-eloquent-wherehas-%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96/</guid>
-      <description></description>
+      <description>迁移自简书，格式可能未经校对。 用 Laravel 很久了，whereHas 简直是连表大杀器，本来需要写大量 SQL 的查询用 whereHas 都可以很快的实现。不过在一些场景里，遇</description>
     </item>
     
     <item>

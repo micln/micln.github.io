@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.55.0" />
+  <meta name="generator" content="Hugo 0.55.5" />
 
   
 
@@ -443,7 +443,7 @@ sds sdsnewlen(const void *init, size_t initlen) {
 <h2 id="字典-dict">字典 dict</h2>
 
 <ul>
-<li><p>基本数据结构</p>
+<li>基本数据结构
 
 <ul>
 <li>dictEntry：键值对。（冲突处理：开链）</li>
@@ -457,57 +457,40 @@ dictht ht[2];   // 两个 ht 来实现渐进式的 rehash
 long rehashidx; /* rehashing not in progress if rehashidx == -1 */
 unsigned long iterators; /* number of iterators currently running */
 } dict;
-</code></li>
+</code>
+
+- 哈希算法
+- rehash：冲突元素太多时扩容。通过两个哈希表进行
+- 渐进式策略：
+- 每次执行操作时转移一个
+- 定时每次转移100个
+- 数据操作
+- 每次操作前尽可能进行一次 <code>rehash</code>。
+- <code>rehash</code> 时，要依次在两个表里查询；其他操作类似。
+
+
+
+## 跳跃表 zset
+
+- 数据结构
+- span
+
+
+
+## 整数集合 intset
+
+- 数据结构
+- <code>encoding</code> 记录元素大小，对于小的数字，使用 <code>int16_t</code> 来节省内存。
+- resize
+- 先分配足够内存，再调用 <code>memmove</code> 函数进行搬移
+- 单向升级，只有在插入元素的时候，如果 <code>encoding</code> 过小时会进行
+
+
+
+# 鸣谢
+
+- <a href="https://zcheng.ren/tags/redis/" target="_blank">Redis源码剖析</a></li>
 </ul></li>
-
-<li><p>哈希算法</p></li>
-
-<li><p>rehash：冲突元素太多时扩容。通过两个哈希表进行</p>
-
-<ul>
-<li>渐进式策略：</li>
-<li>每次执行操作时转移一个</li>
-<li>定时每次转移100个</li>
-</ul></li>
-
-<li><p>数据操作</p>
-
-<ul>
-<li>每次操作前尽可能进行一次 <code>rehash</code>。</li>
-<li><code>rehash</code> 时，要依次在两个表里查询；其他操作类似。</li>
-</ul></li>
-</ul>
-
-<h2 id="跳跃表-zset">跳跃表 zset</h2>
-
-<ul>
-<li>数据结构
-
-<ul>
-<li>span</li>
-</ul></li>
-</ul>
-
-<h2 id="整数集合-intset">整数集合 intset</h2>
-
-<ul>
-<li>数据结构
-
-<ul>
-<li><code>encoding</code> 记录元素大小，对于小的数字，使用 <code>int16_t</code> 来节省内存。</li>
-</ul></li>
-<li>resize
-
-<ul>
-<li>先分配足够内存，再调用 <code>memmove</code> 函数进行搬移</li>
-<li>单向升级，只有在插入元素的时候，如果 <code>encoding</code> 过小时会进行</li>
-</ul></li>
-</ul>
-
-<h1 id="鸣谢">鸣谢</h1>
-
-<ul>
-<li><a href="https://zcheng.ren/tags/redis/" target="_blank">Redis源码剖析</a></li>
 </ul>
 
     </div>
@@ -750,6 +733,8 @@ unsigned long iterators; /* number of iterators currently running */
       
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/go.min.js"></script>
         
       
 

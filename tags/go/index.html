@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.55.0" />
+  <meta name="generator" content="Hugo 0.55.5" />
 
   
 
@@ -125,7 +125,7 @@
   <meta property="og:description" content="description"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="og:updated_time" content="2019-04-15T19:51:18&#43;08:00">
+  <meta property="og:updated_time" content="2019-05-14T01:09:31&#43;08:00">
   
 
   
@@ -309,6 +309,24 @@
   
   
   <div>
+    <h2><a href="/post/goption/">Goption：一个针对 Go struct 的代码生成器</a></h2>
+    <div class="article-style">
+      
+      缘起 写代码里有个绕不开的话题就是如何写构造函数 Java 里有 JavaBean 作为标准，空构造参数 + 自定义的 setter C++ 里靠重载实现任意场景的构造 Python 里可以可以支持传你需要的
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/a_go_build_panic_bug/">一个会导致 go build panic 的 bug</a></h2>
+    <div class="article-style">
+      
+      起因是因为犯懒，随手在一个函数体内定义一个类型 func foo() { type Article = map[string]interface{} } 看起来好像也很正常，突然有一天在 gowatch 的控制台里看到了 runtime: goroutine stack exceeds 1000000000-byte limit fatal error: stack overflow runtime stack: runtime.throw(0x1a556a1, 0xe)
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/graph_service/">一个在线图服务的简单想法（草稿）</a></h2>
     <div class="article-style">
       
@@ -446,6 +464,8 @@
       
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/go.min.js"></script>
         
       
 

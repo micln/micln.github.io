@@ -5,8 +5,179 @@
     <description>Recent content in 在水异方 on 在水异方</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 15 Apr 2019 19:51:18 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 14 May 2019 01:09:31 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Goption：一个针对 Go struct 的代码生成器</title>
+      <link>/post/goption/</link>
+      <pubDate>Tue, 14 May 2019 01:09:31 +0800</pubDate>
+      
+      <guid>/post/goption/</guid>
+      <description>
+
+&lt;h2 id=&#34;缘起&#34;&gt;缘起&lt;/h2&gt;
+
+&lt;p&gt;写代码里有个绕不开的话题就是如何写构造函数&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Java 里有 JavaBean 作为标准，空构造参数 + 自定义的 setter&lt;/li&gt;
+&lt;li&gt;C++ 里靠重载实现任意场景的构造&lt;/li&gt;
+&lt;li&gt;Python 里可以可以支持传你需要的参数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Go 呢，一无所有，最通行的办法，大概是可变参作为可选的 options&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func NewX(options ...Option) *X {
+	x := &amp;amp;X{}
+	for _, opt := range options {
+		opt.apply(x)
+	}
+	return x
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;但是，你每次不得不把一个个简单的参数定义成一大堆的 option，多么烦人。&lt;/p&gt;
+
+&lt;p&gt;所以，goption 就出场了&lt;/p&gt;
+
+&lt;h2 id=&#34;一睹为快&#34;&gt;一睹为快&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://cdn.sinaimg.cn.52ecy.cn/large/005BYqpgly1g307gsts99g30gn0amx6w.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;是不是太快了看不清。听我慢慢道来。&lt;/p&gt;
+
+&lt;p&gt;以 Goland 为示例，首先在定义 struct 时添加标识&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;//go:generate goption -p . -c Person -w
+type Person struct{
+	// your person fields
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样的好处是，IDE 可以为你提供快捷按钮，你只需要点一下就生成了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/05/14/5cd9ab3b3a6d835729.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击按钮后，会在同 packagge 下生成 &lt;code&gt;person_option_gen.go&lt;/code&gt; 代码大约是这个样子：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type PersonOption func(*Person)
+
+func NewPerson(opts ...PersonOption) (person *Person) {
+	person = &amp;amp;Person{}
+	for _, opt := range opts {
+		opt(person)
+	}
+	return
+}
+
+func WithPersonName(name string) func(*Person) {
+	return func(person *Person) {
+		person.Name = name
+	}
+}
+
+// ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如何使用呢，也很简单：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func main() {
+	p1 := NewPerson()		// 普通构造方式
+
+	p2 := NewPerson(		// 自定义字段方式
+		WithPersonName(`zhangsan`),
+		WithPersonAge(18),
+	)
+	println(p1, p2)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使用起来真是爽了不少。&lt;/p&gt;
+
+&lt;p&gt;放上代码地址：&lt;a href=&#34;https://github.com/micln/goption&#34; target=&#34;_blank&#34;&gt;https://github.com/micln/goption&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;如何实现&#34;&gt;如何实现&lt;/h2&gt;
+
+&lt;p&gt;最开始绕了点弯路，自己一层层解析 ast.Node，后来发现 &lt;a href=&#34;https://gowalker.org/go/doc&#34; target=&#34;_blank&#34;&gt;go/doc&lt;/a&gt; 已经帮你解析了 package，里面有哪些 Types，哪些 Funcs，都非常清楚，可以直接拿来用。&lt;/p&gt;
+
+&lt;p&gt;唯一需要处理的就是如何 ast.Expr 表示的代码展示出来，好在之前玩过 ast 相关的，也整理了一下 &lt;a href=&#34;https://github.com/Kretech/xgo/blob/master/astutil/expr.go&#34; target=&#34;_blank&#34;&gt;astutil 放了出来&lt;/a&gt;，后面还会继续完善。所以就大大减少了难度。&lt;/p&gt;
+
+&lt;h2 id=&#34;后续&#34;&gt;后续&lt;/h2&gt;
+
+&lt;p&gt;废这么大劲如果只做这一件事确实有点亏，后续希望把 Generator 开放出来，我帮你解析源码和集成 IDE，你只需要自定义模板，就生成任何你想要放的辅助方法。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>一个会导致 go build panic 的 bug</title>
+      <link>/post/a_go_build_panic_bug/</link>
+      <pubDate>Tue, 14 May 2019 00:35:38 +0800</pubDate>
+      
+      <guid>/post/a_go_build_panic_bug/</guid>
+      <description>&lt;p&gt;起因是因为犯懒，随手在一个函数体内定义一个类型&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func foo() {
+	type Article = map[string]interface{}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;看起来好像也很正常，突然有一天在 gowatch 的控制台里看到了&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;runtime: goroutine stack exceeds 1000000000-byte limit
+fatal error: stack overflow
+runtime stack:
+runtime.throw(0x1a556a1, 0xe)
+/usr/local/Cellar/go/1.12.5/libexec/src/runtime/panic.go:617 +0x72
+runtime.newstack()
+/usr/local/Cellar/go/1.12.5/libexec/src/runtime/stack.go:1041 +0x6f0
+runtime.morestack()
+/usr/local/Cellar/go/1.12.5/libexec/src/runtime/asm_amd64.s:429 +0x8f
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以为是程序出 panic 了，不过仔细看了看，好像不是我的代码，仔细一研究，发现程序还没跑起来，&lt;code&gt;go build&lt;/code&gt; 时已经 panic 了。然后经过各种 &lt;code&gt;git stash&lt;/code&gt;，终于发现，原来是因为外面也定义了一个 &lt;code&gt;type Article struct{}&lt;/code&gt; 导致的 panic。&lt;/p&gt;
+
+&lt;p&gt;印象中函数体内和函数外是可以重名的，而且，即便不可以，也应该编译失败才对，怎么就 panic 了。&lt;/p&gt;
+
+&lt;p&gt;于是尝试了一下&lt;/p&gt;
+
+&lt;p&gt;如果同时定义两个重名类型，会提示 &lt;code&gt;redeclared in this block&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type A struct{}
+type A = map[string]string
+
+// A redeclared in this block
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果分开到两个 block，就编译通过了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type A struct{}
+func main(){
+	type A = map[string]string
+}
+
+// build success
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;奇了个怪。那为什么我的程序会 panic 呢？&lt;/p&gt;
+
+&lt;p&gt;又经过尝试，终于发现，在本包内正常调用是可以的，只有当其他包引用此包时才会 panic。而且，如果把函数体内的 &lt;code&gt;type X = Y&lt;/code&gt; 改成 &lt;code&gt;type X Y&lt;/code&gt; 也是可以编译通过的。&lt;/p&gt;
+
+&lt;p&gt;总结起来，两个条件：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在两个 block 内同时定义 &lt;code&gt;type X&lt;/code&gt; 和 &lt;code&gt;type X=&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在其他包里引入此包&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;之后，给 goteam &lt;a href=&#34;https://github.com/golang/go/issues/31959&#34; target=&#34;_blank&#34;&gt;提了个 issue 来反馈这个诡异的 bug&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;忧伤的地方来了，自己只能发现 bug，完全不具备追查 bug 产生的原因。&lt;/p&gt;
+
+&lt;p&gt;立个 flag 吧，希望有时间可以研究研究编译器相关的一些知识。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>一个在线图服务的简单想法（草稿）</title>
@@ -122,7 +293,7 @@
 
 &lt;p&gt;基础数据模型&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;type Vertice struct {
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type Vertice struct {
 	Id uint64
 	Weight int64
 	Timestamp
@@ -395,7 +566,7 @@ vendor/xxx.com/com/projB/registry/go.mod:module xxx.com/com/projB/registry
 
 &lt;p&gt;看一段代码（&lt;a href=&#34;https://play.golang.org/p/DHb-kZNHidd）：&#34; target=&#34;_blank&#34;&gt;https://play.golang.org/p/DHb-kZNHidd）：&lt;/a&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;m := make(map[int]interface{})
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;m := make(map[int]interface{})
 m1 := make(map[int]interface{})
 
 m[2] = 3
@@ -695,7 +866,7 @@ sds sdsnewlen(const void *init, size_t initlen) {
 &lt;h2 id=&#34;字典-dict&#34;&gt;字典 dict&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;基本数据结构&lt;/p&gt;
+&lt;li&gt;基本数据结构
 
 &lt;ul&gt;
 &lt;li&gt;dictEntry：键值对。（冲突处理：开链）&lt;/li&gt;
@@ -709,57 +880,40 @@ dictht ht[2];   // 两个 ht 来实现渐进式的 rehash
 long rehashidx; /* rehashing not in progress if rehashidx == -1 */
 unsigned long iterators; /* number of iterators currently running */
 } dict;
-&lt;/code&gt;&lt;/li&gt;
+&lt;/code&gt;
+
+- 哈希算法
+- rehash：冲突元素太多时扩容。通过两个哈希表进行
+- 渐进式策略：
+- 每次执行操作时转移一个
+- 定时每次转移100个
+- 数据操作
+- 每次操作前尽可能进行一次 &lt;code&gt;rehash&lt;/code&gt;。
+- &lt;code&gt;rehash&lt;/code&gt; 时，要依次在两个表里查询；其他操作类似。
+
+
+
+## 跳跃表 zset
+
+- 数据结构
+- span
+
+
+
+## 整数集合 intset
+
+- 数据结构
+- &lt;code&gt;encoding&lt;/code&gt; 记录元素大小，对于小的数字，使用 &lt;code&gt;int16_t&lt;/code&gt; 来节省内存。
+- resize
+- 先分配足够内存，再调用 &lt;code&gt;memmove&lt;/code&gt; 函数进行搬移
+- 单向升级，只有在插入元素的时候，如果 &lt;code&gt;encoding&lt;/code&gt; 过小时会进行
+
+
+
+# 鸣谢
+
+- &lt;a href=&#34;https://zcheng.ren/tags/redis/&#34; target=&#34;_blank&#34;&gt;Redis源码剖析&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;哈希算法&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;rehash：冲突元素太多时扩容。通过两个哈希表进行&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;渐进式策略：&lt;/li&gt;
-&lt;li&gt;每次执行操作时转移一个&lt;/li&gt;
-&lt;li&gt;定时每次转移100个&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;数据操作&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;每次操作前尽可能进行一次 &lt;code&gt;rehash&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rehash&lt;/code&gt; 时，要依次在两个表里查询；其他操作类似。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;跳跃表-zset&#34;&gt;跳跃表 zset&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;数据结构
-
-&lt;ul&gt;
-&lt;li&gt;span&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;整数集合-intset&#34;&gt;整数集合 intset&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;数据结构
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;encoding&lt;/code&gt; 记录元素大小，对于小的数字，使用 &lt;code&gt;int16_t&lt;/code&gt; 来节省内存。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;resize
-
-&lt;ul&gt;
-&lt;li&gt;先分配足够内存，再调用 &lt;code&gt;memmove&lt;/code&gt; 函数进行搬移&lt;/li&gt;
-&lt;li&gt;单向升级，只有在插入元素的时候，如果 &lt;code&gt;encoding&lt;/code&gt; 过小时会进行&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;鸣谢&#34;&gt;鸣谢&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://zcheng.ren/tags/redis/&#34; target=&#34;_blank&#34;&gt;Redis源码剖析&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -997,130 +1151,6 @@ remember(&amp;amp;person, &amp;quot;key&amp;quot;, 30 * time.Second, func(iface 
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://laravel-china.org/&#34; target=&#34;_blank&#34;&gt;Laravel China&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Laravel ORM 模块图</title>
-      <link>/post/jianshu/laravel-orm-%E6%A8%A1%E5%9D%97%E5%9B%BE/</link>
-      <pubDate>Sat, 03 Mar 2018 11:23:45 +0800</pubDate>
-      
-      <guid>/post/jianshu/laravel-orm-%E6%A8%A1%E5%9D%97%E5%9B%BE/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;还会更新，只是懒得整理，先堆这里了&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://upload-images.jianshu.io/upload_images/444689-02a5a41f8b02ad93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;image.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;PlatUML 代码：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;@startuml
-
-&#39; 底层驱动部分
-class DatabaseManager{
-    connection() factory的大脑
-}
-class ConnectionFactory{
-    newConnection()
-}
-
-interface Connection {
-    defaultBuilder
-    defaultGrammar
-    defaultProcesser
-    run()   // 真正到DB里跑SQL的
-}
-interface Connector {
-    connect()
-}
-
-package Query|Schema {
-    interface Grammar
-    interface Processer
-    note right of Processer: 对数据库返回值的二次拼装
-    class QueryBuilder {
-        IConnection
-        IGrammar
-        IProcesser
-
-        paginate()
-    }
-}
-
-DatabaseManager *--&amp;gt; ConnectionFactory
-DatabaseManager *--&amp;gt; Connection
-DatabaseManager *--&amp;gt; Connector
-
-ConnectionFactory *--&amp;gt; Connection
-ConnectionFactory *--&amp;gt; Connector
-
-Connection --|&amp;gt; Grammar
-Connection --|&amp;gt; Processer
-QueryBuilder --|&amp;gt; Grammar
-QueryBuilder --|&amp;gt; Processer
-
-Connection -- QueryBuilder
-
-
-&#39; Eloquent
-package Eloquent{
-    abstract class Relation{
-        Ebuilder
-
-        constraints
-    }
-    class EBuilder{
-        model
-        scopes
-        earerLoad
-        macro
-
-        first()
-        has()
-    }
-    class model{
-        scopes
-        events
-
-        __call()
-        serialize()
-    }
-}
-
-@enduml
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>理想的数据库操作库</title>
-      <link>/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/</link>
-      <pubDate>Tue, 16 Jan 2018 11:45:42 +0800</pubDate>
-      
-      <guid>/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;ORM 于创业项目快速迭代的重要性不言而喻。我也一直在不停地寻找更好的方案。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;造了个轮子：&lt;a href=&#34;https://github.com/Kretech/Loulan&#34; target=&#34;_blank&#34;&gt;Loulan-java&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;市面上有些不错的 orm 框架，诸如 &lt;a href=&#34;https://laravel.com/docs/5.8/eloquent&#34; target=&#34;_blank&#34;&gt;Laravel&lt;/a&gt;、&lt;a href=&#34;https://guides.rubyonrails.org/&#34; target=&#34;_blank&#34;&gt;Ror&lt;/a&gt;、&lt;a href=&#34;http://gorm.io/&#34; target=&#34;_blank&#34;&gt;Gorm&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;参考这些整理并增加了下面的特征：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;OR Mapping 约定及自定义的mapping规则，书写简单，不能每个字段都写一堆标记&lt;/li&gt;
-&lt;li&gt;Scalable 只需简单配置，支持各个级别的分库分表分读写&lt;/li&gt;
-&lt;li&gt;Hook / Plugin 支持各个级别的hook，支持自定义插件/中间件&lt;/li&gt;
-&lt;li&gt;Functional QueryBuilder 良好的细节屏蔽，需要语法简约，支持复用，可扩展，容易支持缓存&lt;/li&gt;
-&lt;li&gt;Pagination 简单的分页接口支持&lt;/li&gt;
-&lt;li&gt;Relations Eager Loading 预加载&lt;/li&gt;
-&lt;li&gt;Collections 兼容链式操作的集合框架&lt;/li&gt;
-&lt;li&gt;Mutators / Casting&lt;/li&gt;
-&lt;li&gt;Full SQL 诸如事务、联表、简单计算等&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
