@@ -6,7 +6,7 @@
     <description>Recent content in Tags on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 14 May 2019 01:09:31 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 May 2019 21:58:24 +0800</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>Go</title>
       <link>/tags/go/</link>
-      <pubDate>Tue, 14 May 2019 01:09:31 +0800</pubDate>
+      <pubDate>Thu, 16 May 2019 21:58:24 +0800</pubDate>
       
       <guid>/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NPE</title>
+      <link>/tags/npe/</link>
+      <pubDate>Thu, 16 May 2019 21:58:24 +0800</pubDate>
+      
+      <guid>/tags/npe/</guid>
       <description></description>
     </item>
     
@@ -66,7 +75,7 @@
     </item>
     
     <item>
-      <title>json</title>
+      <title>Json</title>
       <link>/tags/json/</link>
       <pubDate>Mon, 25 Mar 2019 00:22:45 +0800</pubDate>
       

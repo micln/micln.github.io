@@ -28,10 +28,10 @@
   
     
   
-  <meta name="description" content="缘起 写代码里有个绕不开的话题就是如何写构造函数 Java 里有 JavaBean 作为标准，空构造参数 &#43; 自定义的 setter C&#43;&#43; 里靠重载实现任意场景的构造 Python 里可以可以支持传你需要的">
+  <meta name="description" content="空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围，但恰恰由于隐藏了值和引用的概念，使得很多新手在处理">
 
   
-  <link rel="alternate" hreflang="zh-Hans" href="/post/goption/">
+  <link rel="alternate" hreflang="zh-Hans" href="/post/avoid_npe_in_go/">
 
   
 
@@ -103,7 +103,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/goption/">
+  <link rel="canonical" href="/post/avoid_npe_in_go/">
 
   
   
@@ -118,21 +118,21 @@
   <meta property="twitter:creator" content="@yifangtian">
   
   <meta property="og:site_name" content="在水异方">
-  <meta property="og:url" content="/post/goption/">
-  <meta property="og:title" content="Goption：一个针对 Go struct 的代码生成器 | 在水异方">
-  <meta property="og:description" content="缘起 写代码里有个绕不开的话题就是如何写构造函数 Java 里有 JavaBean 作为标准，空构造参数 &#43; 自定义的 setter C&#43;&#43; 里靠重载实现任意场景的构造 Python 里可以可以支持传你需要的"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:url" content="/post/avoid_npe_in_go/">
+  <meta property="og:title" content="在 Go 里避免空指针问题 | 在水异方">
+  <meta property="og:description" content="空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围，但恰恰由于隐藏了值和引用的概念，使得很多新手在处理"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="article:published_time" content="2019-05-14T01:09:31&#43;08:00">
+  <meta property="article:published_time" content="2019-05-16T21:58:24&#43;08:00">
   
-  <meta property="article:modified_time" content="2019-05-14T01:09:31&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2019-05-16T21:58:24&#43;08:00">
   
 
   
 
-  <title>Goption：一个针对 Go struct 的代码生成器 | 在水异方</title>
+  
+
+  <title>在 Go 里避免空指针问题 | 在水异方</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -294,7 +294,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Goption：一个针对 Go struct 的代码生成器</h1>
+  <h1 itemprop="name">在 Go 里避免空指针问题</h1>
 
   
 
@@ -303,8 +303,8 @@
 
 
 
-<meta content="2019-05-14 01:09:31 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-05-14 01:09:31 &#43;0800 CST" itemprop="dateModified">
+<meta content="2019-05-16 21:58:24 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-05-16 21:58:24 &#43;0800 CST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -317,7 +317,7 @@
     
       
     
-    <time>May 14, 2019</time>
+    <time>May 16, 2019</time>
   </span>
   
 
@@ -326,14 +326,14 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 分钟阅读时间
+    3 分钟阅读时间
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/goption/#disqus_thread"></a>
+  <a href="/post/avoid_npe_in_go/#disqus_thread"></a>
   
   
   
@@ -376,6 +376,8 @@
 
 <div class="article-tags">
   
+  <a class="badge badge-light" href="/tags/npe/">NPE</a>
+  
   <a class="badge badge-light" href="/tags/go/">Go</a>
   
 </div>
@@ -388,96 +390,128 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h2 id="缘起">缘起</h2>
+<p>空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围，但恰恰由于隐藏了值和引用的概念，使得很多新手在处理的时候把空引用当成空值，从而引发了 panic。另一种常见的 npe 是使用指针不当引起。</p>
 
-<p>写代码里有个绕不开的话题就是如何写构造函数</p>
+<p>本文通过自己的经验，试图提供一些避免 NPE 的方法出来。</p>
 
-<ul>
-<li>Java 里有 JavaBean 作为标准，空构造参数 + 自定义的 setter</li>
-<li>C++ 里靠重载实现任意场景的构造</li>
-<li>Python 里可以可以支持传你需要的参数</li>
-</ul>
+<hr />
 
-<p>Go 呢，一无所有，最通行的办法，大概是可变参作为可选的 options</p>
+<p>先来看一种最常见的情形</p>
 
-<pre><code class="language-go">func NewX(options ...Option) *X {
-	x := &amp;X{}
-	for _, opt := range options {
-		opt.apply(x)
-	}
-	return x
+<h2 id="定义嵌套结构体时-尽可能不嵌套指针">定义嵌套结构体时，尽可能不嵌套指针</h2>
+
+<p>比较容易理解</p>
+
+<pre><code class="language-go">type Male struct{
+	Human
 }
 </code></pre>
 
-<p>但是，你每次不得不把一个个简单的参数定义成一大堆的 option，多么烦人。</p>
+<p>组合时优先用 Human 而不是 <code>*Human</code>。</p>
 
-<p>所以，goption 就出场了</p>
+<p>有人会顾虑，那我想用 <code>*Human</code> 的方法怎么办，很简单，<code>*Male</code> 其实是包含 <code>*Human</code> 的方法的。</p>
 
-<h2 id="一睹为快">一睹为快</h2>
+<p>这样做最主要的原因，也是很多人在 <code>new(Male)</code> 时忘记 <code>new(Human)</code>，导致给上层抛了个 nil。更要命的，如果这个 struct 直接转成 json 抛了出去，如果下游对 null 也没处理好，这就是个跨端 bug 了。</p>
 
-<p><img src="https://cdn.sinaimg.cn.52ecy.cn/large/005BYqpgly1g307gsts99g30gn0amx6w.jpg" alt="" /></p>
+<p>这个也可以衍生一个小规范，定义变量尽量用 struct 而不是指针，传参的时候再使用。不过我感觉这个带来的坑不如上面大，所以不支持不反对。。</p>
 
-<p>是不是太快了看不清。听我慢慢道来。</p>
+<h2 id="函数返回值返回了-nil">函数返回值返回了 nil</h2>
 
-<p>以 Goland 为示例，首先在定义 struct 时添加标识</p>
+<p>一个连环坑</p>
 
-<pre><code class="language-go">//go:generate goption -p . -c Person -w
-type Person struct{
-	// your person fields
+<pre><code class="language-go">// 获取 user 对象
+func GetUser() (*User, error)
+
+func main() {
+	user,err := GetUser()
+	if err != nil { 
+		write(err.Error())
+		return 
+	}
+
+	println(user.Name)	// panic user=nil
 }
 </code></pre>
 
-<p>这样的好处是，IDE 可以为你提供快捷按钮，你只需要点一下就生成了。</p>
+<p>一般的，我们会觉得既然我都判 error 了，user 的值总该是正常了吧。只能说 too naive。聪明一点的人可能马上想到解决办法，在 <code>err != nil</code> 的地方也判一下 user：</p>
 
-<p><img src="https://i.loli.net/2019/05/14/5cd9ab3b3a6d835729.png" alt="" /></p>
+<pre><code class="language-go">if err != nil || user == nil {
+	write(err.Error())
+}
+</code></pre>
 
-<p>点击按钮后，会在同 packagge 下生成 <code>person_option_gen.go</code> 代码大约是这个样子：</p>
+<p>然后，就悲催的发现还是 panic 了。因为当 <code>user=nil &amp;&amp; err==nil</code> 时，也会走到 <code>err.Error()</code> 这里，这里的 <code>err.xx</code> 又是一个 NPE！</p>
 
-<pre><code class="language-go">type PersonOption func(*Person)
+<p>老老实实的一个个处理固然是好办法，但是难保谁一个手抖。</p>
 
-func NewPerson(opts ...PersonOption) (person *Person) {
-	person = &amp;Person{}
-	for _, opt := range opts {
-		opt(person)
-	}
+<p>所以我们换个思路，想想能不能对 GetUser 这个函数做一些要求。问题就变成了有什么简单的办法让函数不返回 nil。</p>
+
+<p>不说中间的尝试了，直接说我们的结论：</p>
+
+<blockquote>
+<p>函数返回值可能返回 nil 时，定义返回值必须 <strong><em>带上变量名</em></strong>，并且在函数体内 <strong><em>首行进行初始化</em></strong>。函数返回时 <strong><em>不带变量名</em></strong></p>
+</blockquote>
+
+<p>给个例子：</p>
+
+<pre><code class="language-go">func GetUsers() (users []*User, err error) {
+	users = make([]*User, 0, 32)
+	// function body
 	return
 }
-
-func WithPersonName(name string) func(*Person) {
-	return func(person *Person) {
-		person.Name = name
-	}
-}
-
-// ...
 </code></pre>
 
-<p>如何使用呢，也很简单：</p>
+<p>三个条件</p>
 
-<pre><code class="language-go">func main() {
-	p1 := NewPerson()		// 普通构造方式
+<ul>
+<li>必须有变量名</li>
+<li>必须首行初始化</li>
+<li>return 无参数</li>
+</ul>
 
-	p2 := NewPerson(		// 自定义字段方式
-		WithPersonName(`zhangsan`),
-		WithPersonAge(18),
-	)
-	println(p1, p2)
+<p>这三点共同保证第一个目的：函数在任何地方 return，都不会给上层抛出 nil</p>
+
+<p>具体解释一下，为什么 变量名放在函数签名里而不在 return 里。是因为当函数很复杂需要多个 return 时，每个 return 时 users 里是啥你心里不一定有概念。也顾不上去考虑。索性把这个任务就交给定义阶段了。</p>
+
+<p>另外，返回值在函数开头就一起定义&amp;初始化了。在 code review 时也更容易注意到。在看函数体的时候也不用再去想这个问题了。</p>
+
+<hr />
+
+<h2 id="函数入参有指针时给了-nil-怎么办">函数入参有指针时给了 nil 怎么办</h2>
+
+<p>在 Go 里有个很普遍的情况，函数的最后一个入参其实表示的是函数返回值。看例子：</p>
+
+<pre><code class="language-go">func getUserArticles(userId int, articles map[int]Article) {
+	articles[1] = &amp;Article{}	// panic: articles 未初始化
 }
 </code></pre>
 
-<p>使用起来真是爽了不少。</p>
+<p>好说，那我 new 一个吧。一般没问题。</p>
 
-<p>放上代码地址：<a href="https://github.com/micln/goption" target="_blank">https://github.com/micln/goption</a></p>
+<p>但是如果 articles 里已经有一部分数据了，这里只是需要你 append 呢？更常见的，articels 是个结构体指针，里面有一些字段是需要的，你不能给删咯。</p>
 
-<h2 id="如何实现">如何实现</h2>
+<p>更可怕的，如果这个参数传了好多层，鬼还记得他里面到底是啥。</p>
 
-<p>最开始绕了点弯路，自己一层层解析 ast.Node，后来发现 <a href="https://gowalker.org/go/doc" target="_blank">go/doc</a> 已经帮你解析了 package，里面有哪些 Types，哪些 Funcs，都非常清楚，可以直接拿来用。</p>
+<p>针对这种 case，我们也做了一些简单的约定：</p>
 
-<p>唯一需要处理的就是如何 ast.Expr 表示的代码展示出来，好在之前玩过 ast 相关的，也整理了一下 <a href="https://github.com/Kretech/xgo/blob/master/astutil/expr.go" target="_blank">astutil 放了出来</a>，后面还会继续完善。所以就大大减少了难度。</p>
+<blockquote>
+<p>谁定义，谁初始化</p>
+</blockquote>
 
-<h2 id="后续">后续</h2>
+<p>参照这个例子来说，</p>
 
-<p>费这么大劲如果只做这一件事确实有点亏，后续希望把 Generator 开放出来，我帮你解析源码和集成 IDE，你只需要自定义模板，就可以生成任何你想要的辅助方法。</p>
+<ul>
+<li>如果函数为 <code>func() articles</code>，那我来初始化，保证不返回 nil，如果保证呢？参照上面那条规范。</li>
+<li>如果函数为 <code>func(articles)</code>，那调用方来初始化，保证不传 nil</li>
+</ul>
+
+<p>两个简单的约束，保证绝大多数参数简单稳定地运行。</p>
+
+<hr />
+
+<p>下班时突然心血来潮想整理一下，休息一下。未完待续。。</p>
+
+<p>欢迎讨论。</p>
 
     </div>
 
@@ -485,6 +519,8 @@ func WithPersonName(name string) func(*Person) {
 
 
 <div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/npe/">NPE</a>
   
   <a class="badge badge-light" href="/tags/go/">Go</a>
   
@@ -602,6 +638,8 @@ func WithPersonName(name string) func(*Person) {
         <h3>相关</h3>
         <ul>
           
+          <li><a href="/post/goption/">Goption：一个针对 Go struct 的代码生成器</a></li>
+          
           <li><a href="/post/a_go_build_panic_bug/">一个会导致 go build panic 的 bug</a></li>
           
           <li><a href="/post/graph_service/">一个在线图服务的简单想法（草稿）</a></li>
@@ -609,8 +647,6 @@ func WithPersonName(name string) func(*Person) {
           <li><a href="/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/">Json Iterator 在 swagger 下卡死程序的排查</a></li>
           
           <li><a href="/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/">Go encoding json 的几个坑</a></li>
-          
-          <li><a href="/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/">整理一套 Go 的轮子</a></li>
           
         </ul>
       </div>
@@ -621,15 +657,10 @@ func WithPersonName(name string) func(*Person) {
     <div class="article-widget">
       <div class="post-nav">
   
-  <div class="post-nav-item">
-    <div class="meta-nav">下一页</div>
-    <a href="/post/avoid_npe_in_go/" rel="next">在 Go 里避免空指针问题</a>
-  </div>
-  
   
   <div class="post-nav-item">
     <div class="meta-nav">上一页</div>
-    <a href="/post/a_go_build_panic_bug/" rel="prev">一个会导致 go build panic 的 bug</a>
+    <a href="/post/goption/" rel="prev">Goption：一个针对 Go struct 的代码生成器</a>
   </div>
   
 </div>

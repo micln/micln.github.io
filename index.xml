@@ -5,8 +5,141 @@
     <description>Recent content in 在水异方 on 在水异方</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 14 May 2019 01:09:31 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 May 2019 21:58:24 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>在 Go 里避免空指针问题</title>
+      <link>/post/avoid_npe_in_go/</link>
+      <pubDate>Thu, 16 May 2019 21:58:24 +0800</pubDate>
+      
+      <guid>/post/avoid_npe_in_go/</guid>
+      <description>
+
+&lt;p&gt;空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围，但恰恰由于隐藏了值和引用的概念，使得很多新手在处理的时候把空引用当成空值，从而引发了 panic。另一种常见的 npe 是使用指针不当引起。&lt;/p&gt;
+
+&lt;p&gt;本文通过自己的经验，试图提供一些避免 NPE 的方法出来。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;先来看一种最常见的情形&lt;/p&gt;
+
+&lt;h2 id=&#34;定义嵌套结构体时-尽可能不嵌套指针&#34;&gt;定义嵌套结构体时，尽可能不嵌套指针&lt;/h2&gt;
+
+&lt;p&gt;比较容易理解&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type Male struct{
+	Human
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;组合时优先用 Human 而不是 &lt;code&gt;*Human&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;有人会顾虑，那我想用 &lt;code&gt;*Human&lt;/code&gt; 的方法怎么办，很简单，&lt;code&gt;*Male&lt;/code&gt; 其实是包含 &lt;code&gt;*Human&lt;/code&gt; 的方法的。&lt;/p&gt;
+
+&lt;p&gt;这样做最主要的原因，也是很多人在 &lt;code&gt;new(Male)&lt;/code&gt; 时忘记 &lt;code&gt;new(Human)&lt;/code&gt;，导致给上层抛了个 nil。更要命的，如果这个 struct 直接转成 json 抛了出去，如果下游对 null 也没处理好，这就是个跨端 bug 了。&lt;/p&gt;
+
+&lt;p&gt;这个也可以衍生一个小规范，定义变量尽量用 struct 而不是指针，传参的时候再使用。不过我感觉这个带来的坑不如上面大，所以不支持不反对。。&lt;/p&gt;
+
+&lt;h2 id=&#34;函数返回值返回了-nil&#34;&gt;函数返回值返回了 nil&lt;/h2&gt;
+
+&lt;p&gt;一个连环坑&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;// 获取 user 对象
+func GetUser() (*User, error)
+
+func main() {
+	user,err := GetUser()
+	if err != nil { 
+		write(err.Error())
+		return 
+	}
+
+	println(user.Name)	// panic user=nil
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;一般的，我们会觉得既然我都判 error 了，user 的值总该是正常了吧。只能说 too naive。聪明一点的人可能马上想到解决办法，在 &lt;code&gt;err != nil&lt;/code&gt; 的地方也判一下 user：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;if err != nil || user == nil {
+	write(err.Error())
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后，就悲催的发现还是 panic 了。因为当 &lt;code&gt;user=nil &amp;amp;&amp;amp; err==nil&lt;/code&gt; 时，也会走到 &lt;code&gt;err.Error()&lt;/code&gt; 这里，这里的 &lt;code&gt;err.xx&lt;/code&gt; 又是一个 NPE！&lt;/p&gt;
+
+&lt;p&gt;老老实实的一个个处理固然是好办法，但是难保谁一个手抖。&lt;/p&gt;
+
+&lt;p&gt;所以我们换个思路，想想能不能对 GetUser 这个函数做一些要求。问题就变成了有什么简单的办法让函数不返回 nil。&lt;/p&gt;
+
+&lt;p&gt;不说中间的尝试了，直接说我们的结论：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;函数返回值可能返回 nil 时，定义返回值必须 &lt;strong&gt;&lt;em&gt;带上变量名&lt;/em&gt;&lt;/strong&gt;，并且在函数体内 &lt;strong&gt;&lt;em&gt;首行进行初始化&lt;/em&gt;&lt;/strong&gt;。函数返回时 &lt;strong&gt;&lt;em&gt;不带变量名&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;给个例子：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func GetUsers() (users []*User, err error) {
+	users = make([]*User, 0, 32)
+	// function body
+	return
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;三个条件&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;必须有变量名&lt;/li&gt;
+&lt;li&gt;必须首行初始化&lt;/li&gt;
+&lt;li&gt;return 无参数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这三点共同保证第一个目的：函数在任何地方 return，都不会给上层抛出 nil&lt;/p&gt;
+
+&lt;p&gt;具体解释一下，为什么 变量名放在函数签名里而不在 return 里。是因为当函数很复杂需要多个 return 时，每个 return 时 users 里是啥你心里不一定有概念。也顾不上去考虑。索性把这个任务就交给定义阶段了。&lt;/p&gt;
+
+&lt;p&gt;另外，返回值在函数开头就一起定义&amp;amp;初始化了。在 code review 时也更容易注意到。在看函数体的时候也不用再去想这个问题了。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;函数入参有指针时给了-nil-怎么办&#34;&gt;函数入参有指针时给了 nil 怎么办&lt;/h2&gt;
+
+&lt;p&gt;在 Go 里有个很普遍的情况，函数的最后一个入参其实表示的是函数返回值。看例子：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func getUserArticles(userId int, articles map[int]Article) {
+	articles[1] = &amp;amp;Article{}	// panic: articles 未初始化
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;好说，那我 new 一个吧。一般没问题。&lt;/p&gt;
+
+&lt;p&gt;但是如果 articles 里已经有一部分数据了，这里只是需要你 append 呢？更常见的，articels 是个结构体指针，里面有一些字段是需要的，你不能给删咯。&lt;/p&gt;
+
+&lt;p&gt;更可怕的，如果这个参数传了好多层，鬼还记得他里面到底是啥。&lt;/p&gt;
+
+&lt;p&gt;针对这种 case，我们也做了一些简单的约定：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;谁定义，谁初始化&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;参照这个例子来说，&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如果函数为 &lt;code&gt;func() articles&lt;/code&gt;，那我来初始化，保证不返回 nil，如果保证呢？参照上面那条规范。&lt;/li&gt;
+&lt;li&gt;如果函数为 &lt;code&gt;func(articles)&lt;/code&gt;，那调用方来初始化，保证不传 nil&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;两个简单的约束，保证绝大多数参数简单稳定地运行。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;下班时突然心血来潮想整理一下，休息一下。未完待续。。&lt;/p&gt;
+
+&lt;p&gt;欢迎讨论。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Goption：一个针对 Go struct 的代码生成器</title>
@@ -105,7 +238,7 @@ func WithPersonName(name string) func(*Person) {
 
 &lt;h2 id=&#34;后续&#34;&gt;后续&lt;/h2&gt;
 
-&lt;p&gt;废这么大劲如果只做这一件事确实有点亏，后续希望把 Generator 开放出来，我帮你解析源码和集成 IDE，你只需要自定义模板，就生成任何你想要放的辅助方法。&lt;/p&gt;
+&lt;p&gt;费这么大劲如果只做这一件事确实有点亏，后续希望把 Generator 开放出来，我帮你解析源码和集成 IDE，你只需要自定义模板，就可以生成任何你想要的辅助方法。&lt;/p&gt;
 </description>
     </item>
     
@@ -1109,49 +1242,6 @@ remember(&amp;amp;person, &amp;quot;key&amp;quot;, 30 * time.Second, func(iface 
 &lt;p&gt;我只能说，不好弄。&lt;/p&gt;
 
 &lt;p&gt;Spring 里很多注解效果，都是靠动态代理实现的（相当于 Php 里阉割版的 __call )。但遗憾的是，Go 目前不能支持这一特性。如果要硬上的话，也可以，搞出来可能跟我接的代码挺像的。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Laravel 学习路线</title>
-      <link>/post/jianshu/laravel-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</link>
-      <pubDate>Wed, 21 Mar 2018 10:21:55 +0800</pubDate>
-      
-      <guid>/post/jianshu/laravel-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</guid>
-      <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;入门&#34;&gt;入门&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;官方文档 &lt;a href=&#34;https://laravel.com/docs/&#34; target=&#34;_blank&#34;&gt;英文&lt;/a&gt; &lt;a href=&#34;https://laravel-china.org/docs/laravel/&#34; target=&#34;_blank&#34;&gt;中文&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;深入理解&#34;&gt;深入理解&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;《&lt;a href=&#34;http://fata.lapland.name&#34; target=&#34;_blank&#34;&gt;From Apprentice To Artisan&lt;/a&gt;》
-讲Laravel内部设计的小册子，能帮你了解laravel的整体实现&lt;/li&gt;
-&lt;li&gt;《&lt;a href=&#34;https://github.com/LeoYang90/laravel-source-analysis&#34; target=&#34;_blank&#34;&gt;详解Laravel源码&lt;/a&gt;》
-分模块去介绍源码&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;开发相关&#34;&gt;开发相关&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://plugins.jetbrains.com/plugin/7532-laravel-plugin&#34; target=&#34;_blank&#34;&gt;Laravel Plugin for PhpStorm&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/barryvdh/laravel-ide-helper&#34; target=&#34;_blank&#34;&gt;Laravel ide-helper for PhpStorm&lt;/a&gt;
-识别各种魔术方法，包括 Facedes 和 Eloquent 等。最好先了解 &lt;a href=&#34;http://docs.phpdoc.org/references/phpdoc/index.html&#34; target=&#34;_blank&#34;&gt;PhpDoc&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;社区&#34;&gt;社区&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://laravel-china.org/&#34; target=&#34;_blank&#34;&gt;Laravel China&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
