@@ -6,10 +6,19 @@
     <description>Recent content in Tags on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Thu, 16 May 2019 21:58:24 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2019 22:12:55 +0800</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>float</title>
+      <link>/tags/float/</link>
+      <pubDate>Mon, 24 Jun 2019 22:12:55 +0800</pubDate>
+      
+      <guid>/tags/float/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Go</title>
@@ -26,24 +35,6 @@
       <pubDate>Thu, 16 May 2019 21:58:24 +0800</pubDate>
       
       <guid>/tags/npe/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Algorithm</title>
-      <link>/tags/algorithm/</link>
-      <pubDate>Mon, 15 Apr 2019 19:51:18 +0800</pubDate>
-      
-      <guid>/tags/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Graph</title>
-      <link>/tags/graph/</link>
-      <pubDate>Mon, 15 Apr 2019 19:51:18 +0800</pubDate>
-      
-      <guid>/tags/graph/</guid>
       <description></description>
     </item>
     
@@ -350,6 +341,15 @@
       <pubDate>Tue, 30 Sep 2014 17:20:25 +0800</pubDate>
       
       <guid>/tags/acm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algorithm</title>
+      <link>/tags/algorithm/</link>
+      <pubDate>Tue, 30 Sep 2014 17:20:25 +0800</pubDate>
+      
+      <guid>/tags/algorithm/</guid>
       <description></description>
     </item>
     

@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Thu, 16 May 2019 21:58:24 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2019 22:12:55 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>关于浮点数的普遍误会</title>
+      <link>/post/float_kidding/</link>
+      <pubDate>Mon, 24 Jun 2019 22:12:55 +0800</pubDate>
+      
+      <guid>/post/float_kidding/</guid>
+      <description>浮点数不能用== 这句话本身没错，但通常说这句话的人的潜意识是，浮点数虽然不能用==，但还是可以用&amp;gt;&amp;lt;的。 a := 0.1 b := 0.2 c := 0.3 fmt.Printf(&amp;quot;%10s =&amp;gt; %v\n&amp;quot;,</description>
+    </item>
     
     <item>
       <title>在 Go 里避免空指针问题</title>
@@ -36,15 +45,6 @@
       
       <guid>/post/a_go_build_panic_bug/</guid>
       <description>起因是因为犯懒，随手在一个函数体内定义一个类型 func foo() { type Article = map[string]interface{} } 看起来好像也很正常，突然有一天在 gowatch 的控制台里看到了 runtime: goroutine stack exceeds 1000000000-byte limit fatal error: stack overflow runtime stack: runtime.throw(0x1a556a1, 0xe)</description>
-    </item>
-    
-    <item>
-      <title>一个在线图服务的简单想法（草稿）</title>
-      <link>/post/graph_service/</link>
-      <pubDate>Mon, 15 Apr 2019 19:51:18 +0800</pubDate>
-      
-      <guid>/post/graph_service/</guid>
-      <description>背景 除了最基本的 web1.0 业务，越来越多的场景符合图（尤其是二分图）结构。比如 给文章打标签（二分图） 点赞、已阅（二分图） 社交关系网络（有向图） 以及相</description>
     </item>
     
     <item>

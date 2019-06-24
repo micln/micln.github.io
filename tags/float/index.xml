@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>float on 在水异方</title>
+    <link>/tags/float/</link>
+    <description>Recent content in float on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 24 Jun 2019 22:12:55 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/float/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于浮点数的普遍误会</title>
+      <link>/post/float_kidding/</link>
+      <pubDate>Mon, 24 Jun 2019 22:12:55 +0800</pubDate>
+      
+      <guid>/post/float_kidding/</guid>
+      <description>浮点数不能用== 这句话本身没错，但通常说这句话的人的潜意识是，浮点数虽然不能用==，但还是可以用&amp;gt;&amp;lt;的。 a := 0.1 b := 0.2 c := 0.3 fmt.Printf(&amp;quot;%10s =&amp;gt; %v\n&amp;quot;,</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -39,15 +39,6 @@
     </item>
     
     <item>
-      <title>一个在线图服务的简单想法（草稿）</title>
-      <link>/post/graph_service/</link>
-      <pubDate>Mon, 15 Apr 2019 19:51:18 +0800</pubDate>
-      
-      <guid>/post/graph_service/</guid>
-      <description>背景 除了最基本的 web1.0 业务，越来越多的场景符合图（尤其是二分图）结构。比如 给文章打标签（二分图） 点赞、已阅（二分图） 社交关系网络（有向图） 以及相</description>
-    </item>
-    
-    <item>
       <title>Go Module 实践中的问题（持续更新）</title>
       <link>/post/gomod/</link>
       <pubDate>Sun, 14 Apr 2019 11:20:27 +0800</pubDate>
