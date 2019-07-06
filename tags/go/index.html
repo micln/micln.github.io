@@ -125,7 +125,7 @@
   <meta property="og:description" content="description"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="og:updated_time" content="2019-05-16T21:58:24&#43;08:00">
+  <meta property="og:updated_time" content="2019-07-02T11:11:16&#43;08:00">
   
 
   
@@ -307,6 +307,15 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/boot_test_in_go/">Go项目在组织启动代码上的一次尝试</a></h2>
+    <div class="article-style">
+      
+      最开始的项目目录 $ tree . ├── ./api/ ├── ./service/ ├── ./dao/ ├── ./model/ ├── main.go func main(){ flag.Parse() artemis := NewArtemis(flag.String(`config`)) // artemis 是我们的框架，类似beego log.init() service.init() dao.init() worker.init() api.Route(artemis.Router) artemis.Run() } 写个测试吧 packege dao func TestGetNote(t *testing.T){
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/avoid_npe_in_go/">在 Go 里避免空指针问题</a></h2>

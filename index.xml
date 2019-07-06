@@ -5,20 +5,237 @@
     <description>Recent content in 在水异方 on 在水异方</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 24 Jun 2019 22:12:55 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jul 2019 11:11:16 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>关于浮点数的普遍误会</title>
+      <title>Go项目在组织启动代码上的一次尝试</title>
+      <link>/post/boot_test_in_go/</link>
+      <pubDate>Tue, 02 Jul 2019 11:11:16 +0800</pubDate>
+      
+      <guid>/post/boot_test_in_go/</guid>
+      <description>&lt;p&gt;最开始的项目目录&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ tree
+.
+├── ./api/
+├── ./service/
+├── ./dao/
+├── ./model/
+├── main.go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func main(){
+	flag.Parse()
+	artemis := NewArtemis(flag.String(`config`))	// artemis 是我们的框架，类似beego
+	log.init()
+	service.init()
+	dao.init()
+	worker.init()
+	api.Route(artemis.Router)
+	artemis.Run()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;写个测试吧&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;packege dao
+
+func TestGetNote(t *testing.T){
+	db := NewNoteDB()	// panic: app not init
+	db.Get(1)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;改：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;copy启动代码&lt;/li&gt;
+&lt;li&gt;把config路径改一下&lt;/li&gt;
+&lt;li&gt;去除不需要的部分，比如在 dao 里去掉 service.init()&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func TestGetNote(t *testing.T){
+	artemis := NewArtemis(`../../config`)
+	log.init()
+	ddns.init()
+	service.init()
+	dao.init()
+	// test code 
+}
+
+// 也可以放在 TestMain 里统一处理
+func TestMain(m *testing.M){
+  // init()
+  m.Run()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;简单粗暴的解决办法，调试也够用了。&lt;/p&gt;
+
+&lt;p&gt;如果 package 比较少，也没那么多脚本要用，已经能满足需要了&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;但当时我觉得还是不完美，我的项目又比较复杂，然后继续尝试优化：&lt;/p&gt;
+
+&lt;p&gt;先抽出个函数放重复代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package boot
+func Boot(){
+	// init()
+}
+func BootTest(){
+	SetRootPath()		// 在子目录跑ut时，要把 wd 对齐到项目目录
+	Boot()
+}
+
+package main
+func main(){
+	boot.Boot()
+	artemis.Run()
+}
+
+package dao
+func test(){
+	boot.BootTest()
+	// test code
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ go build
+import cycle not allowed
+# dao 和 boot 互相依赖
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;改成外部测试&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package dao_test
+
+import &amp;quot;dao&amp;quot;
+
+func test(){
+	db := dao.NewDB()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;缺点：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ugly&lt;/li&gt;
+&lt;li&gt;不能测私有函数&lt;/li&gt;
+&lt;li&gt;每次改动几乎重新编译整个项目&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最后一点很重要，测试代码时会频繁修改，而每次修改几乎都要重新编译整个项目。
+我的项目在忽略缓存的情况下，编译需要30s
+调个bug，一下午就过去了。。&lt;/p&gt;
+
+&lt;p&gt;回头一看整个过程，总结就是&lt;/p&gt;
+
+&lt;p&gt;　　&lt;center&gt; &lt;h2&gt; 民科 &lt;/h2&gt; &lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;于是，放下一切，重新开始&lt;/p&gt;
+
+&lt;p&gt;我想要什么？&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;不用太多重复代码，好维护&lt;/li&gt;
+&lt;li&gt;需要时再加载，不需要在测试时搞一堆没用的东西&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;看看成熟的框架是如何处理的，以我熟悉的 Laravel 为例，很多地方都采用了这样的思路：先注册，后使用&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;class FooServiceProvider {
+	function register($app) {
+		$app-&amp;gt;singleton(&amp;quot;noteDB&amp;quot;, function(){
+			$noteDB = new NoteDB();
+		})
+		
+		$app-&amp;gt;sinleton(IRouter::class, new Router())
+	}
+	
+	function boot() {
+		make(IRouter::class)-&amp;gt;load();
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;突然发现，Go的init就是天然的注册机制&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;所有的init都一定会在main之前执行&lt;/li&gt;
+&lt;li&gt;依赖包的init一定先于本包的init，连优先级都帮我做好了&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;于是大概轮廓就出来了：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在每个 init 里定义自己需要启动什么，代码里依赖了哪个包，就会调用对应的init，不依赖的不会启动&lt;/li&gt;
+&lt;li&gt;运行cmd（webserver/script/test）时，再逐个执行init时注册的任务&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package dao
+func init(){
+	boot.Register(func(){
+		// ...
+	})
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;// web server
+func main(){
+	boot.Boot()
+	defer boot.Shutdown()
+
+	api.Route(artemis.App)
+	artemis.Run()
+}
+
+// script
+func main(){
+	boot.Boot()
+	// ...
+}
+
+// test
+func TestMain(m *testing.M){
+	boot.Register(factories.Init)
+
+	boottest.Boot()
+	defer boottest.Shutdown()
+
+	m.Run()
+	// ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;boot_test_in_go.assets/image-20190702122735634.png&#34; alt=&#34;image-20190702122735634&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;到此，基本上达成了写脚本、写单测时不用操心框架启动的问题。&lt;/p&gt;
+
+&lt;p&gt;不过限于框架限制，依然有一些不爽的地方没有解决。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Go很多人摒弃了面向接口编程，导致在写UT时无从mock。后面想办法靠工具对所有的类走一次DI容器&lt;/li&gt;
+&lt;li&gt;测试的问题，限于框架限制，不能全局开始事务&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>当我们在说浮点数精度不准的时候，到底在说什么</title>
       <link>/post/float_kidding/</link>
       <pubDate>Mon, 24 Jun 2019 22:12:55 +0800</pubDate>
       
       <guid>/post/float_kidding/</guid>
       <description>
 
-&lt;h3 id=&#34;浮点数不能用&#34;&gt;浮点数不能用==&lt;/h3&gt;
+&lt;p&gt;原以为浮点数是计算机编程的基础知识，后来发现个奇怪的现象：很多人都说浮点很坑，千万不要用，至于为什么却说不出个所以然。更有甚者，以专业民科的架势发明出一套处理浮点的办法，应该如何如何，不该如何如何。网上也看到不少人对这个现象很困惑，解释为湿猴理论。&lt;/p&gt;
 
-&lt;p&gt;这句话本身没错，但通常说这句话的人的潜意识是，浮点数虽然不能用==，但还是可以用&amp;gt;&amp;lt;的。&lt;/p&gt;
+&lt;p&gt;通常你问别人浮点有什么坑，如果别人说浮点数不能用==，十有八九这个人会认为，浮点数可以用&amp;gt;&amp;lt;的。不过你继续追问，他可能就会犹豫了。&lt;/p&gt;
+
+&lt;p&gt;看代码：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a := 0.1
 b := 0.2
@@ -37,14 +254,20 @@ fmt.Printf(&amp;quot;%10s =&amp;gt; %v\n&amp;quot;, &amp;quot;a+b &amp;gt; c&amp
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;按照浮点标准，0.1 转化成二进制是个无限小数&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;浮点数有效长度有限。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;浮点数有效长度有限，必有取舍&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;更严格的表述，浮点数不能直接用比较操作符。&lt;/p&gt;
+&lt;p&gt;总结，二进制无法准确表达0.1，多多少少会有点失真。遂不能直接比较大小。&lt;/p&gt;
+
+&lt;p&gt;更详细的论述：&lt;a href=&#34;https://www.zhihu.com/question/28551135&#34; target=&#34;_blank&#34;&gt;https://www.zhihu.com/question/28551135&lt;/a&gt;
+&lt;!-- 另外注意，测试这段代码的时候不要用常亮，可能会被编译器优化掉。 --&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;浮点数如何比较&#34;&gt;浮点数如何比较？&lt;/h3&gt;
 
-&lt;p&gt;判断差值在精度以内&lt;/p&gt;
+&lt;p&gt;通常做法，如果两个数的差值在可接受范围内，就认为是相等的。其实很多非精确的比较都是类似方法，比如&lt;/p&gt;
+
+&lt;p&gt;1、两个人年龄、五官等等主要特征都很像，你就敢猜这俩人是双胞胎了。
+2、你的服务10:03开始大量报错，隔壁服务10:02上了个线，你猜大概就是他的锅。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;var floatPrecision = 1e-6
 
@@ -61,11 +284,13 @@ func floatGreater(a float64, b float64) bool {
 }
 
 func main(){
-  fmt.Println(floatEqual(a+b, c))	// true
+	fmt.Println(floatEqual(a+b, c))	// true
 }
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;浮点数怎么转换&#34;&gt;浮点数怎么转换&lt;/h3&gt;
+
+&lt;p&gt;跟整型转换比较简单&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;// 去尾
 func floatFloor(a float64) int {
@@ -78,6 +303,8 @@ func floatToInt(a float64) int {
 	//return int(a + 0.5)
 }
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;跟浮点转换就有意思了&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;// 打印浮点数
 func testFloatToString(){	
@@ -98,20 +325,49 @@ func testFloatToString(){
 169900
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;strconv&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gowalker.org/strconv#FormatFloat&#34; target=&#34;_blank&#34;&gt;https://gowalker.org/strconv#FormatFloat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gowalker.org/strconv#ParseFloat&#34; target=&#34;_blank&#34;&gt;https://gowalker.org/strconv#ParseFloat&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&#34;浮点数要不要用字符串传输&#34;&gt;浮点数要不要用字符串传输？&lt;/h3&gt;
+
+&lt;p&gt;有人问，如果别人想传1，结果传了个0.99999，不就失真了吗？&lt;/p&gt;
+
+&lt;p&gt;基本上这样问的都是因为用的时候直接用了比较操作符。&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;原来的 double 有 15 位有效数字，一般转成 string 后只刻意保留了几位，如果是直接截取，其实是主动丢弃了准确度。&lt;/p&gt;
 
-&lt;p&gt;举例：本来要传 1，截取之后传了 0.999 ，别人并不不知道这个 0.999 是准确值还是你截出来的（失真）。&lt;/p&gt;
+&lt;p&gt;举例：本来要传 1，截取之后传了 0.999 ，别人并不不知道这个 0.999 是准确值还是你截出来的。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;个人推荐，传输的时候保留原数据，只有在渲染的时候再做格式化处理。&lt;/p&gt;
 
-&lt;p&gt;扩展&lt;/p&gt;
+&lt;p&gt;问题核心：怎么存不重要，怎么用才是关键。想着存的时候干净一点，用的时候就随意了。&lt;/p&gt;
+
+&lt;h3 id=&#34;财务场景下的特殊处理&#34;&gt;财务场景下的特殊处理&lt;/h3&gt;
+
+&lt;p&gt;仔细想了想，好像财务上也没什么特别要处理的，怀疑自己知识面不够，就去网上翻了翻，虽然没看到什么新问题，却又不少其他的收获。比如&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;系统性误差有系统性解决办法&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我对这句话的理解，不要把计算机看得太重了，计算机只是解决领域问题的一个工具，准确的说只是特定时期的计算工具，专业的领域在手工计算的时代就有专业的算法了。&lt;/p&gt;
+
+&lt;p&gt;这里只提一个最开始想到的跟普通场景的区别：不能简单的四舍五入&lt;/p&gt;
+
+&lt;p&gt;先抛开小数不谈，现实生活中，3个人平分10块钱，理论上一人3.33，实际上大家会按照3-3-4来分就够了。放到微信群收款里，也是3.33*2+3.34。并没有统一用四舍五入。&lt;/p&gt;
+
+&lt;p&gt;这种问题在实际问题中出现也比较多，把一笔订单拆分成几笔子订单，把一笔成本摊销到一年。在做除法的时候都要根据具体场景来做取舍。其实都不算什么浮点问题。&lt;/p&gt;
+
+&lt;h2 id=&#34;扩展&#34;&gt;扩展&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;高精度 math/big.Float 能不能解决浮点的比较和计算？&lt;a href=&#34;https://play.golang.org/p/-8C7Gg7uHxd&#34; target=&#34;_blank&#34;&gt;https://play.golang.org/p/-8C7Gg7uHxd&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;能否直接用高精度 math/big.Float 来解决浮点数的诡异问题？&lt;a href=&#34;https://play.golang.org/p/-8C7Gg7uHxd&#34; target=&#34;_blank&#34;&gt;https://play.golang.org/p/-8C7Gg7uHxd&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;wiki &lt;a href=&#34;https://zh.wikipedia.org/wiki/IEEE_754&#34; target=&#34;_blank&#34;&gt;https://zh.wikipedia.org/wiki/IEEE_754&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
@@ -1071,135 +1327,6 @@ abstract class AbstractModel
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>好用的 Cache API</title>
-      <link>/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/</link>
-      <pubDate>Fri, 15 Jun 2018 21:03:34 +0800</pubDate>
-      
-      <guid>/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;最近看到了几种加缓存的方法，整理对比一下。&lt;/p&gt;
-
-&lt;p&gt;拿一个case来说，我们要去数据库取一条用户记录，迫于性能，还要加一层缓存。我们针对这个问题看看几种使用姿势的对比。&lt;/p&gt;
-
-&lt;p&gt;Laravel 中 Facades 做法&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$person = Cache::remember(&amp;quot;person.{$id}&amp;quot;, 5, function () use ($id) {
-    return PersonDao::find($id);
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Spring Cache 的做法&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;@Cache(key = &amp;quot;person#id&amp;quot;, ttl = 5)
-public Person getPerson(Integer id) {
-    return PersonDao.find(id);
-}
-
-Person person = repository.getPerson();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;备注：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;PersonDao.find 表示从DB里去拿数据&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;这两种方法看起来都很简单，除了必要的语法格式，你需要写的代码就是：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;cache 函数或标记，表明需要缓存&lt;/li&gt;
-&lt;li&gt;key 不解释&lt;/li&gt;
-&lt;li&gt;ttl 不解释&lt;/li&gt;
-&lt;li&gt;func… 回源数据&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;基本上可以说是要啥写啥了，不啰嗦。&lt;/p&gt;
-
-&lt;p&gt;其实 Php 和 Java 的语法很接近，两种方法在两种语言里都适用。不过 Php 需要第三方的注解支持；Java 需要 8 以上来支持 lambda。&lt;/p&gt;
-
-&lt;p&gt;简单的东西一定面临扩展性的问题，我们来看一看他们的可能性。&lt;/p&gt;
-
-&lt;p&gt;如果我们要更换缓存驱动怎么办？&lt;/p&gt;
-
-&lt;p&gt;Laravel&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Cache::store(&#39;redis&#39;)-&amp;gt;remember(...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Spring&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;@Cache(driver = redisCache.class)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;依然很简单。&lt;/p&gt;
-
-&lt;p&gt;有些时候，在使用 redis 作为缓存的时候，我们会用不同的编码&lt;/p&gt;
-
-&lt;p&gt;Laravel&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Cache::store(&#39;redis&#39;)-&amp;gt;encoding(&#39;json&#39;)-&amp;gt;remember(...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Spring&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;@Cache(encoding = JsonEncoding.class)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;方法其实是相似的，一般的，Lavavel 利用自己习惯的链式操作和 Php 的不定参数，可以让你随时传入自己个性化的需求。Spring 也利用 Annotation 来实现类似的效果。&lt;/p&gt;
-
-&lt;p&gt;更多的，Laravel 和 Spring Boot 都遵循了约定优于配置的原则，使得在大多数情况下，你都不需要传这些，只需要使用全局的默认配置就能满足需求。也就是上面的最方便的办法。&lt;/p&gt;
-
-&lt;p&gt;简单的方法介绍完了，我们来聊聊 Go 里的做法&lt;/p&gt;
-
-&lt;p&gt;刚刚接手一个 Go 项目，里面看到是这样处理缓存的：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;proxy := Proxy{
-    Prefered: RedisAdapter{
-        RedisClient
-    },
-    Backup: DaoAdapter{
-        PersonDao
-    }
-}
-person := proxy.Get(&#39;xxx&#39;).(Person)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;是不是一下看懵逼了，我也是，这还是简化的版本。真正实现一个这样的功能，大约新增了三个实现了数个空接口新类和几个方法。&lt;/p&gt;
-
-&lt;p&gt;更蛋疼的，这三个类都是类型相关的，换句话说，list/detail 两种功能各自都需要3个类，换个 model 也不能复用。更悲催的，因为 IDE 对 Go 的 interface 分析都不太好，当你阅读别人的代码的时候，你完全不知道哪里是哪里。&lt;/p&gt;
-
-&lt;p&gt;所以，这里想尝试一下，能否在 Go 里使用上面的简单方法处理缓存。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;id := 9
-
-person := remember(&amp;quot;key&amp;quot;, 30 * time.Second, func() interface{} {
-    return PersonDao.find(id)
-}).(*Person)
-
-// 或者更 Go 一点
-
-var person Person
-remember(&amp;amp;person, &amp;quot;key&amp;quot;, 30 * time.Second, func(iface interface{}) {
-    *iface.(*Person) = *PersonDao.find(id)
-})
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;比较烦的是，Go 不支持泛型，定义函数的时候要尽可能少依赖类型。常用的办法是把类型传入。&lt;/p&gt;
-
-&lt;p&gt;前者看起来简单，但有个很要命的地方，你需要很严格的把 Person 类进行序列化。否则从 cache 里取出来后类型可能会丢，导致断言失败。&lt;/p&gt;
-
-&lt;p&gt;那么，第二种办法可以吗？或者说，在 Go 里能不能通过简单标记的办法来实现多态？&lt;/p&gt;
-
-&lt;p&gt;我只能说，不好弄。&lt;/p&gt;
-
-&lt;p&gt;Spring 里很多注解效果，都是靠动态代理实现的（相当于 Php 里阉割版的 __call )。但遗憾的是，Go 目前不能支持这一特性。如果要硬上的话，也可以，搞出来可能跟我接的代码挺像的。&lt;/p&gt;
 </description>
     </item>
     

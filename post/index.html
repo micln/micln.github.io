@@ -123,7 +123,7 @@
   <meta property="og:description" content="description"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="og:updated_time" content="2019-06-24T22:12:55&#43;08:00">
+  <meta property="og:updated_time" content="2019-07-02T11:11:16&#43;08:00">
   
 
   
@@ -331,6 +331,94 @@
 
 
 
+<meta content="2019-07-02 11:11:16 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-07-02 11:11:16 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 2, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/boot_test_in_go/#disqus_thread"></a>
+  
+  
+  
+
+  
+
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/boot_test_in_go/" itemprop="url">Go项目在组织启动代码上的一次尝试</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    最开始的项目目录 $ tree . ├── ./api/ ├── ./service/ ├── ./dao/ ├── ./model/ ├── main.go func main(){ flag.Parse() artemis := NewArtemis(flag.String(`config`)) // artemis 是我们的框架，类似beego log.init() service.init() dao.init() worker.init() api.Route(artemis.Router) artemis.Run() } 写个测试吧 packege dao func TestGetNote(t *testing.T){
+  </div>
+  
+
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
 <meta content="2019-06-24 22:12:55 &#43;0800 CST" itemprop="datePublished">
 <meta content="2019-06-24 22:12:55 &#43;0800 CST" itemprop="dateModified">
 
@@ -354,7 +442,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 分钟阅读时间
+    3 分钟阅读时间
   </span>
   
 
@@ -380,12 +468,12 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/float_kidding/" itemprop="url">关于浮点数的普遍误会</a>
+    <a href="/post/float_kidding/" itemprop="url">当我们在说浮点数精度不准的时候，到底在说什么</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    浮点数不能用== 这句话本身没错，但通常说这句话的人的潜意识是，浮点数虽然不能用==，但还是可以用&gt;&lt;的。 a := 0.1 b := 0.2 c := 0.3 fmt.Printf(&quot;%10s =&gt; %v\n&quot;,
+    原以为浮点数是计算机编程的基础知识，后来发现个奇怪的现象：很多人都说浮点很坑，千万不要用，至于为什么却说不出个所以然。更有甚者，以专业民科的
   </div>
   
 
@@ -2163,137 +2251,6 @@
   
   <div class="article-style" itemprop="articleBody">
     迁移自简书，格式可能未经校对。 下载 &amp; 安装 使用 Visio Studio 2012 开发时，要选 SQL Server Data Tools 但是！！它其实装的是2010版！！所以装好后只能从 vs2010 里建 IS 项目 如果要从
-  </div>
-  
-
-  
-
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2016-12-19 11:03:11 &#43;0800 CST" itemprop="datePublished">
-<meta content="2016-12-19 11:03:11 &#43;0800 CST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    <time>Dec 19, 2016</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 分钟阅读时间
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/jianshu/mac-%E5%9F%BA%E6%9C%AC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/#disqus_thread"></a>
-  
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder"></i>
-    
-    <a href="/categories/%E7%AE%80%E4%B9%A6/">简书</a>, 
-    
-    <a href="/categories/snippets/">Snippets</a>
-    
-  </span>
-  
-  
-
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/jianshu/mac-%E5%9F%BA%E6%9C%AC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" itemprop="url">Mac 基本开发环境</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    
-
-<blockquote>
-<p>迁移自简书，格式可能未经校对。</p>
-</blockquote>
-
-<pre><code class="language-sh">!/bin/sh
-
-# homebrew
-/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-
-# iTerm2
-brew install Caskroom/cask/iterm2
-
-# zsh
-zsh
-
-# .oh-my-zsh
-sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-
-# macdown
-brew install Caskroom/cask/macdown
-
-</code></pre>
-
-<h2 id="phpstorm">PhpStorm</h2>
-
-<h2 id="dash">Dash</h2>
-
-<h2 id="macdown">macdown</h2>
-
   </div>
   
 
