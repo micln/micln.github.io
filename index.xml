@@ -210,7 +210,9 @@ func TestMain(m *testing.M){
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;boot_test_in_go.assets/image-20190702122735634.png&#34; alt=&#34;image-20190702122735634&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/07/07/5d20cf8d95b3762646.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;!-- ![image-20190702122735634](boot_test_in_go.assets/image-20190702122735634.png) --&gt;
 
 &lt;p&gt;到此，基本上达成了写脚本、写单测时不用操心框架启动的问题。&lt;/p&gt;
 
