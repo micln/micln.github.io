@@ -5,8 +5,104 @@
     <description>Recent content in 在水异方 on 在水异方</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 29 Jul 2019 14:19:31 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 11 Aug 2019 00:04:48 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Manjaro 踩坑记录</title>
+      <link>/post/manjaro_go/</link>
+      <pubDate>Sun, 11 Aug 2019 00:04:48 +0800</pubDate>
+      
+      <guid>/post/manjaro_go/</guid>
+      <description>
+
+&lt;p&gt;先说说背景，为什么MacBook还在吃灰，又开始折腾Linux Desktop了&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;家里组了台PC，只打游戏太浪费，且实在搞不定windows写代码。&lt;/li&gt;
+&lt;li&gt;传闻 manjaro 优化的不错&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;于是同时把pc和数莓派都改了。&lt;/p&gt;
+
+&lt;h3 id=&#34;烧u盘偶尔失败&#34;&gt;烧U盘偶尔失败&lt;/h3&gt;
+
+&lt;p&gt;表现为：烧录校验失败、无法启动&lt;/p&gt;
+
+&lt;p&gt;按理以前从不会遇到，重新烧几次就好了，可能是u盘年久失修了。&lt;/p&gt;
+
+&lt;h3 id=&#34;加速源&#34;&gt;加速源&lt;/h3&gt;
+
+&lt;p&gt;这个地方坑了半天，一直以为manjaro就是arch的源，后来经 &lt;a href=&#34;https://github.com/zsrkmyn&#34; target=&#34;_blank&#34;&gt;zsrkmyn大佬&lt;/a&gt; 鄙视，才知道是不一样的。。&lt;/p&gt;
+
+&lt;p&gt;所以 manjaro要做两件事，一是加速manjaro源，二是引进archlinux源，后者用来加一部分arch社区的软件。&lt;/p&gt;
+
+&lt;p&gt;参考：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# 换中国源
+$ cat /etc/pacman.d/mirrorlist
+
+### Country : China
+Server = https://mirrors.ustc.edu.cn/manjaro/stable/$repo/$arch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;# 加 archlinux
+$ tail /etc/pacman.conf
+
+[archlinuxcn]
+SigLevel = Optional TrustedOnly
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;还有个深坑，数莓派用的源的地址不能只把 manjaro 改成 manjaro-arm，后面的 $repo 和 $arch  顺序也不一样。
+而且很多镜像源只提供 manjaro 不提供 marjaro-arm。&lt;/p&gt;
+
+&lt;p&gt;最开始没仔细看，坑了好久。。&lt;/p&gt;
+
+&lt;h3 id=&#34;无线网卡驱动&#34;&gt;无线网卡驱动&lt;/h3&gt;
+
+&lt;p&gt;刚装机的时候没有网络，我用的老旧android手机连wifi，插到电脑上，允许usb上网。电脑会识别成以太网（win/mac也支持），网速还是挺快的，除了累赘，体验比无线网卡还好。&lt;/p&gt;
+
+&lt;p&gt;我用的华硕USB-AC57，官网有驱动，下下来不能用。看下文件名，一般是 rtlXXX-linux-driver，这个rtlxxx就是型号，直接去网上搜关键词。arch aur 里就有社区版本，按步骤编译安装就好使了。&lt;/p&gt;
+
+&lt;p&gt;TODO 开机联网慢，还没处理&lt;/p&gt;
+
+&lt;p&gt;TODO 最近网络不稳，猜测也是这个驱动问题&lt;/p&gt;
+
+&lt;p&gt;尽量还是走有线吧。&lt;/p&gt;
+
+&lt;h3 id=&#34;输入法&#34;&gt;输入法&lt;/h3&gt;
+
+&lt;p&gt;默认安装好 fcitx 后，状态栏也有了，但是不能切换。原因是并没有在x环境下启用，我的处理办法是在 xinitrc 里加了几行配置。&lt;/p&gt;
+
+&lt;p&gt;参考：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;tail ~/.xinitrc
+
+export XMODIFIERS=&amp;quot;@im=fcitx&amp;quot;
+export GTK_IM_MODULE=xim
+export QT_IM_MODULE=xim
+
+exec $(get_session)  # 这行原来就有，不要动。在上面加三个export就行。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;另外，fcitx-qt4 会和 fcitx-gtk* 冲突，我用的后者。前者貌似才能支持搜狗。&lt;/p&gt;
+
+&lt;h3 id=&#34;网络&#34;&gt;网络&lt;/h3&gt;
+
+&lt;p&gt;装机需要配个pac，不然很多东西下不动。&lt;/p&gt;
+
+&lt;p&gt;最好是在路由器里支持。&lt;/p&gt;
+
+&lt;p&gt;manjaro里的话，好像只能针对每个网络单独配置。&lt;/p&gt;
+
+&lt;p&gt;数莓派同时安装了酸酸乳和奶牛作为统一的入口，macbook顺利通过，但manjaro走奶牛PAC一直走不通，后来莫名其妙好了。。&lt;/p&gt;
+
+&lt;h3 id=&#34;用户目录改英文&#34;&gt;用户目录改英文&lt;/h3&gt;
+
+&lt;p&gt;网上搜了一堆教程都需要 &lt;code&gt;xdg-user-dirs-gtk-update&lt;/code&gt;，但默认只有 &lt;code&gt;xdg-user-dirs-update&lt;/code&gt;，擅自用了后者发现不好使，要装一下前者：&lt;code&gt;sudo pacman -S xdg-user-dirs-gtk&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Coding After 100&#43; Bugs</title>
@@ -1251,126 +1347,6 @@ encoder.Encode(...)
 &lt;li&gt;&lt;code&gt;Array&lt;/code&gt; + &lt;code&gt;Dict&lt;/code&gt; 类似于 &lt;code&gt;Php&lt;/code&gt; 里的 &lt;code&gt;array&lt;/code&gt;。在性能不那么要命的地方用起来很爽&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Redis&lt;/code&gt; 基本数据结构：跳跃表&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Redis 学习笔记</title>
-      <link>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Sun, 05 Aug 2018 01:16:07 +0800</pubDate>
-      
-      <guid>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;这里只会记录在学习 Redis 源码时觉得比较好玩的地方，不会一五一十的讲细节。&lt;/p&gt;
-
-&lt;h2 id=&#34;内存分配&#34;&gt;内存分配&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;zmalloc&lt;/code&gt; 在实际 &lt;code&gt;malloc&lt;/code&gt; 到的内存前面加一个 &lt;code&gt;size&lt;/code&gt; 。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void *zmalloc(size_t size) {
-    void *ptr = malloc(size+PREFIX_SIZE);
-    *((size_t*)ptr) = size;
-    update_zmalloc_stat_alloc(size+PREFIX_SIZE);
-    return (char*)ptr+PREFIX_SIZE;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;动态字符串-sds&#34;&gt;动态字符串 sds&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;sds&lt;/code&gt; 在基础的 &lt;code&gt;char*&lt;/code&gt; 前面加一段 &lt;code&gt;header&lt;/code&gt; 来记录信息（类似于 Go 实现）。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;// 除了 sdshdr64，还有 sdshdr32、sdshdr16... 区分不同的长度上限
-struct __attribute__ ((__packed__)) sdshdr64 {
-    uint64_t len; /* used */
-    uint64_t alloc; /* excluding the header and null terminator */
-    unsigned char flags; /* 3 lsb of type, 5 unused bits */
-    char buf[];
-};
-
-sds sdsnewlen(const void *init, size_t initlen) {
-    ...
-    sh = s_malloc(hdrlen+initlen+1);
-    s = (char*)sh+hdrlen;	// 实际字符串
-    memcpy(s, init, initlen);
-    return s;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;字典-dict&#34;&gt;字典 dict&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;基本数据结构&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;dictEntry：键值对。（冲突处理：开链）&lt;/li&gt;
-&lt;li&gt;dictht：哈希表。记录使用情况用来 &lt;code&gt;rehash&lt;/code&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;dict&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;typedef struct dict {
-dictType *type; // 不同type有不同的hash算法
-void *privdata;
-dictht ht[2];   // 两个 ht 来实现渐进式的 rehash
-long rehashidx; /* rehashing not in progress if rehashidx == -1 */
-unsigned long iterators; /* number of iterators currently running */
-} dict;
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;哈希算法&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;rehash：冲突元素太多时扩容。通过两个哈希表进行&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;渐进式策略：&lt;/li&gt;
-&lt;li&gt;每次执行操作时转移一个&lt;/li&gt;
-&lt;li&gt;定时每次转移100个&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;数据操作&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;每次操作前尽可能进行一次 &lt;code&gt;rehash&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rehash&lt;/code&gt; 时，要依次在两个表里查询；其他操作类似。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;跳跃表-zset&#34;&gt;跳跃表 zset&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;数据结构
-
-&lt;ul&gt;
-&lt;li&gt;span&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;整数集合-intset&#34;&gt;整数集合 intset&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;数据结构
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;encoding&lt;/code&gt; 记录元素大小，对于小的数字，使用 &lt;code&gt;int16_t&lt;/code&gt; 来节省内存。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;resize
-
-&lt;ul&gt;
-&lt;li&gt;先分配足够内存，再调用 &lt;code&gt;memmove&lt;/code&gt; 函数进行搬移&lt;/li&gt;
-&lt;li&gt;单向升级，只有在插入元素的时候，如果 &lt;code&gt;encoding&lt;/code&gt; 过小时会进行&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;鸣谢&#34;&gt;鸣谢&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://zcheng.ren/tags/redis/&#34; target=&#34;_blank&#34;&gt;Redis源码剖析&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

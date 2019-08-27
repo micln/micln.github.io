@@ -6,10 +6,19 @@
     <description>Recent content in Linux on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 19 May 2013 21:13:42 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 11 Aug 2019 00:04:48 +0800</lastBuildDate>
     
 	<atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Manjaro 踩坑记录</title>
+      <link>/post/manjaro_go/</link>
+      <pubDate>Sun, 11 Aug 2019 00:04:48 +0800</pubDate>
+      
+      <guid>/post/manjaro_go/</guid>
+      <description>先说说背景，为什么MacBook还在吃灰，又开始折腾Linux Desktop了 家里组了台PC，只打游戏太浪费，且实在搞不定windows写代</description>
+    </item>
     
     <item>
       <title>Linux 系统问题整理</title>
