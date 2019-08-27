@@ -5,8 +5,85 @@
     <description>Recent content in 在水异方 on 在水异方</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 02 Jul 2019 11:11:16 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jul 2019 14:19:31 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Code_after_100_bugs</title>
+      <link>/post/code_after_100_bugs/</link>
+      <pubDate>Mon, 29 Jul 2019 14:19:31 +0800</pubDate>
+      
+      <guid>/post/code_after_100_bugs/</guid>
+      <description>
+
+&lt;p&gt;今年接手了一个新项目，不算vendor包，大概6W行代码，半年出了近100个bug。&lt;/p&gt;
+
+&lt;h3 id=&#34;阻塞性依赖&#34;&gt;阻塞性依赖&lt;/h3&gt;
+
+&lt;h3 id=&#34;流程与业务规则隔离&#34;&gt;流程与业务规则隔离&lt;/h3&gt;
+
+&lt;h3 id=&#34;日志那么多-有多少能帮助你还原现场&#34;&gt;日志那么多，有多少能帮助你还原现场&lt;/h3&gt;
+
+&lt;h3 id=&#34;字段命名一致性&#34;&gt;字段命名一致性&lt;/h3&gt;
+
+&lt;h3 id=&#34;横向耦合-纵向耦合如果同时出现-代码就废了&#34;&gt;横向耦合、纵向耦合如果同时出现，代码就废了&lt;/h3&gt;
+
+&lt;h3 id=&#34;该收的口子一定要收口&#34;&gt;该收的口子一定要收口&lt;/h3&gt;
+
+&lt;p&gt;一段代码同时copy在多个流程里，维护起来丢三落四&lt;/p&gt;
+
+&lt;h3 id=&#34;聚合服务-千万不要关心别人的细节&#34;&gt;聚合服务，千万不要关心别人的细节&lt;/h3&gt;
+
+&lt;p&gt;尤其是多个依赖的细节还不一样，真实灾难&lt;/p&gt;
+
+&lt;h3 id=&#34;双写幂等性-可修复性&#34;&gt;双写幂等性，可修复性&lt;/h3&gt;
+
+&lt;p&gt;不要第一次双写失败，导致后面数据都对不上。&lt;/p&gt;
+
+&lt;p&gt;出现不一致，一定要第一时间报警&lt;/p&gt;
+
+&lt;h3 id=&#34;数据结构上-不建议一个字段在不同场景下表示不同含义&#34;&gt;数据结构上，不建议一个字段在不同场景下表示不同含义&lt;/h3&gt;
+
+&lt;h3 id=&#34;依赖服务的返回值-日志一定要清晰&#34;&gt;依赖服务的返回值，日志一定要清晰&lt;/h3&gt;
+
+&lt;h3 id=&#34;处理err时-一定要想想-如果这个error出来了-如何主动让我发现&#34;&gt;处理err时，一定要想想：如果这个error出来了，如何主动让我发现&lt;/h3&gt;
+
+&lt;p&gt;api 错误后，如何快速定位哪一层抛的错&lt;/p&gt;
+
+&lt;h3 id=&#34;任何有业务含义的字段不能用来做pk&#34;&gt;任何有业务含义的字段不能用来做pk&lt;/h3&gt;
+
+&lt;p&gt;一改就疯&lt;/p&gt;
+
+&lt;h3 id=&#34;数据修改记录的重要性&#34;&gt;数据修改记录的重要性&lt;/h3&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How_to_build_dump_tool</title>
+      <link>/post/how_to_build_dump_tool/</link>
+      <pubDate>Mon, 22 Jul 2019 15:04:42 +0800</pubDate>
+      
+      <guid>/post/how_to_build_dump_tool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>谈谈git下的代码冲突</title>
+      <link>/post/keep_away_from_git_conflict/</link>
+      <pubDate>Mon, 22 Jul 2019 15:02:54 +0800</pubDate>
+      
+      <guid>/post/keep_away_from_git_conflict/</guid>
+      <description>
+
+&lt;p&gt;罗列一些常见的代码冲突场景&lt;/p&gt;
+
+&lt;h3 id=&#34;两个人同时在配置文件后面加了一项各自的配置&#34;&gt;两个人同时在配置文件后面加了一项各自的配置&lt;/h3&gt;
+
+&lt;p&gt;先说答案：不要都在末尾新增配置&lt;/p&gt;
+
+&lt;p&gt;git有个神奇的特性，如果两个人都在一行加了代码，会冲突；但是一个加在第5行，一个加在第10行，就不会有事。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Go项目在组织启动代码上的一次尝试</title>
@@ -52,8 +129,8 @@ func TestGetNote(t *testing.T){
 &lt;ul&gt;
 &lt;li&gt;copy启动代码&lt;/li&gt;
 &lt;li&gt;把config路径改一下&lt;/li&gt;
-&lt;li&gt;去除不需要的部分，比如在 dao 里去掉 service.init()&lt;/li&gt;
-&lt;/ul&gt;
+
+&lt;li&gt;&lt;p&gt;去除不需要的部分，比如在 dao 里去掉 service.init()&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func TestGetNote(t *testing.T){
 	artemis := NewArtemis(`../../config`)
@@ -66,10 +143,11 @@ func TestGetNote(t *testing.T){
 
 // 也可以放在 TestMain 里统一处理
 func TestMain(m *testing.M){
-  // init()
-  m.Run()
+// init()
+m.Run()
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;简单粗暴的解决办法，调试也够用了。&lt;/p&gt;
@@ -172,8 +250,8 @@ func test(){
 
 &lt;ul&gt;
 &lt;li&gt;在每个 init 里定义自己需要启动什么，代码里依赖了哪个包，就会调用对应的init，不依赖的不会启动&lt;/li&gt;
-&lt;li&gt;运行cmd（webserver/script/test）时，再逐个执行init时注册的任务&lt;/li&gt;
-&lt;/ul&gt;
+
+&lt;li&gt;&lt;p&gt;运行cmd（webserver/script/test）时，再逐个执行init时注册的任务&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package dao
 func init(){
@@ -208,7 +286,8 @@ func TestMain(m *testing.M){
 	m.Run()
 	// ...
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/07/07/5d20cf8d95b3762646.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
@@ -713,6 +792,8 @@ func main(){
 
 &lt;p&gt;但是用了 gomod 后，如果你只在 vendor 分支 里加了依赖没有用，&lt;code&gt;go mod tidy&lt;/code&gt; 时又会把依赖给去掉。&lt;/p&gt;
 
+&lt;p&gt;好在大部分时候都是需要更新而不是新增依赖，这个思路依然可用。我们给项目里专门准备了一个脚本来升级依赖，这个脚本做的事情也比较简单，切换到 vendor 分支，更新，提交。再合回 feature 分支。&lt;/p&gt;
+
 &lt;h2 id=&#34;异常问题处理&#34;&gt;异常问题处理&lt;/h2&gt;
 
 &lt;h3 id=&#34;go-replace-替换大小写时不支持同时依赖大小写&#34;&gt;go replace 替换大小写时不支持同时依赖大小写&lt;/h3&gt;
@@ -1122,213 +1203,6 @@ encoder.Encode(...)
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://tech.lede.com/2017/06/30/rd/server/loggingHabit/&#34; target=&#34;_blank&#34;&gt;优秀日志实践准则&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>整理一套 Go 的轮子</title>
-      <link>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</link>
-      <pubDate>Sat, 18 Aug 2018 01:26:15 +0800</pubDate>
-      
-      <guid>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Github：&lt;a href=&#34;https://github.com/Kretech/xgo&#34; target=&#34;_blank&#34;&gt;https://github.com/Kretech/xgo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;缘起是因为 Go 的很多语法太啰嗦，也许 Go 官方为了通用性牺牲了简洁，而我们日常更青睐于 &lt;code&gt;约定优于配置&lt;/code&gt;，所以我们需要对我们的80%情况做一些优化。&lt;/p&gt;
-
-&lt;p&gt;整理了哪些东西：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;常见的 utils 库&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;类似于随机数 &lt;code&gt;rand(100)&lt;/code&gt;、转下划线 &lt;code&gt;word.UnderlineCase(&#39;HelloWorld&#39;)&lt;/code&gt;等等
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;基础数据结构&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;科班都学过的链表、树、图以及这些数据结构上的基本算法&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;略复杂的数据结构&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Array&lt;/code&gt; + &lt;code&gt;Dict&lt;/code&gt; 类似于 &lt;code&gt;Php&lt;/code&gt; 里的 &lt;code&gt;array&lt;/code&gt;。在性能不那么要命的地方用起来很爽&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Redis&lt;/code&gt; 基本数据结构：跳跃表&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Redis 学习笔记</title>
-      <link>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Sun, 05 Aug 2018 01:16:07 +0800</pubDate>
-      
-      <guid>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;这里只会记录在学习 Redis 源码时觉得比较好玩的地方，不会一五一十的讲细节。&lt;/p&gt;
-
-&lt;h2 id=&#34;内存分配&#34;&gt;内存分配&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;zmalloc&lt;/code&gt; 在实际 &lt;code&gt;malloc&lt;/code&gt; 到的内存前面加一个 &lt;code&gt;size&lt;/code&gt; 。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void *zmalloc(size_t size) {
-    void *ptr = malloc(size+PREFIX_SIZE);
-    *((size_t*)ptr) = size;
-    update_zmalloc_stat_alloc(size+PREFIX_SIZE);
-    return (char*)ptr+PREFIX_SIZE;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;动态字符串-sds&#34;&gt;动态字符串 sds&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;sds&lt;/code&gt; 在基础的 &lt;code&gt;char*&lt;/code&gt; 前面加一段 &lt;code&gt;header&lt;/code&gt; 来记录信息（类似于 Go 实现）。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;// 除了 sdshdr64，还有 sdshdr32、sdshdr16... 区分不同的长度上限
-struct __attribute__ ((__packed__)) sdshdr64 {
-    uint64_t len; /* used */
-    uint64_t alloc; /* excluding the header and null terminator */
-    unsigned char flags; /* 3 lsb of type, 5 unused bits */
-    char buf[];
-};
-
-sds sdsnewlen(const void *init, size_t initlen) {
-    ...
-    sh = s_malloc(hdrlen+initlen+1);
-    s = (char*)sh+hdrlen;	// 实际字符串
-    memcpy(s, init, initlen);
-    return s;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;字典-dict&#34;&gt;字典 dict&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;基本数据结构
-
-&lt;ul&gt;
-&lt;li&gt;dictEntry：键值对。（冲突处理：开链）&lt;/li&gt;
-&lt;li&gt;dictht：哈希表。记录使用情况用来 &lt;code&gt;rehash&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;dict
-&lt;code&gt;c
-typedef struct dict {
-dictType *type; // 不同type有不同的hash算法
-void *privdata;
-dictht ht[2];   // 两个 ht 来实现渐进式的 rehash
-long rehashidx; /* rehashing not in progress if rehashidx == -1 */
-unsigned long iterators; /* number of iterators currently running */
-} dict;
-&lt;/code&gt;
-
-- 哈希算法
-- rehash：冲突元素太多时扩容。通过两个哈希表进行
-- 渐进式策略：
-- 每次执行操作时转移一个
-- 定时每次转移100个
-- 数据操作
-- 每次操作前尽可能进行一次 &lt;code&gt;rehash&lt;/code&gt;。
-- &lt;code&gt;rehash&lt;/code&gt; 时，要依次在两个表里查询；其他操作类似。
-
-
-
-## 跳跃表 zset
-
-- 数据结构
-- span
-
-
-
-## 整数集合 intset
-
-- 数据结构
-- &lt;code&gt;encoding&lt;/code&gt; 记录元素大小，对于小的数字，使用 &lt;code&gt;int16_t&lt;/code&gt; 来节省内存。
-- resize
-- 先分配足够内存，再调用 &lt;code&gt;memmove&lt;/code&gt; 函数进行搬移
-- 单向升级，只有在插入元素的时候，如果 &lt;code&gt;encoding&lt;/code&gt; 过小时会进行
-
-
-
-# 鸣谢
-
-- &lt;a href=&#34;https://zcheng.ren/tags/redis/&#34; target=&#34;_blank&#34;&gt;Redis源码剖析&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Laravel Eloquent whereHas 的一个优化</title>
-      <link>/post/jianshu/laravel-eloquent-wherehas-%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96/</link>
-      <pubDate>Tue, 26 Jun 2018 21:07:21 +0800</pubDate>
-      
-      <guid>/post/jianshu/laravel-eloquent-wherehas-%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BC%98%E5%8C%96/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;用 Laravel 很久了，whereHas 简直是连表大杀器，本来需要写大量 SQL 的查询用 whereHas 都可以很快的实现。不过在一些场景里，遇到了严重的性能问题。&lt;/p&gt;
-
-&lt;p&gt;我们有个A表，大约是百万级数据，与之关联的有个B表，大约万级数据。在做关联查询的时候我们自然使用 &lt;code&gt;A::whereHas(&#39;b&#39;, function(){...})&lt;/code&gt;  。&lt;/p&gt;
-
-&lt;p&gt;后来发现了许多慢查询，仔细一看发现，Laravel 的 &lt;code&gt;whereHas&lt;/code&gt; 在生成 SQL 的时候会使用 &lt;code&gt;select * from A where exists ( select * from b where ... )&lt;/code&gt; 。当我们的左表远远大于右表时，A 表就成了性能瓶颈。&lt;/p&gt;
-
-&lt;p&gt;最直接的方法当然是拆成两条 SQL，但是嫌麻烦，还得一条条优化。再加上我们很多 SQL 都是靠各种工具生成，所以改起来也挺麻烦。&lt;/p&gt;
-
-&lt;p&gt;于是就考虑加了个 &lt;code&gt;whereHasIn&lt;/code&gt; 的方法，接口参数跟 &lt;code&gt;whereHas&lt;/code&gt; 一致，只不过在生成 SQL 的时候会生成 &lt;code&gt;select * from A where A.id in (select id from B)&lt;/code&gt;。这样就不需要改什么 SQL 了，只要在调用 &lt;code&gt;A::whereHas()&lt;/code&gt; 的地方加两个字符变成 &lt;code&gt;A::whereHasIn()&lt;/code&gt; 就搞定了。在实际中，我们这条查询的耗时从几秒一下降低到了20毫秒。&lt;/p&gt;
-
-&lt;p&gt;下面是一个实现的 demo，暂时只支持 一对多的情况。如果大家有什么更好的想法，一起讨论讨论。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
-
-use Illuminate\Database\Eloquent\Relations;
-
-abstract class AbstractModel
-{
-    /**
-     * whereHas 的 where in 实现
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @param string $relationName
-     * @param callable $callable
-     * @return Builder
-     *
-     * @throws Exception
-     */
-    public function scopeWhereHasIn($builder, $relationName, callable $callable)
-    {
-        $relationNames = explode(&#39;.&#39;, $relationName);
-        $nextRelation = implode(&#39;.&#39;, array_slice($relationNames, 1));
-
-        $method = $relationNames[0];
-        /** @var Relations\BelongsTo|Relations\HasOne $relation */
-        $relation = Relations\Relation::noConstraints(function () use ($method) {
-            return $this-&amp;gt;$method();
-        });
-
-        /** @var Builder $in */
-        $in = $relation-&amp;gt;getQuery()-&amp;gt;whereHasIn($nextRelation, $callable);
-
-        if ($relation instanceof Relations\BelongsTo) {
-            return $builder-&amp;gt;whereIn($relation-&amp;gt;getForeignKey(), $in-&amp;gt;select($relation-&amp;gt;getOwnerKey()));
-        } elseif ($relation instanceof Relations\HasOne) {
-            return $builder-&amp;gt;whereIn($this-&amp;gt;getKeyName(), $in-&amp;gt;select($relation-&amp;gt;getForeignKeyName()));
-        }
-
-        throw new Exception(__METHOD__ . &amp;quot; 不支持 &amp;quot; . get_class($relation));
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

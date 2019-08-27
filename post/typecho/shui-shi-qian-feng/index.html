@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -462,15 +462,15 @@ C说xxx</p>
 <p>关键在于，如何描述“A说”的这个过程。很容易想到，这个过程实际上是一个从字符到表达式的映射。表达式在C语言中如何作为一个变量来使用？当然是函数指针，于是可以写出下面的代码：</p>
 
 <pre><code class="language-cpp">int guessA(){
-    return Score['E'] == 1;
+	return Score['E'] == 1;
 }
 int guessB(){
-    return Score['B'] == 2;
+	return Score['B'] == 2;
 }
 ...
 </code></pre>
 
-<pre><code class="language-cpp">int (*guess[256])();    //  定义一个函数指针的数组
+<pre><code class="language-cpp">int (*guess[256])();	//	定义一个函数指针的数组
 guess['A'] = guessA;
 guess['B'] = guessB;
 ...
@@ -483,7 +483,7 @@ guess['B'] = guessB;
 <p>这个题目较为简单，5个人的排名当然有5!种情况，可以用C++提供的全排列的库实现，也可以用深搜自己实现。这里使用<a href="https://zh.wikipedia.org/wiki/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80#.E5.BA.B7.E6.89.98.E5.B1.95.E5.BC.80.E7.9A.84.E9.80.86.E8.BF.90.E7.AE.97" target="_blank">康托展开逆运算</a>得到（每次计算的时间复杂度为O(1)）</p>
 
 <pre><code class="language-cpp">
-//  生成1~n的全排列中得第k项，返回值在ret中
+//	生成1~n的全排列中得第k项，返回值在ret中
 int fac[]={1,1,2,6,24,120,720,5040,40320,362880};
 void invKT(int n, int k, int ret[]){
     k--;
@@ -505,11 +505,11 @@ void invKT(int n, int k, int ret[]){
 
 <p>我们可以枚举得到每次的结果：</p>
 
-<pre><code class="language-cpp">int score[N];   //  score[i]表示('A'+i)排第几名
-int rank[N];    //  rank[i]表示第i名是谁
+<pre><code class="language-cpp">int score[N];	//	score[i]表示('A'+i)排第几名
+int rank[N];	//	rank[i]表示第i名是谁
 for ( int i=1; i&lt;=fac[n]; i++) {
-    invKT(n, i, score);
-    for ( int j=0; j&lt;n; j++) rank[score[i]] = 'A'+i;
+	invKT(n, i, score);
+	for ( int j=0; j&lt;n; j++) rank[score[i]] = 'A'+i;
 }
 </code></pre>
 
@@ -520,11 +520,11 @@ for ( int i=1; i&lt;=fac[n]; i++) {
 <p>只有第一名和第二名说的正确：</p>
 
 <pre><code class="language-cpp">if ( 
-    guess[ rank[1] ]() == 1 &amp;&amp;
-    guess[ rank[2] ]() == 1 &amp;&amp;
-    guess[ rank[3] ]() == 0 &amp;&amp;
-    guess[ rank[4] ]() == 0 &amp;&amp;
-    guess[ rank[5] ]() == 0
+	guess[ rank[1] ]() == 1 &amp;&amp;
+	guess[ rank[2] ]() == 1 &amp;&amp;
+	guess[ rank[3] ]() == 0 &amp;&amp;
+	guess[ rank[4] ]() == 0 &amp;&amp;
+	guess[ rank[5] ]() == 0
 )
 </code></pre>
 
@@ -931,7 +931,7 @@ void invKT(int n, int k, int ret[]){
     
     
     
-    <script src="/js/academic.min.9c79bd36ad5b530cf8825d78d951c339.js"></script>
+    <script src="/js/academic.min.7636b87b7ca0b6689810d4b648238174.js"></script>
 
   </body>
 </html>

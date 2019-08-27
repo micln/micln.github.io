@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -125,7 +125,7 @@
   <meta property="og:description" content="description"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="og:updated_time" content="2019-04-14T11:20:27&#43;08:00">
+  <meta property="og:updated_time" content="2019-07-29T14:19:31&#43;08:00">
   
 
   
@@ -309,6 +309,58 @@
   
   
   <div>
+    <h2><a href="/post/code_after_100_bugs/">Code_after_100_bugs</a></h2>
+    <div class="article-style">
+      
+      今年接手了一个新项目，不算vendor包，大概6W行代码，半年出了近100个bug。 阻塞性依赖 流程与业务规则隔离 日志那么多，有多少能帮助你还
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/how_to_build_dump_tool/">How_to_build_dump_tool</a></h2>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/keep_away_from_git_conflict/">谈谈git下的代码冲突</a></h2>
+    <div class="article-style">
+      
+      罗列一些常见的代码冲突场景 两个人同时在配置文件后面加了一项各自的配置 先说答案：不要都在末尾新增配置 git有个神奇的特性，如果两个人都在一行加
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/boot_test_in_go/">Go项目在组织启动代码上的一次尝试</a></h2>
+    <div class="article-style">
+      
+      最开始的项目目录 $ tree . ├── ./api/ ├── ./service/ ├── ./dao/ ├── ./model/ ├── main.go func main(){ flag.Parse() artemis := NewArtemis(flag.String(`config`)) // artemis 是我们的框架，类似beego log.init() service.init() dao.init() worker.init() api.Route(artemis.Router) artemis.Run() } 写个测试吧 packege dao func TestGetNote(t *testing.T){
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/float_kidding/">当我们在说浮点数精度不准的时候，到底在说什么</a></h2>
+    <div class="article-style">
+      
+      原以为浮点数是计算机编程的基础知识，后来发现个奇怪的现象：很多人都说浮点很坑，千万不要用，至于为什么却说不出个所以然。更有甚者，以专业民科的
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/avoid_npe_in_go/">在 Go 里避免空指针问题</a></h2>
+    <div class="article-style">
+      
+      空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围，但恰恰由于隐藏了值和引用的概念，使得很多新手在处理
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/gomod/">Go Module 实践中的问题（持续更新）</a></h2>
     <div class="article-style">
       
@@ -474,7 +526,7 @@
     
     
     
-    <script src="/js/academic.min.9c79bd36ad5b530cf8825d78d951c339.js"></script>
+    <script src="/js/academic.min.7636b87b7ca0b6689810d4b648238174.js"></script>
 
   </body>
 </html>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -427,6 +427,8 @@
 
 <p>但是用了 gomod 后，如果你只在 vendor 分支 里加了依赖没有用，<code>go mod tidy</code> 时又会把依赖给去掉。</p>
 
+<p>好在大部分时候都是需要更新而不是新增依赖，这个思路依然可用。我们给项目里专门准备了一个脚本来升级依赖，这个脚本做的事情也比较简单，切换到 vendor 分支，更新，提交。再合回 feature 分支。</p>
+
 <h2 id="异常问题处理">异常问题处理</h2>
 
 <h3 id="go-replace-替换大小写时不支持同时依赖大小写">go replace 替换大小写时不支持同时依赖大小写</h3>
@@ -800,7 +802,7 @@ vendor/xxx.com/com/projB/registry/go.mod:module xxx.com/com/projB/registry
     
     
     
-    <script src="/js/academic.min.9c79bd36ad5b530cf8825d78d951c339.js"></script>
+    <script src="/js/academic.min.7636b87b7ca0b6689810d4b648238174.js"></script>
 
   </body>
 </html>

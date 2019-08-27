@@ -6,10 +6,64 @@
     <description>Recent content in 最佳实践 on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 14 Apr 2019 11:20:27 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jul 2019 14:19:31 +0800</lastBuildDate>
     
 	<atom:link href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Code_after_100_bugs</title>
+      <link>/post/code_after_100_bugs/</link>
+      <pubDate>Mon, 29 Jul 2019 14:19:31 +0800</pubDate>
+      
+      <guid>/post/code_after_100_bugs/</guid>
+      <description>今年接手了一个新项目，不算vendor包，大概6W行代码，半年出了近100个bug。 阻塞性依赖 流程与业务规则隔离 日志那么多，有多少能帮助你还</description>
+    </item>
+    
+    <item>
+      <title>How_to_build_dump_tool</title>
+      <link>/post/how_to_build_dump_tool/</link>
+      <pubDate>Mon, 22 Jul 2019 15:04:42 +0800</pubDate>
+      
+      <guid>/post/how_to_build_dump_tool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>谈谈git下的代码冲突</title>
+      <link>/post/keep_away_from_git_conflict/</link>
+      <pubDate>Mon, 22 Jul 2019 15:02:54 +0800</pubDate>
+      
+      <guid>/post/keep_away_from_git_conflict/</guid>
+      <description>罗列一些常见的代码冲突场景 两个人同时在配置文件后面加了一项各自的配置 先说答案：不要都在末尾新增配置 git有个神奇的特性，如果两个人都在一行加</description>
+    </item>
+    
+    <item>
+      <title>Go项目在组织启动代码上的一次尝试</title>
+      <link>/post/boot_test_in_go/</link>
+      <pubDate>Tue, 02 Jul 2019 11:11:16 +0800</pubDate>
+      
+      <guid>/post/boot_test_in_go/</guid>
+      <description>最开始的项目目录 $ tree . ├── ./api/ ├── ./service/ ├── ./dao/ ├── ./model/ ├── main.go func main(){ flag.Parse() artemis := NewArtemis(flag.String(`config`)) // artemis 是我们的框架，类似beego log.init() service.init() dao.init() worker.init() api.Route(artemis.Router) artemis.Run() } 写个测试吧 packege dao func TestGetNote(t *testing.T){</description>
+    </item>
+    
+    <item>
+      <title>当我们在说浮点数精度不准的时候，到底在说什么</title>
+      <link>/post/float_kidding/</link>
+      <pubDate>Mon, 24 Jun 2019 22:12:55 +0800</pubDate>
+      
+      <guid>/post/float_kidding/</guid>
+      <description>原以为浮点数是计算机编程的基础知识，后来发现个奇怪的现象：很多人都说浮点很坑，千万不要用，至于为什么却说不出个所以然。更有甚者，以专业民科的</description>
+    </item>
+    
+    <item>
+      <title>在 Go 里避免空指针问题</title>
+      <link>/post/avoid_npe_in_go/</link>
+      <pubDate>Thu, 16 May 2019 21:58:24 +0800</pubDate>
+      
+      <guid>/post/avoid_npe_in_go/</guid>
+      <description>空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围，但恰恰由于隐藏了值和引用的概念，使得很多新手在处理</description>
+    </item>
     
     <item>
       <title>Go Module 实践中的问题（持续更新）</title>

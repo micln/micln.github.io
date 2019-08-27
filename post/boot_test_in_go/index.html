@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
 
@@ -339,6 +339,17 @@
   
 
   
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">最佳实践</a>
+    
+  </span>
+  
+  
 
 
   
@@ -424,8 +435,8 @@ func TestGetNote(t *testing.T){
 <ul>
 <li>copy启动代码</li>
 <li>把config路径改一下</li>
-<li>去除不需要的部分，比如在 dao 里去掉 service.init()</li>
-</ul>
+
+<li><p>去除不需要的部分，比如在 dao 里去掉 service.init()</p>
 
 <pre><code class="language-go">func TestGetNote(t *testing.T){
 	artemis := NewArtemis(`../../config`)
@@ -438,10 +449,11 @@ func TestGetNote(t *testing.T){
 
 // 也可以放在 TestMain 里统一处理
 func TestMain(m *testing.M){
-  // init()
-  m.Run()
+// init()
+m.Run()
 }
-</code></pre>
+</code></pre></li>
+</ul>
 
 <blockquote>
 <p>简单粗暴的解决办法，调试也够用了。</p>
@@ -544,8 +556,8 @@ func test(){
 
 <ul>
 <li>在每个 init 里定义自己需要启动什么，代码里依赖了哪个包，就会调用对应的init，不依赖的不会启动</li>
-<li>运行cmd（webserver/script/test）时，再逐个执行init时注册的任务</li>
-</ul>
+
+<li><p>运行cmd（webserver/script/test）时，再逐个执行init时注册的任务</p>
 
 <pre><code class="language-go">package dao
 func init(){
@@ -580,7 +592,8 @@ func TestMain(m *testing.M){
 	m.Run()
 	// ...
 }
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p><img src="https://i.loli.net/2019/07/07/5d20cf8d95b3762646.png" alt="" /></p>
 
@@ -736,6 +749,11 @@ func TestMain(m *testing.M){
     
     <div class="article-widget">
       <div class="post-nav">
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/post/keep_away_from_git_conflict/" rel="next">谈谈git下的代码冲突</a>
+  </div>
   
   
   <div class="post-nav-item">
@@ -930,7 +948,7 @@ func TestMain(m *testing.M){
     
     
     
-    <script src="/js/academic.min.9c79bd36ad5b530cf8825d78d951c339.js"></script>
+    <script src="/js/academic.min.7636b87b7ca0b6689810d4b648238174.js"></script>
 
   </body>
 </html>

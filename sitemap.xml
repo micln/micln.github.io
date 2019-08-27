@@ -2,9 +2,50 @@
   
     <url>
     
+      <loc>/categories/</loc>
+      <lastmod>2019-07-29T14:19:31+08:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/post/code_after_100_bugs/</loc>
+      <lastmod>2019-07-29T14:19:31+08:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/post/</loc>
+      <lastmod>2019-07-29T14:19:31+08:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/</loc>
+      <lastmod>2019-07-29T14:19:31+08:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</loc>
+      <lastmod>2019-07-29T14:19:31+08:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/post/how_to_build_dump_tool/</loc>
+      <lastmod>2019-07-22T15:04:42+08:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/post/keep_away_from_git_conflict/</loc>
+      <lastmod>2019-07-22T15:02:54+08:00</lastmod>
+    </url>
+  
+    <url>
+    
       <loc>/tags/go/</loc>
       <lastmod>2019-07-02T11:11:16+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -15,29 +56,14 @@
   
     <url>
     
-      <loc>/post/</loc>
-      <lastmod>2019-07-02T11:11:16+08:00</lastmod>
-    </url>
-  
-    <url>
-    
       <loc>/tags/</loc>
       <lastmod>2019-07-02T11:11:16+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-  
-    <url>
-    
-      <loc>/</loc>
-      <lastmod>2019-07-02T11:11:16+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/float/</loc>
       <lastmod>2019-06-24T22:12:55+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -50,7 +76,6 @@
     
       <loc>/tags/npe/</loc>
       <lastmod>2019-05-16T21:58:24+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -73,13 +98,6 @@
   
     <url>
     
-      <loc>/categories/</loc>
-      <lastmod>2019-04-14T11:20:27+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-  
-    <url>
-    
       <loc>/post/gomod/</loc>
       <lastmod>2019-04-14T11:20:27+08:00</lastmod>
     </url>
@@ -88,21 +106,6 @@
     
       <loc>/tags/gomod/</loc>
       <lastmod>2019-04-14T11:20:27+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-  
-    <url>
-    
-      <loc>/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</loc>
-      <lastmod>2019-04-14T11:20:27+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-  
-    <url>
-    
-      <loc>/project/</loc>
-      <lastmod>2019-04-11T23:39:11+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -113,16 +116,26 @@
   
     <url>
     
+      <loc>/project/</loc>
+      <lastmod>2019-04-11T23:39:11+08:00</lastmod>
+    </url>
+  
+    <url>
+    
       <loc>/tags/tool/</loc>
       <lastmod>2019-04-11T23:39:11+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/iterator/</loc>
       <lastmod>2019-03-25T00:22:45+08:00</lastmod>
-      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/json/</loc>
+      <lastmod>2019-03-25T00:22:45+08:00</lastmod>
     </url>
   
     <url>
@@ -133,30 +146,20 @@
   
     <url>
     
-      <loc>/tags/json/</loc>
-      <lastmod>2019-03-25T00:22:45+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-  
-    <url>
-    
       <loc>/tags/swagger/</loc>
       <lastmod>2019-03-25T00:22:45+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/categories/%E7%AE%80%E4%B9%A6/</loc>
       <lastmod>2019-03-25T00:22:45+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/categories/%E9%9A%8F%E7%AC%94/</loc>
       <lastmod>2019-03-25T00:22:45+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -167,22 +170,20 @@
   
     <url>
     
+      <loc>/tags/encoding/</loc>
+      <lastmod>2018-08-27T20:28:35+08:00</lastmod>
+    </url>
+  
+    <url>
+    
       <loc>/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/</loc>
       <lastmod>2018-08-27T20:28:35+08:00</lastmod>
     </url>
   
     <url>
     
-      <loc>/tags/encoding/</loc>
-      <lastmod>2018-08-27T20:28:35+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-  
-    <url>
-    
       <loc>/tags/httpclient/</loc>
       <lastmod>2018-08-26T20:22:26+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -195,7 +196,6 @@
     
       <loc>/categories/kretech/</loc>
       <lastmod>2018-08-26T20:22:26+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -214,7 +214,6 @@
     
       <loc>/tags/redis/</loc>
       <lastmod>2018-08-05T01:16:07+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -227,14 +226,12 @@
     
       <loc>/tags/eloquent/</loc>
       <lastmod>2018-06-26T21:07:21+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/laravel/</loc>
       <lastmod>2018-06-26T21:07:21+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -247,28 +244,24 @@
     
       <loc>/tags/wherehas/</loc>
       <lastmod>2018-06-26T21:07:21+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/cache/</loc>
       <lastmod>2018-06-15T21:03:34+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/java/</loc>
       <lastmod>2018-06-15T21:03:34+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/spring/</loc>
       <lastmod>2018-06-15T21:03:34+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -293,14 +286,12 @@
     
       <loc>/tags/orm/</loc>
       <lastmod>2018-03-03T11:23:45+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/loulan/</loc>
       <lastmod>2018-01-16T11:45:42+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -311,16 +302,8 @@
   
     <url>
     
-      <loc>/categories/snippets/</loc>
-      <lastmod>2017-06-04T23:55:00+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-  
-    <url>
-    
       <loc>/tags/sftp/</loc>
       <lastmod>2017-06-04T23:55:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -331,9 +314,14 @@
   
     <url>
     
+      <loc>/categories/snippets/</loc>
+      <lastmod>2017-06-04T23:55:00+08:00</lastmod>
+    </url>
+  
+    <url>
+    
       <loc>/tags/ssis/</loc>
       <lastmod>2016-12-25T04:06:10+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -346,7 +334,6 @@
     
       <loc>/tags/mac/</loc>
       <lastmod>2016-12-19T11:03:11+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -359,7 +346,6 @@
     
       <loc>/tags/ngrok/</loc>
       <lastmod>2016-12-10T00:11:33+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -384,7 +370,6 @@
     
       <loc>/tags/github/</loc>
       <lastmod>2016-11-06T21:40:20+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -397,14 +382,12 @@
     
       <loc>/tags/squash/</loc>
       <lastmod>2016-11-06T21:40:20+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/</loc>
       <lastmod>2016-11-06T21:40:20+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -417,14 +400,12 @@
     
       <loc>/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
       <lastmod>2016-10-05T01:27:20+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/code/</loc>
       <lastmod>2016-09-25T10:32:33+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -437,21 +418,18 @@
     
       <loc>/tags/review/</loc>
       <lastmod>2016-09-25T10:32:33+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/it%E6%8A%80%E6%9C%AF%E5%A0%86/</loc>
       <lastmod>2015-10-13T03:15:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/categories/typecho/</loc>
       <lastmod>2015-10-13T03:15:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -470,7 +448,6 @@
     
       <loc>/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F/</loc>
       <lastmod>2015-10-06T09:03:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -483,28 +460,24 @@
     
       <loc>/tags/%E8%AE%B0%E4%BA%8B/</loc>
       <lastmod>2015-09-13T16:24:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/%E9%9A%8F%E6%83%B3/</loc>
       <lastmod>2015-09-13T16:24:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/tweet/</loc>
       <lastmod>2015-09-11T15:09:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/%E6%88%91%E7%9A%84%E5%BE%AE%E5%8D%9A/</loc>
       <lastmod>2015-09-11T15:09:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -541,7 +514,6 @@
     
       <loc>/categories/dashayu.tk/</loc>
       <lastmod>2014-12-02T12:00:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -566,7 +538,6 @@
     
       <loc>/tags/struts2/</loc>
       <lastmod>2014-11-16T15:46:42+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -591,7 +562,6 @@
     
       <loc>/tags/%E8%AF%BB%E4%B9%A6/</loc>
       <lastmod>2014-11-08T15:09:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -602,9 +572,20 @@
   
     <url>
     
+      <loc>/categories/csdn/</loc>
+      <lastmod>2014-10-08T10:09:31+08:00</lastmod>
+    </url>
+  
+    <url>
+    
       <loc>/tags/usc/</loc>
       <lastmod>2014-10-08T10:09:31+08:00</lastmod>
-      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/categories/usc/</loc>
+      <lastmod>2014-10-08T10:09:31+08:00</lastmod>
     </url>
   
     <url>
@@ -615,37 +596,20 @@
   
     <url>
     
-      <loc>/categories/csdn/</loc>
-      <lastmod>2014-10-08T10:09:31+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-  
-    <url>
-    
-      <loc>/categories/usc/</loc>
-      <lastmod>2014-10-08T10:09:31+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-  
-    <url>
-    
       <loc>/tags/acm/</loc>
       <lastmod>2014-09-30T17:20:25+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/algorithm/</loc>
       <lastmod>2014-09-30T17:20:25+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/uva/</loc>
       <lastmod>2014-09-30T17:20:25+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -670,7 +634,6 @@
     
       <loc>/tags/ubuntu/</loc>
       <lastmod>2014-07-21T14:16:52+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -683,7 +646,6 @@
     
       <loc>/tags/poj/</loc>
       <lastmod>2014-07-18T18:51:34+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -720,14 +682,12 @@
     
       <loc>/tags/disqus/</loc>
       <lastmod>2014-06-30T12:00:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
     
       <loc>/tags/gor/</loc>
       <lastmod>2014-06-30T12:00:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -740,7 +700,6 @@
     
       <loc>/tags/%E5%BD%B1%E8%A7%86/</loc>
       <lastmod>2014-06-14T16:29:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -759,7 +718,6 @@
     
       <loc>/tags/%E4%BA%92%E8%81%94%E7%BD%91/</loc>
       <lastmod>2014-06-06T20:21:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -790,7 +748,6 @@
     
       <loc>/tags/led/</loc>
       <lastmod>2014-04-07T21:13:59+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -809,7 +766,6 @@
     
       <loc>/tags/hdu/</loc>
       <lastmod>2014-03-31T21:59:58+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -834,7 +790,6 @@
     
       <loc>/tags/webkit/</loc>
       <lastmod>2014-03-29T12:29:31+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -853,7 +808,6 @@
     
       <loc>/tags/2013/</loc>
       <lastmod>2013-12-21T23:48:31+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -872,7 +826,6 @@
     
       <loc>/tags/usaco/</loc>
       <lastmod>2013-11-28T16:37:01+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -897,7 +850,6 @@
     
       <loc>/tags/ufw/</loc>
       <lastmod>2013-10-29T13:28:08+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -910,7 +862,6 @@
     
       <loc>/tags/hustoj/</loc>
       <lastmod>2013-10-16T01:46:40+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -923,7 +874,6 @@
     
       <loc>/tags/lamp/</loc>
       <lastmod>2013-10-15T21:13:16+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -942,7 +892,6 @@
     
       <loc>/tags/longest/</loc>
       <lastmod>2013-10-02T23:11:58+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -967,7 +916,6 @@
     
       <loc>/tags/notonlysuccess/</loc>
       <lastmod>2013-08-31T23:37:50+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -980,7 +928,6 @@
     
       <loc>/tags/rmq/</loc>
       <lastmod>2013-08-22T00:11:02+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -993,7 +940,6 @@
     
       <loc>/tags/hoj/</loc>
       <lastmod>2013-06-27T16:56:29+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1006,7 +952,6 @@
     
       <loc>/tags/hdoj/</loc>
       <lastmod>2013-06-27T02:38:45+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1019,7 +964,6 @@
     
       <loc>/tags/zoj/</loc>
       <lastmod>2013-06-27T02:34:39+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1032,7 +976,6 @@
     
       <loc>/tags/wwdc/</loc>
       <lastmod>2013-06-15T10:28:07+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1069,7 +1012,6 @@
     
       <loc>/tags/csdn/</loc>
       <lastmod>2013-05-25T01:30:49+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1082,7 +1024,6 @@
     
       <loc>/tags/5611ah/</loc>
       <lastmod>2013-05-24T17:52:31+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1125,7 +1066,6 @@
     
       <loc>/tags/linux/</loc>
       <lastmod>2013-05-19T21:13:42+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1150,7 +1090,6 @@
     
       <loc>/tags/ajax/</loc>
       <lastmod>2013-05-13T13:59:15+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1175,7 +1114,6 @@
     
       <loc>/tags/sublime/</loc>
       <lastmod>2013-04-15T17:42:40+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1236,7 +1174,6 @@
     
       <loc>/tags/sap/</loc>
       <lastmod>2013-02-05T15:00:43+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1255,7 +1192,6 @@
     
       <loc>/tags/jquery/</loc>
       <lastmod>2013-02-01T20:35:14+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1286,7 +1222,6 @@
     
       <loc>/tags/c/</loc>
       <lastmod>2013-01-08T19:53:44+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1311,7 +1246,6 @@
     
       <loc>/tags/%E9%B8%A1%E6%B1%A4/</loc>
       <lastmod>2012-12-31T10:18:00+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1336,7 +1270,6 @@
     
       <loc>/tags/qtree_testing/</loc>
       <lastmod>2012-11-20T13:14:53+08:00</lastmod>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1382,20 +1315,17 @@
   
     <url>
     
-      <loc>/authors/</loc>
-      <priority>0</priority>
+      <loc>/author/</loc>
     </url>
   
     <url>
     
-      <loc>/author/</loc>
-      <priority>0</priority>
+      <loc>/authors/</loc>
     </url>
   
     <url>
     
       <loc>/publication_types/</loc>
-      <priority>0</priority>
     </url>
   
     <url>
@@ -1406,12 +1336,6 @@
     <url>
     
       <loc>/talk/</loc>
-    </url>
-  
-    <url>
-    
-      <loc>/authors/admin/</loc>
-      <priority>0</priority>
     </url>
   
 </urlset>
