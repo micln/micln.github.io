@@ -6,10 +6,19 @@
     <description>Recent content in Go on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 02 Jul 2019 11:11:16 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jul 2019 14:19:31 +0800</lastBuildDate>
     
 	<atom:link href="/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Coding After 100&#43; Bugs</title>
+      <link>/post/code_after_100_bugs/</link>
+      <pubDate>Mon, 29 Jul 2019 14:19:31 +0800</pubDate>
+      
+      <guid>/post/code_after_100_bugs/</guid>
+      <description>今年接手了一个新项目，不算vendor包，大概6W行代码，接的时候信心满满准备大干一场。结果半年内线上出了100多个bug。 粗糙统计下，80</description>
+    </item>
     
     <item>
       <title>Go项目在组织启动代码上的一次尝试</title>

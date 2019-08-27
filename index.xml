@@ -9,32 +9,48 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Code_after_100_bugs</title>
+      <title>Coding After 100&#43; Bugs</title>
       <link>/post/code_after_100_bugs/</link>
       <pubDate>Mon, 29 Jul 2019 14:19:31 +0800</pubDate>
       
       <guid>/post/code_after_100_bugs/</guid>
       <description>
 
-&lt;p&gt;今年接手了一个新项目，不算vendor包，大概6W行代码，半年出了近100个bug。&lt;/p&gt;
+&lt;p&gt;今年接手了一个新项目，不算vendor包，大概6W行代码，接的时候信心满满准备大干一场。结果半年内线上出了100多个bug。&lt;/p&gt;
 
-&lt;h3 id=&#34;阻塞性依赖&#34;&gt;阻塞性依赖&lt;/h3&gt;
+&lt;p&gt;粗糙统计下，80%的代码是原来直接留下的，剩下的基本都是一脸懵逼地踩坑。其中也有不少是之前都知道，但是没处理掉，甚至还有查不到原因最后不了了之的。&lt;/p&gt;
 
 &lt;h3 id=&#34;流程与业务规则隔离&#34;&gt;流程与业务规则隔离&lt;/h3&gt;
 
+&lt;p&gt;其实在上一家公司工作时就已经意识到这个问题的严重性，尤其是业务流程和业务规则经常来回改。&lt;/p&gt;
+
+&lt;p&gt;业务流程通常是一段简单的过程，甚至都不包含太多的分支流程。&lt;/p&gt;
+
+&lt;p&gt;业务规则是指针对不同的数据，在各个环节里需要不同的处理。&lt;/p&gt;
+
+&lt;p&gt;最常见的处理方式就是无处不在的 ifelse，这种方式的问题在于，每次改规则都要从头改一大堆代码，改完了还可能会影响其它 case，要整体回归才可以。效率和稳定性都很差。&lt;/p&gt;
+
+&lt;p&gt;更好的办法是，在主流程上使用 interface 把业务流串下来，每种 case 各自实现接口，各自测试。&lt;/p&gt;
+
+&lt;p&gt;有个小地方要注意，在设计这个 interface 时，要注意接口隔离原则，否则可能会出现为了增加一个特殊的 case，导致其它实现也跟着改一通。&lt;/p&gt;
+
 &lt;h3 id=&#34;日志那么多-有多少能帮助你还原现场&#34;&gt;日志那么多，有多少能帮助你还原现场&lt;/h3&gt;
 
-&lt;h3 id=&#34;字段命名一致性&#34;&gt;字段命名一致性&lt;/h3&gt;
+&lt;p&gt;每打一行日志，都想想什么时候用，怎么用。&lt;/p&gt;
 
 &lt;h3 id=&#34;横向耦合-纵向耦合如果同时出现-代码就废了&#34;&gt;横向耦合、纵向耦合如果同时出现，代码就废了&lt;/h3&gt;
 
+&lt;p&gt;一脚一个雷。&lt;/p&gt;
+
 &lt;h3 id=&#34;该收的口子一定要收口&#34;&gt;该收的口子一定要收口&lt;/h3&gt;
 
-&lt;p&gt;一段代码同时copy在多个流程里，维护起来丢三落四&lt;/p&gt;
+&lt;p&gt;一段代码同时copy在多个流程里，维护起来丢三落四。&lt;/p&gt;
+
+&lt;p&gt;丑陋的封装优于复制粘贴。&lt;/p&gt;
 
 &lt;h3 id=&#34;聚合服务-千万不要关心别人的细节&#34;&gt;聚合服务，千万不要关心别人的细节&lt;/h3&gt;
 
-&lt;p&gt;尤其是多个依赖的细节还不一样，真实灾难&lt;/p&gt;
+&lt;p&gt;尤其是多个依赖的细节还不一样，真是灾难&lt;/p&gt;
 
 &lt;h3 id=&#34;双写幂等性-可修复性&#34;&gt;双写幂等性，可修复性&lt;/h3&gt;
 
@@ -42,9 +58,27 @@
 
 &lt;p&gt;出现不一致，一定要第一时间报警&lt;/p&gt;
 
+&lt;h3 id=&#34;避免阻塞性依赖&#34;&gt;避免阻塞性依赖&lt;/h3&gt;
+
+&lt;p&gt;阻塞性依赖在流程管理中挺常见的，通常表现为在一系列操作中有几个操作依赖于不稳定的第三方。当中间一个环节出现不可控的故障时，会导致你的整个流程走不下去，然而因为是第三方出了问题，你只能干等着。&lt;/p&gt;
+
+&lt;p&gt;如果同时你的接口不具有全局的幂等性，这个问题还会造成非常恶心的数据不一致，处理起来也非常麻烦。&lt;/p&gt;
+
+&lt;p&gt;一个设计上的优化是把依赖第三方的环节后置。举个例子：&lt;/p&gt;
+
+&lt;p&gt;BBS 里用户发的消息要经过敏感词检查才能放出来，但如果你的敏感词接口挂了，可能导致全站不能发帖。一个可行的办法是，先发帖成功，再异步调用敏感词接口。有个问题是，在敏感词接口返回结果或恢复正常前的这段时间，贴子展示出来是否有风险？这个可以依据业务场景来处理，平时可以默认先放出来，敏感时期，那就让这个帖子只有自己可见，其它人等审核完成后才能看到。&lt;/p&gt;
+
+&lt;p&gt;成本会稍微高一些，但是系统健壮性会好很多。&lt;/p&gt;
+
+&lt;h3 id=&#34;字段命名一致性&#34;&gt;字段命名一致性&lt;/h3&gt;
+
 &lt;h3 id=&#34;数据结构上-不建议一个字段在不同场景下表示不同含义&#34;&gt;数据结构上，不建议一个字段在不同场景下表示不同含义&lt;/h3&gt;
 
+&lt;p&gt;大概出于省空间的目的，一个字段在不同 case 下表示了完全不一样的含义，时间长了。大家都懵逼了。&lt;/p&gt;
+
 &lt;h3 id=&#34;依赖服务的返回值-日志一定要清晰&#34;&gt;依赖服务的返回值，日志一定要清晰&lt;/h3&gt;
+
+&lt;p&gt;善意的质疑，降低撕逼风险，这大概叫职业。&lt;/p&gt;
 
 &lt;h3 id=&#34;处理err时-一定要想想-如果这个error出来了-如何主动让我发现&#34;&gt;处理err时，一定要想想：如果这个error出来了，如何主动让我发现&lt;/h3&gt;
 
@@ -55,33 +89,8 @@
 &lt;p&gt;一改就疯&lt;/p&gt;
 
 &lt;h3 id=&#34;数据修改记录的重要性&#34;&gt;数据修改记录的重要性&lt;/h3&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How_to_build_dump_tool</title>
-      <link>/post/how_to_build_dump_tool/</link>
-      <pubDate>Mon, 22 Jul 2019 15:04:42 +0800</pubDate>
-      
-      <guid>/post/how_to_build_dump_tool/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>谈谈git下的代码冲突</title>
-      <link>/post/keep_away_from_git_conflict/</link>
-      <pubDate>Mon, 22 Jul 2019 15:02:54 +0800</pubDate>
-      
-      <guid>/post/keep_away_from_git_conflict/</guid>
-      <description>
 
-&lt;p&gt;罗列一些常见的代码冲突场景&lt;/p&gt;
-
-&lt;h3 id=&#34;两个人同时在配置文件后面加了一项各自的配置&#34;&gt;两个人同时在配置文件后面加了一项各自的配置&lt;/h3&gt;
-
-&lt;p&gt;先说答案：不要都在末尾新增配置&lt;/p&gt;
-
-&lt;p&gt;git有个神奇的特性，如果两个人都在一行加了代码，会冲突；但是一个加在第5行，一个加在第10行，就不会有事。&lt;/p&gt;
+&lt;p&gt;最严重的有一张表没有创建和修改的时间戳，查数据问题时，都不知道从哪里开始查。&lt;/p&gt;
 </description>
     </item>
     
@@ -1202,6 +1211,166 @@ encoder.Encode(...)
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://tech.lede.com/2017/06/30/rd/server/loggingHabit/&#34; target=&#34;_blank&#34;&gt;优秀日志实践准则&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>整理一套 Go 的轮子</title>
+      <link>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</link>
+      <pubDate>Sat, 18 Aug 2018 01:26:15 +0800</pubDate>
+      
+      <guid>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Github：&lt;a href=&#34;https://github.com/Kretech/xgo&#34; target=&#34;_blank&#34;&gt;https://github.com/Kretech/xgo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;缘起是因为 Go 的很多语法太啰嗦，也许 Go 官方为了通用性牺牲了简洁，而我们日常更青睐于 &lt;code&gt;约定优于配置&lt;/code&gt;，所以我们需要对我们的80%情况做一些优化。&lt;/p&gt;
+
+&lt;p&gt;整理了哪些东西：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;常见的 utils 库&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;类似于随机数 &lt;code&gt;rand(100)&lt;/code&gt;、转下划线 &lt;code&gt;word.UnderlineCase(&#39;HelloWorld&#39;)&lt;/code&gt;等等
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;基础数据结构&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;科班都学过的链表、树、图以及这些数据结构上的基本算法&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;略复杂的数据结构&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Array&lt;/code&gt; + &lt;code&gt;Dict&lt;/code&gt; 类似于 &lt;code&gt;Php&lt;/code&gt; 里的 &lt;code&gt;array&lt;/code&gt;。在性能不那么要命的地方用起来很爽&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Redis&lt;/code&gt; 基本数据结构：跳跃表&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Redis 学习笔记</title>
+      <link>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 05 Aug 2018 01:16:07 +0800</pubDate>
+      
+      <guid>/post/jianshu/redis-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这里只会记录在学习 Redis 源码时觉得比较好玩的地方，不会一五一十的讲细节。&lt;/p&gt;
+
+&lt;h2 id=&#34;内存分配&#34;&gt;内存分配&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;zmalloc&lt;/code&gt; 在实际 &lt;code&gt;malloc&lt;/code&gt; 到的内存前面加一个 &lt;code&gt;size&lt;/code&gt; 。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void *zmalloc(size_t size) {
+    void *ptr = malloc(size+PREFIX_SIZE);
+    *((size_t*)ptr) = size;
+    update_zmalloc_stat_alloc(size+PREFIX_SIZE);
+    return (char*)ptr+PREFIX_SIZE;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;动态字符串-sds&#34;&gt;动态字符串 sds&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;sds&lt;/code&gt; 在基础的 &lt;code&gt;char*&lt;/code&gt; 前面加一段 &lt;code&gt;header&lt;/code&gt; 来记录信息（类似于 Go 实现）。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;// 除了 sdshdr64，还有 sdshdr32、sdshdr16... 区分不同的长度上限
+struct __attribute__ ((__packed__)) sdshdr64 {
+    uint64_t len; /* used */
+    uint64_t alloc; /* excluding the header and null terminator */
+    unsigned char flags; /* 3 lsb of type, 5 unused bits */
+    char buf[];
+};
+
+sds sdsnewlen(const void *init, size_t initlen) {
+    ...
+    sh = s_malloc(hdrlen+initlen+1);
+    s = (char*)sh+hdrlen;	// 实际字符串
+    memcpy(s, init, initlen);
+    return s;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;字典-dict&#34;&gt;字典 dict&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;基本数据结构&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;dictEntry：键值对。（冲突处理：开链）&lt;/li&gt;
+&lt;li&gt;dictht：哈希表。记录使用情况用来 &lt;code&gt;rehash&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;dict&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;typedef struct dict {
+dictType *type; // 不同type有不同的hash算法
+void *privdata;
+dictht ht[2];   // 两个 ht 来实现渐进式的 rehash
+long rehashidx; /* rehashing not in progress if rehashidx == -1 */
+unsigned long iterators; /* number of iterators currently running */
+} dict;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;哈希算法&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;rehash：冲突元素太多时扩容。通过两个哈希表进行&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;渐进式策略：&lt;/li&gt;
+&lt;li&gt;每次执行操作时转移一个&lt;/li&gt;
+&lt;li&gt;定时每次转移100个&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;数据操作&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;每次操作前尽可能进行一次 &lt;code&gt;rehash&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rehash&lt;/code&gt; 时，要依次在两个表里查询；其他操作类似。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;跳跃表-zset&#34;&gt;跳跃表 zset&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;数据结构
+
+&lt;ul&gt;
+&lt;li&gt;span&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;整数集合-intset&#34;&gt;整数集合 intset&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;数据结构
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;encoding&lt;/code&gt; 记录元素大小，对于小的数字，使用 &lt;code&gt;int16_t&lt;/code&gt; 来节省内存。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;resize
+
+&lt;ul&gt;
+&lt;li&gt;先分配足够内存，再调用 &lt;code&gt;memmove&lt;/code&gt; 函数进行搬移&lt;/li&gt;
+&lt;li&gt;单向升级，只有在插入元素的时候，如果 &lt;code&gt;encoding&lt;/code&gt; 过小时会进行&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;鸣谢&#34;&gt;鸣谢&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://zcheng.ren/tags/redis/&#34; target=&#34;_blank&#34;&gt;Redis源码剖析&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
