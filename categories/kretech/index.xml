@@ -6,10 +6,19 @@
     <description>Recent content in Kretech on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 26 Aug 2018 20:22:26 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2019 00:33:56 +0800</lastBuildDate>
     
 	<atom:link href="/categories/kretech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在 Go 里用 reflect 和 ast 实现动态特征</title>
+      <link>/post/dynamic_in_go/</link>
+      <pubDate>Sat, 24 Aug 2019 00:33:56 +0800</pubDate>
+      
+      <guid>/post/dynamic_in_go/</guid>
+      <description>Go 让人吐槽的点之一就是动态特性低，比如不支持泛型、反射鸡肋等等。所以长期以来一直觉得搞一些动态功能是一件很酷的事情。 这里主要做了两件事： 运行</description>
+    </item>
     
     <item>
       <title>HttpClient 的几个点</title>

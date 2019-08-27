@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
@@ -30,10 +28,10 @@
   
     
   
-  <meta name="description" content="description">
+  <meta name="description" content="Go 让人吐槽的点之一就是动态特性低，比如不支持泛型、反射鸡肋等等。所以长期以来一直觉得搞一些动态功能是一件很酷的事情。 这里主要做了两件事： 运行">
 
   
-  <link rel="alternate" hreflang="zh-Hans" href="/tags/go/">
+  <link rel="alternate" hreflang="zh-Hans" href="/post/dynamic_in_go/">
 
   
 
@@ -97,15 +95,15 @@
   
 
   
-  <link rel="alternate" href="/tags/go/index.xml" type="application/rss+xml" title="在水异方">
-  <link rel="feed" href="/tags/go/index.xml" type="application/rss+xml" title="在水异方">
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="在水异方">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="在水异方">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/go/">
+  <link rel="canonical" href="/post/dynamic_in_go/">
 
   
   
@@ -120,19 +118,21 @@
   <meta property="twitter:creator" content="@yifangtian">
   
   <meta property="og:site_name" content="在水异方">
-  <meta property="og:url" content="/tags/go/">
-  <meta property="og:title" content="Go | 在水异方">
-  <meta property="og:description" content="description"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:url" content="/post/dynamic_in_go/">
+  <meta property="og:title" content="在 Go 里用 reflect 和 ast 实现动态特征 | 在水异方">
+  <meta property="og:description" content="Go 让人吐槽的点之一就是动态特性低，比如不支持泛型、反射鸡肋等等。所以长期以来一直觉得搞一些动态功能是一件很酷的事情。 这里主要做了两件事： 运行"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="og:updated_time" content="2019-08-24T00:33:56&#43;08:00">
+  <meta property="article:published_time" content="2019-08-24T00:33:56&#43;08:00">
+  
+  <meta property="article:modified_time" content="2019-08-24T00:33:56&#43;08:00">
   
 
   
 
   
 
-  <title>Go | 在水异方</title>
+  <title>在 Go 里用 reflect 和 ast 实现动态特征 | 在水异方</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -273,7 +273,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -290,136 +292,304 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">在 Go 里用 reflect 和 ast 实现动态特征</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">Go</h1>
+
+
+
+<meta content="2019-08-24 00:33:56 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-08-24 00:33:56 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 24, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/dynamic_in_go/#disqus_thread"></a>
+  
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/kretech/">Kretech</a>
+    
+  </span>
+  
+  
+
+
+  
+    
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/dynamic_in_go/">在 Go 里用 reflect 和 ast 实现动态特征</a></h2>
-    <div class="article-style">
-      
-      Go 让人吐槽的点之一就是动态特性低，比如不支持泛型、反射鸡肋等等。所以长期以来一直觉得搞一些动态功能是一件很酷的事情。 这里主要做了两件事： 运行
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/code_after_100_bugs/">Coding After 100&#43; Bugs</a></h2>
-    <div class="article-style">
-      
-      今年接手了一个新项目，不算vendor包，大概6W行代码，接的时候信心满满准备大干一场。结果半年内线上出了100多个bug。 粗糙统计下，80
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/boot_test_in_go/">Go项目在组织启动代码上的一次尝试</a></h2>
-    <div class="article-style">
-      
-      最开始的项目目录 $ tree . ├── ./api/ ├── ./service/ ├── ./dao/ ├── ./model/ ├── main.go func main(){ flag.Parse() artemis := NewArtemis(flag.String(`config`)) // artemis 是我们的框架，类似beego log.init() service.init() dao.init() worker.init() api.Route(artemis.Router) artemis.Run() } 写个测试吧 packege dao func TestGetNote(t *testing.T){
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/avoid_npe_in_go/">在 Go 里避免空指针问题</a></h2>
-    <div class="article-style">
-      
-      空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围，但恰恰由于隐藏了值和引用的概念，使得很多新手在处理
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/goption/">Goption：一个针对 Go struct 的代码生成器</a></h2>
-    <div class="article-style">
-      
-      缘起 写代码里有个绕不开的话题就是如何写构造函数 Java 里有 JavaBean 作为标准，空构造参数 + 自定义的 setter C++ 里靠重载实现任意场景的构造 Python 里可以可以支持传你需要的
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/a_go_build_panic_bug/">一个会导致 go build panic 的 bug</a></h2>
-    <div class="article-style">
-      
-      起因是因为犯懒，随手在一个函数体内定义一个类型 func foo() { type Article = map[string]interface{} } 看起来好像也很正常，突然有一天在 gowatch 的控制台里看到了 runtime: goroutine stack exceeds 1000000000-byte limit fatal error: stack overflow runtime stack: runtime.throw(0x1a556a1, 0xe)
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/gomod/">Go Module 实践中的问题（持续更新）</a></h2>
-    <div class="article-style">
-      
-      项目逐渐都切到了 go mod，用的时候遇到了各种奇奇怪怪的坑，记录一下。 流程实践 语义化版本 Go mod 在设计时没有支持诸如 &gt;2.0, ~3.4, ^4.0 这样场景的语法。而是以语
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/jianshu/json-iterator-%E5%9C%A8-swagger-%E4%B8%8B%E5%8D%A1%E6%AD%BB%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%92%E6%9F%A5/">Json Iterator 在 swagger 下卡死程序的排查</a></h2>
-    <div class="article-style">
-      
-      迁移自简书，格式可能未经校对。 事件经过： 收到反馈测试环境某个服务打开 swagger ，进程会卡死 根据经验，初步判定是有死循环。 在本地启动该服务，打开 swagger ，发
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/jianshu/go-encoding-json-%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9D%91/">Go encoding json 的几个坑</a></h2>
-    <div class="article-style">
-      
-      以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再小心了。 decode(map) 之后 int 会变成 float64 思考一
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/">整理一套 Go 的轮子</a></h2>
-    <div class="article-style">
-      
-      迁移自简书，格式可能未经校对。 Github：https://github.com/Kretech/xgo 缘起是因为 Go 的很多语法太啰嗦，也许 Go
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/jianshu/%E6%80%8E%E6%A0%B7%E5%BF%AB%E9%80%9F%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98-cache/">好用的 Cache API</a></h2>
-    <div class="article-style">
-      
-      迁移自简书，格式可能未经校对。 最近看到了几种加缓存的方法，整理对比一下。 拿一个case来说，我们要去数据库取一条用户记录，迫于性能，还要加一
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/jianshu/%E7%90%86%E6%83%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E5%BA%93/">理想的数据库操作库</a></h2>
-    <div class="article-style">
-      
-      ORM 于创业项目快速迭代的重要性不言而喻。我也一直在不停地寻找更好的方案。 造了个轮子：Loulan-java 市面上有些不错的 orm 框架，诸如 Lara
-      
-    </div>
-  </div>
-  
+    
 
-  
 
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/go/">Go</a>
+  
 </div>
+
+
+
+
+    <br>
+
+    <div class="article-style" itemprop="articleBody">
+      <p>Go 让人吐槽的点之一就是动态特性低，比如不支持泛型、反射鸡肋等等。所以长期以来一直觉得搞一些动态功能是一件很酷的事情。</p>
+
+<p>这里主要做了两件事：</p>
+
+<ul>
+<li>运行时获取变量名，并以此为基础做了一个调试工具 <a href="https://github.com/Kretech/xgo/tree/master/dump" target="_blank">XGo/Dumper</a></li>
+<li>运行时获取函数签名，以此为基础做了个小类库，可以将任意函数暴露为 http 接口，同时还支持生成 swagger 文档。</li>
+</ul>
+
+<p>中间主要用到了 ast 包的工具（因为想偷懒，也踩了不少坑）。基本思路都是通过 runtime 或 reflect 包，得到一些基本的信息，比如 fileline 和 pc，然后借此再拿到 ast，通过一些上下文信息来定位相关部分的代码，转换为需要的东西。</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/go/">Go</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">huiren</a></h5>
+    <h6 class="card-subtitle">Code Artisan</h6>
+    <p class="card-text" itemprop="description">问渠那得清如许，为有源头活水来</p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/micln" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://t.me/betterCode" target="_blank" rel="noopener">
+          <i class="fab fa-telegram"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://m.igetget.com/share/user/YPA7ryGqdNlxLQQXYgMQVOpDa3e4ob" target="_blank" rel="noopener">
+          <i class="fab fa-earlybirds"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.zhihu.com/people/zhang-xing-71" target="_blank" rel="noopener">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>相关</h3>
+        <ul>
+          
+          <li><a href="/post/code_after_100_bugs/">Coding After 100&#43; Bugs</a></li>
+          
+          <li><a href="/post/boot_test_in_go/">Go项目在组织启动代码上的一次尝试</a></li>
+          
+          <li><a href="/post/avoid_npe_in_go/">在 Go 里避免空指针问题</a></li>
+          
+          <li><a href="/post/goption/">Goption：一个针对 Go struct 的代码生成器</a></li>
+          
+          <li><a href="/post/a_go_build_panic_bug/">一个会导致 go build panic 的 bug</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/post/manjaro_go/" rel="prev">Manjaro 踩坑记录</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhr" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
   
@@ -577,6 +747,4 @@
 
   </body>
 </html>
-
-
 

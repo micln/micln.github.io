@@ -5,8 +5,27 @@
     <description>Recent content in 在水异方 on 在水异方</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 11 Aug 2019 00:04:48 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2019 00:33:56 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>在 Go 里用 reflect 和 ast 实现动态特征</title>
+      <link>/post/dynamic_in_go/</link>
+      <pubDate>Sat, 24 Aug 2019 00:33:56 +0800</pubDate>
+      
+      <guid>/post/dynamic_in_go/</guid>
+      <description>&lt;p&gt;Go 让人吐槽的点之一就是动态特性低，比如不支持泛型、反射鸡肋等等。所以长期以来一直觉得搞一些动态功能是一件很酷的事情。&lt;/p&gt;
+
+&lt;p&gt;这里主要做了两件事：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;运行时获取变量名，并以此为基础做了一个调试工具 &lt;a href=&#34;https://github.com/Kretech/xgo/tree/master/dump&#34; target=&#34;_blank&#34;&gt;XGo/Dumper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;运行时获取函数签名，以此为基础做了个小类库，可以将任意函数暴露为 http 接口，同时还支持生成 swagger 文档。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;中间主要用到了 ast 包的工具（因为想偷懒，也踩了不少坑）。基本思路都是通过 runtime 或 reflect 包，得到一些基本的信息，比如 fileline 和 pc，然后借此再拿到 ast，通过一些上下文信息来定位相关部分的代码，转换为需要的东西。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Manjaro 踩坑记录</title>
@@ -1307,46 +1326,6 @@ encoder.Encode(...)
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://tech.lede.com/2017/06/30/rd/server/loggingHabit/&#34; target=&#34;_blank&#34;&gt;优秀日志实践准则&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>整理一套 Go 的轮子</title>
-      <link>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</link>
-      <pubDate>Sat, 18 Aug 2018 01:26:15 +0800</pubDate>
-      
-      <guid>/post/jianshu/%E6%95%B4%E7%90%86%E4%B8%80%E5%A5%97-go-%E7%9A%84%E8%BD%AE%E5%AD%90/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;迁移自简书，格式可能未经校对。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Github：&lt;a href=&#34;https://github.com/Kretech/xgo&#34; target=&#34;_blank&#34;&gt;https://github.com/Kretech/xgo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;缘起是因为 Go 的很多语法太啰嗦，也许 Go 官方为了通用性牺牲了简洁，而我们日常更青睐于 &lt;code&gt;约定优于配置&lt;/code&gt;，所以我们需要对我们的80%情况做一些优化。&lt;/p&gt;
-
-&lt;p&gt;整理了哪些东西：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;常见的 utils 库&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;类似于随机数 &lt;code&gt;rand(100)&lt;/code&gt;、转下划线 &lt;code&gt;word.UnderlineCase(&#39;HelloWorld&#39;)&lt;/code&gt;等等
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;基础数据结构&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;科班都学过的链表、树、图以及这些数据结构上的基本算法&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;略复杂的数据结构&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Array&lt;/code&gt; + &lt;code&gt;Dict&lt;/code&gt; 类似于 &lt;code&gt;Php&lt;/code&gt; 里的 &lt;code&gt;array&lt;/code&gt;。在性能不那么要命的地方用起来很爽&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Redis&lt;/code&gt; 基本数据结构：跳跃表&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

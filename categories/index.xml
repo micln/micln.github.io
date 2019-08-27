@@ -6,10 +6,19 @@
     <description>Recent content in Categories on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 29 Jul 2019 14:19:31 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2019 00:33:56 +0800</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kretech</title>
+      <link>/categories/kretech/</link>
+      <pubDate>Sat, 24 Aug 2019 00:33:56 +0800</pubDate>
+      
+      <guid>/categories/kretech/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>最佳实践</title>
@@ -35,15 +44,6 @@
       <pubDate>Mon, 25 Mar 2019 00:22:45 +0800</pubDate>
       
       <guid>/categories/%E9%9A%8F%E7%AC%94/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kretech</title>
-      <link>/categories/kretech/</link>
-      <pubDate>Sun, 26 Aug 2018 20:22:26 +0800</pubDate>
-      
-      <guid>/categories/kretech/</guid>
       <description></description>
     </item>
     
