@@ -6,7 +6,7 @@
     <description>Recent content in Posts on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 02 Sep 2019 11:08:29 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Sep 2019 11:08:29 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>记一次“独立推项目”的心得体会</title>
       <link>/post/engineering/project_first/</link>
-      <pubDate>Mon, 02 Sep 2019 11:08:29 +0800</pubDate>
+      <pubDate>Wed, 25 Sep 2019 11:08:29 +0800</pubDate>
       
       <guid>/post/engineering/project_first/</guid>
       <description>先说下标题，所谓独立推项目跟之前的推项目（最多只能叫跟项目）区别在哪里。 跟项目 推项目 项目来源 主版本的大项目，分了一小块给我来跟 由我向上面发起</description>
