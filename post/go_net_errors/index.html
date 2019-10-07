@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
@@ -30,10 +28,10 @@
   
     
   
-  <meta name="description" content="description">
+  <meta name="description" content="之前遇到了很多 timeout，但是仔细看错误提示好像不完全一样，于是就做了个简单的试验： Client 上看到的错误 找不到服务器（no such host）的几种情">
 
   
-  <link rel="alternate" hreflang="zh-Hans" href="/tags/npe/">
+  <link rel="alternate" hreflang="zh-Hans" href="/post/go_net_errors/">
 
   
 
@@ -97,15 +95,15 @@
   
 
   
-  <link rel="alternate" href="/tags/npe/index.xml" type="application/rss+xml" title="在水异方">
-  <link rel="feed" href="/tags/npe/index.xml" type="application/rss+xml" title="在水异方">
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="在水异方">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="在水异方">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/npe/">
+  <link rel="canonical" href="/post/go_net_errors/">
 
   
   
@@ -120,19 +118,21 @@
   <meta property="twitter:creator" content="@yifangtian">
   
   <meta property="og:site_name" content="在水异方">
-  <meta property="og:url" content="/tags/npe/">
-  <meta property="og:title" content="NPE | 在水异方">
-  <meta property="og:description" content="description"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:url" content="/post/go_net_errors/">
+  <meta property="og:title" content="Go 网络处理中的几种错误 | 在水异方">
+  <meta property="og:description" content="之前遇到了很多 timeout，但是仔细看错误提示好像不完全一样，于是就做了个简单的试验： Client 上看到的错误 找不到服务器（no such host）的几种情"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
-  <meta property="og:updated_time" content="2019-05-16T21:58:24&#43;08:00">
+  <meta property="article:published_time" content="2019-10-04T16:11:14&#43;08:00">
+  
+  <meta property="article:modified_time" content="2019-10-04T16:11:14&#43;08:00">
   
 
   
 
   
 
-  <title>NPE | 在水异方</title>
+  <title>Go 网络处理中的几种错误 | 在水异方</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -273,7 +273,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -290,37 +292,338 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Go 网络处理中的几种错误</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">NPE</h1>
+
+
+
+<meta content="2019-10-04 16:11:14 &#43;0800 CST" itemprop="datePublished">
+<meta content="2019-10-04 16:11:14 &#43;0800 CST" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 4, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 分钟阅读时间
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/go_net_errors/#disqus_thread"></a>
+  
+  
+  
+
+  
+
+
+  
+    
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
+  <div class="article-container">
+
+    
+
+
+<div class="article-tags">
   
+  <a class="badge badge-light" href="/tags/go/">Go</a>
+  
+</div>
+
+
+
+
+    <br>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>之前遇到了很多 timeout，但是仔细看错误提示好像不完全一样，于是就做了个简单的试验：</p>
+
+<h4 id="client-上看到的错误">Client 上看到的错误</h4>
+
+<p>找不到服务器（<code>no such host</code>）的几种情况：</p>
+
+<pre><code class="language-sh"># 域名不存在，瞄了下代码，应该是 dns 包返回的
+Get http://a.b/abc: dial tcp: lookup a.b: no such host
+
+# ip 不合法不会直接检查，也会返回同样错误
+Get http://127.0.0.1888:8080/abc: dial tcp: lookup 127.0.0.1888: no such host
+
+# 端口瞎填会直接报错，都不会发请求
+Get http://127.0.0.1:65536/abc: dial tcp: address 65536: invalid port
+</code></pre>
+
+<p>拒绝连接，对方端口未监听、进程挂掉等等</p>
+
+<pre><code>Get http://127.0.0.1:8080/abc: dial tcp 127.0.0.1:8080: connect: connection refused
+</code></pre>
+
+<p>建立连接超时</p>
+
+<pre><code>Get http://127.0.0:8080/abc: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+</code></pre>
+
+<p>等待返回 header， 一般是接口还在处理逻辑，没有返回任何数据；或者对方只是个普通的 tcp 服务，但不是 http</p>
+
+<pre><code>Get http://127.0.0.1:8080/abc: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
+</code></pre>
+
+<p>客户端读取超时：已建立好连接，已经开始返回数据，但是body 太大太慢：</p>
+
+<pre><code>wait_test.go:48: net/http: request canceled (Client.Timeout exceeded while reading body)
+</code></pre>
+
+<h4 id="server-上看到的错误">Server 上看到的错误</h4>
+
+<p>客户端主动断开连接，服务器端在调用 <code>Write(p []byte) (n int, err error)</code> 时会返回：</p>
+
+<pre><code>wait_test.go:21: write tcp 127.0.0.1:8080-&gt;127.0.0.1:49290: write: broken pipe
+</code></pre>
+
+<p>客户端主动断开连接，通常会直接使用 <code>ctx.Done()</code> 检测到，这个时候 <code>ctx.Err()</code> 里会拿到这个信息：</p>
+
+<pre><code>context canceled
+</code></pre>
+
+<p>参考链接：</p>
+
+<ul>
+<li><a href="https://colobu.com/2016/07/01/the-complete-guide-to-golang-net-http-timeouts/" target="_blank">https://colobu.com/2016/07/01/the-complete-guide-to-golang-net-http-timeouts/</a></li>
+</ul>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/go/">Go</a>
+  
+</div>
+
+
+
+
+    
+      
+
+
+
+
+
 
   
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
   
-  <div>
-    <h2><a href="/post/avoid_npe_in_go/">在 Go 里避免空指针问题</a></h2>
-    <div class="article-style">
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">huiren</a></h5>
+    <h6 class="card-subtitle">Code Artisan</h6>
+    <p class="card-text" itemprop="description">问渠那得清如许，为有源头活水来</p>
+    <ul class="network-icon" aria-hidden="true">
       
-      空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围。但是由于 Go 刻意隐藏了值和引用的概念，使得很多新手在
       
-    </div>
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/micln" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://t.me/betterCode" target="_blank" rel="noopener">
+          <i class="fab fa-telegram"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://m.igetget.com/share/user/YPA7ryGqdNlxLQQXYgMQVOpDa3e4ob" target="_blank" rel="noopener">
+          <i class="fab fa-earlybirds"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.zhihu.com/people/zhang-xing-71" target="_blank" rel="noopener">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>相关</h3>
+        <ul>
+          
+          <li><a href="/post/dynamic_in_go/">在 Go 里用 reflect 和 ast 实现动态特征</a></li>
+          
+          <li><a href="/post/code_after_100_bugs/">Coding After 100&#43; Bugs</a></li>
+          
+          <li><a href="/post/boot_test_in_go/">Go项目在组织启动代码上的一次尝试</a></li>
+          
+          <li><a href="/post/avoid_npe_in_go/">在 Go 里避免空指针问题</a></li>
+          
+          <li><a href="/post/goption/">Goption：一个针对 Go struct 的代码生成器</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/post/engineering/project_first/" rel="prev">记一次“独立推项目”的心得体会</a>
   </div>
   
-
-  
-
 </div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhr" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
   
@@ -478,6 +781,4 @@
 
   </body>
 </html>
-
-
 

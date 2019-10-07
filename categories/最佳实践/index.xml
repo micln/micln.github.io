@@ -44,7 +44,7 @@
       <pubDate>Thu, 16 May 2019 21:58:24 +0800</pubDate>
       
       <guid>/post/avoid_npe_in_go/</guid>
-      <description>空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围，但恰恰由于隐藏了值和引用的概念，使得很多新手在处理</description>
+      <description>空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围。但是由于 Go 刻意隐藏了值和引用的概念，使得很多新手在</description>
     </item>
     
     <item>

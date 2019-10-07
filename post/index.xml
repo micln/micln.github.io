@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Wed, 25 Sep 2019 11:08:29 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 04 Oct 2019 16:11:14 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go 网络处理中的几种错误</title>
+      <link>/post/go_net_errors/</link>
+      <pubDate>Fri, 04 Oct 2019 16:11:14 +0800</pubDate>
+      
+      <guid>/post/go_net_errors/</guid>
+      <description>之前遇到了很多 timeout，但是仔细看错误提示好像不完全一样，于是就做了个简单的试验： Client 上看到的错误 找不到服务器（no such host）的几种情</description>
+    </item>
     
     <item>
       <title>记一次“独立推项目”的心得体会</title>
@@ -71,7 +80,7 @@
       <pubDate>Thu, 16 May 2019 21:58:24 +0800</pubDate>
       
       <guid>/post/avoid_npe_in_go/</guid>
-      <description>空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围，但恰恰由于隐藏了值和引用的概念，使得很多新手在处理</description>
+      <description>空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围。但是由于 Go 刻意隐藏了值和引用的概念，使得很多新手在</description>
     </item>
     
     <item>
