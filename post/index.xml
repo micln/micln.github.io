@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 04 Oct 2019 16:11:14 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 19 Oct 2019 23:11:07 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>拯救拖延症</title>
+      <link>/post/overcome_procrastination/</link>
+      <pubDate>Sat, 19 Oct 2019 23:11:07 +0800</pubDate>
+      
+      <guid>/post/overcome_procrastination/</guid>
+      <description>大概从小开始就没有时间观念，毕竟穷人的时间不值钱。上学时经常通宵敲代码，除了兴趣外，也有时间管不好的原因：大不了拖到晚上搞。最后就一直成了习</description>
+    </item>
     
     <item>
       <title>Go 网络处理中的几种错误</title>
