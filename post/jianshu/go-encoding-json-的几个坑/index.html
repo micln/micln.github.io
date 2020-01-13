@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -403,73 +403,46 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p>以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再小心了。</p>
-
-<h2 id="decode-map-之后-int-会变成-float64">decode(map) 之后 int 会变成 float64</h2>
-
+      <p>以前在引入第三包的时候，为了兼容性和定制扩展的考虑，一般会浅浅地封装一层。自从入了 Go 坑，发现连标准库也得小心再小心了。</p>
+<h2 id="decodemap-之后-int-会变成-float64">decode(map) 之后 int 会变成 float64</h2>
 <p>思考一下，把一个 map encode 之后再 decode，结果和原来的 map 是否相等？直觉上肯定是对的，然而&hellip;</p>
+<p>看一段代码（https://play.golang.org/p/DHb-kZNHidd）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int</span>]<span style="color:#66d9ef">interface</span>{})
+<span style="color:#a6e22e">m1</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int</span>]<span style="color:#66d9ef">interface</span>{})
 
-<p>看一段代码（<a href="https://play.golang.org/p/DHb-kZNHidd）：" target="_blank">https://play.golang.org/p/DHb-kZNHidd）：</a></p>
+<span style="color:#a6e22e">m</span>[<span style="color:#ae81ff">2</span>] = <span style="color:#ae81ff">3</span>
 
-<pre><code class="language-go">m := make(map[int]interface{})
-m1 := make(map[int]interface{})
+<span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">m</span>)
+<span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">b</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">m1</span>)
 
-m[2] = 3
-
-b, _ := json.Marshal(m)
-json.Unmarshal(b, &amp;m1)
-
-fmt.Println(m)	// map[2:3]
-fmt.Println(m1)	// map[2:3]
-fmt.Println(reflect.DeepEqual(m, m1))	// false
-</code></pre>
-
-<p>看起来是不是很诡异，打印出来的都一模一样，然而两个却不相等。是不是 <code>DeepEqual</code> 里藏着什么猫腻？按照<a href="https://github.com/golang/go/blob/master/src/reflect/deepequal.go#L149" target="_blank">代码注释</a>， 只要每个元素都相等，整个 map 就相等。</p>
-
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">m</span>)	<span style="color:#75715e">// map[2:3]
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">m1</span>)	<span style="color:#75715e">// map[2:3]
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">DeepEqual</span>(<span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">m1</span>))	<span style="color:#75715e">// false
+</span></code></pre></div><p>看起来是不是很诡异，打印出来的都一模一样，然而两个却不相等。是不是 <code>DeepEqual</code> 里藏着什么猫腻？按照<a href="https://github.com/golang/go/blob/master/src/reflect/deepequal.go#L149">代码注释</a>， 只要每个元素都相等，整个 map 就相等。</p>
 <p>难不成这个2和3有问题？我们再打印一下看看：</p>
-
-<pre><code class="language-go">fmt.Printf(&quot;%T %T&quot;, m[2], m1[2])
-// int float64
-</code></pre>
-
-<p>这个时候发现，decode 出来的数字被悄悄地变成了 float64。后来发现，其实官方也早有<a href="https://golang.org/pkg/encoding/json/#Unmarshal" target="_blank">说明</a>。只是这种不起眼的功能平时没注意。</p>
-
-<p>如果上面例子里改成 <code>m[2] = 3.0</code>，结果就正常了。参见：<a href="https://play.golang.org/p/vAC1BXc7nCO" target="_blank">https://play.golang.org/p/vAC1BXc7nCO</a></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%T %T&#34;</span>, <span style="color:#a6e22e">m</span>[<span style="color:#ae81ff">2</span>], <span style="color:#a6e22e">m1</span>[<span style="color:#ae81ff">2</span>])
+<span style="color:#75715e">// int float64
+</span></code></pre></div><p>这个时候发现，decode 出来的数字被悄悄地变成了 float64。后来发现，其实官方也早有<a href="https://golang.org/pkg/encoding/json/#Unmarshal">说明</a>。只是这种不起眼的功能平时没注意。</p>
+<p>如果上面例子里改成 <code>m[2] = 3.0</code>，结果就正常了。参见：https://play.golang.org/p/vAC1BXc7nCO</p>
 <h2 id="encoding-时自动追加-n">encoding 时自动追加 &lsquo;\n&rsquo;</h2>
-
-<p>跑 <code>Unit Testing</code> 时遇到的。在 github 上看到有人问到过这个问题，官方给的理由是<a href="https://github.com/golang/go/issues/7767" target="_blank">看起来舒服</a>。不得不说，Go Team 在写 std 时真是太随意了。</p>
-
-<p>暂时没想到特别好的解决方案，在自己的工具类 <a href="https://sourcegraph.com/github.com/Kretech/xgo/-/blob/encoding/json.go" target="_blank">JsonEncode</a> 里手动给去掉了。因为一般使用的 json 末尾都是 <code>}</code> <code>]</code>。后面或许会加个全局的开关来配置？</p>
-
+<p>跑 <code>Unit Testing</code> 时遇到的。在 github 上看到有人问到过这个问题，官方给的理由是<a href="https://github.com/golang/go/issues/7767">看起来舒服</a>。不得不说，Go Team 在写 std 时真是太随意了。</p>
+<p>暂时没想到特别好的解决方案，在自己的工具类 <a href="https://sourcegraph.com/github.com/Kretech/xgo/-/blob/encoding/json.go">JsonEncode</a> 里手动给去掉了。因为一般使用的 json 末尾都是 <code>}</code> <code>]</code>。后面或许会加个全局的开关来配置？</p>
 <h2 id="默认情况下会开启-escapehtml">默认情况下会开启 <code>escapeHTML</code></h2>
-
 <p>严格来说不能算坑，但确实跟我之前的习惯不太一样。而且要关闭的时候，还不能直接设置，得绕个大弯：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">buffer</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">Buffer</span>{}
+<span style="color:#a6e22e">encoder</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">NewEncoder</span>(<span style="color:#a6e22e">buffer</span>)
+<span style="color:#a6e22e">encoder</span>.<span style="color:#a6e22e">SetEscapeHTML</span>(<span style="color:#66d9ef">false</span>)
 
-<pre><code class="language-go">buffer := &amp;bytes.Buffer{}
-encoder := json.NewEncoder(buffer)
-encoder.SetEscapeHTML(false)
-
-// 到这才算 init 完成
-
-encoder.Encode(...)
-</code></pre>
-
-<p>现在很多人使用 Go 只是提供一个简单的 json 给客户端，html 字符，其实不太会搞出什么麻烦，有时候也就懒得处理了。</p>
-
-<h2 id="不能处理递归指针-会死循环">不能处理递归指针（会死循环）</h2>
-
+<span style="color:#75715e">// 到这才算 init 完成
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">encoder</span>.<span style="color:#a6e22e">Encode</span>(<span style="color:#f92672">...</span>)
+</code></pre></div><p>现在很多人使用 Go 只是提供一个简单的 json 给客户端，html 字符，其实不太会搞出什么麻烦，有时候也就懒得处理了。</p>
+<h2 id="不能处理递归指针会死循环">不能处理递归指针（会死循环）</h2>
 <p>如果对象的属性是指向自己的指针（例如循环列表），marshal 时会陷入死循环。在 dump 复杂对象时需要注意。</p>
-
 <p>println 函数没有这个问题，因为会把指针直接打印出地址。</p>
-
 <h2 id="最后">最后</h2>
-
 <p>建议大家使用的自己也能稍微封装一下，至少在各种特殊场景下能自己掌控住。尤其 Go 很多官方包不像 Java 那样接口先行，而且 Go 还不支持继承，以至于在项目大了后想替换个 struct 非常痛苦。</p>
-
-<p>另外我自己也在尝试对这些问题<a href="https://www.jianshu.com/p/10d556a4c60f" target="_blank">做一些整理</a>，欢迎加入。</p>
+<p>另外我自己也在尝试对这些问题<a href="https://www.jianshu.com/p/10d556a4c60f">做一些整理</a>，欢迎加入。</p>
 
     </div>
 
@@ -663,11 +636,15 @@ encoder.Encode(...)
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

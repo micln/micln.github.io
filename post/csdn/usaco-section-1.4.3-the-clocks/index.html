@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 The Clocks IOI&rsquo;94 - Day 2 Consider nine clocks arranged in a 3x3 array thusly: |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| | | | | | | | |&mdash;O | |&mdash;O | | O | | | | | | | |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| A B C |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| |">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| | | | | | | | O | | O | | O | | | | | | | | | | |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| D E F |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| | | | | | | | O | | O&mdash;| | O |">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/usaco-section-1.4.3-the-clocks/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/usaco-section-1.4.3-the-clocks/">
   <meta property="og:title" content="USACO Section 1.4.3 The Clocks | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 The Clocks IOI&rsquo;94 - Day 2 Consider nine clocks arranged in a 3x3 array thusly: |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| | | | | | | | |&mdash;O | |&mdash;O | | O | | | | | | | |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| A B C |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| |"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| | | | | | | | O | | O | | O | | | | | | | | | | |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| D E F |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| | | | | | | | O | | O&mdash;| | O |"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-11-28T16:37:01&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 分钟阅读时间
+    1 分钟阅读时间
   </span>
   
 
@@ -406,316 +406,161 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <h2>
-  题目
- </h2>
- <div>
-  <table border="1" cellpadding="1" cellspacing="1">
-   <tbody>
-    <tr>
-     <td>
-      <center>
-       <br/>
-      </center>
-      <center style="font-family:STHeiti;font-size:14px;">
-       <strong>
-        <span style="font-size:48px;">
-         The Clocks
-        </span>
-        <br/>
-        IOI&rsquo;94 - Day 2
-       </strong>
-      </center>
-      <span style="font-family:STHeiti;font-size:14px;">
-       Consider nine clocks arranged in a 3x3 array thusly:
-      </span>
-      <pre>|&mdash;&mdash;-|    |&mdash;&mdash;-|    |&mdash;&mdash;-|<br />
-|       |    |       |    |   |   |<br />
-|&mdash;O   |    |&mdash;O   |    |   O   |<br />
-|       |    |       |    |       |<br />
-|&mdash;&mdash;-|    |&mdash;&mdash;-|    |&mdash;&mdash;-|<br />
-    A            B            C</p>
-
+<!-- raw HTML omitted -->
 <p>|&mdash;&mdash;-|    |&mdash;&mdash;-|    |&mdash;&mdash;-|
 |       |    |       |    |       |
 |   O   |    |   O   |    |   O   |
 |   |   |    |   |   |    |   |   |
 |&mdash;&mdash;-|    |&mdash;&mdash;-|    |&mdash;&mdash;-|
-    D            E            F</p>
-
+D            E            F</p>
 <p>|&mdash;&mdash;-|    |&mdash;&mdash;-|    |&mdash;&mdash;-|
 |       |    |       |    |       |
 |   O   |    |   O&mdash;|    |   O   |
 |   |   |    |       |    |   |   |
 |&mdash;&mdash;-|    |&mdash;&mdash;-|    |&mdash;&mdash;-|
-    G            H            I
-</pre>
-      <p style="font-family:STHeiti;font-size:14px;">
-       The goal is to find a minimal sequence of moves to return all the dials to 12 o&rsquo;clock. Nine different ways to turn the dials on the clocks are supplied via a table below; each way is called a move. Select for each
- move a number 1 through 9 which will cause the dials of the affected clocks (see next table) to be turned 90 degrees clockwise.
-      </p>
-      <table border="1">
-       <tbody>
-        <tr>
-         <td>
-          Move
-         </td>
-         <td>
-          Affected clocks
-         </td>
-        </tr>
-        <tr>
-         <td align="center">
-          1
-         </td>
-         <td align="center">
-          ABDE
-         </td>
-        </tr>
-        <tr>
-         <td align="center">
-          2
-         </td>
-         <td align="center">
-          ABC
-         </td>
-        </tr>
-        <tr>
-         <td align="center">
-          3
-         </td>
-         <td align="center">
-          BCEF
-         </td>
-        </tr>
-        <tr>
-         <td align="center">
-          4
-         </td>
-         <td align="center">
-          ADG
-         </td>
-        </tr>
-        <tr>
-         <td align="center">
-          5
-         </td>
-         <td align="center">
-          BDEFH
-         </td>
-        </tr>
-        <tr>
-         <td align="center">
-          6
-         </td>
-         <td align="center">
-          CFI
-         </td>
-        </tr>
-        <tr>
-         <td align="center">
-          7
-         </td>
-         <td align="center">
-          DEGH
-         </td>
-        </tr>
-        <tr>
-         <td align="center">
-          8
-         </td>
-         <td align="center">
-          GHI
-         </td>
-        </tr>
-        <tr>
-         <td align="center">
-          9
-         </td>
-         <td align="center">
-          EFHI
-         </td>
-        </tr>
-       </tbody>
-      </table>
-      <h3 style="font-family:STHeiti;">
-       Example
-      </h3>
-      <span style="font-family:STHeiti;font-size:14px;">
-       Each number represents a time accoring to following table:
-      </span>
-      <pre>9 9 12       9 12 12       9 12 12        12 12 12      12 12 12
+G            H            I
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+The goal is to find a minimal sequence of moves to return all the dials to 12 o'clock. Nine different ways to turn the dials on the clocks are supplied via a table below; each way is called a move. Select for each
+move a number 1 through 9 which will cause the dials of the affected clocks (see next table) to be turned 90 degrees clockwise.
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+Move
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+Affected clocks
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+1
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+ABDE
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+2
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+ABC
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+3
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+BCEF
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+4
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+ADG
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+5
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+BDEFH
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+6
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+CFI
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+7
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+DEGH
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+8
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+GHI
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+9
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+EFHI
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+Example
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+Each number represents a time accoring to following table:
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->9 9 12       9 12 12       9 12 12        12 12 12      12 12 12
 6 6 6  5 -&gt;  9  9  9  8-&gt;  9  9  9  4 -&gt;  12  9  9  9-&gt; 12 12 12
 6 3 6        6  6  6       9  9  9        12  9  9      12 12 12
-</pre>
-      <p style="font-family:STHeiti;font-size:14px;">
-       [But this might or might not be the `correct&rsquo; answer; see below.]
-      </p>
-      <h3 style="font-family:STHeiti;">
-       PROGRAM NAME: clocks
-      </h3>
-      <h3 style="font-family:STHeiti;">
-       INPUT FORMAT
-      </h3>
-      <table border="1" style="font-family:STHeiti;">
-       <tbody>
-        <tr>
-         <td>
-          Lines 1-3:
-         </td>
-         <td>
-          Three lines of three space-separated numbers; each number represents the start time of one clock, 3, 6, 9, or 12. The ordering of the numbers corresponds to the first example above.
-         </td>
-        </tr>
-       </tbody>
-      </table>
-      <h3 style="font-family:STHeiti;">
-       SAMPLE INPUT (file clocks.in)
-      </h3>
-      <pre>9 9 12
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+[But this might or might not be the `correct&rsquo; answer; see below.]
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+PROGRAM NAME: clocks
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+INPUT FORMAT
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+Lines 1-3:
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+Three lines of three space-separated numbers; each number represents the start time of one clock, 3, 6, 9, or 12. The ordering of the numbers corresponds to the first example above.
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+SAMPLE INPUT (file clocks.in)
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->9 9 12
 6 6 6
 6 3 6
-</pre>
-      <h3 style="font-family:STHeiti;">
-       OUTPUT FORMAT
-      </h3>
-      <p style="font-family:STHeiti;font-size:14px;">
-       A single line that contains a space separated list of the shortest sequence of moves (designated by numbers) which returns all the clocks to 12:00. If there is more than one solution, print the one which gives
- the lowest number when the moves are concatenated (e.g., 5 2 4 6 &lt; 9 3 1 1).
-      </p>
-      <h3 style="font-family:STHeiti;">
-       SAMPLE OUTPUT (file clocks.out)
-      </h3>
-      <pre>4 5 8 9</pre>
-      <br/>
-     </td>
-    </tr>
-   </tbody>
-  </table>
-  <br/>
- </div>
- <h2>
-  思路
- </h2>
- <div>
-  这份题解，算是一边coding一边写出来的，一是好久没码过了，更重要的是这个题目很复杂。。
- </div>
- <div>
-  第一想到的方法就是枚举所有表，或者叫搜索。不管叫啥，反正都不现实，4^9 = 2^18 ,貌似也不错~
- </div>
- <div>
-  <br/>
- </div>
- <div>
-  但是既然想得瑟，就说一下应该怎么搞。
- </div>
- <div>
-  枚举题目优化的思路都有一点，枚举的各个变量之间能否用一定的关系式推出来。
- </div>
- <div>
-  这个题目里，很显然，如果表A可以通过操作1 2进行，如果操作1执行了1次，那表A离12点还差几次就必须把操作2也进行几次。
- </div>
- <div>
-  <br/>
- </div>
- <div>
-  先列一下钟表与矩阵的关系图：
- </div>
- <div>
-  Ci = C[i] / 3;
- </div>
- <div>
-  <pre>clocks  operates
-1   1 2 4       ( C1 + p1 + p2 + p4 ) % 4 == 0
-2   1 2 3 5     ( C2 + p1 + p2 + p3 + p5 ) % 4 == 0
-3   2 3 6       &hellip;
-4   1 4 5 7     &hellip;
-5   1 3 5 7 9   &hellip;
-6   3 5 6 9
-7   4 7 8
-8   5 7 8 9
-9   6 8 9
-</pre>
- </div>
- <div>
-  把上面的关系式反过来，就能在已知 c[i] 通过枚举部分 pi 求出其它 pi
- </div>
- <div>
-  <br/>
- </div>
- <div>
-  我枚举的是123三个操作，然后剩下6个操作就可以就确定了。
- </div>
- <div>
-  <br/>
- </div>
- <h2>
-  代码
- </h2>
- <div>
-  <pre><code class="language-cpp">/*
-ID:zhrln1
-PROG:clocks
-LANG:C++
-*/
-#include &lt;cstdio&gt;
-#include &lt;iostream&gt;
-using namespace std;
-int c[11];
-int cal(int a, int b, int c){
-    int t =  - a - b - c;
-    while ( t &lt; 0 ) t += 4;
-    return t;
-}
-int cal(int a, int b, int c, int d){
-    int t =  - a - b - c - d;
-    while ( t &lt; 0 ) t += 4;
-    return t;
-}
-int main(){
-    freopen(&ldquo;clocks.in&rdquo;,&ldquo;r&rdquo;,stdin);
-    freopen(&ldquo;clocks.out&rdquo;,&ldquo;w&rdquo;,stdout);
-    for (int i(1);i&lt;=9;i++) {
-        cin &gt;&gt; c[i];
-        c[i] /= 3;
-    }
-    int p[11];
-    bool found = false;
-    for ( p[1] = 0; p[1] &lt; 4; p[1]++ ){
-        for ( p[2] = 0; p[2] &lt; 4; p[2]++ ){
-            for ( p[3] = 0; p[3] &lt; 4; p[3]++ ){
-                p[4] = cal(c[1], p[1], p[2]);
-                p[5] = cal(c[2], p[1], p[2], p[3]);
-                p[6] = cal(c[3], p[2], p[3]);
-                p[7] = cal(c[4], p[1], p[4], p[5]);
-                p[8] = cal(c[7], p[4], p[7]);
-                p[9] = cal(c[9], p[6], p[8]);
-                if (((c[5] + p[1] + p[3] + p[5] + p[7] + p[9]) % 4 == 0) &amp;&amp;
-                    ((c[8] + p[5] + p[7] + p[8] + p[9] ) % 4 == 0) &amp;&amp;
-                    ((c[6] + p[3] + p[5] + p[6] + p[9] ) % 4 == 0 )){
-                    found = 1;
-                    break;
-                }
-                if ( found ) break;
-            }
-            if ( found ) break;
-        }
-        if ( found ) break;
-    }
-    int i = 1;
-    while ( p[i] == 0 ) i++;
-    printf(&ldquo;%d&rdquo;,i);
-    p[i&ndash;]&ndash;;
-    while ( ++i &lt;= 9 ) while ( p[i]&ndash; ) printf(&rdquo; %d&rdquo;,i);
-    printf(&rdquo;\n&rdquo;);
-    return 0;
-}</code></pre>
-  <br/>
-  <br/>
- </div>
-</div></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+OUTPUT FORMAT
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+A single line that contains a space separated list of the shortest sequence of moves (designated by numbers) which returns all the clocks to 12:00. If there is more than one solution, print the one which gives
+the lowest number when the moves are concatenated (e.g., 5 2 4 6 &lt; 9 3 1 1).
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+SAMPLE OUTPUT (file clocks.out)
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->4 5 8 9<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -913,11 +758,15 @@ int main(){
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

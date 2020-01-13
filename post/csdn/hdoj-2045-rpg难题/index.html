@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目地址： http://acm.hdu.edu.cn/showproblem.php?pid=2045 算法思想： 1）有三种颜色，在涂某一块区域时，由于它的前一块区域已经确定，且相邻区域不能重">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/hdoj-2045-rpg%E9%9A%BE%E9%A2%98/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/hdoj-2045-rpg%E9%9A%BE%E9%A2%98/">
   <meta property="og:title" content="HDOJ - 2045 RPG难题 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目地址： http://acm.hdu.edu.cn/showproblem.php?pid=2045 算法思想： 1）有三种颜色，在涂某一块区域时，由于它的前一块区域已经确定，且相邻区域不能重"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2012-11-22T21:01:27&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 分钟阅读时间
+    1 分钟阅读时间
   </span>
   
 
@@ -406,127 +406,7 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <p>
-  题目地址：
-  <a href="http://acm.hdu.edu.cn/showproblem.php?pid=2045" rel="nofollow">
-   <a href="http://acm.hdu.edu.cn/showproblem.php?pid=2045" target="_blank">http://acm.hdu.edu.cn/showproblem.php?pid=2045</a>
-  </a>
- </p>
- <h2>
-  算法思想：
- </h2>
- <p>
-  1）有三种颜色，在涂某一块区域时，由于它的前一块区域已经确定，且相邻区域不能重复，所以在这一块区域上有两种涂法，因此，大体意识为 a[i]=a[i-1]*2
- </p>
- <p>
-  2）（为了方便描述，我们用1，2，3分别代表R，P，G）假设第一块涂色为1，则当以第n块结尾的时候，第n块区域就不能再为1。那么，在第n块区域中一共a[n]中涂法中，有多少涂法是1呢？用递推的思想，显然，如果第n-1块涂的不是1，那么第n块区域就可以涂成1。我们用b[i]表示a[i]种涂法里被涂成1的数量，可得b[i]=a[i-1]-b[i-1]。
- </p>
- <p>
-  3）综合以上两点，我们可以得出，方格总是为n时，可以涂的方法数就是第一步计算出来的理想值减去第二步中那些和第一块相冲突的个数，即：(a[i]-b[i])*3。当然不要忘了最后的乘以3哦！
- </p>
- <p>
-  代码如下：
- </p>
- <p>
- </p>
- <pre><code class="language-cpp">   a[1]=1;
-    for (int i(2);i&lt;=50;i++) a[i]=a[i-1]*2;
-    b[3]=2;
-    for (int i(4);i&lt;=50;i++) b[i]=a[i-1]-b[i-1];
-    for (int i(1);i&lt;=50;i++) c[i]-=a[i]-b[i];
-</code></pre>
- <p>
- </p>
- <h6>
-  <span style="font-weight:normal;">
-   <br/>
-  </span>
- </h6>
- <h2>
-  <span style="font-weight:normal;">
-   考虑代码优化：
-  </span>
- </h2>
- <h6>
-  <span style="font-weight:normal;">
-   仔细观察上面的方法，可以发现，其实b数组本身就是用a数组产生的，并且只是用作临时存贮。那么能不能只用一个数组来节省空间呢？
-  </span>
- </h6>
- <pre><code class="language-cpp">1  2   3   4   5   6   7   8
-a   1   2   4   8   16  32  64  &hellip;
-b   0   0   2   2   6   10  22  42
-c   1   2   2   6   10  22  42  &hellip;</code></pre>
- <br/>
- <p>
- </p>
- <p>
- </p>
- <p>
-  通过观察，我们可以发现：
- </p>
- <p>
-  c[i]=a[i]-c[i-1]
- </p>
- <p>
-  =&gt;
-  <span>
-  </span>
-  a[i]=c[i]+c[i-1]
-  <span>
-  </span>
- </p>
- <p>
-  =&gt;
-  <span>
-  </span>
-  a[i-1]=c[i-1]+c[i-2]
- </p>
- <p>
-  又
-  <span>
-  </span>
-  a[i]=a[i-1]*2
- </p>
- <p>
-  整理得：c[i]=(c[i-1]+c[i-2])*2-c[i-1]
- </p>
- <p>
-  即：
-  <span style="font-size:18px;">
-   c[i]=c[i-1]+c[i-2]*2
-   <span>
-   </span>
-  </span>
- </p>
- <p>
-  代码如下：
- </p>
- <p>
- </p>
- <pre><code class="language-cpp">a[1]=1;
-    a[2]=2;
-    a[3]=2;
-    for (int i(4);i&lt;=50;i++) a[i]=a[i-1]+a[i-2]*2;</code></pre>
- <p>
-  <br/>
- </p>
- <p>
-  <a href="http://zhrlnt.comule.com" rel="nofollow">
-   我的博客
-  </a>
-  <br/>
- </p>
- <p>
- </p>
- <p>
-  <br/>
- </p>
- <h6>
-  <br/>
- </h6>
-</div></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -716,11 +596,15 @@ c   1   2   2   6   10  22  42  &hellip;</code></pre>
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -397,146 +397,108 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p>原以为浮点数是计算机编程的基础知识，后来发现个奇怪的现象：很多人都说浮点很坑，千万不要用，至于为什么却说不出个所以然。更有甚者，以专业民科的架势发明出一套处理浮点的办法，应该如何如何，不该如何如何。网上也看到不少人对这个现象很困惑，解释为湿猴理论。</p>
-
+      <p>原以为浮点数是计算机编程的基础知识，后来发现个奇怪的现象：很多人都说浮点很坑，千万不要用，至于为什么却说不出个所以然。更有甚者，以专业民科的架势发明出一套处理浮点的办法，应该如何如何，不该如何如何。网上也看到不少人对这个现象很困惑，解释为湿猴理论。</p>
 <p>通常你问别人浮点有什么坑，如果别人说浮点数不能用==，十有八九这个人会认为，浮点数可以用&gt;&lt;的。不过你继续追问，他可能就会犹豫了。</p>
-
 <p>看代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">a</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0.1</span>
+<span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0.2</span>
+<span style="color:#a6e22e">c</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0.3</span>
 
-<pre><code class="language-go">a := 0.1
-b := 0.2
-c := 0.3
-
-fmt.Printf(&quot;%10s =&gt; %v\n&quot;, &quot;a+b&quot;, a+b)
-fmt.Printf(&quot;%10s =&gt; %v\n&quot;, &quot;a+b == c&quot;, a+b == c)
-fmt.Printf(&quot;%10s =&gt; %v\n&quot;, &quot;a+b &lt; c&quot;, a+b &lt; c)
-fmt.Printf(&quot;%10s =&gt; %v\n&quot;, &quot;a+b &gt; c&quot;, a+b &gt; c)
-</code></pre>
-
-<p><a href="https://play.golang.org/p/QdoleMRyJr3" target="_blank">https://play.golang.org/p/QdoleMRyJr3</a></p>
-
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%10s =&gt; %v\n&#34;</span>, <span style="color:#e6db74">&#34;a+b&#34;</span>, <span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%10s =&gt; %v\n&#34;</span>, <span style="color:#e6db74">&#34;a+b == c&#34;</span>, <span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">c</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%10s =&gt; %v\n&#34;</span>, <span style="color:#e6db74">&#34;a+b &lt; c&#34;</span>, <span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span> &lt; <span style="color:#a6e22e">c</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%10s =&gt; %v\n&#34;</span>, <span style="color:#e6db74">&#34;a+b &gt; c&#34;</span>, <span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span> &gt; <span style="color:#a6e22e">c</span>)
+</code></pre></div><p><a href="https://play.golang.org/p/QdoleMRyJr3">https://play.golang.org/p/QdoleMRyJr3</a></p>
 <p>why？</p>
-
 <ul>
-<li><p>按照浮点标准，0.1 转化成二进制是个无限小数</p></li>
-
-<li><p>浮点数有效长度有限，必有取舍</p></li>
+<li>
+<p>按照浮点标准，0.1 转化成二进制是个无限小数</p>
+</li>
+<li>
+<p>浮点数有效长度有限，必有取舍</p>
+</li>
 </ul>
-
 <p>总结，二进制无法准确表达0.1，多多少少会有点失真。遂不能直接比较大小。</p>
-
-<p>更详细的论述：<a href="https://www.zhihu.com/question/28551135" target="_blank">https://www.zhihu.com/question/28551135</a>
-<!-- 另外注意，测试这段代码的时候不要用常亮，可能会被编译器优化掉。 --></p>
-
+<p>更详细的论述：https://www.zhihu.com/question/28551135</p>
+<!-- raw HTML omitted -->
 <h3 id="浮点数如何比较">浮点数如何比较？</h3>
-
 <p>通常做法，如果两个数的差值在可接受范围内，就认为是相等的。其实很多非精确的比较都是类似方法，比如</p>
-
 <p>1、两个人年龄、五官等等主要特征都很像，你就敢猜这俩人是双胞胎了。
 2、你的服务10:03开始大量报错，隔壁服务10:02上了个线，你猜大概就是他的锅。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">floatPrecision</span> = <span style="color:#ae81ff">1e-6</span>
 
-<pre><code class="language-go">var floatPrecision = 1e-6
-
-func floatEqual(a float64, b float64) bool {
-	return math.Abs(a-b) &lt; floatPrecision
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">floatEqual</span>(<span style="color:#a6e22e">a</span> <span style="color:#66d9ef">float64</span>, <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">float64</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Abs</span>(<span style="color:#a6e22e">a</span><span style="color:#f92672">-</span><span style="color:#a6e22e">b</span>) &lt; <span style="color:#a6e22e">floatPrecision</span>
 }
 
-func floatLess(a float64, b float64) bool {
-	return b-a &gt; floatPrecision
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">floatLess</span>(<span style="color:#a6e22e">a</span> <span style="color:#66d9ef">float64</span>, <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">float64</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">b</span><span style="color:#f92672">-</span><span style="color:#a6e22e">a</span> &gt; <span style="color:#a6e22e">floatPrecision</span>
 }
 
-func floatGreater(a float64, b float64) bool {
-	return a-b &gt; floatPrecision
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">floatGreater</span>(<span style="color:#a6e22e">a</span> <span style="color:#66d9ef">float64</span>, <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">float64</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">-</span><span style="color:#a6e22e">b</span> &gt; <span style="color:#a6e22e">floatPrecision</span>
 }
 
-func main(){
-	fmt.Println(floatEqual(a+b, c))	// true
-}
-</code></pre>
-
-<h3 id="浮点数怎么转换">浮点数怎么转换</h3>
-
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">floatEqual</span>(<span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span>))	<span style="color:#75715e">// true
+</span><span style="color:#75715e"></span>}
+</code></pre></div><h3 id="浮点数怎么转换">浮点数怎么转换</h3>
 <p>跟整型转换比较简单</p>
-
-<pre><code class="language-go">// 去尾
-func floatFloor(a float64) int {
-	return int(a)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 去尾
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">floatFloor</span>(<span style="color:#a6e22e">a</span> <span style="color:#66d9ef">float64</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">return</span> int(<span style="color:#a6e22e">a</span>)
 }
 
-// 四舍五入
-func floatToInt(a float64) int {
-	return int(math.Round(a))
-	//return int(a + 0.5)
-}
-</code></pre>
-
-<p>跟浮点转换就有意思了</p>
-
-<pre><code class="language-go">// 打印浮点数
-func testFloatToString(){	
-  f := 16.99
-	fmt.Println(f * 10)
-	fmt.Println(f * 100)
-	fmt.Println(f * 1000)
-	fmt.Println(f * 10000)
-	fmt.Printf(&quot;%.2f\n&quot;, f*10000)
-	fmt.Printf(&quot;%.0f\n&quot;, f*10000)
+<span style="color:#75715e">// 四舍五入
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">floatToInt</span>(<span style="color:#a6e22e">a</span> <span style="color:#66d9ef">float64</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">return</span> int(<span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Round</span>(<span style="color:#a6e22e">a</span>))
+	<span style="color:#75715e">//return int(a + 0.5)
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>跟浮点转换就有意思了</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 打印浮点数
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">testFloatToString</span>(){	
+  <span style="color:#a6e22e">f</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">16.99</span>
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">f</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">f</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">f</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">f</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">10000</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%.2f\n&#34;</span>, <span style="color:#a6e22e">f</span><span style="color:#f92672">*</span><span style="color:#ae81ff">10000</span>)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%.0f\n&#34;</span>, <span style="color:#a6e22e">f</span><span style="color:#f92672">*</span><span style="color:#ae81ff">10000</span>)
 }
 
-169.89999999999998
-1698.9999999999998
-16990
-169899.99999999997
-169900.00
-169900
-</code></pre>
-
-<p>strconv</p>
-
+<span style="color:#ae81ff">169.89999999999998</span>
+<span style="color:#ae81ff">1698.9999999999998</span>
+<span style="color:#ae81ff">16990</span>
+<span style="color:#ae81ff">169899.99999999997</span>
+<span style="color:#ae81ff">169900.00</span>
+<span style="color:#ae81ff">169900</span>
+</code></pre></div><p>strconv</p>
 <ul>
-<li><a href="https://gowalker.org/strconv#FormatFloat" target="_blank">https://gowalker.org/strconv#FormatFloat</a></li>
-<li><a href="https://gowalker.org/strconv#ParseFloat" target="_blank">https://gowalker.org/strconv#ParseFloat</a></li>
+<li><a href="https://gowalker.org/strconv#FormatFloat">https://gowalker.org/strconv#FormatFloat</a></li>
+<li><a href="https://gowalker.org/strconv#ParseFloat">https://gowalker.org/strconv#ParseFloat</a></li>
 </ul>
-
 <h3 id="浮点数要不要用字符串传输">浮点数要不要用字符串传输？</h3>
-
 <p>有人问，如果别人想传1，结果传了个0.99999，不就失真了吗？</p>
-
 <p>基本上这样问的都是因为用的时候直接用了比较操作符。</p>
-
 <blockquote>
 <p>原来的 double 有 15 位有效数字，一般转成 string 后只刻意保留了几位，如果是直接截取，其实是主动丢弃了准确度。</p>
-
 <p>举例：本来要传 1，截取之后传了 0.999 ，别人并不不知道这个 0.999 是准确值还是你截出来的。</p>
 </blockquote>
-
 <p>个人推荐，传输的时候保留原数据，只有在渲染的时候再做格式化处理。</p>
-
 <p>问题核心：怎么存不重要，怎么用才是关键。想着存的时候干净一点，用的时候就随意了。</p>
-
 <h3 id="财务场景下的特殊处理">财务场景下的特殊处理</h3>
-
 <p>仔细想了想，好像财务上也没什么特别要处理的，怀疑自己知识面不够，就去网上翻了翻，虽然没看到什么新问题，却又不少其他的收获。比如</p>
-
 <blockquote>
 <p>系统性误差有系统性解决办法</p>
 </blockquote>
-
 <p>我对这句话的理解，不要把计算机看得太重了，计算机只是解决领域问题的一个工具，准确的说只是特定时期的计算工具，专业的领域在手工计算的时代就有专业的算法了。</p>
-
 <p>这里只提一个最开始想到的跟普通场景的区别：不能简单的四舍五入</p>
-
 <p>先抛开小数不谈，现实生活中，3个人平分10块钱，理论上一人3.33，实际上大家会按照3-3-4来分就够了。放到微信群收款里，也是3.33*2+3.34。并没有统一用四舍五入。</p>
-
 <p>这种问题在实际问题中出现也比较多，把一笔订单拆分成几笔子订单，把一笔成本摊销到一年。在做除法的时候都要根据具体场景来做取舍。其实都不算什么浮点问题。</p>
-
 <h2 id="扩展">扩展</h2>
-
 <ul>
-<li>能否直接用高精度 math/big.Float 来解决浮点数的诡异问题？<a href="https://play.golang.org/p/-8C7Gg7uHxd" target="_blank">https://play.golang.org/p/-8C7Gg7uHxd</a></li>
-<li>wiki <a href="https://zh.wikipedia.org/wiki/IEEE_754" target="_blank">https://zh.wikipedia.org/wiki/IEEE_754</a></li>
+<li>能否直接用高精度 math/big.Float 来解决浮点数的诡异问题？https://play.golang.org/p/-8C7Gg7uHxd</li>
+<li>wiki <a href="https://zh.wikipedia.org/wiki/IEEE_754">https://zh.wikipedia.org/wiki/IEEE_754</a></li>
 </ul>
 
     </div>
@@ -713,11 +675,15 @@ func testFloatToString(){
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

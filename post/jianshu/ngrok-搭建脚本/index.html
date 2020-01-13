@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -399,38 +399,29 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<blockquote>
+      <blockquote>
 <p>迁移自简书，格式可能未经校对。</p>
 </blockquote>
-
-<h3 id="推荐-https-github-com-fatedier-frp-比-ngrok-好用很多">推荐 <a href="https://github.com/fatedier/frp" target="_blank">https://github.com/fatedier/frp</a> 比 ngrok 好用很多</h3>
-
-<hr />
-
+<h3 id="推荐-httpsgithubcomfatedierfrp-比-ngrok-好用很多">推荐 <a href="https://github.com/fatedier/frp">https://github.com/fatedier/frp</a> 比 ngrok 好用很多</h3>
+<hr>
 <p>看文档太复杂了，脑子又记不住，先贴这了。</p>
-
 <p>需要的时候改一下<code>DOMAIN</code> 直接跑</p>
-
-<p>参考自：<a href="https://aotu.io/notes/2016/02/19/ngrok/" target="_blank">https://aotu.io/notes/2016/02/19/ngrok/</a></p>
-
+<p>参考自：https://aotu.io/notes/2016/02/19/ngrok/</p>
 <h2 id="install">Install</h2>
-
-<pre><code class="language-sh">#!/bin/sh
-
-DOMAIN=your-domain.com
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+DOMAIN<span style="color:#f92672">=</span>your-domain.com
 
 cd $GOPATH/src
 git clone https://github.com/inconshreveable/ngrok.git
 cd ngrok
 
-# 生成 key
-openssl genrsa -out rootCA.key 2048
-openssl req -x509 -new -nodes -key rootCA.key -subj &quot;/CN=${DOMAIN}&quot; -days 5000 -out rootCA.pem
-openssl genrsa -out device.key 2048
-openssl req -new -key device.key -subj &quot;/CN=${DOMAIN}&quot; -out device.csr
-openssl x509 -req -in device.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out device.crt -days 5000
+<span style="color:#75715e"># 生成 key</span>
+openssl genrsa -out rootCA.key <span style="color:#ae81ff">2048</span>
+openssl req -x509 -new -nodes -key rootCA.key -subj <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">/CN=</span><span style="color:#e6db74">${</span>DOMAIN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -days <span style="color:#ae81ff">5000</span> -out rootCA.pem
+openssl genrsa -out device.key <span style="color:#ae81ff">2048</span>
+openssl req -new -key device.key -subj <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">/CN=</span><span style="color:#e6db74">${</span>DOMAIN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -out device.csr
+openssl x509 -req -in device.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out device.crt -days <span style="color:#ae81ff">5000</span>
 
 cp rootCA.pem assets/client/tls/ngrokroot.crt
 cp device.crt assets/server/tls/snakeoil.crt
@@ -438,24 +429,17 @@ cp device.key assets/server/tls/snakeoil.key
 
 make release-server
 make release-client
-</code></pre>
-
-<h2 id="run">Run</h2>
-
+</code></pre></div><h2 id="run">Run</h2>
 <h3 id="server">Server</h3>
-
 <pre><code>bin/ngrokd -domain=&quot;${DOMAIN}&quot; -httpAddr=&quot;:10080&quot; -httpsAddr=&quot;:10443&quot;
 </code></pre>
-
 <h3 id="client">Client</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd bin
+echo <span style="color:#e6db74">&#39;server_addr: &#34;&#39;</span><span style="color:#e6db74">${</span>DOMAIN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;:4443&#34;&#39;</span> &gt; ngrok.cfg
+echo <span style="color:#e6db74">&#39;trust_host_root_certs: false&#39;</span> &gt;&gt; ngrok.cfg
+./ngrok -subdomain demo -config<span style="color:#f92672">=</span>ngrok.cfg <span style="color:#ae81ff">8080</span>
 
-<pre><code class="language-sh">cd bin
-echo 'server_addr: &quot;'${DOMAIN}':4443&quot;' &gt; ngrok.cfg
-echo 'trust_host_root_certs: false' &gt;&gt; ngrok.cfg
-./ngrok -subdomain demo -config=ngrok.cfg 8080
-
-</code></pre>
-
+</code></pre></div>
     </div>
 
     
@@ -630,11 +614,15 @@ echo 'trust_host_root_certs: false' &gt;&gt; ngrok.cfg
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LAMP on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in LAMP on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Tue, 15 Oct 2013 21:13:16 +0800</lastBuildDate>
     
 	<atom:link href="/tags/lamp/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,7 @@
       <pubDate>Tue, 15 Oct 2013 21:13:16 +0800</pubDate>
       
       <guid>/post/csdn/lamp-%E7%9A%84%E6%90%AD%E5%BB%BA/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 用了无数次的XAMPP，终于自己搭一次了。。。。 安装 Linux 我装的是ubuntu。。 安装 Apache2 apt-get install apache2 装好之后，</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
   </channel>

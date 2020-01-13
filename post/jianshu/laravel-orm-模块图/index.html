@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -404,16 +404,12 @@
       <blockquote>
 <p>迁移自简书，格式可能未经校对。</p>
 </blockquote>
-
 <p>还会更新，只是懒得整理，先堆这里了</p>
-
-<p><img src="http://upload-images.jianshu.io/upload_images/444689-02a5a41f8b02ad93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" /></p>
-
+<p><img src="http://upload-images.jianshu.io/upload_images/444689-02a5a41f8b02ad93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p>PlatUML 代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">@startuml
 
-<pre><code class="language-markdown">@startuml
-
-' 底层驱动部分
+&#39; 底层驱动部分
 class DatabaseManager{
     connection() factory的大脑
 }
@@ -444,11 +440,11 @@ package Query|Schema {
     }
 }
 
-DatabaseManager *--&gt; ConnectionFactory
-DatabaseManager *--&gt; Connection
-DatabaseManager *--&gt; Connector
-
-ConnectionFactory *--&gt; Connection
+DatabaseManager <span style="font-style:italic">*--&gt; ConnectionFactory
+</span><span style="font-style:italic">DatabaseManager *</span>--&gt; Connection
+DatabaseManager <span style="font-style:italic">*--&gt; Connector
+</span><span style="font-style:italic">
+</span><span style="font-style:italic">ConnectionFactory *</span>--&gt; Connection
 ConnectionFactory *--&gt; Connector
 
 Connection --|&gt; Grammar
@@ -459,7 +455,7 @@ QueryBuilder --|&gt; Processer
 Connection -- QueryBuilder
 
 
-' Eloquent
+&#39; Eloquent
 package Eloquent{
     abstract class Relation{
         Ebuilder
@@ -485,8 +481,7 @@ package Eloquent{
 }
 
 @enduml
-</code></pre>
-
+</code></pre></div>
     </div>
 
     
@@ -673,11 +668,15 @@ package Eloquent{
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

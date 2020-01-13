@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -398,14 +398,11 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>Go 让人吐槽的点之一就是动态特性低，比如不支持泛型、反射鸡肋等等。所以长期以来一直觉得搞一些动态功能是一件很酷的事情。</p>
-
 <p>这里主要做了两件事：</p>
-
 <ul>
-<li>运行时获取变量名，并以此为基础做了一个调试工具 <a href="https://github.com/Kretech/xgo/tree/master/dump" target="_blank">XGo/Dumper</a></li>
+<li>运行时获取变量名，并以此为基础做了一个调试工具 <a href="https://github.com/Kretech/xgo/tree/master/dump">XGo/Dumper</a></li>
 <li>运行时获取函数签名，以此为基础做了个小类库，可以将任意函数暴露为 http 接口，同时还支持生成 swagger 文档。</li>
 </ul>
-
 <p>中间主要用到了 ast 包的工具（因为想偷懒，也踩了不少坑）。基本思路都是通过 runtime 或 reflect 包，得到一些基本的信息，比如 fileline 和 pc，然后借此再拿到 ast，通过一些上下文信息来定位相关部分的代码，转换为需要的东西。</p>
 
     </div>
@@ -600,11 +597,15 @@
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

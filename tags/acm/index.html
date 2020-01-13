@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -312,7 +312,7 @@
     <h2><a href="/post/csdn/uva-437-the-tower-of-babylon/">UVa 437 The Tower of Babylon</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 好久不水 开始深入算法了。 题目传送门 题目其实很简单，暴搜都可以，网上最多的解法都是记忆化搜索，效率应该
+      此页面通过工具从 csdn 导出，格式可能有问题。 const int INF = 0x3fffffff; const double eps = 1e-6; struct NODE{ int a,b,c; NODE(){} NODE(int x,int y,int z): a(x),b(y),c(z) {} }a[111]; bool cmp(NODE a,NODE b){ if (a.a==b.a) return a.b&lt;b.b; return a.a&lt;b.a; } int d[111]; int I,T,n,m; int main(){ freopen(&ldquo;in.txt&rdquo;,&ldquo;r&rdquo;,stdin); while ( scanf(&quot;%d&rdquo;,&amp;n) &amp;&amp; n){ for ( int i(0); i&lt;n;
       
     </div>
   </div>
@@ -321,7 +321,7 @@
     <h2><a href="/post/csdn/uva-10129-play-on-words/">UVa 10129 Play on Words</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 好久不写代码果然手会生成屎 题目在 poj上也有 题意就是给你一堆单词，按首位顺序排列起来，问你有没有解。
+      此页面通过工具从 csdn 导出，格式可能有问题。 int sz[333]; int fa[333]; bool ok[333]; // 数据中使用到的单词 int n, T; int getfa(int v) { if ( fa[v] == v ) return v; return fa[v] = getfa(fa[v]); } void init() { memset(ok, 0, sizeof(ok)); memset(sz, 0, sizeof(sz)); cin &gt;&gt; n; string a;
       
     </div>
   </div>
@@ -330,7 +330,7 @@
     <h2><a href="/post/csdn/poj-1017-packets-%E6%82%BC%E5%BF%B5%E6%AD%BB%E5%8E%BB%E7%9A%84%E6%A8%A1%E6%8B%9F/">POJ 1017 Packets 悼念死去的模拟</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很水，纯模拟 麻烦的地方在于，会面临多次用小件填充大件剩余。 最开始觉得不同大小时决策不一样
+      此页面通过工具从 csdn 导出，格式可能有问题。 int s =a[6]+a[5]+a[4]; // a5 if (a[5]*11 &amp;gt;= a[1]) a[1] = 0; else a[1] -= a[5]*11; // a4 for ( int i(1);i&amp;lt;=a[4];i++){ t = push(20,2,5); if (t) t = push(t,1,t); } // a3 s += a[3] / 4; // 整装3 a[3] %= 4; if (a[3]){ // 剩下
       
     </div>
   </div>
@@ -339,7 +339,7 @@
     <h2><a href="/post/csdn/poj-1273-drainage-ditches-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%A8%A1%E7%89%88/">POJ 1273 Drainage Ditches 网络流模版</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目传送门 网络流模版题，本想水一水，莫想到因为没好好看题给跪了。 题目大意就是 给你一堆水洼地，还有一些
+      此页面通过工具从 csdn 导出，格式可能有问题。 struct EDGE { int to, cap, rev; }; vector&lt;EDGE&gt; g[N]; int ff[N][N]; bool used[N]; int n,m; int dfs(int v,int t,int f){ if ( v == t ) return f; used[v]= true; for ( int i(0); i &lt; g[v].size(); i++){ EDGE &amp;e = g[v][i]; if ( !used[e.to] &amp;&amp; e.cap &gt; 0){
       
     </div>
   </div>
@@ -348,7 +348,7 @@
     <h2><a href="/post/csdn/poj-3321-apple-tree-dfs%E5%BA%8F%E7%9A%84%E5%BA%94%E7%94%A8/">POJ 3321 Apple Tree dfs序的应用</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 dfs序 说来很简单，却从来没有想到过。必须得深刻反省一下到底自己学了些啥。 题目大意是给你一棵
+      此页面通过工具从 csdn 导出，格式可能有问题。 void dfs(int v) { P1[v]=++tt; for ( int p = a[v].next; p; p=st[p].next ) dfs(st[p].v); P2[v]=tt; return; } inline int l(int i) { return i &amp; -i; } void update(int x,int k) { while (x&lt;=n) { t[x] += k; x += l(x); } } int gs(int x) { int s
       
     </div>
   </div>
@@ -357,7 +357,7 @@
     <h2><a href="/post/csdn/poj-3461-oulipo-kmp%E7%BB%83%E4%B9%A0/">POJ 3461 Oulipo KMP练习</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很长，其实就是字符串匹配。 所以，权当练习 KMP #include &lt;cstdio&gt; #include &lt;cstring&gt; #define MB 10101 #define MA 1000100 char a[MA],b[MB]; int next[MB]; void prekmp(char* b) { next[0]=-1; int j=-1; for (
+      此页面通过工具从 csdn 导出，格式可能有问题。 void prekmp(char* b) { next[0]=-1; int j=-1; for ( int i(1); b[i]; i++) { while ( j!=-1 &amp;&amp; b[i]!=b[j+1]) j=next[j]; if ( b[i]==b[j+1] ) j++; next[i]=j; } } int kmp(char *a,char *b) { int j=-1,ans=0; for ( int i(0); a[i]; i++) { while ( j!=-1 &amp;&amp; a[i]!=b[j+1] ) j=next[j]; if
       
     </div>
   </div>
@@ -366,7 +366,7 @@
     <h2><a href="/post/csdn/usaco-section-1.4.3-the-clocks/">USACO Section 1.4.3 The Clocks</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目 The Clocks IOI&rsquo;94 - Day 2 Consider nine clocks arranged in a 3x3 array thusly: |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| | | | | | | | |&mdash;O | |&mdash;O | | O | | | | | | | |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| A B C |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| |
+      此页面通过工具从 csdn 导出，格式可能有问题。 |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| | | | | | | | O | | O | | O | | | | | | | | | | |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| D E F |&mdash;&mdash;-| |&mdash;&mdash;-| |&mdash;&mdash;-| | | | | | | | O | | O&mdash;| | O |
       
     </div>
   </div>
@@ -375,7 +375,7 @@
     <h2><a href="/post/csdn/poj-3041-asteroids-%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95-%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/">POJ 3041 Asteroids 匈牙利算法 二分图最大匹配</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目链接： http://poj.org/problem?id=3041 看起来像个 DP 神马的。竟然是二分图匹配。。 看着啊，行与行之间相互独立，一个行可以就炸掉很多
+      此页面通过工具从 csdn 导出，格式可能有问题。 const int N = 555; int n, m, g[N][N], chk[N], match[N]; int dfs(int v){ int t; for ( int i = 1; i &lt;= n; i++){ if ( g[i][v] &amp;&amp; !chk[i] ){ chk[i] = 1; t = match[i]; match[i] = v; if ( t == -1 || dfs(t) ) return
       
     </div>
   </div>
@@ -384,7 +384,7 @@
     <h2><a href="/post/csdn/ubuntu-%E5%AE%89%E8%A3%85-hustoj/">ubuntu 安装 HUSTOJ</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 安装好 LAMP 环境 方法： http://blog.csdn.net/kzzhr/article/details/12755671 下载 HUSTOJ HUSTOJ 主页 http://code.google.com/p/hustoj/ 我下载了 安装包 install.rxxxx.tar.gz 上传至服务器 #scp -r /home/foo/isntall foo@xxx.xx.xxx.xxx:/var/www 安装中的那些事儿～ install/README 中有详细的
+      此页面通过工具从 csdn 导出，格式可能有问题。
       
     </div>
   </div>
@@ -393,7 +393,7 @@
     <h2><a href="/post/csdn/hoj-2651-pie/">HOJ 2651 PIE</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hit.edu.cn/hoj/problem/view?id=2651 很简单的二分枚举， 要注意的是 1、一共是 f+1 个人（包括他自己） 2、精度问题。。被吭了好久，我把面
+      此页面通过工具从 csdn 导出，格式可能有问题。
       
     </div>
   </div>
@@ -402,7 +402,7 @@
     <h2><a href="/post/csdn/hdoj-4152-zzys-dilemma/">HDOJ 4152 ZZY’s Dilemma</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hdu.edu.cn/showproblem.php?pid=4152 队长大人给某菜鸟赛出的题，但是却让我傻了半天。 裸暴力，由于数据弱，我直接用了位运算标记，其实
+      此页面通过工具从 csdn 导出，格式可能有问题。
       
     </div>
   </div>
@@ -411,7 +411,7 @@
     <h2><a href="/post/csdn/zoj-3203-light-bulb/">ZOJ 3203 Light Bulb</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://openoj.awaysoft.com:8080/judge/problem/viewProblem.action?id=14179 三分入门题目 三分： 区间上求凸（凹）点时，把区间ad分为 abcd 其中 b = ( a+d) / 2 ; c = ( b + d) / 2; 比
+      此页面通过工具从 csdn 导出，格式可能有问题。
       
     </div>
   </div>
@@ -420,7 +420,7 @@
     <h2><a href="/post/csdn/usaco-section-1.3.6-prime-cryptarithm/">USACO Section 1.3.6 Prime Cryptarithm</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目 Prime Cryptarithm The following cryptarithm is a multiplication problem that can be solved by substituting digits from a specified set of N digits into the positions marked with *. If the set of prime digits {2,3,5,7} is selected, the cryptarithm is called a PRIME CRYPTARITHM. * * *
+      此页面通过工具从 csdn 导出，格式可能有问题。 if (i*j&amp;lt;10000 &amp;amp;&amp;amp; i*(j/10)&amp;lt;1000 &amp;amp;&amp;amp; i*(j%10)&amp;lt;1000 &amp;amp;&amp;amp; hash(j) &amp;amp;&amp;amp; hash(i*(j%10)) &amp;amp;&amp;amp; hash(i*(j/10)) &amp;amp;&amp;amp; hash(i*j)) { ans++; // printf(&quot;%d * %d = %d0 + %d = %d \n&quot;,i,j,i*(j/10),i*(j%10),i*j); } } } } printf(&quot;%d\n&quot;,ans); return 0; }
       
     </div>
   </div>
@@ -429,7 +429,7 @@
     <h2><a href="/post/csdn/usaco-section-1.3.5-calf-flac/">USACO Section 1.3.5 Calf Flac</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目 Calf Flac It is said that if you give an infinite number of cows an infinite number of heavy-duty laptops (with very large keys), that they will ultimately produce all the world&rsquo;s great palindromes. Your job will be to detect these bovine beauties. Ignore punctuation, whitespace, numbers, and
+      此页面通过工具从 csdn 导出，格式可能有问题。
       
     </div>
   </div>
@@ -438,7 +438,7 @@
     <h2><a href="/post/csdn/usaco-section-1.3.3-barn-repair/">USACO Section 1.3.3 Barn Repair</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目 Barn Repair It was a dark and stormy night that ripped the roof and gates off the stalls that hold Farmer John&rsquo;s cows. Happily, many of the cows were on vacation, so the barn was not completely full. The cows spend the night in stalls that are arranged
+      此页面通过工具从 csdn 导出，格式可能有问题。
       
     </div>
   </div>
@@ -447,7 +447,7 @@
     <h2><a href="/post/csdn/usaco-section-1.3.2-mixing-milk/">USACO Section 1.3.2 Mixing Milk</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目 Mixing Milk Since milk packaging is such a low margin business, it is important to keep the price of the raw product (milk) as low as possible. Help Merry Milk Makers get the milk they need in the cheapest possible manner. The Merry Milk Makers company has several
+      此页面通过工具从 csdn 导出，格式可能有问题。 using namespace std; struct milk { int w,p; }; milk a[maxn+1]; int m,n; bool cmp(milk a ,milk b){ return a.p &lt; b.p; } int main(){ freopen(&ldquo;milk.in&rdquo;,&ldquo;r&rdquo;,stdin); freopen(&ldquo;milk.out&rdquo;,&ldquo;w&rdquo;,stdout); scanf(&quot;%d%d&rdquo;,&amp;m,&amp;n); for (int i=1;i&lt;=n;i++){ scanf(&quot;%d%d&rdquo;,&amp;a[i].p,&amp;(a[i].w)); } sort(a+1,a+n+1,cmp); int s=m,sp=0,k; for (int i=1;s;i++){ if ((k=a[i].w)&gt;s) k=s; s-=k; sp+=k*a[i].p; } printf(&quot;%d\n&rdquo;,sp); return 0; }
       
     </div>
   </div>
@@ -456,7 +456,7 @@
     <h2><a href="/post/csdn/poj-1088-%E6%BB%91%E9%9B%AA/">POJ 1088 滑雪</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目 http://poj.org/problem?id=1088 思路 经典的记忆化搜索：搜索+记忆化 搜索：一个一个找，能滑就滑 记忆化：优化重复的路径，记录每个点
+      此页面通过工具从 csdn 导出，格式可能有问题。
       
     </div>
   </div>
@@ -465,7 +465,7 @@
     <h2><a href="/post/csdn/usaco-section-1.2.5-palindromic-squares/">USACO Section 1.2.5 Palindromic Squares</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目 Palindromic Squares Rob Kolstad Palindromes are numbers that read the same forwards as backwards. The number 12321 is a typical palindrome. Given a number base B (2 &lt;= B &lt;= 20 base 10), print all the integers N (1 &lt;= N &lt;= 300 base 10) such that the
+      此页面通过工具从 csdn 导出，格式可能有问题。
       
     </div>
   </div>
@@ -474,7 +474,7 @@
     <h2><a href="/post/csdn/usaco-section-1.2.3-transformations/">USACO Section 1.2.3 Transformations</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目 Transformations A square pattern of size N x N (1 &lt;= N &lt;= 10) black and white square tiles is transformed into another square pattern. Write a program that will recognize the minimum transformation that has been applied to the original pattern given the following list of possible
+      此页面通过工具从 csdn 导出，格式可能有问题。
       
     </div>
   </div>
@@ -483,7 +483,7 @@
     <h2><a href="/post/csdn/usaco-section-1.2.4-name-that-number/">USACO Section 1.2.4 Name That Number</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目 Name That Number Among the large Wisconsin cattle ranchers, it is customary to brand cows with serial numbers to please the Accounting Department. The cow hands don&rsquo;t appreciate the advantage of this filing system, though, and wish to call the members of their herd by a pleasing name
+      此页面通过工具从 csdn 导出，格式可能有问题。
       
     </div>
   </div>
@@ -521,11 +521,15 @@
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

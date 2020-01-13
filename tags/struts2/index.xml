@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>struts2 on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in struts2 on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Sun, 16 Nov 2014 15:46:42 +0800</lastBuildDate>
     
 	<atom:link href="/tags/struts2/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,7 @@
       <pubDate>Sun, 16 Nov 2014 15:46:42 +0800</pubDate>
       
       <guid>/post/csdn/struts2-%E5%85%A5%E9%97%A8%E5%9B%BE%E8%A7%A3/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 目录结构： ./project/ |- src/ | |- package1/a.java java source | |- package2/b.java | |- WebRoot/ | |- META-INF/ | |- MANIFEST.MF | |- WEB-INF/ | |- classes/ | | |- /.class 编译后自动生成 | | |- struts.xml | |- lib/ |</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
   </channel>

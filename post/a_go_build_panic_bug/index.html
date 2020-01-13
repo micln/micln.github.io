@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -387,65 +387,44 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>起因是因为犯懒，随手在一个函数体内定义一个类型</p>
-
-<pre><code class="language-go">func foo() {
-	type Article = map[string]interface{}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">foo</span>() {
+	<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Article</span> = <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}
 }
-</code></pre>
-
-<p>看起来好像也很正常，突然有一天在 gowatch 的控制台里看到了</p>
-
-<pre><code class="language-shell">runtime: goroutine stack exceeds 1000000000-byte limit
+</code></pre></div><p>看起来好像也很正常，突然有一天在 gowatch 的控制台里看到了</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">runtime: goroutine stack exceeds 1000000000-byte limit
 fatal error: stack overflow
 runtime stack:
-runtime.throw(0x1a556a1, 0xe)
+runtime.throw<span style="color:#f92672">(</span>0x1a556a1, 0xe<span style="color:#f92672">)</span>
 /usr/local/Cellar/go/1.12.5/libexec/src/runtime/panic.go:617 +0x72
-runtime.newstack()
+runtime.newstack<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
 /usr/local/Cellar/go/1.12.5/libexec/src/runtime/stack.go:1041 +0x6f0
-runtime.morestack()
+runtime.morestack<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
 /usr/local/Cellar/go/1.12.5/libexec/src/runtime/asm_amd64.s:429 +0x8f
 ...
-</code></pre>
-
-<p>以为是程序出 panic 了，不过仔细看了看，好像不是我的代码，仔细一研究，发现程序还没跑起来，<code>go build</code> 时已经 panic 了。然后经过各种 <code>git stash</code>，终于发现，原来是因为外面也定义了一个 <code>type Article struct{}</code> 导致的 panic。</p>
-
+</code></pre></div><p>以为是程序出 panic 了，不过仔细看了看，好像不是我的代码，仔细一研究，发现程序还没跑起来，<code>go build</code> 时已经 panic 了。然后经过各种 <code>git stash</code>，终于发现，原来是因为外面也定义了一个 <code>type Article struct{}</code> 导致的 panic。</p>
 <p>印象中函数体内和函数外是可以重名的，而且，即便不可以，也应该编译失败才对，怎么就 panic 了。</p>
-
 <p>于是尝试了一下</p>
-
 <p>如果同时定义两个重名类型，会提示 <code>redeclared in this block</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">A</span> <span style="color:#66d9ef">struct</span>{}
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">A</span> = <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">string</span>
 
-<pre><code class="language-go">type A struct{}
-type A = map[string]string
-
-// A redeclared in this block
-</code></pre>
-
-<p>如果分开到两个 block，就编译通过了。</p>
-
-<pre><code class="language-go">type A struct{}
-func main(){
-	type A = map[string]string
+<span style="color:#75715e">// A redeclared in this block
+</span></code></pre></div><p>如果分开到两个 block，就编译通过了。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">A</span> <span style="color:#66d9ef">struct</span>{}
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
+	<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">A</span> = <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">string</span>
 }
 
-// build success
-</code></pre>
-
-<p>奇了个怪。那为什么我的程序会 panic 呢？</p>
-
+<span style="color:#75715e">// build success
+</span></code></pre></div><p>奇了个怪。那为什么我的程序会 panic 呢？</p>
 <p>又经过尝试，终于发现，在本包内正常调用是可以的，只有当其他包引用此包时才会 panic。而且，如果把函数体内的 <code>type X = Y</code> 改成 <code>type X Y</code> 也是可以编译通过的。</p>
-
 <p>总结起来，两个条件：</p>
-
 <ul>
 <li>在两个 block 内同时定义 <code>type X</code> 和 <code>type X=</code></li>
 <li>在其他包里引入此包</li>
 </ul>
-
-<p>之后，给 goteam <a href="https://github.com/golang/go/issues/31959" target="_blank">提了个 issue 来反馈这个诡异的 bug</a>。</p>
-
+<p>之后，给 goteam <a href="https://github.com/golang/go/issues/31959">提了个 issue 来反馈这个诡异的 bug</a>。</p>
 <p>忧伤的地方来了，自己只能发现 bug，完全不具备追查 bug 产生的原因。</p>
-
 <p>立个 flag 吧，希望有时间可以研究研究编译器相关的一些知识。</p>
 
     </div>
@@ -640,11 +619,15 @@ func main(){
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

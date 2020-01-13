@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sublime on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in Sublime on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Mon, 15 Apr 2013 17:42:40 +0800</lastBuildDate>
     
 	<atom:link href="/tags/sublime/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,7 @@
       <pubDate>Mon, 15 Apr 2013 17:42:40 +0800</pubDate>
       
       <guid>/post/csdn/sublime-text-3-%E5%8F%B2%E4%B8%8A%E6%9C%80%E6%80%A7%E6%84%9F%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 ↑ ↑ ↑ ↑ ↑ 请看目录 ↑ ↑ ↑ ↑ ↑ 下载 / 安装 windows / MAC OS 官网下载，双击安装，这个都会吧～ linux linux下安装，一</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 &amp;quot;variants&amp;quot;: [ { &amp;quot;name&amp;quot;: &amp;quot;Run&amp;quot;, &amp;quot;shell_cmd&amp;quot;: &amp;quot;g++ \&amp;quot;${file}\&amp;quot; -o \&amp;quot;${file_path}/${file_base_name}\&amp;quot; &amp;amp;amp;&amp;amp;amp; MyCallRun \&amp;quot;${file_path}/${file_base_name}.exe\&amp;quot;&amp;quot; // 其实就是这里加了个MyCallRun } ] } gcc -shared -o libsublime-imfix.so sublime_imfix.c pkg-config --libs --cflags gtk+-2.0 -fPIC LD_PRELOAD=./libsublime-imfix.so sublime_text */ #include &amp;lt;gtk/gtk.h&amp;gt;</description>
     </item>
     
   </channel>

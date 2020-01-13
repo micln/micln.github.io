@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>软件工程 on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in 软件工程 on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Sun, 06 Nov 2016 21:40:20 +0800</lastBuildDate>
     
 	<atom:link href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -312,7 +312,7 @@
     <h2><a href="/post/csdn/qtree_testing/">Qtree_testing</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 testing&hellip; #include &lt;cstdio&gt; #include &lt;cstring&gt; #include &lt;cstdlib&gt; #include &lt;cmath&gt; using namespace std; const int maxn=10010; const int maxm=maxn*2; const int maxu=maxn*4; const int maxt=maxn*10; const int oo=1993101215; int test,n,e,indexs,dep,tot,lca,debug; int id; //重链编号 int node; //线段树节点 int pre[maxm],other[maxm],last[maxm],w[maxm]; //
+      此页面通过工具从 csdn 导出，格式可能有问题。 inline int MAX(int a,int b) { if (a&gt;b)return a; else return b; } inline void add(int u,int v,int cost) { e++; pre[e]=last[u]; last[u]=e; other[e]=v; w[e]=cost; } inline void init() { int i,u,v,cost; memset(last,0,sizeof(last)); e=0; scanf(&quot;%d\n&rdquo;,&amp;n); for (i=1;i&lt;n;i++) { scanf(&quot;%d%d%d\n&rdquo;,&amp;u,&amp;v,&amp;cost); add(u,v,cost); add(v,u,cost); } } inline void dfs(int u) { dfsq[++indexs]=u; depq[indexs]=dep;
       
     </div>
   </div>
@@ -326,11 +326,15 @@
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

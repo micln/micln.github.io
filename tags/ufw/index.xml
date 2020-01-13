@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ufw on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in ufw on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Tue, 29 Oct 2013 13:28:08 +0800</lastBuildDate>
     
 	<atom:link href="/tags/ufw/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,7 @@
       <pubDate>Tue, 29 Oct 2013 13:28:08 +0800</pubDate>
       
       <guid>/post/csdn/ufw-%E7%9B%B8%E5%85%B3/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 有些东西，死活都记不住。。 安装 ufw sudo apt-get install ufw 启用 ufw sudo ufw enable 全局限制访问 sudo ufw default deny 打开端口 sudo ufw allow 22 开放/禁止 IP</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
   </channel>

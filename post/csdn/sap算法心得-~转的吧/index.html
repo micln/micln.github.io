@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 网络最大流算法是网络流算法的基础，实现方法很多，但时间复杂度与编程复杂 度难于兼顾。一方面，诸如预流推">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 #include &lt;cstring&gt; const int MAXN=201,INF=(1&lt;&lt;31)-1; int c[MAXN][MAXN]; //残留网络 int d[MAXN],vd[MAXN]; //d[]:距离标号, vd[]:标号为i的结点个数 int n,m,flow; void init() { scanf(&quot;%d%d&rdquo;,&amp;m,&amp;n); for(int i=1;i&lt;=m;i&#43;&#43;) { int">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/sap%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97-~%E8%BD%AC%E7%9A%84%E5%90%A7/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/sap%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97-~%E8%BD%AC%E7%9A%84%E5%90%A7/">
   <meta property="og:title" content="SAP算法心得 ~转的吧 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 网络最大流算法是网络流算法的基础，实现方法很多，但时间复杂度与编程复杂 度难于兼顾。一方面，诸如预流推"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 #include &lt;cstring&gt; const int MAXN=201,INF=(1&lt;&lt;31)-1; int c[MAXN][MAXN]; //残留网络 int d[MAXN],vd[MAXN]; //d[]:距离标号, vd[]:标号为i的结点个数 int n,m,flow; void init() { scanf(&quot;%d%d&rdquo;,&amp;m,&amp;n); for(int i=1;i&lt;=m;i&#43;&#43;) { int"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-02-05T15:00:43&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 分钟阅读时间
+    1 分钟阅读时间
   </span>
   
 
@@ -402,171 +402,33 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <p style="color:rgb(69,69,69);line-height:21px;">
-  网络最大流算法是网络流算法的基础，实现方法很多，但时间复杂度与编程复杂
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   度难于兼顾。一方面，诸如预流推进等高效算法难于编写调试，有时实际效果欠佳
-  </span>
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   （参见dd_engi的评测）；另一方面，基于增广路的算法大多时间效率不高。于是许多
-  </span>
-  <span style="font-size:12px;font-family:Arial, Helvetica, sans-serif;">
-   人选择了相对简单的Dinic算法。事实上，SAP算法更易于理解，时间效率更高，编程
-  </span>
-  <span style="font-size:12px;font-family:Arial, Helvetica, sans-serif;">
-   更简单，思路更清晰。
-  </span>
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   （名词解释）SAP（Shortest Augmenting Paths）: 最短增广路
-  </span>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  算法基本框架：
-  <br/>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  ·  定义距离标号为到汇点距离的下界。
-  <br/>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  ·  在初始距离标号的基础上，不断沿可行弧找增广路增广，一般采用深度优先。可
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   行弧定义为:
-  </span>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  {(i, j) | h[i] = h[ j]+1}
-  <br/>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  ·  遍历当前节点完成后，为了使下次再来的时候有路可走（当然要满足距离标号的
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   性质：不超过真实距离），重标号当前节点为:
-  </span>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  min {h[ j]| (i, j )}+1
-  <br/>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  ·  重标号后当前节点处理完毕。当源点被重标号后，检查其距离标号，当大于顶点
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   数时，图中已不存在可增广路，此时算法结束；否则再次从源点遍历。
-  </span>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  ·  理论复杂度为:
-  <br/>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  O(n2m)
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  我的心得：
-  <br/>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  ·  理论上初始标号要用反向BFS求得，实践中可以全部设为0，可以证明：这样做
-  <br/>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  不改变渐进时间复杂度。
-  <br/>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  ·  理论上可以写出许多子程序并迭代实现，但判断琐碎，没有层次，实践中用递归
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   简单明了，增加的常数复杂度比起SAP速度微乎其微却极大降低编程复杂度，易
-  </span>
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   于编写调试。
-  </span>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  ·  ★GAP优化★ （性价比极高，推荐！详见程序“//GAP”部分）
-  <br/>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  注意到我们在某次增广后，最大流可能已经求出，因此算法做了许多无用功。可
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   以发现，距离标号是单调增的。这启示我们如果标号中存在“间隙”，则图中不
-  </span>
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   会再有可增广路，于是算法提前终止。实践中我们使用数组vh[i]记录标号为i的
-  </span>
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   顶点个数，若重标号使得vh中原标号项变为0，则停止算法。
-  </span>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   <br/>
-  </span>
- </p>
- <p style="color:rgb(69,69,69);line-height:21px;">
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-  </span>
- </p>
- <pre><code class="language-cpp">#include &lt;cstdio&gt;</p>
-
+<!-- raw HTML omitted -->
 <p>#include &lt;cstring&gt;</p>
-
 <p>const int MAXN=201,INF=(1&lt;&lt;31)-1;</p>
-
 <p>int c[MAXN][MAXN];   //残留网络</p>
-
 <p>int d[MAXN],vd[MAXN];  //d[]:距离标号, vd[]:标号为i的结点个数</p>
-
 <p>int n,m,flow;</p>
-
 <p>void init()</p>
-
 <p>{</p>
-
-<p>scanf(&ldquo;%d%d&rdquo;,&amp;m,&amp;n);</p>
-
+<p>scanf(&quot;%d%d&rdquo;,&amp;m,&amp;n);</p>
 <p>for(int i=1;i&lt;=m;i++)</p>
-
 <p>{</p>
-
 <p>int j,k,wt;</p>
-
-<p>scanf(&ldquo;%d%d%d&rdquo;,&amp;j,&amp;k,&amp;wt);</p>
-
+<p>scanf(&quot;%d%d%d&rdquo;,&amp;j,&amp;k,&amp;wt);</p>
 <p>c[j][k]+=wt;</p>
-
 <p>}</p>
-
 <p>}</p>
-
 <p>int Min(int a,int b) {return a&lt;b?a:b;}</p>
-
 <p>int aug(int i,int augco)   //i:顶点, augco:从i为起点的最大增广容量</p>
-
 <p>{</p>
-
 <p>int j, augc = augco, mind = n-1, delta;</p>
-
 <p>if(i==n)       //到达汇点</p>
-
 <p>return augco;</p>
-
 <p>for(j = 1;j &lt;= n; j++) //枚举i的邻接点</p>
-
 <p>if(c[i][j]&gt;0)    //如果有边到j</p>
-
 <p>{</p>
-
 <p>if(d[i]==d[j]+1)  //(i,j)为可进入弧</p>
-
 <p>{</p>
-
 <pre><code>delta = min(augc,c[i][j]);  //求出经(i,j)的可增广最大值
 
 delta = aug(j,delta);       //递归增广，返回沿(i,j)的实际增广量
@@ -583,68 +445,40 @@ if(d[1]&amp;gt;=n)     //结束，向上一层返回经过i的实际增广量
 
 if(augc == 0) break;        //已经到达可增广上界，提前跳出
 </code></pre>
-
 <p>}</p>
-
 <p>if (mind&lt;d[j])  mind = d[j];    //更新最小的邻接点标号</p>
-
 <p>}</p>
-
 <p>if(augco==augc)                         //如果从i点无法增广</p>
-
 <p>{</p>
-
 <p>vd[d[i]]&ndash;;       //标号为d[i]的结点数-1</p>
-
 <p>if(vd[d[i]] ==0 )     //GAP优化</p>
-
 <pre><code>  d[1] = n;
 </code></pre>
-
 <p>d[i] = mind + 1;     //更新标号</p>
-
 <p>vd[d[i]]++;       //新标号的结点数+1</p>
-
 <pre><code>}
 </code></pre>
-
 <p>return augco-augc;   //向上一层返回经过i的实际增广量</p>
-
 <p>}</p>
-
 <p>void sap()</p>
-
 <p>{</p>
-
 <p>memset(d,0,sizeof(d));</p>
-
 <p>memset(vd,0,sizeof(vd));</p>
-
 <p>vd[0] = n;</p>
-
 <p>while(d[1] &lt; n)</p>
-
 <p>flow+=aug(1,INF);</p>
-
 <p>}</p>
-
 <p>int main()</p>
-
 <p>{</p>
-
 <p>init();</p>
-
 <p>sap();</p>
-
-<p>printf(&ldquo;%d\n&rdquo;,flow);</p>
-
+<p>printf(&quot;%d\n&rdquo;,flow);</p>
 <p>return 0;</p>
-
 <p>}
-</code></pre>
- <br/>
- <br/>
-</div></p>
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -820,11 +654,15 @@ if(augc == 0) break;        //已经到达可增广上界，提前跳出
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

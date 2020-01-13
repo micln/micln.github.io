@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -399,62 +399,51 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<blockquote>
+      <blockquote>
 <p>迁移自简书，格式可能未经校对。</p>
 </blockquote>
-
 <p>缘由：网上google出来的东西要么排版太丑要么啥都没有</p>
-
 <h1 id="安装">安装</h1>
-
 <pre><code>apt install vsftpd
 </code></pre>
-
 <h1 id="限制目录">限制目录</h1>
-
 <h3 id="ftp">ftp</h3>
-
 <p>在 <code>/etc/vsftpd.conf</code> 里有个 <code>local_root=/home/sftp_root</code>。测试发现， 只对不加密的ftp有效。</p>
-
 <h3 id="sftp">sftp</h3>
-
 <p>要限制sftp的权限，都要通过限制ssh访问的方式。大概方法是：</p>
-
-<ol>
-<li>建立一个用来限制目录的组 sftp-users</li>
-<li>建立一个专门用来登陆sftp的用户 sftpu1，并加入到上面的组里</li>
-
-<li><p>在sshd里限制这个组的访问空间</p></li>
-
-<li><p>建用户组</p>
-
-<pre><code>groupadd sftp-users
-</code></pre></li>
-
-<li><p>建用户并加到组里</p>
-
-<pre><code>useradd -g sftp-users -s /bin/false sftp
-</code></pre></li>
-
-<li><p>限制该组的活动空间</p></li>
-</ol>
-
-<p>在 <code>/etc/ssh/sshd_config</code> 里追加以下内容</p>
-
-<pre><code>Match Group sftpuser
-    ChrootDirectory /home/sftp_root
-    ForceCommand internal-sftp 
-    AllowTcpForwarding no 
-    X11Forwarding no 
+<ol start="0">
+<li>
+<p>建立一个用来限制目录的组 sftp-users</p>
+</li>
+<li>
+<p>建立一个专门用来登陆sftp的用户 sftpu1，并加入到上面的组里</p>
+</li>
+<li>
+<p>在sshd里限制这个组的访问空间</p>
+</li>
+<li>
+<p>建用户组</p>
+<pre><code> groupadd sftp-users
 </code></pre>
-
-<p>改完之后记得让ssh重读配置</p>
-
+</li>
+<li>
+<p>建用户并加到组里</p>
+<pre><code> useradd -g sftp-users -s /bin/false sftp
+</code></pre>
+</li>
+<li>
+<p>限制该组的活动空间</p>
+</li>
+</ol>
+<p>在 <code>/etc/ssh/sshd_config</code> 里追加以下内容</p>
+<pre><code>Match Group sftpuser
+  ChrootDirectory /home/sftp_root
+  ForceCommand internal-sftp 
+  AllowTcpForwarding no 
+  X11Forwarding no 
+</code></pre><p>改完之后记得让ssh重读配置</p>
 <pre><code>sudo service sshd reload
 </code></pre>
-
 <p>但是，这样基本上要求你的ssh用户和sftp用户没法是同一个人了</p>
 
     </div>
@@ -631,11 +620,15 @@
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

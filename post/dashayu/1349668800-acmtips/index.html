@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="本文通过工具从以前的 html 转成 markdown，格式可能有问题。 var tt = [&#34;&#34;, &#34;一&#34;, &#34;二&#34;, &#34;三&#34;, &#34;四&#34;, &#34;五&#34;, &#34;六&#34;, &#34;七&#34;, &#34;八&#34;, &#34;九&#34;,">
+  <meta name="description" content="本文通过工具从以前的 html 转成 markdown，格式可能有问题。 window.onload = function(){ return; h1 = document.querySelectorAll(&quot;h1&quot;); h2 = document.querySelectorAll(&quot;h2&quot;); h3 = document.querySelectorAll(&quot;h3&quot;); h4 = document.querySelectorAll(&quot;h4&quot;); var txt = &quot;&lt;h2&gt; Directory &quot;; txt &#43;= &quot;&lt;pre&gt;&quot; for ( t1=0; t1&lt;h1.length; t1&#43;&#43; ){ txt &#43;= &quot;&lt;h3&gt;&quot; &#43; (tt[t1&#43;1]) &#43; &quot;.&quot; &#43; h1[t1].innerHTML">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/dashayu/1349668800-acmtips/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/dashayu/1349668800-acmtips/">
   <meta property="og:title" content="acmtips | 在水异方">
-  <meta property="og:description" content="本文通过工具从以前的 html 转成 markdown，格式可能有问题。 var tt = [&#34;&#34;, &#34;一&#34;, &#34;二&#34;, &#34;三&#34;, &#34;四&#34;, &#34;五&#34;, &#34;六&#34;, &#34;七&#34;, &#34;八&#34;, &#34;九&#34;,"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="本文通过工具从以前的 html 转成 markdown，格式可能有问题。 window.onload = function(){ return; h1 = document.querySelectorAll(&quot;h1&quot;); h2 = document.querySelectorAll(&quot;h2&quot;); h3 = document.querySelectorAll(&quot;h3&quot;); h4 = document.querySelectorAll(&quot;h4&quot;); var txt = &quot;&lt;h2&gt; Directory &quot;; txt &#43;= &quot;&lt;pre&gt;&quot; for ( t1=0; t1&lt;h1.length; t1&#43;&#43; ){ txt &#43;= &quot;&lt;h3&gt;&quot; &#43; (tt[t1&#43;1]) &#43; &quot;.&quot; &#43; h1[t1].innerHTML"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2012-10-08T12:00:00&#43;08:00">
@@ -388,50 +388,37 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<blockquote>
+      <blockquote>
 <p>本文通过工具从以前的 html 转成 markdown，格式可能有问题。</p>
 </blockquote>
-
-<div>
-<div id="Directory"></div> 
-<script>
-        var tt = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
-        var tq = ["", "①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩"];
-
-        window.onload = function(){
-            return;
-            h1 = document.querySelectorAll("h1");           h2 = document.querySelectorAll("h2");           h3 = document.querySelectorAll("h3");           h4 = document.querySelectorAll("h4");
-            
-            var txt = "<h2> Directory ";
-            txt += "<pre>"
-            for ( t1=0; t1<h1.length; t1++ ){
-                txt += "<h3>" + (tt[t1+1]) + "." + h1[t1].innerHTML + "";
-                for ( t2=0; t2<h2.length; t2++ ) if (h2[t2].offsetTop > h1[t1].offsetTop && ( t1==h1.length-1 ||  h2[t2].offsetTop < h1[t1+1].offsetTop )) {
-                    txt += "<h4>   " + (t2+1) + ". " + h2[t2].innerHTML + "";
-                    for (t3=0; t3<h3.length; t3++ ) if (h3[t3].offsetTop > h2[t2].offsetTop && ( t2==h2.length-1 ||  h3[t3].offsetTop < h2[t2+1].offsetTop )) {
-                        txt += "<h5>       " + (t3+1) + ") " + h3[t3].innerHTML + "";
-                        for ( t4=0; t4<h4.length; t4++ ) if (h4[t4].offsetTop > h3[t3].offsetTop && ( t3==h3.length-1 ||  h4[t4].offsetTop < h3[t3+1].offsetTop )) {
-                            txt += "         | " + h4[t4].innerHTML + "\n";
-                        }
+<!-- raw HTML omitted -->
+<pre><code>    window.onload = function(){
+        return;
+        h1 = document.querySelectorAll(&quot;h1&quot;);           h2 = document.querySelectorAll(&quot;h2&quot;);           h3 = document.querySelectorAll(&quot;h3&quot;);           h4 = document.querySelectorAll(&quot;h4&quot;);
+        
+        var txt = &quot;&lt;h2&gt; Directory &quot;;
+        txt += &quot;&lt;pre&gt;&quot;
+        for ( t1=0; t1&lt;h1.length; t1++ ){
+            txt += &quot;&lt;h3&gt;&quot; + (tt[t1+1]) + &quot;.&quot; + h1[t1].innerHTML + &quot;&quot;;
+            for ( t2=0; t2&lt;h2.length; t2++ ) if (h2[t2].offsetTop &gt; h1[t1].offsetTop &amp;&amp; ( t1==h1.length-1 ||  h2[t2].offsetTop &lt; h1[t1+1].offsetTop )) {
+                txt += &quot;&lt;h4&gt;   &quot; + (t2+1) + &quot;. &quot; + h2[t2].innerHTML + &quot;&quot;;
+                for (t3=0; t3&lt;h3.length; t3++ ) if (h3[t3].offsetTop &gt; h2[t2].offsetTop &amp;&amp; ( t2==h2.length-1 ||  h3[t3].offsetTop &lt; h2[t2+1].offsetTop )) {
+                    txt += &quot;&lt;h5&gt;       &quot; + (t3+1) + &quot;) &quot; + h3[t3].innerHTML + &quot;&quot;;
+                    for ( t4=0; t4&lt;h4.length; t4++ ) if (h4[t4].offsetTop &gt; h3[t3].offsetTop &amp;&amp; ( t3==h3.length-1 ||  h4[t4].offsetTop &lt; h3[t3+1].offsetTop )) {
+                        txt += &quot;         | &quot; + h4[t4].innerHTML + &quot;\n&quot;;
                     }
                 }
             }
-            txt += "";
-            document.getElementById("Directory").innerHTML = txt;
         }
-
-</script>
-</div>
-    
-
-<h1 id="acm语法基础-acm语法基础">[](#acm语法基础)ACM语法基础</h1>
-
-<h2 id="c-cpp不常用的知识点-c-cpp不常用的知识点">[](#c/cpp不常用的知识点)C/CPP不常用的知识点</h2>
-
+        txt += &quot;&quot;;
+        document.getElementById(&quot;Directory&quot;).innerHTML = txt;
+    }
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h1 id="acm语法基础acm语法基础">[](#acm语法基础)ACM语法基础</h1>
+<h2 id="ccpp不常用的知识点ccpp不常用的知识点">[](#c/cpp不常用的知识点)C/CPP不常用的知识点</h2>
 <h3 id="字符串拆分">字符串拆分</h3>
-
 <pre><code>char ss[] = &quot;(1,2,3,4)&quot;;
 char *p = strtok(ss, &quot;(,)&quot;);
 for (int i(1); i&lt;=n; i++) {
@@ -439,24 +426,16 @@ for (int i(1); i&lt;=n; i++) {
     p = strtok(NULL, &quot;,)&quot;);
 }
 
-</code></pre>
-
-<h3 id="gets-fgets-getline">gets 、fgets 、getline</h3>
-
+</code></pre><h3 id="gets-fgets-getline">gets 、fgets 、getline</h3>
 <ul>
 <li>gets 会过滤行首空格（不含<code>\n</code>）</li>
 <li>fgets 完全读入，把<code>\n</code>吃进字符串末位，与scanf混用时容易出错</li>
 <li>getline 自动跳转下一行，不会过滤行首空格</li>
 </ul>
-
-<h2 id="java快速读写-java快速读写">[](#java快速读写)Java快速读写</h2>
-
+<h2 id="java快速读写java快速读写">[](#java快速读写)Java快速读写</h2>
 <h3 id="例题">例题</h3>
-
-<h4 id="hdoj-5047-sawtooth">@ hdoj 5047 Sawtooth</h4>
-
+<h4 id="-hdoj-5047-sawtooth">@ hdoj 5047 Sawtooth</h4>
 <p>读入一个大数，按照特定公式计算结果。</p>
-
 <pre><code>import java.math.*;  
 import java.util.*;  
 import java.io.*;  
@@ -493,16 +472,10 @@ public class Main {
     }  
 }  
 
-</code></pre>
-
-<h1 id="模拟易错点-模拟易错点">[](#模拟易错点)模拟易错点</h1>
-
-<h2 id="a-a">[](#a)a</h2>
-
+</code></pre><h1 id="模拟易错点模拟易错点">[](#模拟易错点)模拟易错点</h1>
+<h2 id="aa">[](#a)a</h2>
 <h3 id="b">b</h3>
-
-<h4 id="poj-1017-packets-装完大包装小包">@ POJ 1017 Packets | 装完大包装小包</h4>
-
+<h4 id="-poj-1017-packets--装完大包装小包">@ POJ 1017 Packets | 装完大包装小包</h4>
 <pre><code>/*
 6种物品，体积分别为1*1 2*2 ... 6*6 。每种数量有20000
 包裹体积为6*6，问装满所有的物品至少需要多少个包裹。
@@ -573,10 +546,7 @@ int main(){
 }
 
 
-</code></pre>
-
-<h4 id="usaco-1-4-3-the-clocks">@ USACO 1.4.3 The Clocks</h4>
-
+</code></pre><h4 id="-usaco-143-the-clocks">@ USACO 1.4.3 The Clocks</h4>
 <pre><code>/*
 根据九个表和九个操作的关系，得出下列关系表：
 先列一下钟表与矩阵的关系图：
@@ -648,14 +618,9 @@ int main(){
     return 0;
 }
 
-</code></pre>
-
-<h1 id="搜索-搜索">[](#搜索)搜索</h1>
-
-<h2 id="多状态标记-多状态标记">[](#多状态标记)多状态标记</h2>
-
-<h4 id="hdu-5024-wang-xifeng-s-little-plot-广州区域赛">@ HDU 5024 Wang Xifeng’s Little Plot 广州区域赛</h4>
-
+</code></pre><h1 id="搜索搜索">[](#搜索)搜索</h1>
+<h2 id="多状态标记多状态标记">[](#多状态标记)多状态标记</h2>
+<h4 id="-hdu-5024-wang-xifengs-little-plot-广州区域赛">@ HDU 5024 Wang Xifeng’s Little Plot 广州区域赛</h4>
 <pre><code>/*
 题意：找到一个最长的L型
 思路：把L拆成两个直线，枚举所有的情况，记忆化搜索
@@ -706,12 +671,8 @@ int main() {
     return 0;
 }
 
-</code></pre>
-
-<h4 id="hdu-5025-saving-tang-monk">@ HDU 5025 Saving Tang Monk</h4>
-
+</code></pre><h4 id="-hdu-5025-saving-tang-monk">@ HDU 5025 Saving Tang Monk</h4>
 <p>题意：给一个地图，孙悟空(K)救唐僧(T)，地图中’S’表示蛇，第一次到这要杀死蛇（蛇最多5条），多花费一分钟，’1’~’m’表示m个钥匙(m&lt;=9)，孙悟空要依次拿到这m个钥匙，然后才能去救唐僧，集齐m个钥匙之前可以经过唐僧，集齐x个钥匙以前可以经过x+1,x+2..个钥匙，问最少多少步救到唐僧。</p>
-
 <pre><code>/*
 本题主要是每一条蛇状态的记录，使用状态压缩，将每一条蛇的状态用二进制位记录下来，1代表活，0代表死。
 使用vis四维数组记录每一点走过的状态，x,y分别表示位置，k 钥匙，s 表示蛇的状态，b 表示步数。
@@ -805,9 +766,7 @@ int main()
 }
 
 
-</code></pre>
-
-<pre><code>/*
+</code></pre><pre><code>/*
 解法：BFS，每个节点维护四个值：
 x,y ： 当前坐标
 key ：已经集齐了key个钥匙
@@ -970,16 +929,10 @@ int main()
 }
 
 
-</code></pre>
-
-<h1 id="图论-图论">[](#图论)图论</h1>
-
-<h2 id="欧拉回路-哈密顿回路-欧拉回路-哈密顿回路">[](#欧拉回路-哈密顿回路)欧拉回路 哈密顿回路</h2>
-
+</code></pre><h1 id="图论图论">[](#图论)图论</h1>
+<h2 id="欧拉回路-哈密顿回路欧拉回路-哈密顿回路">[](#欧拉回路-哈密顿回路)欧拉回路 哈密顿回路</h2>
 <h3 id="判断存在">判断存在</h3>
-
 <p>判断欧拉通路：</p>
-
 <blockquote>
 <ol>
 <li>一个有向图存在欧拉回路必定也存在欧拉通路…因为通路的定义包括了回路</li>
@@ -987,31 +940,23 @@ int main()
 <li>我自己加一条，其实是对2的理解：入读-出度&gt;1 时直接return false ，排除 a-&gt;b a-&gt;c 这种情况</li>
 </ol>
 </blockquote>
-
 <p>判断欧拉回路：</p>
-
 <blockquote>
-<p>无向图是欧拉图的充要条件是所有点的度为偶数并且所有点联通<br />
+<p>无向图是欧拉图的充要条件是所有点的度为偶数并且所有点联通<br>
 有向图是欧拉图的充要条件是所有点的入度=出度..并且联通…</p>
 </blockquote>
-
 <p>判断连通:</p>
-
 <blockquote>
 <ol>
 <li>dfs遍历，这里有一份参考代码不过我一直怀疑其正确性。因为你无法确定有向图的起点，比如 a-&gt;b-&gt;c 如果你从b点开始搜的话就会悲催，但是你不知道b点上面还有没有点。</li>
 <li>并查集，并查集的方便之处不用废话。但是在图论中两点之间有多条边时需要注意一些细节的处理。</li>
 </ol>
 </blockquote>
-
 <p>关于判断入读出度:</p>
-
 <blockquote>
 <p>一种办法是分别记录 in[] out[] 我用的办法是一个数组：sz[x]++ 表示拉出一条边，sz[x]–表示走来一条边，sz[x]==1 sz[x]==-1 就是上面的两种情况</p>
 </blockquote>
-
-<h4 id="uva-10129-play-on-words">@ UVa 10129 Play on Words</h4>
-
+<h4 id="-uva-10129-play-on-words">@ UVa 10129 Play on Words</h4>
 <pre><code>/*
 题意就是给你一堆单词，按首位顺序排列起来，问你有没有解。
 第一眼看上去是个哈密顿通路，单词当做节点，首尾关系作边，听上去妥妥的不过N有100000 复杂度太恐怖。
@@ -1096,12 +1041,8 @@ int main()
     }
 }
 
-</code></pre>
-
-<h2 id="二分图最大匹配-二分图最大匹配">[](#二分图最大匹配)二分图最大匹配</h2>
-
-<h4 id="poj-3041-asteroids-匈牙利算法">@ POJ 3041 Asteroids 匈牙利算法</h4>
-
+</code></pre><h2 id="二分图最大匹配二分图最大匹配">[](#二分图最大匹配)二分图最大匹配</h2>
+<h4 id="-poj-3041-asteroids-匈牙利算法">@ POJ 3041 Asteroids 匈牙利算法</h4>
 <pre><code>/*
 看起来像个 DP 神马的。竟然是二分图匹配。。
 看着啊，行与行之间相互独立，一个行可以就炸掉很多列。（列的道理一样），如果替换一些字。
@@ -1151,7 +1092,6 @@ int main(){
 
 
 </code></pre>
-
     </div>
 
     
@@ -1317,11 +1257,15 @@ int main(){
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

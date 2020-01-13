@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>typecho on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in typecho on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Tue, 13 Oct 2015 03:15:00 +0800</lastBuildDate>
     
 	<atom:link href="/categories/typecho/index.xml" rel="self" type="application/rss+xml" />
@@ -18,13 +19,10 @@
       
       <guid>/post/typecho/shui-shi-qian-feng/</guid>
       <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
-
 &lt;p&gt;我们在以前的数学题中一定遇到过这样的问题：&lt;/p&gt;
-
 &lt;p&gt;A说xxxx
 B说xxx
 C说xxx&lt;/p&gt;
-
 &lt;p&gt;然后给一些条件，让你判断每个人说话的真假&lt;/p&gt;</description>
     </item>
     
@@ -142,7 +140,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sat, 14 Jun 2014 16:29:00 +0800</pubDate>
       
       <guid>/post/typecho/cqzg/</guid>
-      <description>&lt;p&gt;花了两天时间看完《&lt;a href=&#34;http://kejiao.cntv.cn/C30425/videopage/&#34; target=&#34;_blank&#34;&gt;春秋五霸&lt;/a&gt;》《&lt;a href=&#34;http://tv.cntv.cn/videoset/C38845/&#34; target=&#34;_blank&#34;&gt;战国七雄&lt;/a&gt;》，不同于各种一家之言的是，李山教授尽可能地全面讲述历史，在过程中会把各家观点都摆出来做简单地对比，更加全面、客观地理解这个灿烂的时期。&lt;/p&gt;</description>
+      <description>&lt;p&gt;花了两天时间看完《&lt;a href=&#34;http://kejiao.cntv.cn/C30425/videopage/&#34;&gt;春秋五霸&lt;/a&gt;》《&lt;a href=&#34;http://tv.cntv.cn/videoset/C38845/&#34;&gt;战国七雄&lt;/a&gt;》，不同于各种一家之言的是，李山教授尽可能地全面讲述历史，在过程中会把各家观点都摆出来做简单地对比，更加全面、客观地理解这个灿烂的时期。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -206,9 +204,7 @@ C说xxx&lt;/p&gt;
       
       <guid>/post/typecho/54-hp-4421s-%E5%95%83%E5%88%B0%E9%BB%91%E8%8B%B9%E6%9E%9C/</guid>
       <description>&lt;p&gt;高考前后，RP掉到渣，电脑也各种犯毛病。无意中看到了一份比较不错的黑苹果安装视频教程，反正机子也各种毛病，破罐子摔摔看，看能不能摔出什么宝贝出来。&lt;/p&gt;
-
 &lt;p&gt;那时候还没有关于ProBook 4421s 的教程，很多人说这机子不能装！后来用工具测试果然显示不行.&lt;/p&gt;
-
 &lt;p&gt;那时候还不知道懒人版是什么东西只觉得自己好牛逼的，下载的都是原版自己提取自己配置到最后得知内核不兼容。&lt;/p&gt;</description>
     </item>
     
@@ -219,7 +215,6 @@ C说xxx&lt;/p&gt;
       
       <guid>/post/typecho/68-%E7%94%B5%E5%BD%B1%E6%A5%9A%E6%B1%89%E4%BC%A0%E5%A5%87/</guid>
       <description>&lt;p&gt;这个电视最开始看，总觉得似曾相识。一拍大腿，发现全是新三国的演员。。。&lt;/p&gt;
-
 &lt;p&gt;简单地说就是康熙、张飞、鲁肃、吕布、许攸、荀彧、刘备及其儿子各种叛变后重新划分天下。对于剧情不想评论太多，感觉自己想看的很多东西没有演出来。&lt;/p&gt;</description>
     </item>
     
@@ -248,7 +243,6 @@ C说xxx&lt;/p&gt;
       
       <guid>/post/typecho/45-hello-world/</guid>
       <description>&lt;p&gt;又是一次Wordpress，希望这次可以好好的走下去，不要再只是闹着玩玩。&lt;/p&gt;
-
 &lt;p&gt;大学了，或许会成为一个新的起点，希望在这里能够记下重生后的点点滴滴。当然，不可能每件事情都在这里留下，还有我的轻博客和微博以及人人，各种工具一起用，效果或许会更好点，信息更全面一点吧。至于各个博客地址，个人资料里会有更新。&lt;/p&gt;</description>
     </item>
     

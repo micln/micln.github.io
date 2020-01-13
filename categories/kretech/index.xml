@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kretech on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in Kretech on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Sat, 24 Aug 2019 00:33:56 +0800</lastBuildDate>
     
 	<atom:link href="/categories/kretech/index.xml" rel="self" type="application/rss+xml" />
@@ -89,7 +90,7 @@
       <pubDate>Sat, 03 Mar 2018 11:23:45 +0800</pubDate>
       
       <guid>/post/jianshu/laravel-orm-%E6%A8%A1%E5%9D%97%E5%9B%BE/</guid>
-      <description>迁移自简书，格式可能未经校对。 还会更新，只是懒得整理，先堆这里了 PlatUML 代码： @startuml &#39; 底层驱动部分 class DatabaseManager{ connection() factory的大脑 } class ConnectionFactory{ newConnection() } interface Connection { defaultBuilder defaultGrammar defaultProcesser run() //</description>
+      <description>迁移自简书，格式可能未经校对。 还会更新，只是懒得整理，先堆这里了 PlatUML 代码： @startuml &amp;#39; 底层驱动部分 class DatabaseManager{ connection() factory的大脑 } class ConnectionFactory{ newConnection() } interface Connection { defaultBuilder defaultGrammar defaultProcesser run() //</description>
     </item>
     
     <item>

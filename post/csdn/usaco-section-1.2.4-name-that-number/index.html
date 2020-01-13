@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Name That Number Among the large Wisconsin cattle ranchers, it is customary to brand cows with serial numbers to please the Accounting Department. The cow hands don&rsquo;t appreciate the advantage of this filing system, though, and wish to call the members of their herd by a pleasing name">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/usaco-section-1.2.4-name-that-number/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/usaco-section-1.2.4-name-that-number/">
   <meta property="og:title" content="USACO Section 1.2.4 Name That Number | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Name That Number Among the large Wisconsin cattle ranchers, it is customary to brand cows with serial numbers to please the Accounting Department. The cow hands don&rsquo;t appreciate the advantage of this filing system, though, and wish to call the members of their herd by a pleasing name"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-03-05T13:20:17&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 分钟阅读时间
+    1 分钟阅读时间
   </span>
   
 
@@ -406,153 +406,7 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <h2>
-  题目
- </h2>
- <div>
-  <table border="1" cellpadding="1" cellspacing="1">
-   <tbody>
-    <tr>
-     <td>
-      <center style="font-size:14px;">
-       <strong>
-        <span style="font-size:48px;">
-         Name That Number
-        </span>
-       </strong>
-       <br/>
-      </center>
-      <p style="font-size:14px;">
-       Among the large Wisconsin cattle ranchers, it is customary to brand cows with serial numbers to please the Accounting Department. The cow hands don&rsquo;t appreciate the advantage of this filing system, though, and wish to call the members
- of their herd by a pleasing name rather than saying, &ldquo;C&rsquo;mon, #4734, get along.&rdquo;
-      </p>
-      <p style="font-size:14px;">
-       Help the poor cowhands out by writing a program that will translate the brand serial number of a cow into possible names uniquely associated with that serial number. Since the cow hands all have cellular saddle phones these days, use
- the standard Touch-Tone&reg; telephone keypad mapping to get from numbers to letters (except for &ldquo;Q&rdquo; and &ldquo;Z&rdquo;):
-      </p>
-      <pre style="font-size:14px;">          2: A,B,C     5: J,K,L    8: T,U,V
-          3: D,E,F     6: M,N,O    9: W,X,Y
-          4: G,H,I     7: P,R,S
-</pre>
-      <p style="font-size:14px;">
-       Acceptable names for cattle are provided to you in a file named &ldquo;dict.txt&rdquo;, which contains a list of fewer than 5,000 acceptable cattle names (all letters capitalized). Take a cow&rsquo;s brand number and report which of all the possible
- words to which that number maps are in the
-       <a href="http://ace.delos.com/usaco/namenumdict.txt" rel="nofollow">
-        given dictionary
-       </a>
-       which is supplied as dict.txt in the grading environment (and is sorted into ascending order).
-      </p>
-      <p style="font-size:14px;">
-       For instance, the brand number 4734 produces all the following names:
-      </p>
-      <pre style="font-size:14px;">GPDG GPDH GPDI GPEG GPEH GPEI GPFG GPFH GPFI GRDG GRDH GRDI
-GREG GREH GREI GRFG GRFH GRFI GSDG GSDH GSDI GSEG GSEH GSEI
-GSFG GSFH GSFI HPDG HPDH HPDI HPEG HPEH HPEI HPFG HPFH HPFI
-HRDG HRDH HRDI HREG HREH HREI HRFG HRFH HRFI HSDG HSDH HSDI
-HSEG HSEH HSEI HSFG HSFH HSFI IPDG IPDH IPDI IPEG IPEH IPEI
-IPFG IPFH IPFI IRDG IRDH IRDI IREG IREH IREI IRFG IRFH IRFI
-ISDG ISDH ISDI ISEG ISEH ISEI ISFG ISFH ISFI
-</pre>
-      <p style="font-size:14px;">
-       As it happens, the only one of these 81 names that is in the list of valid names is &ldquo;GREG&rdquo;.
-      </p>
-      <p style="font-size:14px;">
-       Write a program that is given the brand number of a cow and prints all the valid names that can be generated from that brand number or ``NONE&rdquo; if there are no valid names. Serial numbers can be as many as a dozen digits long.
-      </p>
-      <h3>
-       PROGRAM NAME: namenum
-      </h3>
-      <h3>
-       INPUT FORMAT
-      </h3>
-      <span style="font-size:14px;">
-       A single line with a number from 1 through 12 digits in length.
-      </span>
-      <h3>
-       SAMPLE INPUT (file namenum.in)
-      </h3>
-      <pre style="font-size:14px;">4734
-</pre>
-      <h3>
-       OUTPUT FORMAT
-      </h3>
-      <span style="font-size:14px;">
-       A list of valid names that can be generated from the input, one per line, in ascending alphabetical order.
-      </span>
-      <h3>
-       SAMPLE OUTPUT (file namenum.out)
-      </h3>
-      <pre style="font-size:14px;">GREG</pre>
-     </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <h2>
-  思路
- </h2>
- <h3>
-  思路一：
- </h3>
- <p>
-  读入num，生成所有的名字，然后对比字典，听起来很简单的样子。
-  <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
-   问题是
-  </span>
- </p>
- <blockquote style="border:none;">
-  <div>
-   1）首先你需要构建一张数字字母映射表，对每个数字开一个数组或者一个字符串，写起来比较麻烦。
-  </div>
-  <div>
-   2）对于每个生成的字符串要对比字典，为了不超时（N_dict=5000），只能是O(n)的算法也就是一边生成一边对比同时记录对比的位置然后下次继续从此处开始对比。写的时候细节要很小心，比较费神。
-  </div>
- </blockquote>
- <h3>
-  思路二：
- </h3>
- <div>
-  与思路一相反，从字典入手，把每一个名字转换成数字看是不是num，是的话输出（注意不能终止程序因为可能有多个匹配）。扫描一遍字典5000次运算而已。
- </div>
- <div>
-  PS：由于最长的名字有12位，int无力需要开 long long，再就是USACO服务器是linux，所以需要 %lld 。
- </div>
- <h2>
-  代码
- </h2>
- <div>
-  <pre><code class="language-cpp">#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-int hash[26]={2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7,7,8,8,8,9,9,9,9};
-long long num;
-char a[13];
-int main(){
-    freopen(&ldquo;namenum.in&rdquo;,&ldquo;r&rdquo;,stdin);
-    freopen(&ldquo;namenum.out&rdquo;,&ldquo;w&rdquo;,stdout);
-    scanf(&ldquo;%lld&rdquo;,&amp;num);
-    freopen(&ldquo;dict.txt&rdquo;,&ldquo;r&rdquo;,stdin);
-    int yes=0;
-    while (scanf(&ldquo;%s&rdquo;,a) != EOF){
-        int l=strlen(a);
-        long long s=0;
-        for (int i(0);i&lt;l;i++){
-            s=s*10+hash[a[i]-&lsquo;A&rsquo;];
-        }
-        if (s==num) {
-           printf(&ldquo;%s\n&rdquo;,a);
-           yes=1;
-        }
-    }
-    if (!yes) printf(&ldquo;NONE\n&rdquo;);
-    return 0;
-}
-</code></pre>
-  <br/>
-  <br/>
- </div>
-</div></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -750,11 +604,15 @@ int main(){
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

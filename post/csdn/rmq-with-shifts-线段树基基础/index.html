@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 思路 看上去是个线段树，不过每个元素都移动，树结构本身无法实现这个功能，只能一个一个的修改，但是里面的">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/rmq-with-shifts-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9F%BA%E5%9F%BA%E7%A1%80/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/rmq-with-shifts-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9F%BA%E5%9F%BA%E7%A1%80/">
   <meta property="og:title" content="RMQ with Shifts 线段树基基础 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 思路 看上去是个线段树，不过每个元素都移动，树结构本身无法实现这个功能，只能一个一个的修改，但是里面的"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-08-22T00:11:02&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 分钟阅读时间
+    1 分钟阅读时间
   </span>
   
 
@@ -402,255 +402,7 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <h2>
-  思路
- </h2>
- <div>
-  看上去是个线段树，不过每个元素都移动，树结构本身无法实现这个功能，只能一个一个的修改，但是里面的技巧还是有的。学长的代码都上百行了，贴一帖我的60行代码，细节上有点优化处理。
- </div>
- <h2>
-  代码
- </h2>
- <div>
-  <pre><code class="language-cpp">#include &lt;cstdio&gt;
-#define N 101010
-struct rec{
-    int l,r,v;
-}t[N*5];
-int n,m,a[N],p[30];
-int minn(int a,int b){
-    if (a&lt;b) return a;
-    return b;
-}
-void build(int root, int l, int r){
-    t[root].l = l;
-    t[root].r = r;
-    if ( l==r ) {
-        t[root].v = a[l];
-        return ;
-    }
-    int mid = (l+r)/2;
-    build(root*2,l,mid);
-    build(root*2+1,mid+1,r);
-    t[root].v = minn(t[root*2].v,t[root*2+1].v);
-}
-void update(int root, int x){
-    if ( t[root].l == x &amp;&amp; t[root].r == x ) {
-        t[root].v = a[x];
-        return ;
-    }
-    int mid = (t[root].l+t[root].r)/2;
-    if ( mid &lt; x ) update(root*2+1,x);
-    else update(root*2,x);
-    t[root].v = minn(t[root*2].v,t[root*2+1].v);
-}
-int getv(int root,int l,int r){
-    if ( t[root].l == l &amp;&amp; t[root].r == r ) {
-        return t[root].v;
-    }
-    int mid = (t[root].l+t[root].r)/2;
-    if ( l&gt;mid ) return getv(root*2+1,l,r);
-    if ( r&lt;=mid) return getv(root*2,l,r);
-    return minn(getv(root*2,l,mid),getv(root*2+1,mid+1,r));
-}
-int main(){
-    scanf(&ldquo;%d%d&rdquo;,&amp;n,&amp;m);
-    for (int i(1);i&lt;=n;i++){
-        scanf(&ldquo;%d&rdquo;,&amp;a[i]);
-    }scanf(&rdquo;\n&rdquo;);
-    build(1,1,n);
-    while (m&ndash;){
-        char c,c2;
-        scanf(&ldquo;%c%c%c%c%c%c&rdquo;,&amp;c,&amp;c2,&amp;c2,&amp;c2,&amp;c2,&amp;c2);
-        if ( c==&lsquo;q&rsquo; ){
-            int ax,bx;
-            scanf(&ldquo;%d,%d)\n&rdquo;,&amp;ax,&amp;bx);
-            printf(&ldquo;%d\n&rdquo;,getv(1,ax,bx));
-        }else{
-            int j = 0;
-            while ( scanf(&ldquo;%d,&rdquo;,&amp;p[++j])==1 ); j&ndash;;
-            scanf(&ldquo;)\n&rdquo;);
-            int tt=a[p[1]];
-            for ( int i(1);i&lt;j;i++ ) a[p[i]] = a[p[i+1]];
-            a[p[j]] = tt;
-            for ( int i(1);i&lt;=j;i++) update(1,p[i]);
-        }
-    }
-    return 0;
-}</code></pre>
-  <br/>
-  <h2>
-   题目
-  </h2>
- </div>
- <div>
-  <br/>
-  <div id="main">
-   <center>
-    <h2>
-     Problem K: RMQ with Shifts
-    </h2>
-    <span class="green">
-     Time Limit:
-    </span>
-    1 Sec
-    <span class="green">
-     Memory Limit:
-    </span>
-    128 MB
-    <br/>
-    <span class="green">
-     Submit:
-    </span>
-    12
-    <span class="green">
-     Solved:
-    </span>
-    5
-    <br/>
-    [
-    <a href="submitpage.php?cid=1007&amp;pid=10&amp;langmask=0" rel="nofollow">
-     Submit
-    </a>
-    ][
-    <a href="problemstatus.php?id=1048" rel="nofollow">
-     Status
-    </a>
-    ][
-    <a href="bbs.php?pid=1048&amp;cid=1007" rel="nofollow">
-     Web Board
-    </a>
-    ] [
-    <a href="admin/problem_edit.php?id=&amp;getkey=01D9EBD553" rel="nofollow">
-     Edit
-    </a>
-    ]
-   </center>
-   <h2>
-    Description
-   </h2>
-   <div class="content">
-    <div>
-     In the traditional RMQ (Range Minimum Query) problem, we have a static array A. Then for each query (L, R) (L&lt;=R), we report the minimum value among A[L], A[L+1], …, A[R]. Note that the indices start from 1, i.e. the left-most element is A[1].
-    </div>
-    <div>
-     In this problem, the array A is no longer static: we need to support another operation shift(i1, i2, i3, …, ik) (i1&lt;i2&lt;&hellip;&lt;ik, k&gt;1): we do a left “circular shift” of A[i1], A[i2], …, A[ik].
-    </div>
-    <div>
-     For example, if A={6, 2, 4, 8, 5, 1, 4}, then shift(2, 4, 5, 7) yields {6, 8, 4, 5, 4, 1, 2}. After that, shift(1,2) yields {8, 6, 4, 5, 4, 1, 2}.
-    </div>
-    <p>
-    </p>
-   </div>
-   <h2>
-    Input
-   </h2>
-   <div class="content">
-    <p>
-     There will be only one test case, beginning with two integers n, q (1&lt;=n&lt;=100,000, 1&lt;=q&lt;=120,000), the number of integers in array A, and the number of operations. The next line contains n positive integers not greater than 100,000, the initial elements
- in array A. Each of the next q lines contains an operation. Each operation is formatted as a string having no more than 30 characters, with no space characters inside. All operations are guaranteed to be valid. Warning: The dataset is large, better to use
- faster I/O methods.
-    </p>
-    <p>
-    </p>
-   </div>
-   <h2>
-    Output
-   </h2>
-   <div class="content">
-    <p>
-     For each query, print the minimum value (rather than index) in the requested range.
-    </p>
-    <p>
-    </p>
-   </div>
-   <h2>
-    Sample Input
-   </h2>
-   <div class="content">
-    <span class="sampledata">
-     7 56 2 4 8 5 1 4query(3,7)shift(2,4,5,7)query(1,4)shift(1,2)query(2,2)
-    </span>
-   </div>
-   <h2>
-    Sample Output
-   </h2>
-   <div class="content">
-    <span class="sampledata">
-     146
-    </span>
-   </div>
-   <h2>
-    HINT
-   </h2>
-   <div class="content">
-    <p>
-    </p>
-   </div>
-   <center>
-    [
-    <a href="submitpage.php?cid=1007&amp;pid=10&amp;langmask=0" rel="nofollow">
-     Submit
-    </a>
-    ][
-    <a href="problemstatus.php?id=1048" rel="nofollow">
-     Status
-    </a>
-    ][
-    <a href="bbs.php?pid=1048&amp;cid=1007" rel="nofollow">
-     Web Board
-    </a>
-    ]
-   </center>
-   <div id="foot">
-    <center>
-     <p>
-      <a href="setlang.php?lang=ko" rel="nofollow">
-       한국어
-      </a>
-      <a href="setlang.php?lang=cn" rel="nofollow">
-       中文
-      </a>
-      <a href="setlang.php?lang=fa" rel="nofollow">
-       فارسی
-      </a>
-      <a href="setlang.php?lang=en" rel="nofollow">
-       English
-      </a>
-      <a href="setlang.php?lang=th" rel="nofollow">
-       ไทย
-      </a>
-      <br/>
-      Anything about the Problems, Please Contact Admin:
-      <a href="mailto:root@localhost" rel="nofollow">
-       admin
-      </a>
-      <br/>
-      All Copyright Reserved 2010-2013
-      <a href="./" rel="nofollow">
-       HUSTOJ
-      </a>
-      TEAM
-      <br/>
-      <a href="gpl-2.0.txt" rel="nofollow">
-       <span class="green">
-        GPL2.0
-       </span>
-      </a>
-      2003-2013
-      <a href="http://code.google.com/p/hustoj/" rel="nofollow">
-       HUSTOJ Project
-      </a>
-      TEAM
-      <br/>
-     </p>
-    </center>
-   </div>
-  </div>
- </div>
-</div></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -826,11 +578,15 @@ int main(){
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

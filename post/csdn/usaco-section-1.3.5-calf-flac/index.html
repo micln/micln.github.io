@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Calf Flac It is said that if you give an infinite number of cows an infinite number of heavy-duty laptops (with very large keys), that they will ultimately produce all the world&rsquo;s great palindromes. Your job will be to detect these bovine beauties. Ignore punctuation, whitespace, numbers, and">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/usaco-section-1.3.5-calf-flac/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/usaco-section-1.3.5-calf-flac/">
   <meta property="og:title" content="USACO Section 1.3.5 Calf Flac | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Calf Flac It is said that if you give an infinite number of cows an infinite number of heavy-duty laptops (with very large keys), that they will ultimately produce all the world&rsquo;s great palindromes. Your job will be to detect these bovine beauties. Ignore punctuation, whitespace, numbers, and"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-05-22T11:03:07&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 分钟阅读时间
+    1 分钟阅读时间
   </span>
   
 
@@ -406,152 +406,7 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <h2>
-  <strong>
-   题目
-  </strong>
- </h2>
- <p>
-  <strong>
-  </strong>
- </p>
- <table border="1" cellpadding="1" cellspacing="1">
-  <tbody>
-   <tr>
-    <td>
-     <center style="font-family:'文泉驿微米黑';font-size:14px;">
-      <strong>
-       <span style="font-size:48px;">
-        Calf Flac
-       </span>
-      </strong>
-      <br/>
-     </center>
-     <p style="font-family:'文泉驿微米黑';font-size:14px;">
-      It is said that if you give an infinite number of cows an infinite number of heavy-duty laptops (with very large keys), that they will ultimately produce all the world&rsquo;s great palindromes. Your job will be to detect
- these bovine beauties.
-     </p>
-     <p style="font-family:'文泉驿微米黑';font-size:14px;">
-      Ignore punctuation, whitespace, numbers, and case when testing for palindromes, but keep these extra characters around so that you can print them out as the answer; just consider the letters <code>A-Z' and</code>a-z&rsquo;.
-     </p>
-     <p style="font-family:'文泉驿微米黑';font-size:14px;">
-      Find the largest palindrome in a string no more than 20,000 characters long. The largest palindrome is guaranteed to be at most 2,000 characters long before whitespace and punctuation are removed.
-     </p>
-     <h3 style="font-family:'文泉驿微米黑';">
-      PROGRAM NAME: calfflac
-     </h3>
-     <h3 style="font-family:'文泉驿微米黑';">
-      INPUT FORMAT
-     </h3>
-     <span style="font-family:'文泉驿微米黑';font-size:14px;">
-      A file with no more than 20,000 characters. The file has one or more lines which, when taken together, represent one long string. No line is longer than 80 characters (not counting the newline at the end).
-     </span>
-     <h3 style="font-family:'文泉驿微米黑';">
-      SAMPLE INPUT (file calfflac.in)
-     </h3>
-     <pre>Confucius say: Madam, I&rsquo;m Adam.
-</pre>
-     <h3 style="font-family:'文泉驿微米黑';">
-      OUTPUT FORMAT
-     </h3>
-     <p style="font-family:'文泉驿微米黑';font-size:14px;">
-      The first line of the output should be the length of the longest palindrome found. The next line or lines should be the actual text of the palindrome (without any surrounding white space or punctuation but with
- all other characters) printed on a line (or more than one line if newlines are included in the palindromic text). If there are multiple palindromes of longest length, output the one that appears first.
-     </p>
-     <h3 style="font-family:'文泉驿微米黑';">
-      SAMPLE OUTPUT (file calfflac.out)
-     </h3>
-     <pre>11
-Madam, I&rsquo;m Adam</pre>
-    </td>
-   </tr>
-  </tbody>
- </table>
- <h2>
-  <strong>
-   思路
-  </strong>
- </h2>
- <p>
-  找回文串，首先想到便是枚举中间，向两头扩展。
- </p>
- <p>
-  这个题目麻烦的地方在于有很多干扰的字符，这时处理的方法有两种：
- </p>
- <p>
-  第一在最开始把那些垃圾字符放一边，最后输出的时候补上。
- </p>
- <p>
-  第二最开始不用处理，而是扩展的时候进行判断是不是合法字符。
- </p>
- <p>
-  听上去第二种简单一点，但是真正写起来第一种的优势就很明显了，因为第二种在枚举的时候要判断，扩展的时候要判断，如果是复制粘贴的代码的话一处错了还得改别处。
- </p>
- <p>
-  总之很蛋疼。我两种方法都写了，但是第一种代码短了差不多20行。下面贴的也是第一种的。
- </p>
- <h2>
-  <strong>
-   代码
-  </strong>
- </h2>
- <p>
- </p>
- <pre><code class="language-cpp">/*
-ID: zhrln1
-LANG: C++
-TASK: calfflac
-*/
-#include &lt;cstdio&gt;
-char s[22222],ss[22222],ch;
-int l,ls,b[22222];
-int trun(char c){
-    if (c&gt;=&lsquo;a&rsquo; &amp;&amp; c&lt;=&lsquo;z&rsquo;) return c;
-    if (c&gt;=&lsquo;A&rsquo; &amp;&amp; c&lt;=&lsquo;Z&rsquo;) return c+&lsquo;a&rsquo;-&lsquo;A&rsquo;;
-    return 0;
-}
-int main(){
-    freopen(&ldquo;calfflac.in&rdquo;,&ldquo;r&rdquo;,stdin);
-    freopen(&ldquo;calfflac.out&rdquo;,&ldquo;w&rdquo;,stdout);
-    ss[0]=s[0]=&lsquo;#&rsquo;;
-    while (scanf(&ldquo;%c&rdquo;,&amp;ch)!=EOF){
-        ss[++ls]=ch;
-        if (trun(ch)) {
-            s[++l]=trun(ch);
-            b[l]=ls;
-        }
-    }
-    int ans=1,ansi=1,j1,j2;
-    for (int i(2);i&lt;=l;i++){
-        for (j1=i,j2=i;j1&gt;1 &amp;&amp; j2&lt;l &amp;&amp; s[j1-1]==s[j2+1];j1&ndash;,j2++);
-        if (j2-j1+1&gt;ans) {
-            ans=j2-j1+1;
-            ansi=j1;
-        }
-        if (s[i]!=s[i+1]) continue;
-        for (j1=i,j2=i+1;j1&gt;1 &amp;&amp; j2&lt;l &amp;&amp; s[j1-1]==s[j2+1];j1&ndash;,j2++);
-        if (j2-j1+1&gt;ans){
-            ans=j2-j1+1;
-            ansi=j1;
-        }
-    }
-    printf(&ldquo;%d\n&rdquo;,ans);
-    int p=0;
-    for (int i(b[ansi]);p&lt;ans;i++){
-        printf(&ldquo;%c&rdquo;,ss[i]);
-        if (trun(ss[i])) p++;
-    }
-    printf(&rdquo;\n&rdquo;);
-    return 0;
-}
-</code></pre>
- <br/>
- <br/>
- <p>
- </p>
-</div></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -749,11 +604,15 @@ int main(){
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

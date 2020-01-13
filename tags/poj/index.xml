@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>POJ on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in POJ on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Fri, 18 Jul 2014 18:51:34 +0800</lastBuildDate>
     
 	<atom:link href="/tags/poj/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,7 @@
       <pubDate>Fri, 18 Jul 2014 18:51:34 +0800</pubDate>
       
       <guid>/post/csdn/poj-1017-packets-%E6%82%BC%E5%BF%B5%E6%AD%BB%E5%8E%BB%E7%9A%84%E6%A8%A1%E6%8B%9F/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很水，纯模拟 麻烦的地方在于，会面临多次用小件填充大件剩余。 最开始觉得不同大小时决策不一样</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 int s =a[6]+a[5]+a[4]; // a5 if (a[5]*11 &amp;amp;gt;= a[1]) a[1] = 0; else a[1] -= a[5]*11; // a4 for ( int i(1);i&amp;amp;lt;=a[4];i++){ t = push(20,2,5); if (t) t = push(t,1,t); } // a3 s += a[3] / 4; // 整装3 a[3] %= 4; if (a[3]){ // 剩下</description>
     </item>
     
     <item>
@@ -26,7 +27,7 @@
       <pubDate>Wed, 02 Apr 2014 22:57:45 +0800</pubDate>
       
       <guid>/post/csdn/poj-1273-drainage-ditches-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%A8%A1%E7%89%88/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目传送门 网络流模版题，本想水一水，莫想到因为没好好看题给跪了。 题目大意就是 给你一堆水洼地，还有一些</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 struct EDGE { int to, cap, rev; }; vector&amp;lt;EDGE&amp;gt; g[N]; int ff[N][N]; bool used[N]; int n,m; int dfs(int v,int t,int f){ if ( v == t ) return f; used[v]= true; for ( int i(0); i &amp;lt; g[v].size(); i++){ EDGE &amp;amp;e = g[v][i]; if ( !used[e.to] &amp;amp;&amp;amp; e.cap &amp;gt; 0){</description>
     </item>
     
     <item>
@@ -35,7 +36,7 @@
       <pubDate>Mon, 31 Mar 2014 09:56:24 +0800</pubDate>
       
       <guid>/post/csdn/poj-3321-apple-tree-dfs%E5%BA%8F%E7%9A%84%E5%BA%94%E7%94%A8/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 dfs序 说来很简单，却从来没有想到过。必须得深刻反省一下到底自己学了些啥。 题目大意是给你一棵</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 void dfs(int v) { P1[v]=++tt; for ( int p = a[v].next; p; p=st[p].next ) dfs(st[p].v); P2[v]=tt; return; } inline int l(int i) { return i &amp;amp; -i; } void update(int x,int k) { while (x&amp;lt;=n) { t[x] += k; x += l(x); } } int gs(int x) { int s</description>
     </item>
     
     <item>
@@ -44,7 +45,7 @@
       <pubDate>Mon, 31 Mar 2014 09:34:47 +0800</pubDate>
       
       <guid>/post/csdn/poj-3461-oulipo-kmp%E7%BB%83%E4%B9%A0/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很长，其实就是字符串匹配。 所以，权当练习 KMP #include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstring&amp;gt; #define MB 10101 #define MA 1000100 char a[MA],b[MB]; int next[MB]; void prekmp(char* b) { next[0]=-1; int j=-1; for (</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 void prekmp(char* b) { next[0]=-1; int j=-1; for ( int i(1); b[i]; i++) { while ( j!=-1 &amp;amp;&amp;amp; b[i]!=b[j+1]) j=next[j]; if ( b[i]==b[j+1] ) j++; next[i]=j; } } int kmp(char *a,char *b) { int j=-1,ans=0; for ( int i(0); a[i]; i++) { while ( j!=-1 &amp;amp;&amp;amp; a[i]!=b[j+1] ) j=next[j]; if</description>
     </item>
     
     <item>
@@ -53,7 +54,7 @@
       <pubDate>Fri, 15 Nov 2013 16:23:18 +0800</pubDate>
       
       <guid>/post/csdn/poj-3041-asteroids-%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95-%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接： http://poj.org/problem?id=3041 看起来像个 DP 神马的。竟然是二分图匹配。。 看着啊，行与行之间相互独立，一个行可以就炸掉很多</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 const int N = 555; int n, m, g[N][N], chk[N], match[N]; int dfs(int v){ int t; for ( int i = 1; i &amp;lt;= n; i++){ if ( g[i][v] &amp;amp;&amp;amp; !chk[i] ){ chk[i] = 1; t = match[i]; match[i] = v; if ( t == -1 || dfs(t) ) return</description>
     </item>
     
     <item>
@@ -62,7 +63,7 @@
       <pubDate>Sat, 23 Mar 2013 13:03:02 +0800</pubDate>
       
       <guid>/post/csdn/poj-1088-%E6%BB%91%E9%9B%AA/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 http://poj.org/problem?id=1088 思路 经典的记忆化搜索：搜索+记忆化 搜索：一个一个找，能滑就滑 记忆化：优化重复的路径，记录每个点</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -71,7 +72,7 @@
       <pubDate>Thu, 31 Jan 2013 14:41:53 +0800</pubDate>
       
       <guid>/post/csdn/poj-%E9%A2%98%E7%9B%AE%E5%88%86%E7%B1%BB%E4%B8%8E%E8%AE%A1%E5%88%92/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 初期: 一.基本算法: (1)枚举. (poj1753,poj2965) (2)贪心(poj1328,poj2109,poj2586) (3)</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
   </channel>

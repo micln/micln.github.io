@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Longest on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in Longest on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Wed, 02 Oct 2013 23:11:58 +0800</lastBuildDate>
     
 	<atom:link href="/tags/longest/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,7 @@
       <pubDate>Wed, 02 Oct 2013 23:11:58 +0800</pubDate>
       
       <guid>/post/csdn/longest-ordered-subsequence-onlogn%E8%A7%A3%E6%B3%95-stl/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 维护一个单调队列，对于每一个新的元素： 如果大于队尾元素，补在后面； 否则替换掉最小的大于它的数，这里用</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
   </channel>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in Java on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Fri, 15 Jun 2018 21:03:34 +0800</lastBuildDate>
     
 	<atom:link href="/tags/java/index.xml" rel="self" type="application/rss+xml" />
@@ -26,7 +27,7 @@
       <pubDate>Wed, 25 Sep 2013 20:44:59 +0800</pubDate>
       
       <guid>/post/csdn/java-for-acm-%E5%B0%8F%E7%BB%93/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 一、提交格式代码 import java.util.; public class Main{ public static void main(String[] args){ Scanner cin = new Scanner(System.in)); } } 二、输入 cin.hasNext() 或 cin.hasNextInt() 或 cin.hasNextDouble() // 判断是否有下一个输入可以用 int n</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
   </channel>

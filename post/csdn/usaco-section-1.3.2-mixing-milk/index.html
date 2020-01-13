@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Mixing Milk Since milk packaging is such a low margin business, it is important to keep the price of the raw product (milk) as low as possible. Help Merry Milk Makers get the milk they need in the cheapest possible manner. The Merry Milk Makers company has several">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 using namespace std; struct milk { int w,p; }; milk a[maxn&#43;1]; int m,n; bool cmp(milk a ,milk b){ return a.p &lt; b.p; } int main(){ freopen(&ldquo;milk.in&rdquo;,&ldquo;r&rdquo;,stdin); freopen(&ldquo;milk.out&rdquo;,&ldquo;w&rdquo;,stdout); scanf(&quot;%d%d&rdquo;,&amp;m,&amp;n); for (int i=1;i&lt;=n;i&#43;&#43;){ scanf(&quot;%d%d&rdquo;,&amp;a[i].p,&amp;(a[i].w)); } sort(a&#43;1,a&#43;n&#43;1,cmp); int s=m,sp=0,k; for (int i=1;s;i&#43;&#43;){ if ((k=a[i].w)&gt;s) k=s; s-=k; sp&#43;=k*a[i].p; } printf(&quot;%d\n&rdquo;,sp); return 0; }">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/usaco-section-1.3.2-mixing-milk/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/usaco-section-1.3.2-mixing-milk/">
   <meta property="og:title" content="USACO Section 1.3.2 Mixing Milk | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Mixing Milk Since milk packaging is such a low margin business, it is important to keep the price of the raw product (milk) as low as possible. Help Merry Milk Makers get the milk they need in the cheapest possible manner. The Merry Milk Makers company has several"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 using namespace std; struct milk { int w,p; }; milk a[maxn&#43;1]; int m,n; bool cmp(milk a ,milk b){ return a.p &lt; b.p; } int main(){ freopen(&ldquo;milk.in&rdquo;,&ldquo;r&rdquo;,stdin); freopen(&ldquo;milk.out&rdquo;,&ldquo;w&rdquo;,stdout); scanf(&quot;%d%d&rdquo;,&amp;m,&amp;n); for (int i=1;i&lt;=n;i&#43;&#43;){ scanf(&quot;%d%d&rdquo;,&amp;a[i].p,&amp;(a[i].w)); } sort(a&#43;1,a&#43;n&#43;1,cmp); int s=m,sp=0,k; for (int i=1;s;i&#43;&#43;){ if ((k=a[i].w)&gt;s) k=s; s-=k; sp&#43;=k*a[i].p; } printf(&quot;%d\n&rdquo;,sp); return 0; }"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-05-22T10:44:34&#43;08:00">
@@ -406,172 +406,38 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <h2>
-  题目
- </h2>
- <div>
-  <table border="1" cellpadding="1" cellspacing="1">
-   <tbody>
-    <tr>
-     <td>
-      <center style="font-family:'文泉驿微米黑';font-size:14px;">
-       <h1>
-        Mixing Milk
-       </h1>
-      </center>
-      <p style="font-family:'文泉驿微米黑';font-size:14px;">
-       Since milk packaging is such a low margin business, it is important to keep the price of the raw product (milk) as low as possible. Help Merry Milk Makers get the milk they need in the cheapest possible manner.
-      </p>
-      <p style="font-family:'文泉驿微米黑';font-size:14px;">
-       The Merry Milk Makers company has several farmers from which they may buy milk, and each one has a (potentially) different price at which they sell to the milk packing plant. Moreover, as a cow can only produce
- so much milk a day, the farmers only have so much milk to sell per day. Each day, Merry Milk Makers can purchase an integral amount of milk from each farmer, less than or equal to the farmer&rsquo;s limit.
-      </p>
-      <p style="font-family:'文泉驿微米黑';font-size:14px;">
-       Given the Merry Milk Makers&rsquo; daily requirement of milk, along with the cost per gallon and amount of available milk for each farmer, calculate the minimum amount of money that it takes to fulfill the Merry Milk
- Makers&rsquo; requirements.
-      </p>
-      <p style="font-family:'文泉驿微米黑';font-size:14px;">
-       Note: The total milk produced per day by the farmers will be sufficient to meet the demands of the Merry Milk Makers.
-      </p>
-      <h3 style="font-family:'文泉驿微米黑';">
-       PROGRAM NAME: milk
-      </h3>
-      <h3 style="font-family:'文泉驿微米黑';">
-       INPUT FORMAT
-      </h3>
-      <table border="1" style="font-family:'文泉驿微米黑';">
-       <tbody>
-        <tr>
-         <td>
-          Line 1:
-         </td>
-         <td>
-          Two integers, N and M.
-          <br/>
-          The first value, N, (0 &lt;= N &lt;= 2,000,000) is the amount of milk that Merry Milk Makers wants per day. The second, M, (0 &lt;= M &lt;= 5,000) is the number of farmers that they may buy from.
-         </td>
-        </tr>
-        <tr>
-         <td>
-          Lines 2 through M+1:
-         </td>
-         <td>
-          The next M lines each contain two integers, P
-          <sub>
-           i
-          </sub>
-          and A
-          <sub>
-           i
-          </sub>
-          .
-          <br/>
-          P
-          <sub>
-           i
-          </sub>
-          (0 &lt;= P
-          <sub>
-           i
-          </sub>
-          &lt;= 1,000) is price in cents that farmer i charges.
-          <br/>
-          A
-          <sub>
-           i
-          </sub>
-          (0 &lt;= Ai &lt;= 2,000,000) is the amount of milk that farmer i can sell to Merry Milk Makers per day.
-         </td>
-        </tr>
-       </tbody>
-      </table>
-      <p style="font-family:'文泉驿微米黑';font-size:14px;">
-      </p>
-      <h3 style="font-family:'文泉驿微米黑';">
-       SAMPLE INPUT (file milk.in)
-      </h3>
-      <pre>100 5
-5 20
-9 40
-3 10
-8 80
-6 30
-</pre>
-      <h3 style="font-family:'文泉驿微米黑';">
-       OUTPUT FORMAT
-      </h3>
-      <p style="font-family:'文泉驿微米黑';font-size:14px;">
-       A single line with a single integer that is the minimum price that Merry Milk Makers can get their milk at for one day.
-      </p>
-      <h3 style="font-family:'文泉驿微米黑';">
-       SAMPLE OUTPUT (file milk.out)
-      </h3>
-      <pre>630</pre>
-      <br/>
-     </td>
-    </tr>
-   </tbody>
-  </table>
-  <br/>
- </div>
- <h2>
-  思路
- </h2>
- <div>
-  每次当然买最便宜的啊，很简单的贪心。
- </div>
- <h2>
-  代码
- </h2>
- <p>
- </p>
- <pre><code class="language-cpp">/*
-ID:zhrln1
-PROG:milk
-LANG:C++
-*/
-#include &lt;cstdio&gt;
-#include &lt;algorithm&gt;
-#define maxn 1000000</p>
-
+<!-- raw HTML omitted -->
 <p>using namespace std;</p>
-
 <p>struct milk
 {
-    int w,p;
+int w,p;
 };</p>
-
 <p>milk a[maxn+1];</p>
-
 <p>int m,n;</p>
-
 <p>bool cmp(milk a ,milk b){
-    return a.p &lt; b.p;
+return a.p &lt; b.p;
 }</p>
-
 <p>int main(){
-    freopen(&ldquo;milk.in&rdquo;,&ldquo;r&rdquo;,stdin);
-    freopen(&ldquo;milk.out&rdquo;,&ldquo;w&rdquo;,stdout);
-    scanf(&ldquo;%d%d&rdquo;,&amp;m,&amp;n);
-    for (int i=1;i&lt;=n;i++){
-        scanf(&ldquo;%d%d&rdquo;,&amp;a[i].p,&amp;(a[i].w));
-    }
-    sort(a+1,a+n+1,cmp);
-    int s=m,sp=0,k;
-    for (int i=1;s;i++){
-        if ((k=a[i].w)&gt;s) k=s;
-        s-=k;
-        sp+=k*a[i].p;
-    }
-    printf(&ldquo;%d\n&rdquo;,sp);
-    return 0;
+freopen(&ldquo;milk.in&rdquo;,&ldquo;r&rdquo;,stdin);
+freopen(&ldquo;milk.out&rdquo;,&ldquo;w&rdquo;,stdout);
+scanf(&quot;%d%d&rdquo;,&amp;m,&amp;n);
+for (int i=1;i&lt;=n;i++){
+scanf(&quot;%d%d&rdquo;,&amp;a[i].p,&amp;(a[i].w));
 }
-</code></pre>
- <br/>
- <br/>
-</div></p>
+sort(a+1,a+n+1,cmp);
+int s=m,sp=0,k;
+for (int i=1;s;i++){
+if ((k=a[i].w)&gt;s) k=s;
+s-=k;
+sp+=k*a[i].p;
+}
+printf(&quot;%d\n&rdquo;,sp);
+return 0;
+}
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -769,11 +635,15 @@ LANG:C++
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

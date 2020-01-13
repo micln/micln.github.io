@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 添加jQuery库： &lt;script src=&ldquo;http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js&quot;&gt;&lt;/script&gt; PS： ../1/.. 可以找到1.. 的最高版本。 2.0.2 不再支持IE8- jQuery语法： $(selector).action() 文档">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/jquery-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/jquery-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
   <meta property="og:title" content="jQuery 入门笔记 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 添加jQuery库： &lt;script src=&ldquo;http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js&quot;&gt;&lt;/script&gt; PS： ../1/.. 可以找到1.. 的最高版本。 2.0.2 不再支持IE8- jQuery语法： $(selector).action() 文档"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-02-01T20:35:14&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 分钟阅读时间
+    1 分钟阅读时间
   </span>
   
 
@@ -402,356 +402,7 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- 添加jQuery库：
- <blockquote>
-  <pre><code class="language-javascript">&lt;script src=&ldquo;<a href="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js&quot;&gt;&lt;/script&gt;" target="_blank">http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js&quot;&gt;&lt;/script&gt;</a></code></pre>
- </blockquote>
- <blockquote>
-  <p>
-   PS： ../1/.. 可以找到1.<em>.</em> 的最高版本。
-  </p>
- </blockquote>
- <blockquote style="border:none;">
-  <blockquote>
-   <p>
-    2.0.2 不再支持IE8-
-   </p>
-  </blockquote>
- </blockquote>
- <p>
-  <br/>
- </p>
- jQuery语法：
- <br/>
- <p>
- </p>
- <blockquote>
-  <pre><code class="language-javascript">$(selector).action()</code></pre>
- </blockquote>
- <p>
-  <br/>
- </p>
- <p>
-  文档加载完后执行：
- </p>
- <p>
- </p>
- <blockquote>
-  <pre><code class="language-html">$(document).ready(function(){<br />
-    // [code]
-});
-</code></pre>
- </blockquote>
- <blockquote>
-  <p>
-   PS：如需调用f()函数，f()必须在[code]区调用，而不能取代 function(){}；定义位置可以在 ready() 之内也可以其外。
-  </p>
- </blockquote>
- <p>
-  jQuery选择器( document.querySelector )：
-  <br/>
- </p>
- <p>
- </p>
- <blockquote>
-  <p>
-  </p>
-  <table class="dataintable">
-   <tbody>
-    <tr>
-     <th>
-      语法
-     </th>
-     <th>
-      描述
-     </th>
-    </tr>
-    <tr>
-     <td>
-      $(this)
-     </td>
-     <td>
-      当前 HTML 元素
-     </td>
-    </tr>
-    <tr>
-     <td>
-      $(&ldquo;p&rdquo;)
-     </td>
-     <td>
-      所有 &lt;p&gt; 元素
-     </td>
-    </tr>
-    <tr>
-     <td>
-      $(&ldquo;p.intro&rdquo;)
-     </td>
-     <td>
-      所有 class=&ldquo;intro&rdquo; 的 &lt;p&gt; 元素
-     </td>
-    </tr>
-    <tr>
-     <td>
-      $(&ldquo;.intro&rdquo;)
-     </td>
-     <td>
-      所有 class=&ldquo;intro&rdquo; 的元素
-     </td>
-    </tr>
-    <tr>
-     <td>
-      $(&ldquo;#intro&rdquo;)
-     </td>
-     <td>
-      id=&ldquo;intro&rdquo; 的第一个元素
-     </td>
-    </tr>
-    <tr>
-     <td>
-      $(&ldquo;ul li:first&rdquo;)
-     </td>
-     <td>
-      每个 &lt;ul&gt; 的第一个 &lt;li&gt; 元素
-     </td>
-    </tr>
-    <tr>
-     <td>
-      $(&rdquo;[href$=&lsquo;.jpg&rsquo;]&ldquo;)
-     </td>
-     <td>
-      所有带有以 &ldquo;.jpg&rdquo; 结尾的属性值的 href 属性
-     </td>
-    </tr>
-    <tr>
-     <td>
-      $(&ldquo;div#intro .head&rdquo;)
-     </td>
-     <td>
-      id=&ldquo;intro&rdquo; 的 &lt;div&gt; 元素中的所有 class=&ldquo;head&rdquo; 的元素
-     </td>
-    </tr>
-   </tbody>
-  </table>
-  <br/>
- </blockquote>
- <p>
-  jQuery事件：
- </p>
- <blockquote>
-  <p>
-  </p>
-  <pre><code class="language-javascript">$(&ldquo;button&rdquo;).click(function());
-$(&ldquo;button&rdquo;).dblclick(function());
-$(&ldquo;input&rdquo;).focus(function());</code></pre>
- </blockquote>
- <p>
-  jQuery效果：
- </p>
- <blockquote>
-  <p>
-   #隐藏/显示
-   <br/>
-  </p>
-  <blockquote>
-   <p>
-   </p>
-   <pre><code class="language-javascript">$(selector).toggle(speed,callback);
-$(selector).hide(speed,callback);
-$(selector).show(speed,callback);
-</code></pre>
-  </blockquote>
-  <blockquote>
-   <p>
-   </p>
-   <pre><code class="language-javascript">$(&ldquo;p&rdquo;).hide();
-$(&ldquo;p&rdquo;).hide(1000);
-$(&ldquo;p&rdquo;).hide(fast);
-$(&ldquo;p&rdquo;).hide(slow);</code></pre>
-   <p>
-   </p>
-  </blockquote>
- </blockquote>
- <blockquote>
-  <p>
-   #淡入/淡出
-  </p>
-  <blockquote>
-   <pre><code class="language-javascript">$(selector).fadeToggle(speed,callback);
-$(selector).fadeIn(speed,callback);
-$(selector).fadeOut(speed,callback);
-// 用法同上，下同
-$(selector).fadeTo(speed,opacity,callback);
-</code></pre>
-   opacity为透明度，取值范围 (0,1)，值越小越透明
-   <br/>
-   <pre><code class="language-javascript">$(&ldquo;#div&rdquo;).fadeTo(slow,0.2);</code></pre>
-  </blockquote>
-  <p>
-   #滑动
-  </p>
-  <blockquote>
-   <p>
-   </p>
-   <pre><code class="language-javascript">$(selector).slideToggle(speed,callback);
-$(selector).slideUp(speed,callback);
-$(selector).slideDown(speed,callback);</code></pre>
-   <p>
-   </p>
-  </blockquote>
-  <p>
-   #动画
-  </p>
-  <blockquote>
-   <pre><code class="language-javascript">$(selector).animate({params},speed,callback);</code></pre>
-   <p>
-    .. params[必须] 为 动画形成后的CSS属性
-   </p>
-   <blockquote>
-    <p>
-     ！如需调整位置，元素的position不能为static）
-    </p>
-    <p>
-     ！font-size 需要写成 fontSize 形式
-     <br/>
-    </p>
-   </blockquote>
-   <p>
-    .. speed 当取值为&rdquo;fast&rdquo;和&rdquo;slow&rdquo;时，切记加引号！
-   </p>
-   <p>
-    示例：
-    <br/>
-   </p>
-   <p>
-   </p>
-   <pre><code class="language-javascript">$(&ldquo;button&rdquo;).click(function(){
-  var div=$(&ldquo;div&rdquo;);
-  div.animate({height:&lsquo;300px&rsquo;,opacity:&lsquo;0.4&rsquo;},&ldquo;slow&rdquo;);
-  div.animate({width:&lsquo;300px&rsquo;,opacity:&lsquo;0.8&rsquo;},&ldquo;fast&rdquo;);
-  div.animate({height:&lsquo;100px&rsquo;,opacity:&lsquo;0.4&rsquo;},1000);        // speed 不需要引号
-  div.animate({width:&lsquo;toggle&rsquo;},&ldquo;slow&rdquo;);                          // 使用预定义动画
-</code></pre>
-  </blockquote>
-  <p>
-   #停止动画
-  </p>
-  <blockquote>
-   <p>
-   </p>
-   <pre><code class="language-javascript">$(selector).stop(stopAll,goToEnd);</code></pre>
-   .. stopAll
-   <br/>
-   <p>
-   </p>
-   <blockquote>
-    <p>
-     ！默认为false，表示只停止当前动画，然后继续执行队列中的下一个动画；
-    </p>
-    <p>
-     ！改为true后，表示停止队列中所有动画
-     <br/>
-    </p>
-   </blockquote>
-   <p>
-    .. goToEnd 默认为false
-   </p>
-   <blockquote>
-    <p>
-     ！默认为false，表示立马停止动画
-    </p>
-    <p>
-     ！true表示 把当前动画瞬间走完
-     <br/>
-    </p>
-   </blockquote>
-   <p>
-    参见
-    <span>
-     <span style="color:#FFFFFF;">
-      <a href="http://www.w3school.com.cn/tiy/t.asp?f=jquery_stop_params" rel="nofollow">
-       示例
-      </a>
-     </span>
-    </span>
-   </p>
-  </blockquote>
-  <p>
-   #Callback
-  </p>
-  <blockquote>
-   <p>
-    动画结束后执行语句。
-   </p>
-   <p>
-   </p>
-   <pre><code class="language-javascript">$(&ldquo;p&rdquo;).hide(1000,function(){
-     alert(&ldquo;The paragraph is now hidden&rdquo;);
-});</code></pre>
-   <p>
-   </p>
-  </blockquote>
-  <blockquote>
-   <pre></pre>
-  </blockquote>
-  <p>
-   #Chaining
-  </p>
-  <blockquote>
-   <p>
-    合并同一元素的动画，节省重复查找元素的时间。
-   </p>
-  </blockquote>
-  <blockquote>
-   <p>
-   </p>
-   <pre><code class="language-javascript">$(&ldquo;p&rdquo;).css(&ldquo;color&rdquo;,&ldquo;white&rdquo;)
-          .css(&ldquo;backgroundColor&rdquo;,&ldquo;black&rdquo;)
-          .slideUp()
-          .slideDown();
-</code></pre>
-   PS：各个动画按队列顺序依次执行。
-   <p>
-   </p>
-   <p>
-   </p>
-  </blockquote>
- </blockquote>
- <p>
- </p>
- <p>
-  jQuery
-  <br/>
- </p>
- <p>
-  <br/>
- </p>
- <p>
-  jQuery
-  <br/>
- </p>
- <p>
-  <br/>
- </p>
- <p>
- </p>
- <p>
-  jQuery
-  <br/>
- </p>
- <p>
-  <br/>
- </p>
- <p>
-  jQuery
-  <br/>
- </p>
- <p>
-  <br/>
- </p>
- <br/>
-</div></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -927,11 +578,15 @@ $(selector).slideDown(speed,callback);</code></pre>
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

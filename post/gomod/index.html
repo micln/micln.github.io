@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -399,83 +399,48 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<blockquote>
+      <blockquote>
 <p>项目逐渐都切到了 go mod，用的时候遇到了各种奇奇怪怪的坑，记录一下。</p>
 </blockquote>
-
 <h2 id="流程实践">流程实践</h2>
-
 <h3 id="语义化版本">语义化版本</h3>
-
 <p>Go mod 在设计时没有支持诸如 <code>&gt;2.0</code>, <code>~3.4</code>, <code>^4.0</code> 这样场景的语法。而是以语义化版本的约定来处理：</p>
-
 <p><code>x.y.z</code> ≈ <code>^x.y</code> + <code>&lt;=y.z</code></p>
-
-<p>实际中，对于内部频繁升级的 common 包，每次改动都需要 <code>y+=1</code> 才能保证兼容性。为此我专门搞了个<a href="https://github.com/micln/gt" target="_blank">小玩意</a>来升级 y，可以通过 hook 在 push 前先 <code>gt ft</code>。</p>
-
+<p>实际中，对于内部频繁升级的 common 包，每次改动都需要 <code>y+=1</code> 才能保证兼容性。为此我专门搞了个<a href="https://github.com/micln/gt">小玩意</a>来升级 y，可以通过 hook 在 push 前先 <code>gt ft</code>。</p>
 <p>有个比较恶心的问题，common 包的版本号长期维持在 <code>1.y.0</code> 且 y 很大。暂时没用解决的办法，后面再看看 <code>x</code> 能有什么新玩法。</p>
-
 <h3 id="不同分支依赖冲突">不同分支依赖冲突</h3>
-
 <p>如图，一个常见的场景，多人开发项目时，有可能在开发过程中使用了不同的依赖包，在合并代码的时候也会冲突。</p>
-
-<p><img src="https://i.loli.net/2019/04/14/5cb2ad7c07f41.png" alt="" /></p>
-
+<p><img src="https://i.loli.net/2019/04/14/5cb2ad7c07f41.png" alt=""></p>
 <p>以前的办法是有个专门的 vendor 分支，把有关依赖的变动串行化。</p>
-
 <p>但是用了 gomod 后，如果你只在 vendor 分支 里加了依赖没有用，<code>go mod tidy</code> 时又会把依赖给去掉。</p>
-
 <p>好在大部分时候都是需要更新而不是新增依赖，这个思路依然可用。我们给项目里专门准备了一个脚本来升级依赖，这个脚本做的事情也比较简单，切换到 vendor 分支，更新，提交。再合回 feature 分支。</p>
-
 <h2 id="异常问题处理">异常问题处理</h2>
-
 <h3 id="go-replace-替换大小写时不支持同时依赖大小写">go replace 替换大小写时不支持同时依赖大小写</h3>
-
 <p>P-&gt;A
 P-&gt;xx-&gt;a</p>
-
 <p>天真以为把 A replace a 就好了。还是会报同时用了大小写的错。</p>
-
 <p>只有当所有依赖都依赖 A，但是 github 已经改成 a 时，才能 replace。</p>
-
 <p>问题最初是由于 github.com/sirupsen/logrus 更换大小写引起，如果项目全用 Sirupsen 是可以 replace 的，后来有了混用就不行了。终极解决办法是干掉 logrus 。。</p>
-
 <blockquote>
 <p>凡是随意修改包路径、函数签名的 Go Libs，基本上都被我列入黑名单了。</p>
 </blockquote>
-
 <h3 id="build-xx-ambiguous-import-xx-in-multiple-modules">build xx: ambiguous import: xx in multiple modules:</h3>
-
 <p>通常是在没有使用语义化版本时，对一个包有不同版本的依赖导致。例如：</p>
-
 <pre><code>build xxx.com/com/projA: cannot load xxx.com/com/projB/model: ambiguous import: found xxx.com/com/projB/model in multiple modules:
 	xxx.com/com/projB v0.0.0-20181119101949-92ae1f75b49a (.../pkg/mod/xxx.com/com/projB@v0.0.0-20181119101949-92ae1f75b49a/model)
 	xxx.com/com/projB/model v0.0.0-20190311082816-bfb94e79a84f (.../pkg/mod/xxx.com/com/projB/model@v0.0.0-20190311082816-bfb94e79a84f)
-</code></pre>
-
-<p>可以通过下面方式来找</p>
-
-<pre><code class="language-shell">fd go.mod | xargs grep -r projB
+</code></pre><p>可以通过下面方式来找</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">fd go.mod | xargs grep -r projB
 vendor/xxx.com/com/base/go.mod:	xxx.com/com/projB/registry v0.0.0-20190312132550-a101ae8810b6 // indirect
 vendor/xxx.com/com/artemis/go.mod:	xxx.com/com/projB/app/goprojB v0.0.0-20190312132550-a101ae8810b6
 vendor/xxx.com/com/projB/registry/go.mod:module xxx.com/com/projB/registry
-</code></pre>
-
-<h3 id="go-replace-不能替换依赖包的依赖">go replace 不能替换依赖包的依赖</h3>
-
+</code></pre></div><h3 id="go-replace-不能替换依赖包的依赖">go replace 不能替换依赖包的依赖</h3>
 <p>我的项目P -&gt; A&amp;B，且 B-&gt;A</p>
-
 <p>如果把 A replace 成 A‘，只能修改 P-&gt;A 的依赖， B-&gt;A 是改不了的。</p>
-
 <p>所以 replace 不能解决梯子的问题，要用 goproxy</p>
-
 <h3 id="go-get-error-loading-module-requirements">go get: error loading module requirements</h3>
-
 <pre><code>go clean -modcache
 </code></pre>
-
 <p>清理 modcache 几乎是各种问题的终极大杀器，但是成本也很高，需要你下次重拉所有 mod。如果公司内有 proxy 做 cache 的话会好一些。</p>
 
     </div>
@@ -654,11 +619,15 @@ vendor/xxx.com/com/projB/registry/go.mod:module xxx.com/com/projB/registry
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

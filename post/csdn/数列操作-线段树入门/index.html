@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 题目描述 Description 一行N个方格，开始每个格子里都有一个整数。现在动态地提出一些问题和修改：提问的形式是求">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 void build(int v,int l,int r){ st[v].l = l; st[v].r = r; if (l == r) { // 是叶子，直接赋值，跳出 st[v].v=a[l]; return ; } int mid = (l&#43;r)/2; // 不是叶子，往下扩展 build(2v,l,mid); build(2v&#43;1,mid&#43;1,r); st[v].v=st[v2].v&#43;st[v2&#43;1].v; //">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/%E6%95%B0%E5%88%97%E6%93%8D%E4%BD%9C-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/%E6%95%B0%E5%88%97%E6%93%8D%E4%BD%9C-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8/">
   <meta property="og:title" content="数列操作  —  线段树入门 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 题目描述 Description 一行N个方格，开始每个格子里都有一个整数。现在动态地提出一些问题和修改：提问的形式是求"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 void build(int v,int l,int r){ st[v].l = l; st[v].r = r; if (l == r) { // 是叶子，直接赋值，跳出 st[v].v=a[l]; return ; } int mid = (l&#43;r)/2; // 不是叶子，往下扩展 build(2v,l,mid); build(2v&#43;1,mid&#43;1,r); st[v].v=st[v2].v&#43;st[v2&#43;1].v; //"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-05-28T22:42:10&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 分钟阅读时间
+    1 分钟阅读时间
   </span>
   
 
@@ -393,172 +393,70 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<blockquote>
+      <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <h2>
-  题目
- </h2>
- <div>
-  <table border="1" cellpadding="1" cellspacing="1">
-   <tbody>
-    <tr>
-     <td>
-      <h4>
-       题目描述 Description
-      </h4>
-      一行N个方格，开始每个格子里都有一个整数。现在动态地提出一些问题和修改：提问的形式是求某一个特定的子区间[a,b]中所有元素的和；修改的规则是指定某一个格子x，加上或者减去一个特定的值A。现在要求你能对每个提问作出正确的回答。1≤N&lt;100000，,提问和修改的总数m&lt;10000条。
-      <br/>
-      <h4>
-       输入描述 Input Description
-      </h4>
-      输入文件第一行为一个整数N，接下来是n行n个整数，表示格子中原来的整数。接下一个正整数m，再接下来有m行，表示m个询问，第一个整数表示询问代号，询问代号1表示增加，后面的两个数x和A表示给位置X上的数值增加A，询问代号2表示区间求和，后面两个整数表示a和b，表示要求[a,b]之间的区间和。
-      <br/>
-      <h4>
-       输出描述 Output Description
-      </h4>
-      共m行，每个整数
-      <br/>
-      <h4>
-       样例输入 Sample Input
-      </h4>
-      6
-      <br/>
-      4
-      <br/>
-      5
-      <br/>
-      6
-      <br/>
-      2
-      <br/>
-      1
-      <br/>
-      3
-      <br/>
-      4
-      <br/>
-      1 3 5
-      <br/>
-      2 1 4
-      <br/>
-      1 1 9
-      <br/>
-      2 2 6
-      <br/>
-      <h4>
-       样例输出 Sample Output
-      </h4>
-      22
-      <br/>
-      22
-      <br/>
-      <h4>
-       数据范围及提示 Data Size &amp; Hint
-      </h4>
-      1≤N&lt;100000， m&lt;10000 。
-     </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <p>
-  地址：
-  <a href="http://wikioi.com/problem/1080/" rel="nofollow">
-   <a href="http://wikioi.com/problem/1080/" target="_blank">http://wikioi.com/problem/1080/</a>
-  </a>
- </p>
- <h2>
-  思路（见代码注释）
- </h2>
- <h2>
-  代码
- </h2>
- <div>
-  <pre><code class="language-cpp"># include &lt;cstdio&gt;</p>
-
-<h1 id="define-n-500000">define N 500000</h1>
-
-<pre><code>                                   // 利用二叉树的父子节点关系来存储，因此必须保证数组开的足够大
-</code></pre>
-
-<p>struct node{
-    int l,r,v;              // left、right、value ；左右孩子由二叉树性质计算。
-};
-node st[N];
-int a[N];</p>
-
+<!-- raw HTML omitted -->
 <p>void build(int v,int l,int r){
-    st[v].l = l;
-    st[v].r = r;
-    if (l == r) {                   // 是叶子，直接赋值，跳出
-        st[v].v=a[l];
-        return ;
-    }
-    int mid = (l+r)/2;          // 不是叶子，往下扩展
-    build(2*v,l,mid);
-    build(2*v+1,mid+1,r);
-    st[v].v=st[v*2].v+st[v*2+1].v;  // 扩展出孩子后才能计算value域
-}</p>
-
-<p>void insert(int v,int w,int p){         // 在以v为根的树中，寻找节点w，并把节点w的值加上p 。 格外注意 某些编程语言中insert不能作为标识符
-    if (w&gt;=st[v].l &amp;&amp; w&lt;=st[v].r){<br />
-        st[v].v += p;           // 父子之间为统治关系，凡是经过的节点都要更新value
-    }
-    if (st[v].l==st[v].r) return;       // 找到终点，跳出
-    int mid = (st[v].l+st[v].r)/2;<br />
-    if (w&lt;=mid) {                // 判断左右孩子
-        insert(v*2,w,p);<br />
-    }else {
-        insert(v*2+1,w,p);
-    }
-}</p>
-
-<p>int getsum(int v,int l,int r){          // 返回以v为根节点的树中，区间 [l,r] 的value域
-    if (st[v].l==l &amp;&amp; st[v].r==r){
-        return st[v].v;         // 找到，返回
-    }
-    int mid = (st[v].l+st[v].r)/2;
-    if (r&lt;=mid) {
-        return getsum(v*2,l,r);     // 区间 [l,r] 在v的左枝上
-    }else if (l&gt;mid) {
-        return getsum(v*2+1,l,r);   // 右枝
-    }else {                 // 兵分两路
-        return getsum(v*2,l,mid) + getsum(v*2+1,mid+1,r);
-    }
-}</p>
-
-<p>int main(void){
-    freopen(&ldquo;1080.in&rdquo;,&ldquo;r&rdquo;,stdin);
-    int n;
-    scanf(&ldquo;%d&rdquo;,&amp;n);
-    for (int i(1);i&lt;=n;i++) {
-        scanf(&ldquo;%d&rdquo;,&amp;a[i]);
-    }
-    build(1,1,n);
-    int m,t,a,b;
-    for (scanf(&ldquo;%d&rdquo;,&amp;m);m;m&ndash;){
-        scanf(&ldquo;%d%d%d&rdquo;,&amp;t,&amp;a,&amp;b);
-        if (t &amp; 1) {
-            insert(1,a,b);
-        }else {
-            printf(&ldquo;%d\n&rdquo;,getsum(1,a,b));
-        }
-    }
-    return 0;
+st[v].l = l;
+st[v].r = r;
+if (l == r) {					// 是叶子，直接赋值，跳出
+st[v].v=a[l];
+return ;
 }
-</code></pre>
-  <br/>
-  <br/>
- </div>
- <div>
-  <br/>
- </div>
-</div></p>
+int mid = (l+r)/2;			// 不是叶子，往下扩展
+build(2<em>v,l,mid);
+build(2</em>v+1,mid+1,r);
+st[v].v=st[v<em>2].v+st[v</em>2+1].v;	// 扩展出孩子后才能计算value域
+}</p>
+<p>void insert(int v,int w,int p){			// 在以v为根的树中，寻找节点w，并把节点w的值加上p 。 格外注意 某些编程语言中insert不能作为标识符
+if (w&gt;=st[v].l &amp;&amp; w&lt;=st[v].r){
+st[v].v += p;			// 父子之间为统治关系，凡是经过的节点都要更新value
+}
+if (st[v].l==st[v].r) return;		// 找到终点，跳出
+int mid = (st[v].l+st[v].r)/2;
+if (w&lt;=mid) {				// 判断左右孩子
+insert(v<em>2,w,p);		
+}else {
+insert(v</em>2+1,w,p);
+}
+}</p>
+<p>int getsum(int v,int l,int r){			// 返回以v为根节点的树中，区间 [l,r] 的value域
+if (st[v].l==l &amp;&amp; st[v].r==r){
+return st[v].v;			// 找到，返回
+}
+int mid = (st[v].l+st[v].r)/2;
+if (r&lt;=mid) {
+return getsum(v<em>2,l,r);		// 区间 [l,r] 在v的左枝上
+}else if (l&gt;mid) {
+return getsum(v</em>2+1,l,r);	// 右枝
+}else {					// 兵分两路
+return getsum(v<em>2,l,mid) + getsum(v</em>2+1,mid+1,r);
+}
+}</p>
+<p>int main(void){
+freopen(&ldquo;1080.in&rdquo;,&ldquo;r&rdquo;,stdin);
+int n;
+scanf(&quot;%d&rdquo;,&amp;n);
+for (int i(1);i&lt;=n;i++) {
+scanf(&quot;%d&rdquo;,&amp;a[i]);
+}
+build(1,1,n);
+int m,t,a,b;
+for (scanf(&quot;%d&rdquo;,&amp;m);m;m&ndash;){
+scanf(&quot;%d%d%d&rdquo;,&amp;t,&amp;a,&amp;b);
+if (t &amp; 1) {
+insert(1,a,b);
+}else {
+printf(&quot;%d\n&rdquo;,getsum(1,a,b));
+}
+}
+return 0;
+}
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -728,11 +626,15 @@ int a[N];</p>
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

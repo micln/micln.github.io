@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jQuery on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in jQuery on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Fri, 01 Feb 2013 20:35:14 +0800</lastBuildDate>
     
 	<atom:link href="/tags/jquery/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,7 @@
       <pubDate>Fri, 01 Feb 2013 20:35:14 +0800</pubDate>
       
       <guid>/post/csdn/jquery-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 添加jQuery库： &amp;lt;script src=&amp;ldquo;http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; PS： ../1/.. 可以找到1.. 的最高版本。 2.0.2 不再支持IE8- jQuery语法： $(selector).action() 文档</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
   </channel>

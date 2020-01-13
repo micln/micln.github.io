@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -386,97 +386,67 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<h2 id="缘起">缘起</h2>
-
+      <h2 id="缘起">缘起</h2>
 <p>写代码里有个绕不开的话题就是如何写构造函数</p>
-
 <ul>
 <li>Java 里有 JavaBean 作为标准，空构造参数 + 自定义的 setter</li>
 <li>C++ 里靠重载实现任意场景的构造</li>
 <li>Python 里可以可以支持传你需要的参数</li>
 </ul>
-
 <p>Go 呢，一无所有，最通行的办法，大概是可变参作为可选的 options</p>
-
-<pre><code class="language-go">func NewX(options ...Option) *X {
-	x := &amp;X{}
-	for _, opt := range options {
-		opt.apply(x)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewX</span>(<span style="color:#a6e22e">options</span> <span style="color:#f92672">...</span><span style="color:#a6e22e">Option</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">X</span> {
+	<span style="color:#a6e22e">x</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">X</span>{}
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">opt</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">options</span> {
+		<span style="color:#a6e22e">opt</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#a6e22e">x</span>)
 	}
-	return x
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span>
 }
-</code></pre>
-
-<p>但是，你每次不得不把一个个简单的参数定义成一大堆的 option，多么烦人。</p>
-
+</code></pre></div><p>但是，你每次不得不把一个个简单的参数定义成一大堆的 option，多么烦人。</p>
 <p>所以，goption 就出场了</p>
-
 <h2 id="一睹为快">一睹为快</h2>
-
-<p><img src="https://cdn.sinaimg.cn.52ecy.cn/large/005BYqpgly1g307gsts99g30gn0amx6w.jpg" alt="" /></p>
-
+<p><img src="https://cdn.sinaimg.cn.52ecy.cn/large/005BYqpgly1g307gsts99g30gn0amx6w.jpg" alt=""></p>
 <p>是不是太快了看不清。听我慢慢道来。</p>
-
 <p>以 Goland 为示例，首先在定义 struct 时添加标识</p>
-
-<pre><code class="language-go">//go:generate goption -p . -c Person -w
-type Person struct{
-	// your person fields
-}
-</code></pre>
-
-<p>这样的好处是，IDE 可以为你提供快捷按钮，你只需要点一下就生成了。</p>
-
-<p><img src="https://i.loli.net/2019/05/14/5cd9ab3b3a6d835729.png" alt="" /></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">//go:generate goption -p . -c Person -w
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person</span> <span style="color:#66d9ef">struct</span>{
+	<span style="color:#75715e">// your person fields
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>这样的好处是，IDE 可以为你提供快捷按钮，你只需要点一下就生成了。</p>
+<p><img src="https://i.loli.net/2019/05/14/5cd9ab3b3a6d835729.png" alt=""></p>
 <p>点击按钮后，会在同 packagge 下生成 <code>person_option_gen.go</code> 代码大约是这个样子：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PersonOption</span> <span style="color:#66d9ef">func</span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">Person</span>)
 
-<pre><code class="language-go">type PersonOption func(*Person)
-
-func NewPerson(opts ...PersonOption) (person *Person) {
-	person = &amp;Person{}
-	for _, opt := range opts {
-		opt(person)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewPerson</span>(<span style="color:#a6e22e">opts</span> <span style="color:#f92672">...</span><span style="color:#a6e22e">PersonOption</span>) (<span style="color:#a6e22e">person</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Person</span>) {
+	<span style="color:#a6e22e">person</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Person</span>{}
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">opt</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">opts</span> {
+		<span style="color:#a6e22e">opt</span>(<span style="color:#a6e22e">person</span>)
 	}
-	return
+	<span style="color:#66d9ef">return</span>
 }
 
-func WithPersonName(name string) func(*Person) {
-	return func(person *Person) {
-		person.Name = name
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">WithPersonName</span>(<span style="color:#a6e22e">name</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">func</span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">Person</span>) {
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">person</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Person</span>) {
+		<span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">Name</span> = <span style="color:#a6e22e">name</span>
 	}
 }
 
-// ...
-</code></pre>
-
-<p>如何使用呢，也很简单：</p>
-
-<pre><code class="language-go">func main() {
-	p1 := NewPerson()		// 普通构造方式
-
-	p2 := NewPerson(		// 自定义字段方式
-		WithPersonName(`zhangsan`),
-		WithPersonAge(18),
+<span style="color:#75715e">// ...
+</span></code></pre></div><p>如何使用呢，也很简单：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">p1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewPerson</span>()		<span style="color:#75715e">// 普通构造方式
+</span><span style="color:#75715e"></span>
+	<span style="color:#a6e22e">p2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewPerson</span>(		<span style="color:#75715e">// 自定义字段方式
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">WithPersonName</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">zhangsan</span><span style="color:#e6db74">`</span>),
+		<span style="color:#a6e22e">WithPersonAge</span>(<span style="color:#ae81ff">18</span>),
 	)
-	println(p1, p2)
+	println(<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span>)
 }
-</code></pre>
-
-<p>使用起来真是爽了不少。</p>
-
-<p>放上代码地址：<a href="https://github.com/micln/goption" target="_blank">https://github.com/micln/goption</a></p>
-
+</code></pre></div><p>使用起来真是爽了不少。</p>
+<p>放上代码地址：https://github.com/micln/goption</p>
 <h2 id="如何实现">如何实现</h2>
-
-<p>最开始绕了点弯路，自己一层层解析 ast.Node，后来发现 <a href="https://gowalker.org/go/doc" target="_blank">go/doc</a> 已经帮你解析了 package，里面有哪些 Types，哪些 Funcs，都非常清楚，可以直接拿来用。</p>
-
-<p>唯一需要处理的就是如何 ast.Expr 表示的代码展示出来，好在之前玩过 ast 相关的，也整理了一下 <a href="https://github.com/Kretech/xgo/blob/master/astutil/expr.go" target="_blank">astutil 放了出来</a>，后面还会继续完善。所以就大大减少了难度。</p>
-
+<p>最开始绕了点弯路，自己一层层解析 ast.Node，后来发现 <a href="https://gowalker.org/go/doc">go/doc</a> 已经帮你解析了 package，里面有哪些 Types，哪些 Funcs，都非常清楚，可以直接拿来用。</p>
+<p>唯一需要处理的就是如何 ast.Expr 表示的代码展示出来，好在之前玩过 ast 相关的，也整理了一下 <a href="https://github.com/Kretech/xgo/blob/master/astutil/expr.go">astutil 放了出来</a>，后面还会继续完善。所以就大大减少了难度。</p>
 <h2 id="后续">后续</h2>
-
 <p>费这么大劲如果只做这一件事确实有点亏，后续希望把 Generator 开放出来，我帮你解析源码和集成 IDE，你只需要自定义模板，就可以生成任何你想要的辅助方法。</p>
 
     </div>
@@ -671,11 +641,15 @@ func WithPersonName(name string) func(*Person) {
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dashayu.tk on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in dashayu.tk on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Tue, 02 Dec 2014 12:00:00 +0800</lastBuildDate>
     
 	<atom:link href="/categories/dashayu.tk/index.xml" rel="self" type="application/rss+xml" />
@@ -44,7 +45,7 @@
       <pubDate>Wed, 02 Jul 2014 12:00:00 +0800</pubDate>
       
       <guid>/post/dashayu/1404273600-cs203%E7%9A%84%E9%82%A3%E7%82%B9%E4%BA%8B%E5%84%BF/</guid>
-      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 这篇文章有三个标签LXMPGoHUSTOJ，在我接管服务器以前，这三个东西我是一</description>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 这篇文章有三个标签LXMP``Go``HUSTOJ，在我接管服务器以前，这三个东</description>
     </item>
     
     <item>
@@ -89,7 +90,7 @@
       <pubDate>Mon, 08 Oct 2012 12:00:00 +0800</pubDate>
       
       <guid>/post/dashayu/1349668800-acmtips/</guid>
-      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 var tt = [&#34;&#34;, &#34;一&#34;, &#34;二&#34;, &#34;三&#34;, &#34;四&#34;, &#34;五&#34;, &#34;六&#34;, &#34;七&#34;, &#34;八&#34;, &#34;九&#34;,</description>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 window.onload = function(){ return; h1 = document.querySelectorAll(&amp;quot;h1&amp;quot;); h2 = document.querySelectorAll(&amp;quot;h2&amp;quot;); h3 = document.querySelectorAll(&amp;quot;h3&amp;quot;); h4 = document.querySelectorAll(&amp;quot;h4&amp;quot;); var txt = &amp;quot;&amp;lt;h2&amp;gt; Directory &amp;quot;; txt += &amp;quot;&amp;lt;pre&amp;gt;&amp;quot; for ( t1=0; t1&amp;lt;h1.length; t1++ ){ txt += &amp;quot;&amp;lt;h3&amp;gt;&amp;quot; + (tt[t1+1]) + &amp;quot;.&amp;quot; + h1[t1].innerHTML</description>
     </item>
     
   </channel>

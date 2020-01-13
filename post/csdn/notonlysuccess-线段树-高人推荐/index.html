@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 很早前写的那篇线段树专辑至今一直是本博客阅读点击量最大的一片文章,当时觉得挺自豪的,还去pku打广告">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 #define lson l , m , rt &lt;&lt; 1 #define rson m &#43; 1 , r , rt &lt;&lt; 1 | 1 const int maxn = 222222; int MAX[maxn&lt;&lt;2]; void PushUP(int rt) { MAX[rt] = max(MAX[rt&lt;&lt;1] , MAX[rt&lt;&lt;1|1]); } void build(int l,int r,int rt) { if (l == r) {">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/notonlysuccess-%E7%BA%BF%E6%AE%B5%E6%A0%91-%E9%AB%98%E4%BA%BA%E6%8E%A8%E8%8D%90/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/notonlysuccess-%E7%BA%BF%E6%AE%B5%E6%A0%91-%E9%AB%98%E4%BA%BA%E6%8E%A8%E8%8D%90/">
   <meta property="og:title" content="notonlysuccess 线段树 高人推荐 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 很早前写的那篇线段树专辑至今一直是本博客阅读点击量最大的一片文章,当时觉得挺自豪的,还去pku打广告"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 #define lson l , m , rt &lt;&lt; 1 #define rson m &#43; 1 , r , rt &lt;&lt; 1 | 1 const int maxn = 222222; int MAX[maxn&lt;&lt;2]; void PushUP(int rt) { MAX[rt] = max(MAX[rt&lt;&lt;1] , MAX[rt&lt;&lt;1|1]); } void build(int l,int r,int rt) { if (l == r) {"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-08-31T23:37:50&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 分钟阅读时间
+    1 分钟阅读时间
   </span>
   
 
@@ -402,178 +402,59 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <div id="note_271700769_full">
-  <div class="note" id="link-report">
-   很早前写的那篇线段树专辑至今一直是本博客阅读点击量最大的一片文章,当时觉得挺自豪的,还去pku打广告,但是现在我自己都不太好意思去看那篇文章了,觉得当时的代码风格实在是太丑了,很多线段树的初学者可能就是看着这篇文章来练习的,如果不小心被我培养出了这么糟糕的风格,实在是过意不去,正好过几天又要给集训队讲解线段树,所以决定把这些题目重新写一遍,顺便把近年我接触到的一些新题更新上去~;并且学习了splay等更高级的数据结构后对线段树的体会有更深了一层,线段树的写法也就比以前飘逸,简洁且方便多了.
-   <br/>
-   <br/>
-   在代码前先介绍一些我的线段树风格:
-   <br/>
-   <br/>
-   maxn是题目给的最大区间,而节点数要开4倍,确切的来说节点数要开大于maxn的最小2x的两倍
-   <br/>
-   lson和rson分辨表示结点的左儿子和右儿子,由于每次传参数的时候都固定是这几个变量,所以可以用预定于比较方便的表示
-   <br/>
-   以前的写法是另外开两个个数组记录每个结点所表示的区间,其实这个区间不必保存,一边算一边传下去就行,只需要写函数的时候多两个参数,结合lson和rson的预定义可以很方便
-   <br/>
-   PushUP(int rt)是把当前结点的信息更新到父结点
-   <br/>
-   PushDown(int rt)是把当前结点的信息更新给儿子结点
-   <br/>
-   rt表示当前子树的根(root),也就是当前所在的结点
-   <br/>
-   整理这些题目后我觉得线段树的题目整体上可以分成以下四个部分:
-   <br/>
-   <br/>
-   单点更新:最最基础的线段树,只更新叶子节点,然后把信息用PushUP(int r)这个函数更新上来
-   <br/>
-   hdu1166 敌兵布阵
-   <a href="http://acm.hdu.edu.cn/showproblem.php?pid=1166" rel="nofollow">
-    <a href="http://acm.hdu.edu.cn/showproblem.php?pid=1166" target="_blank">http://acm.hdu.edu.cn/showproblem.php?pid=1166</a>
-   </a>
-   <br/>
-   题意:O(-1)
-   <br/>
-   思路:O(-1)
-   <br/>
-   线段树功能:update:单点增减 query:区间求和
-   <br/>
-   <code>
-   </code>
-   <pre><code class="language-cpp">#include &lt;cstdio&gt;
-#define lson l , m , rt &lt;&lt; 1
-#define rson m + 1 , r , rt &lt;&lt; 1 | 1
-const int maxn = 55555;
-int sum[maxn&lt;&lt;2];
-void PushUP(int rt) {
-        sum[rt] = sum[rt&lt;&lt;1] + sum[rt&lt;&lt;1|1];
-}
-void build(int l,int r,int rt) {
-        if (l == r) {
-                scanf(&ldquo;%d&rdquo;,&amp;sum[rt]);
-                return ;
-        }
-        int m = (l + r) &gt;&gt; 1;
-        build(lson);
-        build(rson);
-        PushUP(rt);
-}
-void update(int p,int add,int l,int r,int rt) {
-        if (l == r) {
-                sum[rt] += add;
-                return ;
-        }
-        int m = (l + r) &gt;&gt; 1;
-        if (p &lt;= m) update(p , add , lson);
-        else update(p , add , rson);
-        PushUP(rt);
-}
-int query(int L,int R,int l,int r,int rt) {
-        if (L &lt;= l &amp;&amp; r &lt;= R) {
-                return sum[rt];
-        }
-        int m = (l + r) &gt;&gt; 1;
-        int ret = 0;
-        if (L &lt;= m) ret += query(L , R , lson);
-        if (R &gt; m) ret += query(L , R , rson);
-        return ret;
-}
-int main() {
-        int T , n;
-        scanf(&ldquo;%d&rdquo;,&amp;T);
-        for (int cas = 1 ; cas &lt;= T ; cas ++) {
-                printf(&ldquo;Case %d:\n&rdquo;,cas);
-                scanf(&ldquo;%d&rdquo;,&amp;n);
-                build(1 , n , 1);
-                char op[10];
-                while (scanf(&ldquo;%s&rdquo;,op)) {
-                        if (op[0] == &lsquo;E&rsquo;) break;
-                        int a , b;
-                        scanf(&ldquo;%d%d&rdquo;,&amp;a,&amp;b);
-                        if (op[0] == &lsquo;Q&rsquo;) printf(&ldquo;%d\n&rdquo;,query(a , b , 1 , n , 1));
-                        else if (op[0] == &rsquo;S&rsquo;) update(a , -b , 1 , n , 1);
-                        else update(a , b , 1 , n , 1);
-                }
-        }
-        return 0;
-}</code></pre>
-   <br/>
-   <br/>
-   <br/>
-   <br/>
-   hdu1754 I Hate It
-   <br/>
-   <a href="http://acm.hdu.edu.cn/showproblem.php?pid=1754" rel="nofollow">
-    <a href="http://acm.hdu.edu.cn/showproblem.php?pid=1754" target="_blank">http://acm.hdu.edu.cn/showproblem.php?pid=1754</a>
-   </a>
-   <br/>
-   题意:O(-1)
-   <br/>
-   思路:O(-1)
-   <br/>
-   线段树功能:update:单点替换 query:区间最值
-   <br/>
-   <pre><code class="language-cpp"></code></pre>
-   <pre class="cpp">#include &lt;cstdio&gt;
-#include &lt;algorithm&gt;
-using namespace std;</p>
-
+<!-- raw HTML omitted -->
 <p>#define lson l , m , rt &lt;&lt; 1
 #define rson m + 1 , r , rt &lt;&lt; 1 | 1
 const int maxn = 222222;
 int MAX[maxn&lt;&lt;2];
 void PushUP(int rt) {
-        MAX[rt] = max(MAX[rt&lt;&lt;1] , MAX[rt&lt;&lt;1|1]);
+MAX[rt] = max(MAX[rt&lt;&lt;1] , MAX[rt&lt;&lt;1|1]);
 }
 void build(int l,int r,int rt) {
-        if (l == r) {
-                scanf(&ldquo;%d&rdquo;,&amp;MAX[rt]);
-                return ;
-        }
-        int m = (l + r) &gt;&gt; 1;
-        build(lson);
-        build(rson);
-        PushUP(rt);
+if (l == r) {
+scanf(&quot;%d&rdquo;,&amp;MAX[rt]);
+return ;
+}
+int m = (l + r) &gt;&gt; 1;
+build(lson);
+build(rson);
+PushUP(rt);
 }
 void update(int p,int sc,int l,int r,int rt) {
-        if (l == r) {
-                MAX[rt] = sc;
-                return ;
-        }
-        int m = (l + r) &gt;&gt; 1;
-        if (p &lt;= m) update(p , sc , lson);
-        else update(p , sc , rson);
-        PushUP(rt);
+if (l == r) {
+MAX[rt] = sc;
+return ;
+}
+int m = (l + r) &gt;&gt; 1;
+if (p &lt;= m) update(p , sc , lson);
+else update(p , sc , rson);
+PushUP(rt);
 }
 int query(int L,int R,int l,int r,int rt) {
-        if (L &lt;= l &amp;&amp; r &lt;= R) {
-                return MAX[rt];
-        }
-        int m = (l + r) &gt;&gt; 1;
-        int ret = 0;
-        if (L &lt;= m) ret = max(ret , query(L , R , lson));
-        if (R &gt; m) ret = max(ret , query(L , R , rson));
-        return ret;
+if (L &lt;= l &amp;&amp; r &lt;= R) {
+return MAX[rt];
+}
+int m = (l + r) &gt;&gt; 1;
+int ret = 0;
+if (L &lt;= m) ret = max(ret , query(L , R , lson));
+if (R &gt; m) ret = max(ret , query(L , R , rson));
+return ret;
 }
 int main() {
-        int n , m;
-        while (~scanf(&ldquo;%d%d&rdquo;,&amp;n,&amp;m)) {
-                build(1 , n , 1);
-                while (m &ndash;) {
-                        char op[2];
-                        int a , b;
-                        scanf(&ldquo;%s%d%d&rdquo;,op,&amp;a,&amp;b);
-                        if (op[0] == &lsquo;Q&rsquo;) printf(&ldquo;%d\n&rdquo;,query(a , b , 1 , n , 1));
-                        else update(a , b , 1 , n , 1);
-                }
-        }
-        return 0;
-}</pre>
-  </div>
- </div>
-</div></p>
+int n , m;
+while (~scanf(&quot;%d%d&rdquo;,&amp;n,&amp;m)) {
+build(1 , n , 1);
+while (m &ndash;) {
+char op[2];
+int a , b;
+scanf(&quot;%s%d%d&rdquo;,op,&amp;a,&amp;b);
+if (op[0] == &lsquo;Q&rsquo;) printf(&quot;%d\n&rdquo;,query(a , b , 1 , n , 1));
+else update(a , b , 1 , n , 1);
+}
+}
+return 0;
+}<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -749,11 +630,15 @@ int main() {
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

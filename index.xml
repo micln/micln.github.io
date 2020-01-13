@@ -5,13 +5,14 @@
     <description>Recent content in 在水异方 on 在水异方</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sat, 19 Oct 2019 23:11:07 +0800</lastBuildDate>
+    <copyright>©{year} 在水异方</copyright>
+    <lastBuildDate>Thu, 02 Jan 2020 20:34:02 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Posts</title>
       <link>/post/</link>
-      <pubDate>Sat, 19 Oct 2019 23:11:07 +0800</pubDate>
+      <pubDate>Thu, 02 Jan 2020 20:34:02 +0800</pubDate>
       
       <guid>/post/</guid>
       <description></description>
@@ -23,15 +24,6 @@
       <pubDate>Thu, 11 Apr 2019 23:39:11 +0800</pubDate>
       
       <guid>/project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link></link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid></guid>
       <description></description>
     </item>
     

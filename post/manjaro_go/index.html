@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -388,92 +388,56 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p>先说说背景，为什么MacBook还在吃灰，又开始折腾Linux Desktop了</p>
-
+      <p>先说说背景，为什么MacBook还在吃灰，又开始折腾Linux Desktop了</p>
 <ul>
 <li>家里组了台PC，只打游戏太浪费，且实在搞不定windows写代码。</li>
 <li>传闻 manjaro 优化的不错</li>
 </ul>
-
 <p>于是同时把pc和数莓派都改了。</p>
-
 <h3 id="烧u盘偶尔失败">烧U盘偶尔失败</h3>
-
 <p>表现为：烧录校验失败、无法启动</p>
-
 <p>按理以前从不会遇到，重新烧几次就好了，可能是u盘年久失修了。</p>
-
 <h3 id="加速源">加速源</h3>
-
-<p>这个地方坑了半天，一直以为manjaro就是arch的源，后来经 <a href="https://github.com/zsrkmyn" target="_blank">zsrkmyn大佬</a> 鄙视，才知道是不一样的。。</p>
-
+<p>这个地方坑了半天，一直以为manjaro就是arch的源，后来经 <a href="https://github.com/zsrkmyn">zsrkmyn大佬</a> 鄙视，才知道是不一样的。。</p>
 <p>所以 manjaro要做两件事，一是加速manjaro源，二是引进archlinux源，后者用来加一部分arch社区的软件。</p>
-
 <p>参考：</p>
-
-<pre><code class="language-bash"># 换中国源
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 换中国源</span>
 $ cat /etc/pacman.d/mirrorlist
 
-### Country : China
-Server = https://mirrors.ustc.edu.cn/manjaro/stable/$repo/$arch
-</code></pre>
-
-<pre><code># 加 archlinux
+<span style="color:#75715e">### Country : China</span>
+Server <span style="color:#f92672">=</span> https://mirrors.ustc.edu.cn/manjaro/stable/$repo/$arch
+</code></pre></div><pre><code># 加 archlinux
 $ tail /etc/pacman.conf
 
 [archlinuxcn]
 SigLevel = Optional TrustedOnly
 Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
-</code></pre>
-
-<p>还有个深坑，数莓派用的源的地址不能只把 manjaro 改成 manjaro-arm，后面的 $repo 和 $arch  顺序也不一样。
+</code></pre><p>还有个深坑，数莓派用的源的地址不能只把 manjaro 改成 manjaro-arm，后面的 $repo 和 $arch  顺序也不一样。
 而且很多镜像源只提供 manjaro 不提供 marjaro-arm。</p>
-
 <p>最开始没仔细看，坑了好久。。</p>
-
 <h3 id="无线网卡驱动">无线网卡驱动</h3>
-
 <p>刚装机的时候没有网络，我用的老旧android手机连wifi，插到电脑上，允许usb上网。电脑会识别成以太网（win/mac也支持），网速还是挺快的，除了累赘，体验比无线网卡还好。</p>
-
 <p>我用的华硕USB-AC57，官网有驱动，下下来不能用。看下文件名，一般是 rtlXXX-linux-driver，这个rtlxxx就是型号，直接去网上搜关键词。arch aur 里就有社区版本，按步骤编译安装就好使了。</p>
-
 <p>TODO 开机联网慢，还没处理</p>
-
 <p>TODO 最近网络不稳，猜测也是这个驱动问题</p>
-
 <p>尽量还是走有线吧。</p>
-
 <h3 id="输入法">输入法</h3>
-
 <p>默认安装好 fcitx 后，状态栏也有了，但是不能切换。原因是并没有在x环境下启用，我的处理办法是在 xinitrc 里加了几行配置。</p>
-
 <p>参考：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tail ~/.xinitrc
 
-<pre><code class="language-bash">tail ~/.xinitrc
+export XMODIFIERS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@im=fcitx&#34;</span>
+export GTK_IM_MODULE<span style="color:#f92672">=</span>xim
+export QT_IM_MODULE<span style="color:#f92672">=</span>xim
 
-export XMODIFIERS=&quot;@im=fcitx&quot;
-export GTK_IM_MODULE=xim
-export QT_IM_MODULE=xim
-
-exec $(get_session)  # 这行原来就有，不要动。在上面加三个export就行。
-</code></pre>
-
-<p>另外，fcitx-qt4 会和 fcitx-gtk* 冲突，我用的后者。前者貌似才能支持搜狗。</p>
-
+exec <span style="color:#66d9ef">$(</span>get_session<span style="color:#66d9ef">)</span>  <span style="color:#75715e"># 这行原来就有，不要动。在上面加三个export就行。</span>
+</code></pre></div><p>另外，fcitx-qt4 会和 fcitx-gtk* 冲突，我用的后者。前者貌似才能支持搜狗。</p>
 <h3 id="网络">网络</h3>
-
 <p>装机需要配个pac，不然很多东西下不动。</p>
-
 <p>最好是在路由器里支持。</p>
-
 <p>manjaro里的话，好像只能针对每个网络单独配置。</p>
-
 <p>数莓派同时安装了酸酸乳和奶牛作为统一的入口，macbook顺利通过，但manjaro走奶牛PAC一直走不通，后来莫名其妙好了。。</p>
-
 <h3 id="用户目录改英文">用户目录改英文</h3>
-
 <p>网上搜了一堆教程都需要 <code>xdg-user-dirs-gtk-update</code>，但默认只有 <code>xdg-user-dirs-update</code>，擅自用了后者发现不好使，要装一下前者：<code>sudo pacman -S xdg-user-dirs-gtk</code></p>
 
     </div>
@@ -664,11 +628,15 @@ exec $(get_session)  # 这行原来就有，不要动。在上面加三个export
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

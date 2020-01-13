@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 输入一个表达式，计算出它的值。运算符有 &#43; - × / （ ）。 思路 这是我们学栈时碰到的一个问题，大体方法是">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 } } } void calcit(){ for (int i(0);i!=A.size();i&#43;&#43;){ if (isNum(A[i][0])) { ans.push_back(gen(A[i])); }else{ double a1=ans[ans.size()-2]; double a2=ans[ans.size()-1]; printf(&quot;%.2f%c%.2f=&rdquo;,a1,A[i][0],a2); switch (A[i][0]){ case &lsquo;&#43;&rsquo;: a1&#43;=a2; break; case &lsquo;-&#39;: a1-=a2; break; case &lsquo;&#39;: a1=a2; break; case &lsquo;/&#39;: if (!a2){ Quit(1); } a1/=a2; break; } printf(&quot;%.2f\n&rdquo;,a1); ans.pop_back(); ans[ans.size()-1]=a1; } } printf(&quot;%.3f\n&rdquo;,ans[0]); } int main(){">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97/">
   <meta property="og:title" content="表达式计算 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 输入一个表达式，计算出它的值。运算符有 &#43; - × / （ ）。 思路 这是我们学栈时碰到的一个问题，大体方法是"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 } } } void calcit(){ for (int i(0);i!=A.size();i&#43;&#43;){ if (isNum(A[i][0])) { ans.push_back(gen(A[i])); }else{ double a1=ans[ans.size()-2]; double a2=ans[ans.size()-1]; printf(&quot;%.2f%c%.2f=&rdquo;,a1,A[i][0],a2); switch (A[i][0]){ case &lsquo;&#43;&rsquo;: a1&#43;=a2; break; case &lsquo;-&#39;: a1-=a2; break; case &lsquo;&#39;: a1=a2; break; case &lsquo;/&#39;: if (!a2){ Quit(1); } a1/=a2; break; } printf(&quot;%.2f\n&rdquo;,a1); ans.pop_back(); ans[ans.size()-1]=a1; } } printf(&quot;%.3f\n&rdquo;,ans[0]); } int main(){"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-04-30T14:34:18&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 分钟阅读时间
+    1 分钟阅读时间
   </span>
   
 
@@ -396,270 +396,54 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <h2>
-  题目
- </h2>
- <div>
-  输入一个表达式，计算出它的值。运算符有 + - × / （ ）。
- </div>
- <h2>
-  思路
- </h2>
- <div>
-  这是我们学栈时碰到的一个问题，大体方法是利用双栈把中缀表达式转换成后缀表达式进行计算
- </div>
- <div>
-  <br/>
- </div>
- <div></p>
-
-<hr />
-
-<p></div>
- <div>
-  <h3>
-   1.拆分数字与运算符
-  </h3>
-  <span>
-  </span>
-  ：遇到运算符截断、存储、清空。
- </div>
- <div>
-  <h3>
-   2.转后缀表达式
-  </h3>
- </div>
- <blockquote style="border:none;">
-  <div>
-   ：栈A存放后缀表达式，栈B存放运算符
-  </div>
- </blockquote>
- <blockquote style="border:none;">
-  <div>
-   记 B栈顶运算符为a1,当前运算符为a2（若a2为数字直接 a2-&gt;A ）
-  </div>
- </blockquote>
- <div>
-  1）若 a1&gt;a2，a1-&gt;A，a2-&gt;B
-  <br/>
- </div>
- <blockquote style="border:none;">
-  <blockquote style="border:none;">
-   <div>
-    1）若 a1&lt;a2，a2-&gt;B；
-   </div>
-  </blockquote>
- </blockquote>
- <blockquote style="border:none;">
-  <blockquote style="border:none;">
-   <div>
-    2）若 a1&gt;=a2
-   </div>
-  </blockquote>
- </blockquote>
- <blockquote style="border:none;">
-  <blockquote style="border:none;">
-   <blockquote style="border:none;">
-    <div>
-     1.若a1&gt;a2，a1-&gt;A；（只要该条件满足则一直执行，使得优先级高的运算符放在A中）
-    </div>
-    <div>
-     2.将高级运算符都赶走后，要判断a1=a2 ?（ 即是否为()相遇）
-    </div>
-    <div>
-     如果为左右括号的话就把做括号弹出，否则把a2-&gt;B。（注意与1的区别，一个）可以一直赶走比它高级的运算法，但是只能抵消一个左括号）
-    </div>
-   </blockquote>
-  </blockquote>
- </blockquote>
- <blockquote style="border:none;">
-  <div>
-   PS: a1&gt;a2 表示 在此式中先算a1再算a2，a1与a2的关系在初始化中建立。
-  </div>
- </blockquote>
- <div>
-  <h3>
-   3.计算后缀表达式
-  </h3>
-  <span>
-  </span>
-  :
-  <span>
-  </span>
-  从左往右扫描，遇到运算符则处理前两位数字
-  <br/>
- </div>
- <div></p>
-
-<hr />
-
-<p></div>
- <div>
-  <br/>
- </div>
- <h2>
-  代码
- </h2>
- <div>
-  <pre><code class="language-cpp">#include &lt;iostream&gt;
-#include &lt;queue&gt;
-#include &lt;stack&gt;
-#include &lt;string&gt;
-#include &lt;cstdio&gt;
-#include &lt;cstdlib&gt;
-using namespace std;
-string ss;
-vector&lt;double&gt; ans;
-vector&lt;string&gt; s,A;
-stack&lt;char&gt; B;
-int cmp[8][8]={ {1,1,-1,-1,-1,1},
-                {1,1,-1,-1,-1,1},
-                {1,1,1,1,-1,1},
-                {1,1,1,1,-1,1},
-                {-1,-1,-1,-1,-1,0},
-                {1,1,1,1,0,0}};
-int gec[333];
-bool isNum(char a){
-    switch(a){
-            case &lsquo;+&rsquo;:
-            case &lsquo;-&rsquo;:
-            case &lsquo;<em>&lsquo;:
-            case &lsquo;/&rsquo;:
-            case &lsquo;(&rsquo;:
-            case &lsquo;)&rsquo;:
-                return false;
-    }
-    return true;
-}
-void init(){
-    gec[&lsquo;+&rsquo;]=0;
-    gec[&lsquo;-&rsquo;]=1;
-    gec[&rsquo;</em>&rsquo;]=2;
-    gec[&lsquo;/&rsquo;]=3;
-    gec[&lsquo;(&rsquo;]=4;
-    gec[&lsquo;)&rsquo;]=5;
-}
-void Quit(int v){
-    cout &lt;&lt; &ldquo;ERROR : &ldquo;;
-    switch(v){
-        case 1:
-            cout &lt;&lt; &ldquo;DIVISION BY 0&rdquo;;
-            break;
-        case 2:
-            cout &lt;&lt; &ldquo;PARENTHESES ARE NOT EVEN&rdquo;;
-            break;
-    }
-    cout &lt;&lt; endl;
-    exit(0);
-}
-double gen(string s){
-    double tmp;
-    sscanf(s.c_str(),&ldquo;%lf&rdquo;,&amp;tmp);
-    return tmp;
-}
-void check(){
-    stack&lt;char&gt; q;
-    for (string::size_type i(0);i!=ss.size();i++){
-        if (ss[i]==&lsquo;(&rsquo;) q.push(ss[i]);
-        if (ss[i]==&lsquo;)&rsquo;) {
-            if (q.empty()) Quit(2);
-            if (q.top()==&lsquo;(&rsquo;) q.push(ss[i]);
-            else q.pop();
-        }
-    }
-    if (q.size()) Quit(2);
-}
-void ready(){
-    cin &gt;&gt; ss;
-    check();
-    ss+=&lsquo;)&rsquo;;
-    string str=&ldquo;&rdquo;;
-    for (string::size_type i(0);i!=ss.size();i++){
-        if (isNum(ss[i])){
-            str+=ss[i];
-        }else {
-            if (str.size()) s.push_back(str);
-            str=ss[i];
-            s.push_back(str);
-            str=&ldquo;&rdquo;;
-        }
-    }
-}
-void changetype(){
-    B.push(&lsquo;(&rsquo;);
-    for (unsigned int i(0);i!=s.size();i++){
-        if (isNum(s[i][0])){
-            A.push_back(s[i]);
-        }else{
-            char ch=s[i][0];
-            if (cmp[gec[B.top()]][gec[ch]]&lt;0){
-                B.push(ch);
-            }else
-            if (cmp[gec[B.top()]][gec[ch]]&gt;=0){
-                string str;
-                while (cmp[gec[B.top()]][gec[ch]]&gt;0){
-                    str=B.top();
-                    A.push_back(str);
-                    B.pop();
-                }
-                if (cmp[gec[B.top()]][gec[ch]]==0){
-                    B.pop();
-                }else{
-                    B.push(ch);
-                }
-            }</p>
-
+<!-- raw HTML omitted -->
 <pre><code>    }
 }
 </code></pre>
-
 <p>}
 void calcit(){
-    for (int i(0);i!=A.size();i++){
-        if (isNum(A[i][0])) {
-            ans.push_back(gen(A[i]));
-        }else{
-            double a1=ans[ans.size()-2];
-            double a2=ans[ans.size()-1];
-            printf(&ldquo;%.2f%c%.2f=&rdquo;,a1,A[i][0],a2);
-            switch (A[i][0]){
-                case &lsquo;+&rsquo;:
-                    a1+=a2;
-                    break;
-                case &lsquo;-&rsquo;:
-                    a1-=a2;
-                    break;
-                case &lsquo;<em>&lsquo;:
-                    a1</em>=a2;
-                    break;
-                case &lsquo;/&rsquo;:
-                    if (!a2){
-                        Quit(1);
-                    }
-                    a1/=a2;
-                    break;
-            }
-            printf(&ldquo;%.2f\n&rdquo;,a1);
-            ans.pop_back();
-            ans[ans.size()-1]=a1;
-        }
-    }
-    printf(&ldquo;%.3f\n&rdquo;,ans[0]);
+for (int i(0);i!=A.size();i++){
+if (isNum(A[i][0])) {
+ans.push_back(gen(A[i]));
+}else{
+double a1=ans[ans.size()-2];
+double a2=ans[ans.size()-1];
+printf(&quot;%.2f%c%.2f=&rdquo;,a1,A[i][0],a2);
+switch (A[i][0]){
+case &lsquo;+&rsquo;:
+a1+=a2;
+break;
+case &lsquo;-':
+a1-=a2;
+break;
+case &lsquo;<em>':
+a1</em>=a2;
+break;
+case &lsquo;/':
+if (!a2){
+Quit(1);
+}
+a1/=a2;
+break;
+}
+printf(&quot;%.2f\n&rdquo;,a1);
+ans.pop_back();
+ans[ans.size()-1]=a1;
+}
+}
+printf(&quot;%.3f\n&rdquo;,ans[0]);
 }
 int main(){
-    init();
-    ready();
-    changetype();
-    calcit();
-    return 0;
+init();
+ready();
+changetype();
+calcit();
+return 0;
 }
-</code></pre>
-  <br/>
-  <br/>
- </div>
-</div></p>
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -829,11 +613,15 @@ int main(){
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

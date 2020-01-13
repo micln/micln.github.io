@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Palindromic Squares Rob Kolstad Palindromes are numbers that read the same forwards as backwards. The number 12321 is a typical palindrome. Given a number base B (2 &lt;= B &lt;= 20 base 10), print all the integers N (1 &lt;= N &lt;= 300 base 10) such that the">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/usaco-section-1.2.5-palindromic-squares/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/usaco-section-1.2.5-palindromic-squares/">
   <meta property="og:title" content="USACO Section 1.2.5 Palindromic Squares | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Palindromic Squares Rob Kolstad Palindromes are numbers that read the same forwards as backwards. The number 12321 is a typical palindrome. Given a number base B (2 &lt;= B &lt;= 20 base 10), print all the integers N (1 &lt;= N &lt;= 300 base 10) such that the"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-03-11T18:15:41&#43;08:00">
@@ -406,154 +406,7 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <h2>
-  题目
- </h2>
- <div>
-  <table border="1" cellpadding="1" cellspacing="1">
-   <tbody>
-    <tr>
-     <td>
-      <center style="font-size:14px;">
-       <strong>
-        <span style="font-size:48px;">
-         Palindromic Squares
-        </span>
-       </strong>
-       <br/>
-       Rob Kolstad
-      </center>
-      <p style="font-size:14px;">
-       Palindromes are numbers that read the same forwards as backwards. The number 12321 is a typical palindrome.
-      </p>
-      <p style="font-size:14px;">
-       Given a number base B (2 &lt;= B &lt;= 20 base 10), print all the integers N (1 &lt;= N &lt;= 300 base 10) such that the square of N is palindromic when expressed in base B; also print the value of that palindromic square. Use the letters &lsquo;A&rsquo;,
- &lsquo;B&rsquo;, and so on to represent the digits 10, 11, and so on.
-      </p>
-      <p style="font-size:14px;">
-       Print both the number and its square in base B.
-      </p>
-      <h3>
-       PROGRAM NAME: palsquare
-      </h3>
-      <h3>
-       INPUT FORMAT
-      </h3>
-      <span style="font-size:14px;">
-       A single line with B, the base (specified in base 10).
-      </span>
-      <h3>
-       SAMPLE INPUT (file palsquare.in)
-      </h3>
-      <pre style="font-size:14px;">10
-</pre>
-      <h3>
-       OUTPUT FORMAT
-      </h3>
-      <span style="font-size:14px;">
-       Lines with two integers represented in base B. The first integer is the number whose square is palindromic; the second integer is the square itself.
-      </span>
-      <h3>
-       SAMPLE OUTPUT (file palsquare.out)
-      </h3>
-      <pre style="font-size:14px;">1 1
-2 4
-3 9
-11 121
-22 484
-26 676
-101 10201
-111 12321
-121 14641
-202 40804
-212 44944
-264 69696
-</pre>
-      <div>
-       <br/>
-      </div>
-     </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <h2>
-  思路
- </h2>
- <div>
-  其实这个题目很简单，可是为毛我做了好久呢？其实，主要是我一贯试用cpp的string，这会想练练纯c，突然发现这玩意好繁琐。。又加上边聊边写，于是乎一道水题搞了一个多小时。
- </div>
- <div>
-  <br/>
- </div>
- <div>
-  学习：
- </div>
- <div>
-  <span>
-  </span>
-  malloc(sizeof(char)*100);
-  <span>
-  </span>
-  // 不清零
- </div>
- <div>
-  <span>
-  </span>
-  calloc(100,sizeof(char));
-  <span>
-  </span>
-  // 清零
- </div>
- <div>
-  然后，没了。
- </div>
- <h2>
-  代码
- </h2>
- <div>
-  <pre><code class="language-cpp">#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#include &lt;cstdlib&gt;
-const int dr[22]={&lsquo;0&rsquo;,&lsquo;1&rsquo;,&lsquo;2&rsquo;,&lsquo;3&rsquo;,&lsquo;4&rsquo;,&lsquo;5&rsquo;,&lsquo;6&rsquo;,&lsquo;7&rsquo;,&lsquo;8&rsquo;,&lsquo;9&rsquo;,&lsquo;A&rsquo;,&lsquo;B&rsquo;,&lsquo;C&rsquo;,&rsquo;D&rsquo;,&lsquo;E&rsquo;,&lsquo;F&rsquo;,&lsquo;G&rsquo;,&lsquo;H&rsquo;,&lsquo;I&rsquo;,&lsquo;J&rsquo;,&lsquo;K&rsquo;};
-const int N=300;
-int n;
-char * mir(char *a){
-    int l=strlen(a);
-    char <em>b=(char</em>)calloc(22,sizeof(char));
-    for (int i(0);i&lt;l;i++) b[i]=a[l-i-1];
-    b[l]=&rsquo;\0&rsquo;;
-    return b;
-}
-char * base(int k,int n){
-    char <em>s=(char</em>)calloc(22,sizeof(char));
-    while (k){
-        int l=strlen(s);
-        s[l]=dr[k%n];
-        s[l+1]=&rsquo;\0&rsquo;;
-        k/=n;
-    }
-    return mir(s);
-}
-int main(){
-    freopen(&ldquo;palsquare.in&rdquo;,&ldquo;r&rdquo;,stdin);
-    freopen(&ldquo;palsquare.out&rdquo;,&ldquo;w&rdquo;,stdout);
-    scanf(&ldquo;%d&rdquo;,&amp;n);
-    for (int i(1);i&lt;=N;i++){
-        char *b1=base(i,n);
-        char *b2=base(i*i,n);
-        if (!strcmp(b2,mir(b2))){
-           printf(&ldquo;%s %s\n&rdquo;,b1,b2);
-        }
-    }
-    return 0;
-}</code></pre>
-  <br/>
-  <br/>
- </div>
-</div></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -751,11 +604,15 @@ int main(){
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

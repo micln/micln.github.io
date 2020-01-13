@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 testing&hellip; #include &lt;cstdio&gt; #include &lt;cstring&gt; #include &lt;cstdlib&gt; #include &lt;cmath&gt; using namespace std; const int maxn=10010; const int maxm=maxn*2; const int maxu=maxn*4; const int maxt=maxn*10; const int oo=1993101215; int test,n,e,indexs,dep,tot,lca,debug; int id; //重链编号 int node; //线段树节点 int pre[maxm],other[maxm],last[maxm],w[maxm]; //">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 inline int MAX(int a,int b) { if (a&gt;b)return a; else return b; } inline void add(int u,int v,int cost) { e&#43;&#43;; pre[e]=last[u]; last[u]=e; other[e]=v; w[e]=cost; } inline void init() { int i,u,v,cost; memset(last,0,sizeof(last)); e=0; scanf(&quot;%d\n&rdquo;,&amp;n); for (i=1;i&lt;n;i&#43;&#43;) { scanf(&quot;%d%d%d\n&rdquo;,&amp;u,&amp;v,&amp;cost); add(u,v,cost); add(v,u,cost); } } inline void dfs(int u) { dfsq[&#43;&#43;indexs]=u; depq[indexs]=dep;">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/qtree_testing/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/qtree_testing/">
   <meta property="og:title" content="Qtree_testing | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 testing&hellip; #include &lt;cstdio&gt; #include &lt;cstring&gt; #include &lt;cstdlib&gt; #include &lt;cmath&gt; using namespace std; const int maxn=10010; const int maxm=maxn*2; const int maxu=maxn*4; const int maxt=maxn*10; const int oo=1993101215; int test,n,e,indexs,dep,tot,lca,debug; int id; //重链编号 int node; //线段树节点 int pre[maxm],other[maxm],last[maxm],w[maxm]; //"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 inline int MAX(int a,int b) { if (a&gt;b)return a; else return b; } inline void add(int u,int v,int cost) { e&#43;&#43;; pre[e]=last[u]; last[u]=e; other[e]=v; w[e]=cost; } inline void init() { int i,u,v,cost; memset(last,0,sizeof(last)); e=0; scanf(&quot;%d\n&rdquo;,&amp;n); for (i=1;i&lt;n;i&#43;&#43;) { scanf(&quot;%d%d%d\n&rdquo;,&amp;u,&amp;v,&amp;cost); add(u,v,cost); add(v,u,cost); } } inline void dfs(int u) { dfsq[&#43;&#43;indexs]=u; depq[indexs]=dep;"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2012-11-20T13:14:53&#43;08:00">
@@ -402,180 +402,140 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <p>
-  testing&hellip;
- </p>
- <p>
- </p>
- <pre><code class="language-cpp">#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-#include &lt;cstdlib&gt;
-#include &lt;cmath&gt;
-using namespace std;
-const int maxn=10010;
-const int maxm=maxn*2;
-const int maxu=maxn*4;
-const int maxt=maxn*10;
-const int oo=1993101215;
-int test,n,e,indexs,dep,tot,lca,debug;
-int id;  //重链编号
-int node;  //线段树节点
-int pre[maxm],other[maxm],last[maxm],w[maxm]; //建树
-int dfsq[maxu],f[maxu][20],g[maxu][20],depq[maxu],pos[maxn];  //LCA相关
-int que[maxn],father[maxn],s[maxn],next[maxn],maxs[maxn],dis[maxn],a[maxn],fatherp[maxn];   //重链相关
-int left[maxt],right[maxt],leftnode[maxt],rightnode[maxt],root[maxn],data[maxt];   //线段树
-int pid[maxn];   //每个点所在的重链编号
-int order[maxn];  //每个点所在线段树的位置
-int ed[maxn];   //重链的结束节点
-int link[maxn];  //节点上方的边是读入的第几条
-bool vis[maxn];</p>
-
+<!-- raw HTML omitted -->
 <p>inline int MAX(int a,int b)
 {
-    if (a&gt;b)return a; else return b;<br />
+if (a&gt;b)return a; else return b;<br>
 }</p>
-
 <p>inline void add(int u,int v,int cost)
 {
-     e++;
-     pre[e]=last[u];
-     last[u]=e;
-     other[e]=v;
-     w[e]=cost;<br />
+e++;
+pre[e]=last[u];
+last[u]=e;
+other[e]=v;
+w[e]=cost;<br>
 }</p>
-
 <p>inline void init()
 {
-     int i,u,v,cost;
-     memset(last,0,sizeof(last));
-     e=0;
-     scanf(&ldquo;%d\n&rdquo;,&amp;n);
-     for (i=1;i&lt;n;i++)
-     {
-         scanf(&ldquo;%d%d%d\n&rdquo;,&amp;u,&amp;v,&amp;cost);
-         add(u,v,cost);
-         add(v,u,cost);
-     }<br />
+int i,u,v,cost;
+memset(last,0,sizeof(last));
+e=0;
+scanf(&quot;%d\n&rdquo;,&amp;n);
+for (i=1;i&lt;n;i++)
+{
+scanf(&quot;%d%d%d\n&rdquo;,&amp;u,&amp;v,&amp;cost);
+add(u,v,cost);
+add(v,u,cost);
+}    <br>
 }</p>
-
 <p>inline void dfs(int u)
 {
-    dfsq[++indexs]=u;
-    depq[indexs]=dep;
-    if (pos[u]==0) pos[u]=indexs;  //记录首次出现的位置
-    vis[u]=true;
-    for (int p=last[u];p;p=pre[p])
-        if (vis[other[p]]==false)
-        {
-            dep++;
-            dfs(other[p]);
-            dep&ndash;;
-            dfsq[++indexs]=u;<br />
-            depq[indexs]=dep;
-        }<br />
+dfsq[++indexs]=u;
+depq[indexs]=dep;
+if (pos[u]==0) pos[u]=indexs;  //记录首次出现的位置
+vis[u]=true;
+for (int p=last[u];p;p=pre[p])
+if (vis[other[p]]==false)
+{
+dep++;
+dfs(other[p]);
+dep&ndash;;
+dfsq[++indexs]=u;<br>
+depq[indexs]=dep;
+} <br>
 }</p>
-
 <p>inline void st()
 {
-    //f[i][j]表示深搜序列i到j中最小的深度值
-    //g[i][j]表示深度值最小的节点编号
-    int i,j;
-    for (i=1;i&lt;=indexs;i++)
-    {
-        f[i][0]=depq[i];
-        g[i][0]=dfsq[i];
-    }
-    for (j=1;j&lt;=int(log(indexs)/log(2));j++)
-        for (i=1;i&lt;=indexs-(1&lt;&lt;j)+1;i++)
-            if (f[i][j-1]&gt;f[i+(1&lt;&lt;(j-1))][j-1])
-            {
-                f[i][j]=f[i+(1&lt;&lt;(j-1))][j-1];
-                g[i][j]=g[i+(1&lt;&lt;(j-1))][j-1];<br />
-            }
-            else
-            {
-                f[i][j]=f[i][j-1];
-                g[i][j]=g[i][j-1];<br />
-            }
+//f[i][j]表示深搜序列i到j中最小的深度值
+//g[i][j]表示深度值最小的节点编号
+int i,j;
+for (i=1;i&lt;=indexs;i++)
+{
+f[i][0]=depq[i];
+g[i][0]=dfsq[i];
+}
+for (j=1;j&lt;=int(log(indexs)/log(2));j++)
+for (i=1;i&lt;=indexs-(1&lt;&lt;j)+1;i++)
+if (f[i][j-1]&gt;f[i+(1&lt;&lt;(j-1))][j-1])
+{
+f[i][j]=f[i+(1&lt;&lt;(j-1))][j-1];
+g[i][j]=g[i+(1&lt;&lt;(j-1))][j-1];                           <br>
+}
+else
+{
+f[i][j]=f[i][j-1];
+g[i][j]=g[i][j-1]; <br>
+}
 }</p>
-
 <p>inline void getlca()
 {
-    indexs=0;
-    dep=1;
-    memset(vis,0,sizeof(vis));
-    memset(pos,0,sizeof(pos));
-    dfs(1);
-    st();<br />
+indexs=0;
+dep=1;
+memset(vis,0,sizeof(vis));
+memset(pos,0,sizeof(pos));
+dfs(1);
+st(); <br>
 }</p>
-
 <p>inline int rmq(int x0,int y0)
 {
-    int l,r,t,k;
-    l=pos[x0];
-    r=pos[y0];
-    if (l&gt;r) {t=l;l=r;r=t;}
-    k=int(log(r-l+1)/log(2));
-    if (f[l][k]&lt;f[r-(1&lt;&lt;k)+1][k])
-        return g[l][k];
-    else
-        return g[r-(1&lt;&lt;k)+1][k];
+int l,r,t,k;
+l=pos[x0];
+r=pos[y0];
+if (l&gt;r) {t=l;l=r;r=t;}
+k=int(log(r-l+1)/log(2));
+if (f[l][k]&lt;f[r-(1&lt;&lt;k)+1][k])
+return g[l][k];
+else
+return g[r-(1&lt;&lt;k)+1][k];
 }</p>
-
 <p>inline void build(int l,int r,int &amp;t)
 {
-    if (t==0)  t=++node;
-    int mid=(l+r)/2;
-    left[t]=l;
-    right[t]=r;
-    if (l==r)
-    {
-        data[t]=w[fatherp[a[l]]];
-        return;<br />
-    }
-    build(l,mid,leftnode[t]);
-    build(mid+1,r,rightnode[t]);
-    data[t]=MAX(data[leftnode[t]],data[rightnode[t]]);
+if (t==0)  t=++node;
+int mid=(l+r)/2;
+left[t]=l;
+right[t]=r;
+if (l==r)
+{
+data[t]=w[fatherp[a[l]]];
+return;     <br>
+}
+build(l,mid,leftnode[t]);
+build(mid+1,r,rightnode[t]);
+data[t]=MAX(data[leftnode[t]],data[rightnode[t]]);
 }</p>
-
 <p>inline int find(int l,int r,int t)
 {
-    if ((l==left[t])&amp;&amp;(r==right[t])) return data[t];
-    int mid=(left[t]+right[t])/2;
-    if (r&lt;=mid) return find(l,r,leftnode[t]);
-    if (l&gt;=mid+1) return find(l,r,rightnode[t]);
-    return MAX(find(l,mid,leftnode[t]),find(mid+1,r,rightnode[t]));<br />
+if ((l==left[t])&amp;&amp;(r==right[t])) return data[t];
+int mid=(left[t]+right[t])/2;
+if (r&lt;=mid) return find(l,r,leftnode[t]);
+if (l&gt;=mid+1) return find(l,r,rightnode[t]);
+return MAX(find(l,mid,leftnode[t]),find(mid+1,r,rightnode[t])); <br>
 }</p>
-
 <p>inline void change(int x,int v,int t)
 {
-    if (left[t]==right[t])
-    {
-        data[t]=v;
-        return ;
-    }
-    int mid=(left[t]+right[t])/2;
-    if (x&lt;=mid)
-        change(x,v,leftnode[t]);
-    if (x&gt;=mid+1)
-        change(x,v,rightnode[t]);
-    data[t]=MAX(data[leftnode[t]],data[rightnode[t]]);
+if (left[t]==right[t])
+{
+data[t]=v;
+return ;
+}
+int mid=(left[t]+right[t])/2;
+if (x&lt;=mid)
+change(x,v,leftnode[t]);
+if (x&gt;=mid+1)
+change(x,v,rightnode[t]);
+data[t]=MAX(data[leftnode[t]],data[rightnode[t]]);
 }</p>
-
 <p>inline void bfs()  //求重链
 {
-    int i,j,l,r,q,p;
-    memset(vis,0,sizeof(vis));
-    memset(maxs,0,sizeof(maxs));
-    memset(link,0,sizeof(link));
-    memset(next,0,sizeof(next));
-    node=0; id=0;
-    memset(root,0,sizeof(root));
-    memset(leftnode,0,sizeof(leftnode));
-    memset(rightnode,0,sizeof(rightnode));</p>
-
+int i,j,l,r,q,p;
+memset(vis,0,sizeof(vis));
+memset(maxs,0,sizeof(maxs));
+memset(link,0,sizeof(link));
+memset(next,0,sizeof(next));
+node=0; id=0;
+memset(root,0,sizeof(root));
+memset(leftnode,0,sizeof(leftnode));
+memset(rightnode,0,sizeof(rightnode));</p>
 <pre><code>memset(dis,0,sizeof(dis));
 memset(order,0,sizeof(order));
 memset(pid,0,sizeof(pid));
@@ -644,37 +604,33 @@ for (i=1;i&amp;lt;=n;i++)
         if (dis[i]&amp;lt;dis[ed[pid[i]]])  
              printf(&quot;?&quot;);*/
 </code></pre>
-
 <p>}</p>
-
 <p>inline int ask(int x,int y)   //从x节点一直到祖先y
 {
-    int ans=-oo;
-    //if (dt==1) printf(&ldquo;%d %d\n&rdquo;,x,y);
-    while (x!=y)
-    {
-         //if (dt==1) printf(&ldquo;x : %d %d %d %d\n&rdquo;,x,y,dis[x],dis[y]);
-         if (dis[ed[pid[x]]]&lt;=dis[y])  //如果在一条链上
-         {
-               ans=MAX(ans,find(order[y]+1,order[x],root[pid[x]]));
-               break;<br />
-         }
-         if (dis[ed[pid[x]]]&gt;dis[y])  //如果不在一条链上
-         {
-               ans=MAX(ans,find(1,order[x],root[pid[x]]));
-           //    if (dt==1) printf(&ldquo;wo cao: %d %d\n&rdquo;,dis[x],dis[father[ed[pid[x]]]]);
-               x=father[ed[pid[x]]];
-               continue;<br />
-         }
-    }
-    return ans;
+int ans=-oo;
+//if (dt==1) printf(&quot;%d %d\n&rdquo;,x,y);
+while (x!=y)
+{
+//if (dt==1) printf(&ldquo;x : %d %d %d %d\n&rdquo;,x,y,dis[x],dis[y]);
+if (dis[ed[pid[x]]]&lt;=dis[y])  //如果在一条链上
+{
+ans=MAX(ans,find(order[y]+1,order[x],root[pid[x]]));
+break;                     <br>
+}
+if (dis[ed[pid[x]]]&gt;dis[y])  //如果不在一条链上
+{
+ans=MAX(ans,find(1,order[x],root[pid[x]]));
+//    if (dt==1) printf(&ldquo;wo cao: %d %d\n&rdquo;,dis[x],dis[father[ed[pid[x]]]]);
+x=father[ed[pid[x]]];
+continue;                     <br>
+}
+}
+return ans;
 }</p>
-
 <p>inline void work()
 {
-    char s[30];
-    int x,y;</p>
-
+char s[30];
+int x,y;</p>
 <pre><code>while (1)
 {
     scanf(&quot;%s&quot;,s);
@@ -690,35 +646,26 @@ for (i=1;i&amp;lt;=n;i++)
         lca=rmq(x,y);
         printf(&quot;%d\n&quot;,MAX(ask(x,lca),ask(y,lca)));
     }
-
+    
 }    
 </code></pre>
-
 <p>}</p>
-
 <p>int main()
 {
-    scanf(&ldquo;%d\n&rdquo;,&amp;test);
-    while (test&ndash;)
-    {
-         debug++;
-         init();
-         getlca();
-         bfs();
-         work();
-    }
-    //system(&ldquo;pause&rdquo;);
-    return 0;
+scanf(&quot;%d\n&rdquo;,&amp;test);
+while (test&ndash;)
+{
+debug++;
+init();
+getlca();
+bfs();
+work();
+}
+//system(&ldquo;pause&rdquo;);
+return 0;
 }</p>
-
-<p></code></pre>
- <p>
-  <br/>
- </p>
- testing&hellip;
- <br/>
- <br/>
-</div></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -894,11 +841,15 @@ for (i=1;i&amp;lt;=n;i++)
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

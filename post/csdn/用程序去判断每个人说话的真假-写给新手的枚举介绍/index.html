@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 背景 我们在以前的数学题中一定遇到过这样的问题： A说xxxx B说xxx C说xxx 然后给一些条件，让你判">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 intscore[6]; // i排第几intrank[6]; // 第i名是谁voidinvKT(intn, intk, intret[]); intguess(inti); intmain(){ &lt;span class=&quot;hljs-keyword&quot;&gt;int&lt;/span&gt; n = &lt;span class=&quot;hljs-number&quot;&gt;5&lt;/span&gt;; &lt;span class=&quot;hljs-keyword&quot;&gt;for&lt;/span&gt;">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%8E%BB%E5%88%A4%E6%96%AD%E6%AF%8F%E4%B8%AA%E4%BA%BA%E8%AF%B4%E8%AF%9D%E7%9A%84%E7%9C%9F%E5%81%87-%E5%86%99%E7%BB%99%E6%96%B0%E6%89%8B%E7%9A%84%E6%9E%9A%E4%B8%BE%E4%BB%8B%E7%BB%8D/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%8E%BB%E5%88%A4%E6%96%AD%E6%AF%8F%E4%B8%AA%E4%BA%BA%E8%AF%B4%E8%AF%9D%E7%9A%84%E7%9C%9F%E5%81%87-%E5%86%99%E7%BB%99%E6%96%B0%E6%89%8B%E7%9A%84%E6%9E%9A%E4%B8%BE%E4%BB%8B%E7%BB%8D/">
   <meta property="og:title" content="用程序去判断每个人说话的真假 - 写给新手的枚举介绍 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 背景 我们在以前的数学题中一定遇到过这样的问题： A说xxxx B说xxx C说xxx 然后给一些条件，让你判"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 intscore[6]; // i排第几intrank[6]; // 第i名是谁voidinvKT(intn, intk, intret[]); intguess(inti); intmain(){ &lt;span class=&quot;hljs-keyword&quot;&gt;int&lt;/span&gt; n = &lt;span class=&quot;hljs-number&quot;&gt;5&lt;/span&gt;; &lt;span class=&quot;hljs-keyword&quot;&gt;for&lt;/span&gt;"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2012-10-13T11:09:11&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 分钟阅读时间
+    1 分钟阅读时间
   </span>
   
 
@@ -396,184 +396,12 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="markdown_views prism-atom-one-dark" id="content_views">
- <!-- flowchart 箭头图标 勿删 -->
- <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
-  <path d="M5,0 0,2.5 5,5z" id="raphael-marker-block" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-  </path>
- </svg>
- <h2 id="背景">
-  背景
- </h2>
- <p>
-  我们在以前的数学题中一定遇到过这样的问题：
- </p>
- <p>
-  A说xxxx
-  <br/>
-  B说xxx
-  <br/>
-  C说xxx
- </p>
- <p>
-  然后给一些条件，让你判断每个人说话的真假
- </p>
- <p>
-  这个题目是这样的：
- </p>
- <blockquote>
-  <p>
-   计算机学院准备组织院篮球赛，某班有ABCDE五个同学商量组队参加，他们在讨论谁来打前锋的时候发生了争执，于是他们请了另一个班的同学J当评委，五个人PK百米速度，谁的速度最快就由谁来当前锋，其实五个同学速度相当，比赛结束时，J让他们猜猜排名情况
-  </p>
-  <ul>
-   <li>
-    A说：“E一定是第一名”
-   </li>
-   <li>
-    B说：“我可能是第二名”
-   </li>
-   <li>
-    C说：“A最慢”
-   </li>
-   <li>
-    D说：“C不是最快的”
-   </li>
-   <li>
-    E说：“D应该是第一名”
-   </li>
-  </ul>
-  <p>
-   J最后说：“E肯定不是第二名或者第三名，你们几个只有获得第一名和第二名的人猜对了，你们应该知道谁最快了吧？”
-   <br/>
-   编程给出五个同学的排名。
-  </p>
- </blockquote>
- <h2 id="算法">
-  算法
- </h2>
- <p>
-  习惯了通过表达式去计算一个结果的人，很难去用枚举的思维方式来处理问题。尤其对于枚举的模型很难把握。
- </p>
- <p>
-  枚举算法求解这类问题其实很简单，我尝试用以下三句话来说明：
- </p>
- <ul>
-  <li>
-   把每个人说的话用一个逻辑表达式表示出来
-  </li>
-  <li>
-   枚举解空间内所有可能出现的情况
-  </li>
-  <li>
-   按照题中条件，筛选合法解
-  </li>
- </ul>
- <h3 id="建立说话内容断言的模型">
-  建立说话内容（断言）的模型
- </h3>
- <p>
-  可以很容易想到，上述问题中A的内容“E是第一名”可以写成：
- </p>
- <pre><code>Score[&lsquo;E&rsquo;] == 1;
-</code></pre>
- <p>
-  关键在于，如何描述“A说”的这个过程。很容易想到，这个过程实际上是一个从字符到表达式的映射。表达式在C语言中如何作为一个变量来使用？当然是函数指针，于是可以写出下面的代码：
- </p>
- <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> guessA(){
-    <span class="hljs-keyword">return</span> Score[<span class="hljs-string">&lsquo;E&rsquo;</span>] == <span class="hljs-number">1</span>;
-}
-<span class="hljs-keyword">int</span> guessB(){
-    <span class="hljs-keyword">return</span> Score[<span class="hljs-string">&lsquo;B&rsquo;</span>] == <span class="hljs-number">2</span>;
-}
-&hellip;</code></pre>
- <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> (*guess[<span class="hljs-number">256</span>])();    <span class="hljs-comment">//  定义一个函数指针的数组</span>
-guess[<span class="hljs-string">&lsquo;A&rsquo;</span>] = guessA;
-guess[<span class="hljs-string">&lsquo;B&rsquo;</span>] = guessB;
-&hellip;</code></pre>
- <p>
-  这样的话，就可以用
-  <code>
-   guess[&lsquo;A&rsquo;]()
-  </code>
-  来表示A猜得正确与否
- </p>
- <h3 id="枚举解空间">
-  枚举解空间
- </h3>
- <p>
-  这个题目较为简单，5个人的排名当然有5!种情况，可以用C++提供的全排列的库实现，也可以用深搜自己实现。这里使用
-  <a href="https://zh.wikipedia.org/wiki/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80#.E5.BA.B7.E6.89.98.E5.B1.95.E5.BC.80.E7.9A.84.E9.80.86.E8.BF.90.E7.AE.97" rel="nofollow">
-   康托展开逆运算
-  </a>
-  得到（每次计算的时间复杂度为O(1)）
- </p>
- <pre class="prettyprint"><code class="language-cpp hljs ">
-<span class="hljs-comment">//  生成1~n的全排列中得第k项，返回值在ret中</span>
-<span class="hljs-keyword">int</span> fac[]={<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">24</span>,<span class="hljs-number">120</span>,<span class="hljs-number">720</span>,<span class="hljs-number">5040</span>,<span class="hljs-number">40320</span>,<span class="hljs-number">362880</span>};
-<span class="hljs-keyword">void</span> invKT(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> k, <span class="hljs-keyword">int</span> ret[]){
-    k&ndash;;
-    <span class="hljs-keyword">int</span> vst[<span class="hljs-number">8</span>]={<span class="hljs-number">0</span>}, j;
-    <span class="hljs-keyword">for</span> ( <span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++){
-        <span class="hljs-keyword">int</span> t = k/fac[n-i-<span class="hljs-number">1</span>];
-        <span class="hljs-keyword">for</span> (j=<span class="hljs-number">1</span>; j&lt;=n; j++){
-            <span class="hljs-keyword">if</span> (!vst[j]){
-                <span class="hljs-keyword">if</span> (t==<span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;
-                t&ndash;;
-            }
-        }
-        ret[i] = j;
-        vst[j] = <span class="hljs-number">1</span>;
-        k %= fac[n-i-<span class="hljs-number">1</span>];
-    }
-}</code></pre>
- <p>
-  我们可以枚举得到每次的结果：
- </p>
- <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">int</span> score[N];   <span class="hljs-comment">//  score[i]表示(&lsquo;A&rsquo;+i)排第几名</span>
-<span class="hljs-keyword">int</span> rank[N];    <span class="hljs-comment">//  rank[i]表示第i名是谁</span>
-<span class="hljs-keyword">for</span> ( <span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;=fac[n]; i++) {
-    invKT(n, i, score);
-    <span class="hljs-keyword">for</span> ( <span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>; j&lt;n; j++) rank[score[i]] = <span class="hljs-string">&lsquo;A&rsquo;</span>+i;
-}</code></pre>
- <h3 id="筛选">
-  筛选
- </h3>
- <p>
-  有了以上的准备工作，筛选就非常容易了。
- </p>
- <p>
-  只有第一名和第二名说的正确：
- </p>
- <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-keyword">if</span> (
-    guess[ rank[<span class="hljs-number">1</span>] ]() == <span class="hljs-number">1</span> &amp;&amp;
-    guess[ rank[<span class="hljs-number">2</span>] ]() == <span class="hljs-number">1</span> &amp;&amp;
-    guess[ rank[<span class="hljs-number">3</span>] ]() == <span class="hljs-number">0</span> &amp;&amp;
-    guess[ rank[<span class="hljs-number">4</span>] ]() == <span class="hljs-number">0</span> &amp;&amp;
-    guess[ rank[<span class="hljs-number">5</span>] ]() == <span class="hljs-number">0</span>
-)</code></pre>
- <p>
-  E不是第二和第三：
- </p>
- <pre><code>if ( score[&lsquo;E&rsquo;-&lsquo;A&rsquo;] != 2 &amp;&amp; score[&lsquo;E&rsquo;-&lsquo;A&rsquo;] != 3 )
-</code></pre>
- <h2 id="总代码">
-  总代码
- </h2>
- <p>
-  实际的代码为了偷懒，在一些细节上跟上面的分析不太一样，仅供参考。
- </p>
- <pre class="prettyprint"><code class="language-cpp hljs "><span class="hljs-preprocessor">#include &lt;cstdio&gt;</span>
-<span class="hljs-preprocessor">#include &lt;cstdlib&gt;</span></p>
-
-<p><span class="hljs-keyword">int</span> score[<span class="hljs-number">6</span>];   <span class="hljs-comment">//  i排第几</span>
-<span class="hljs-keyword">int</span> rank[<span class="hljs-number">6</span>];    <span class="hljs-comment">//  第i名是谁</span></p>
-
-<p><span class="hljs-keyword">void</span> invKT(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> k, <span class="hljs-keyword">int</span> ret[]);
-<span class="hljs-keyword">int</span> guess(<span class="hljs-keyword">int</span> i);</p>
-
-<p><span class="hljs-keyword">int</span> main(){</p>
-
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->int<!-- raw HTML omitted --> score[<!-- raw HTML omitted -->6<!-- raw HTML omitted -->];   <!-- raw HTML omitted -->//  i排第几<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->int<!-- raw HTML omitted --> rank[<!-- raw HTML omitted -->6<!-- raw HTML omitted -->];    <!-- raw HTML omitted -->//  第i名是谁<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->void<!-- raw HTML omitted --> invKT(<!-- raw HTML omitted -->int<!-- raw HTML omitted --> n, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> k, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> ret[]);
+<!-- raw HTML omitted -->int<!-- raw HTML omitted --> guess(<!-- raw HTML omitted -->int<!-- raw HTML omitted --> i);</p>
+<p><!-- raw HTML omitted -->int<!-- raw HTML omitted --> main(){</p>
 <pre><code>&lt;span class=&quot;hljs-keyword&quot;&gt;int&lt;/span&gt; n = &lt;span class=&quot;hljs-number&quot;&gt;5&lt;/span&gt;;
 &lt;span class=&quot;hljs-keyword&quot;&gt;for&lt;/span&gt; ( &lt;span class=&quot;hljs-keyword&quot;&gt;int&lt;/span&gt; i=&lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;;i&amp;lt;=&lt;span class=&quot;hljs-number&quot;&gt;120&lt;/span&gt;;i++){
     invKT(n, i, score+&lt;span class=&quot;hljs-number&quot;&gt;1&lt;/span&gt;);
@@ -590,35 +418,32 @@ guess[<span class="hljs-string">&lsquo;B&rsquo;</span>] = guessB;
 }
 &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;;
 </code></pre>
-
 <p>}</p>
-
-<p><span class="hljs-keyword">int</span> guess(<span class="hljs-keyword">int</span> i){
-    <span class="hljs-keyword">return</span> (i==<span class="hljs-number">1</span>)<em>(score[<span class="hljs-number">5</span>]==<span class="hljs-number">1</span>)
-        ||  (i==<span class="hljs-number">2</span>)</em>(score[<span class="hljs-number">2</span>]==<span class="hljs-number">2</span>)
-        ||  (i==<span class="hljs-number">3</span>)<em>(score[<span class="hljs-number">1</span>]==<span class="hljs-number">5</span>)
-        ||  (i==<span class="hljs-number">4</span>)</em>(score[<span class="hljs-number">3</span>]!=<span class="hljs-number">1</span>)
-        ||  (i==<span class="hljs-number">5</span>)*(score[<span class="hljs-number">4</span>]==<span class="hljs-number">1</span>);
+<p><!-- raw HTML omitted -->int<!-- raw HTML omitted --> guess(<!-- raw HTML omitted -->int<!-- raw HTML omitted --> i){
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> (i==<!-- raw HTML omitted -->1<!-- raw HTML omitted -->)<em>(score[<!-- raw HTML omitted -->5<!-- raw HTML omitted -->]==<!-- raw HTML omitted -->1<!-- raw HTML omitted -->)
+||  (i==<!-- raw HTML omitted -->2<!-- raw HTML omitted -->)</em>(score[<!-- raw HTML omitted -->2<!-- raw HTML omitted -->]==<!-- raw HTML omitted -->2<!-- raw HTML omitted -->)
+||  (i==<!-- raw HTML omitted -->3<!-- raw HTML omitted -->)<em>(score[<!-- raw HTML omitted -->1<!-- raw HTML omitted -->]==<!-- raw HTML omitted -->5<!-- raw HTML omitted -->)
+||  (i==<!-- raw HTML omitted -->4<!-- raw HTML omitted -->)</em>(score[<!-- raw HTML omitted -->3<!-- raw HTML omitted -->]!=<!-- raw HTML omitted -->1<!-- raw HTML omitted -->)
+||  (i==<!-- raw HTML omitted -->5<!-- raw HTML omitted -->)*(score[<!-- raw HTML omitted -->4<!-- raw HTML omitted -->]==<!-- raw HTML omitted -->1<!-- raw HTML omitted -->);
 }</p>
-
-<p><span class="hljs-keyword">int</span> fac[]={<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">24</span>,<span class="hljs-number">120</span>,<span class="hljs-number">720</span>,<span class="hljs-number">5040</span>,<span class="hljs-number">40320</span>,<span class="hljs-number">362880</span>};
-<span class="hljs-keyword">void</span> invKT(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> k, <span class="hljs-keyword">int</span> ret[]){
-    k&ndash;;
-    <span class="hljs-keyword">int</span> vst[<span class="hljs-number">8</span>]={<span class="hljs-number">0</span>}, j;
-    <span class="hljs-keyword">for</span> ( <span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++){
-        <span class="hljs-keyword">int</span> t = k/fac[n-i-<span class="hljs-number">1</span>];
-        <span class="hljs-keyword">for</span> (j=<span class="hljs-number">1</span>; j&lt;=n; j++){
-            <span class="hljs-keyword">if</span> (!vst[j]){
-                <span class="hljs-keyword">if</span> (t==<span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;
-                t&ndash;;
-            }
-        }
-        ret[i] = j;
-        vst[j] = <span class="hljs-number">1</span>;
-        k %= fac[n-i-<span class="hljs-number">1</span>];
-    }
-}</code></pre>
-</div></p>
+<p><!-- raw HTML omitted -->int<!-- raw HTML omitted --> fac[]={<!-- raw HTML omitted -->1<!-- raw HTML omitted -->,<!-- raw HTML omitted -->1<!-- raw HTML omitted -->,<!-- raw HTML omitted -->2<!-- raw HTML omitted -->,<!-- raw HTML omitted -->6<!-- raw HTML omitted -->,<!-- raw HTML omitted -->24<!-- raw HTML omitted -->,<!-- raw HTML omitted -->120<!-- raw HTML omitted -->,<!-- raw HTML omitted -->720<!-- raw HTML omitted -->,<!-- raw HTML omitted -->5040<!-- raw HTML omitted -->,<!-- raw HTML omitted -->40320<!-- raw HTML omitted -->,<!-- raw HTML omitted -->362880<!-- raw HTML omitted -->};
+<!-- raw HTML omitted -->void<!-- raw HTML omitted --> invKT(<!-- raw HTML omitted -->int<!-- raw HTML omitted --> n, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> k, <!-- raw HTML omitted -->int<!-- raw HTML omitted --> ret[]){
+k&ndash;;
+<!-- raw HTML omitted -->int<!-- raw HTML omitted --> vst[<!-- raw HTML omitted -->8<!-- raw HTML omitted -->]={<!-- raw HTML omitted -->0<!-- raw HTML omitted -->}, j;
+<!-- raw HTML omitted -->for<!-- raw HTML omitted --> ( <!-- raw HTML omitted -->int<!-- raw HTML omitted --> i=<!-- raw HTML omitted -->0<!-- raw HTML omitted -->; i&lt;n; i++){
+<!-- raw HTML omitted -->int<!-- raw HTML omitted --> t = k/fac[n-i-<!-- raw HTML omitted -->1<!-- raw HTML omitted -->];
+<!-- raw HTML omitted -->for<!-- raw HTML omitted --> (j=<!-- raw HTML omitted -->1<!-- raw HTML omitted -->; j&lt;=n; j++){
+<!-- raw HTML omitted -->if<!-- raw HTML omitted --> (!vst[j]){
+<!-- raw HTML omitted -->if<!-- raw HTML omitted --> (t==<!-- raw HTML omitted -->0<!-- raw HTML omitted -->) <!-- raw HTML omitted -->break<!-- raw HTML omitted -->;
+t&ndash;;
+}
+}
+ret[i] = j;
+vst[j] = <!-- raw HTML omitted -->1<!-- raw HTML omitted -->;
+k %= fac[n-i-<!-- raw HTML omitted -->1<!-- raw HTML omitted -->];
+}
+}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -788,11 +613,15 @@ guess[<span class="hljs-string">&lsquo;B&rsquo;</span>] = guessB;
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>UVa on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in UVa on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Tue, 30 Sep 2014 17:20:25 +0800</lastBuildDate>
     
 	<atom:link href="/tags/uva/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,7 @@
       <pubDate>Tue, 30 Sep 2014 17:20:25 +0800</pubDate>
       
       <guid>/post/csdn/uva-437-the-tower-of-babylon/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 好久不水 开始深入算法了。 题目传送门 题目其实很简单，暴搜都可以，网上最多的解法都是记忆化搜索，效率应该</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 const int INF = 0x3fffffff; const double eps = 1e-6; struct NODE{ int a,b,c; NODE(){} NODE(int x,int y,int z): a(x),b(y),c(z) {} }a[111]; bool cmp(NODE a,NODE b){ if (a.a==b.a) return a.b&amp;lt;b.b; return a.a&amp;lt;b.a; } int d[111]; int I,T,n,m; int main(){ freopen(&amp;ldquo;in.txt&amp;rdquo;,&amp;ldquo;r&amp;rdquo;,stdin); while ( scanf(&amp;quot;%d&amp;rdquo;,&amp;amp;n) &amp;amp;&amp;amp; n){ for ( int i(0); i&amp;lt;n;</description>
     </item>
     
     <item>
@@ -26,7 +27,7 @@
       <pubDate>Thu, 14 Aug 2014 20:54:58 +0800</pubDate>
       
       <guid>/post/csdn/uva-10129-play-on-words/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 好久不写代码果然手会生成屎 题目在 poj上也有 题意就是给你一堆单词，按首位顺序排列起来，问你有没有解。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 int sz[333]; int fa[333]; bool ok[333]; // 数据中使用到的单词 int n, T; int getfa(int v) { if ( fa[v] == v ) return v; return fa[v] = getfa(fa[v]); } void init() { memset(ok, 0, sizeof(ok)); memset(sz, 0, sizeof(sz)); cin &amp;gt;&amp;gt; n; string a;</description>
     </item>
     
   </channel>

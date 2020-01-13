@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -406,60 +406,52 @@
       <blockquote>
 <p>迁移自简书，格式可能未经校对。</p>
 </blockquote>
-
 <p>用 Laravel 很久了，whereHas 简直是连表大杀器，本来需要写大量 SQL 的查询用 whereHas 都可以很快的实现。不过在一些场景里，遇到了严重的性能问题。</p>
-
 <p>我们有个A表，大约是百万级数据，与之关联的有个B表，大约万级数据。在做关联查询的时候我们自然使用 <code>A::whereHas('b', function(){...})</code>  。</p>
-
-<p>后来发现了许多慢查询，仔细一看发现，Laravel 的 <code>whereHas</code> 在生成 SQL 的时候会使用 <code>select * from A where exists ( select * from b where ... )</code> 。当我们的左表远远大于右表时，A 表就成了性能瓶颈。</p>
-
+<p>后来发现了许多慢查询，仔细一看发现，Laravel 的 <code>whereHas</code> 在生成 SQL 的时候会使用 <code> select * from A where exists ( select * from b where ... )</code> 。当我们的左表远远大于右表时，A 表就成了性能瓶颈。</p>
 <p>最直接的方法当然是拆成两条 SQL，但是嫌麻烦，还得一条条优化。再加上我们很多 SQL 都是靠各种工具生成，所以改起来也挺麻烦。</p>
-
 <p>于是就考虑加了个 <code>whereHasIn</code> 的方法，接口参数跟 <code>whereHas</code> 一致，只不过在生成 SQL 的时候会生成 <code>select * from A where A.id in (select id from B)</code>。这样就不需要改什么 SQL 了，只要在调用 <code>A::whereHas()</code> 的地方加两个字符变成 <code>A::whereHasIn()</code> 就搞定了。在实际中，我们这条查询的耗时从几秒一下降低到了20毫秒。</p>
-
 <p>下面是一个实现的 demo，暂时只支持 一对多的情况。如果大家有什么更好的想法，一起讨论讨论。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
 
-<pre><code class="language-php">&lt;?php
+<span style="color:#66d9ef">use</span> <span style="color:#a6e22e">Illuminate\Database\Eloquent\Relations</span>;
 
-use Illuminate\Database\Eloquent\Relations;
-
-abstract class AbstractModel
+<span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AbstractModel</span>
 {
-    /**
-     * whereHas 的 where in 实现
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @param string $relationName
-     * @param callable $callable
-     * @return Builder
-     *
-     * @throws Exception
-     */
-    public function scopeWhereHasIn($builder, $relationName, callable $callable)
+    <span style="color:#e6db74">/**
+</span><span style="color:#e6db74">     * whereHas 的 where in 实现
+</span><span style="color:#e6db74">     *
+</span><span style="color:#e6db74">     * @param \Illuminate\Database\Eloquent\Builder $builder
+</span><span style="color:#e6db74">     * @param string $relationName
+</span><span style="color:#e6db74">     * @param callable $callable
+</span><span style="color:#e6db74">     * @return Builder
+</span><span style="color:#e6db74">     *
+</span><span style="color:#e6db74">     * @throws Exception
+</span><span style="color:#e6db74">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">scopeWhereHasIn</span>($builder, $relationName, <span style="color:#a6e22e">callable</span> $callable)
     {
-        $relationNames = explode('.', $relationName);
-        $nextRelation = implode('.', array_slice($relationNames, 1));
+        $relationNames <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;.&#39;</span>, $relationName);
+        $nextRelation <span style="color:#f92672">=</span> <span style="color:#a6e22e">implode</span>(<span style="color:#e6db74">&#39;.&#39;</span>, <span style="color:#a6e22e">array_slice</span>($relationNames, <span style="color:#ae81ff">1</span>));
 
-        $method = $relationNames[0];
-        /** @var Relations\BelongsTo|Relations\HasOne $relation */
-        $relation = Relations\Relation::noConstraints(function () use ($method) {
-            return $this-&gt;$method();
+        $method <span style="color:#f92672">=</span> $relationNames[<span style="color:#ae81ff">0</span>];
+        <span style="color:#e6db74">/** @var Relations\BelongsTo|Relations\HasOne $relation */</span>
+        $relation <span style="color:#f92672">=</span> <span style="color:#a6e22e">Relations\Relation</span><span style="color:#f92672">::</span><span style="color:#a6e22e">noConstraints</span>(<span style="color:#66d9ef">function</span> () <span style="color:#66d9ef">use</span> ($method) {
+            <span style="color:#66d9ef">return</span> $this<span style="color:#f92672">-&gt;</span>$method();
         });
 
-        /** @var Builder $in */
-        $in = $relation-&gt;getQuery()-&gt;whereHasIn($nextRelation, $callable);
+        <span style="color:#e6db74">/** @var Builder $in */</span>
+        $in <span style="color:#f92672">=</span> $relation<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getQuery</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">whereHasIn</span>($nextRelation, $callable);
 
-        if ($relation instanceof Relations\BelongsTo) {
-            return $builder-&gt;whereIn($relation-&gt;getForeignKey(), $in-&gt;select($relation-&gt;getOwnerKey()));
-        } elseif ($relation instanceof Relations\HasOne) {
-            return $builder-&gt;whereIn($this-&gt;getKeyName(), $in-&gt;select($relation-&gt;getForeignKeyName()));
+        <span style="color:#66d9ef">if</span> ($relation <span style="color:#a6e22e">instanceof</span> <span style="color:#a6e22e">Relations\BelongsTo</span>) {
+            <span style="color:#66d9ef">return</span> $builder<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">whereIn</span>($relation<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getForeignKey</span>(), $in<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">select</span>($relation<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getOwnerKey</span>()));
+        } <span style="color:#66d9ef">elseif</span> ($relation <span style="color:#a6e22e">instanceof</span> <span style="color:#a6e22e">Relations\HasOne</span>) {
+            <span style="color:#66d9ef">return</span> $builder<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">whereIn</span>($this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getKeyName</span>(), $in<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">select</span>($relation<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getForeignKeyName</span>()));
         }
 
-        throw new Exception(__METHOD__ . &quot; 不支持 &quot; . get_class($relation));
+        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#66d9ef">__METHOD__</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34; 不支持 &#34;</span> <span style="color:#f92672">.</span> <span style="color:#a6e22e">get_class</span>($relation));
     }
 }
-</code></pre>
-
+</code></pre></div>
     </div>
 
     
@@ -654,11 +646,15 @@ abstract class AbstractModel
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

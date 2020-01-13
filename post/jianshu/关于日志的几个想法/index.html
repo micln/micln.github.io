@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -393,68 +393,69 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<blockquote>
+      <blockquote>
 <p>迁移自简书，格式可能未经校对。</p>
 </blockquote>
-
 <h2 id="场景还原">场景还原</h2>
-
 <p>先说个场景：</p>
-
 <p>APP上某个操作出现了 <code>系统异常。错误码：abc012</code>，我们收到错误码之后，可以一次性查出这条请求完整的请求路径，穿越了哪几个服务，出错的代码堆栈信息，甚至中间发生了哪些 SQL 查询。这样我们基本在脑子里复现整个场景了。</p>
-
 <p>其中涉及的几个地方：</p>
-
 <ul>
-<li><p>错误码：很多时候并不能得到这个错误截图，我们可以用户反馈的时间、用户ID、功能大致定位到。错误码放在全局的 <code>response header</code> 里</p></li>
-
-<li><p>请求轨迹：在请求来的时候加个 traceId，这个 traceId 注入到后面的 logger 和 client，这样所有的log就都能识别了。</p></li>
-
-<li><p>堆栈信息：像 Php Java 可以很方便的在出现 ERROR 时把堆栈信息跑出去（Php还能记录每个函数的调用参数）。我们用 Go 比较麻烦一些，要专门加个记录 stack 的 error 类型。</p></li>
-
-<li><p>SQL日志：这个看需要了，如果你的 ORM 框架对钩子支持好，加起来也不是难事。</p></li>
+<li>
+<p>错误码：很多时候并不能得到这个错误截图，我们可以用户反馈的时间、用户ID、功能大致定位到。错误码放在全局的 <code>response header</code> 里</p>
+</li>
+<li>
+<p>请求轨迹：在请求来的时候加个 traceId，这个 traceId 注入到后面的 logger 和 client，这样所有的log就都能识别了。</p>
+</li>
+<li>
+<p>堆栈信息：像 Php Java 可以很方便的在出现 ERROR 时把堆栈信息跑出去（Php还能记录每个函数的调用参数）。我们用 Go 比较麻烦一些，要专门加个记录 stack 的 error 类型。</p>
+</li>
+<li>
+<p>SQL日志：这个看需要了，如果你的 ORM 框架对钩子支持好，加起来也不是难事。</p>
+</li>
 </ul>
-
 <h2 id="日志框架">日志框架</h2>
-
 <p>功能上，个人觉得有个强大的 Hook 就够了。这样每个团队都可以根据自己需要来加自己需要的东西</p>
-
 <ul>
-<li><p>Hook</p>
-
+<li>
+<p>Hook</p>
 <ul>
-<li><p>继承 context</p></li>
-
-<li><p>必要时候输出代码位置信息</p></li>
-</ul></li>
-
-<li><p>Keyword</p></li>
-
-<li><p>Extra Map</p></li>
+<li>
+<p>继承 context</p>
+</li>
+<li>
+<p>必要时候输出代码位置信息</p>
+</li>
 </ul>
-
+</li>
+<li>
+<p>Keyword</p>
+</li>
+<li>
+<p>Extra Map</p>
+</li>
+</ul>
 <h2 id="输出和存储">输出和存储</h2>
-
 <ul>
-<li><p>格式：支持不同环境下不同的格式，比如dev模式，关键字就挺好。线上可能需要以json格式打到相关的日志服务里。</p></li>
-
-<li><p>分卷存储：有的框架会按照日期来分文件，个人觉得没必要，可以用 logrotate 这样专业的工具来做。还有一种思路，用 rsyslog 把日志导出到你的日志服务里去，本机的日志，不用存多少就可以删掉了。</p></li>
+<li>
+<p>格式：支持不同环境下不同的格式，比如dev模式，关键字就挺好。线上可能需要以json格式打到相关的日志服务里。</p>
+</li>
+<li>
+<p>分卷存储：有的框架会按照日期来分文件，个人觉得没必要，可以用 logrotate 这样专业的工具来做。还有一种思路，用 rsyslog 把日志导出到你的日志服务里去，本机的日志，不用存多少就可以删掉了。</p>
+</li>
 </ul>
-
 <h2 id="监控报警">监控报警</h2>
-
 <ul>
-<li><p>如果性能没那么苛刻，推荐直接集成 Sentry</p></li>
-
-<li><p>如果团队实力比较强，可以根据日志做各种分析和监控，参考 <a href="http://open-falcon.com/" target="_blank">open-falcon</a></p></li>
+<li>
+<p>如果性能没那么苛刻，推荐直接集成 Sentry</p>
+</li>
+<li>
+<p>如果团队实力比较强，可以根据日志做各种分析和监控，参考 <a href="http://open-falcon.com/">open-falcon</a></p>
+</li>
 </ul>
-
 <h2 id="参考">参考</h2>
-
 <ul>
-<li><a href="http://tech.lede.com/2017/06/30/rd/server/loggingHabit/" target="_blank">优秀日志实践准则</a></li>
+<li><a href="http://tech.lede.com/2017/06/30/rd/server/loggingHabit/">优秀日志实践准则</a></li>
 </ul>
 
     </div>
@@ -625,11 +626,15 @@
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

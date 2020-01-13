@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -312,7 +312,7 @@
     <h2><a href="/post/csdn/hdu-3887-counting-offspring-dfs%E5%BA%8F%E7%9A%84%E8%BF%90%E7%94%A8-%E9%9D%9E%E9%80%92%E5%BD%92/">HDU 3887 Counting Offspring dfs序的运用 | 非递归</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 一天时间做了两道 dfs序 的题， 都是 WA 不停，最后一道改成 100W的数组，一道改成双向边就AC了
+      此页面通过工具从 csdn 导出，格式可能有问题。 stack&lt;int&gt; st; struct NODE { int v,next; } a[N],e[N]; int tr[N],pre[N],s[N],b[N]; int n,em,root,tt; void update(int x) { while ( x&lt;=n) { tr[x] += 1; x += x &amp; -x; } } int gs(int x) { int s = 0; while (x&gt;0) { s += tr[x]; x -= x &amp; -x;
       
     </div>
   </div>
@@ -326,11 +326,15 @@
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

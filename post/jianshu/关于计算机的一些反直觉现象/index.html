@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -393,52 +393,32 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p>[TOC]</p>
-
+      <p>[TOC]</p>
 <blockquote>
 <p>背景</p>
-
 <p>最近想写一些简单的非技术文章，希望能给其他行业的说明白计算机所能和所不能，方便大家用好计算机这个工具。</p>
 </blockquote>
-
-<h2 id="为什么数据都有了-但是不让我查询和统计">为什么数据都有了，但是不让我查询和统计？</h2>
-
+<h2 id="为什么数据都有了但是不让我查询和统计">为什么数据都有了，但是不让我查询和统计？</h2>
 <p>思考：</p>
-
 <blockquote>
 <p>如果计算机记录了每个用户读了哪本书，那么是不是也很容易知道一本书被哪些用户读过？</p>
 </blockquote>
-
 <p>你可能会觉得理所当然。</p>
-
 <p>但是，答案其实是 No。关键在于索引，什么是索引呢，举个例子：</p>
-
 <blockquote>
 <p>如果我要在字典里取找“李”这个字，常见的办法是在字典目录里先找“木”字头的所有字，假如找出100个，再到这些字里找到“李”。</p>
-
 <p>反过来，我能不能先找“子”为底的所有字，再从中找“李”呢？</p>
 </blockquote>
-
 <p>想法是好的，但现实是，没有哪本字典能提供这样的功能。</p>
-
 <p>之所以我们能先找“木”字头而不能先找“子”字底，是因为字典帮我们提供了一份“木”字头的目录而没有提供后者的目录。</p>
-
 <p>这个目录，在计算机里就称作“<strong>索引</strong>”（<strong>Index</strong>）。</p>
-
 <p>我们一般会说，字典为“木”字头建立了索引，但是没有为“子”字底建立索引。如果我们也为“子”建立一份索引，就可以反过来查到“李”字了。顺便，我们也可以在索引里面直接数出“子”字底的字有多少个。</p>
-
 <p>回到思考题，我们知道用户读过的书，但却不能统计一本书的阅读用户。你就大概猜到了，记录每个用户读了哪些书，潜台词就是我在“用户”维度建立了索引，但是却不一定也给“书”的维度建立了索引。</p>
-
 <p>再举个例子加深你的理解</p>
-
 <blockquote>
 <p>如果你在大街上随便问一个人读过哪些书，他可以很快答出来。</p>
-
 <p>但是，如果要问你大街上有哪些人读过某一本书，你可能就需要大费周折了。</p>
 </blockquote>
-
 <p>这是因为，当一本书被一个人读了之后。虽然是“书”和“人”这两个主体发生了关联。但是，只有人的脑子里记录了这个关联，书店并不会记录这本书被某人读了。人脑记住的这份关联，就是索引。</p>
 
     </div>
@@ -609,11 +589,15 @@
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

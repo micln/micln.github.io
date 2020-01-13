@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Milking Cows Three farmers rise at 5 am each morning and head for the barn to milk three cows. The first farmer begins milking his cow at time 300 (measured in seconds after 5 am) and ends at time 1000. The second farmer begins at time 700 and">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 OUTPUT FORMAT A single line with two integers that represent the longest continuous time of milking and the longest idle time. SAMPLE OUTPUT (file milk2.out) 900 300">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/usaco-section-1.2.2-milking-cows/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/usaco-section-1.2.2-milking-cows/">
   <meta property="og:title" content="USACO Section 1.2.2 Milking Cows | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Milking Cows Three farmers rise at 5 am each morning and head for the barn to milk three cows. The first farmer begins milking his cow at time 300 (measured in seconds after 5 am) and ends at time 1000. The second farmer begins at time 700 and"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 OUTPUT FORMAT A single line with two integers that represent the longest continuous time of milking and the longest idle time. SAMPLE OUTPUT (file milk2.out) 900 300"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-03-04T22:23:21&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 分钟阅读时间
+    1 分钟阅读时间
   </span>
   
 
@@ -406,214 +406,22 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-
-<p><div class="htmledit_views" id="content_views">
- <h2>
-  题目
- </h2>
- <div>
-  <table border="1" cellpadding="1" cellspacing="1">
-   <tbody>
-    <tr>
-     <td>
-      <center style="font-size:14px;">
-       <strong>
-        <span style="font-size:48px;">
-         Milking Cows
-        </span>
-       </strong>
-       <br/>
-      </center>
-      <p style="font-size:14px;">
-       Three farmers rise at 5 am each morning and head for the barn to milk three cows. The first farmer begins milking his cow at time 300 (measured in seconds after 5 am) and ends at time 1000. The second farmer begins at time 700 and
- ends at time 1200. The third farmer begins at time 1500 and ends at time 2100. The longest continuous time during which at least one farmer was milking a cow was 900 seconds (from 300 to 1200). The longest time no milking was done, between the beginning and
- the ending of all milking, was 300 seconds (1500 minus 1200).
-      </p>
-      <p style="font-size:14px;">
-       Your job is to write a program that will examine a list of beginning and ending times for N (1 &lt;= N &lt;= 5000) farmers milking N cows and compute (in seconds):
-      </p>
-      <ul style="font-size:14px;">
-       <li>
-        The longest time interval at least one cow was milked.
-       </li>
-       <li>
-        The longest time interval (after milking starts) during which no cows were being milked.
-       </li>
-      </ul>
-      <h3>
-       PROGRAM NAME: milk2
-      </h3>
-      <h3>
-       INPUT FORMAT
-      </h3>
-      <table border="1">
-       <tbody>
-        <tr>
-         <td>
-          Line 1:
-         </td>
-         <td>
-          The single integer
-         </td>
-        </tr>
-        <tr>
-         <td>
-          Lines 2..N+1:
-         </td>
-         <td>
-          Two non-negative integers less than 1000000, the starting and ending time in seconds after 0500
-         </td>
-        </tr>
-       </tbody>
-      </table>
-      <h3>
-       SAMPLE INPUT (file milk2.in)
-      </h3>
-      <pre style="font-size:14px;">3
-300 1000
-700 1200
-1500 2100</p>
-
-<p></pre>
-      <h3>
-       OUTPUT FORMAT
-      </h3>
-      <span style="font-size:14px;">
-       A single line with two integers that represent the longest continuous time of milking and the longest idle time.
-      </span>
-      <h3>
-       SAMPLE OUTPUT (file milk2.out)
-      </h3>
-      <pre style="font-size:14px;">900 300</pre>
-      <br/>
-     </td>
-    </tr>
-   </tbody>
-  </table>
-  <br/>
- </div>
- <h2>
-  思路
- </h2>
- <div>
-  典型的离散化问题，其实也也说不清楚到底什么算是离散化。一般都是长度或者面积上给个区间让你去处理，把复杂的数字映射成自然数，通过 扫描（废话）、合并、裁剪 这么几种来处理“图形”。
- </div>
- <div>
-  所以，这个题，自然而然想到的就是合并线段，把这些线段合起来，看看最长能合出多长，合好之后再看看两两之间的空隙找个最长的然后print出来就OK。
- </div>
- <div>
-  如何合并？一般都是把一段对齐，然后按照另一端的某种顺序排列起来，然后一个一个拾取处理。（突然觉得
-  <span style="font-size:14px;line-height:24px;text-indent:30px;">
-   Kruskal的本质不也是去合并线段么，只不过合的不是一条线上而是一张图上的，以后研究研究~
-  </span>
-  ）。
- </div>
- <div>
-  对于这个题目，我的处理法子是，把所有的线段按端点位置排序，左端点优先，然后考虑右端点。一个sort而已嘛~ 然后一个一个拾取处理，记录已合成的大线段的起止坐标（l,r表示）。
- </div>
- <div>
-  对于每条线段，有一下三种情况：
- </div>
- <div>
-  <br/>
- </div>
- <div>
-  <table border="1" cellpadding="1" cellspacing="1">
-   <tbody>
-    <tr>
-     <td>
-      ————
-      <span>
-      </span>
-      （已合成的线段）
-      <br/>
-      ——
-      <span>
-      </span>
-      （  case 1.1 ）
-      <span>
-      </span>
-      <br/>
-      ————
-      <span>
-      </span>
-      （  case 1.2 ）
-      <br/>
-      ————
-      <span>
-      </span>
-      （  case 2   ）
-     </td>
-    </tr>
-   </tbody>
-  </table>
-  <br/>
- </div>
- <div>
-  即：
- </div>
- <div>
-  1. a[i].l &lt;= r
- </div>
- <blockquote style="border:none;">
-  <div>
-   1) a[i].r &lt;= r
-   <span>
-   </span>
-   扔掉不用管了。
-  </div>
-  <div>
-   2) a[i].r &gt; r   续上呗~
-  </div>
- </blockquote>
- <div>
-  2. a[i].l &gt;  r
-  <span>
-  </span>
-  更新answer，另起炉灶。
- </div>
- <h2>
-  代码
- </h2>
- <div>
-  <pre><code class="language-cpp">#include &lt;cstdio&gt;
-#include &lt;algorithm&gt;
-using namespace std;
-int n;
-struct link{
-    int l,r;
-} a[111111];
-int cmp(link a,link b){
-    return (a.l==b.l)?(a.r&lt;=b.r):(a.l&lt;b.l);
-}
-int main(){
-    freopen(&ldquo;milk2.in&rdquo;,&ldquo;r&rdquo;,stdin);
-    freopen(&ldquo;milk2.out&rdquo;,&ldquo;w&rdquo;,stdout);
-    scanf(&ldquo;%d&rdquo;,&amp;n);
-    for (int i(1);i&lt;=n;i++){
-        scanf(&ldquo;%d%d&rdquo;,&amp;a[i].l,&amp;a[i].r);
-    }
-    sort(a+1,a+n+1,cmp);
-    int l=a[1].l,r=a[1].r,max=a[1].r-a[1].l,nom=0;
-    for (int i(2);i&lt;=n;i++){
-        if (a[i].r&lt;=r) continue;
-        if (a[i].l&lt;=r) {
-            r=a[i].r;
-        } else {
-            if (r-l&gt;max) max=r-l;
-            if (a[i].l-r&gt;nom) nom=a[i].l-r;
-            l=a[i].l;
-            r=a[i].r;
-        }
-    }
-    printf(&ldquo;%d %d\n&rdquo;,max,nom);
-    return 0;<br />
-}
-</code></pre>
-  <br/>
-  <br/>
- </div>
-</div></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+OUTPUT FORMAT
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+A single line with two integers that represent the longest continuous time of milking and the longest idle time.
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+SAMPLE OUTPUT (file milk2.out)
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->900 300<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -811,11 +619,15 @@ int main(){
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

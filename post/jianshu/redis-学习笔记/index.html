@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -399,116 +399,100 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<blockquote>
+      <blockquote>
 <p>迁移自简书，格式可能未经校对。</p>
 </blockquote>
-
 <p>这里只会记录在学习 Redis 源码时觉得比较好玩的地方，不会一五一十的讲细节。</p>
-
 <h2 id="内存分配">内存分配</h2>
-
 <p><code>zmalloc</code> 在实际 <code>malloc</code> 到的内存前面加一个 <code>size</code> 。</p>
-
-<pre><code class="language-c">void *zmalloc(size_t size) {
-    void *ptr = malloc(size+PREFIX_SIZE);
-    *((size_t*)ptr) = size;
-    update_zmalloc_stat_alloc(size+PREFIX_SIZE);
-    return (char*)ptr+PREFIX_SIZE;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">zmalloc</span>(size_t size) {
+    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>ptr <span style="color:#f92672">=</span> malloc(size<span style="color:#f92672">+</span>PREFIX_SIZE);
+    <span style="color:#f92672">*</span>((size_t<span style="color:#f92672">*</span>)ptr) <span style="color:#f92672">=</span> size;
+    update_zmalloc_stat_alloc(size<span style="color:#f92672">+</span>PREFIX_SIZE);
+    <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>)ptr<span style="color:#f92672">+</span>PREFIX_SIZE;
 }
-</code></pre>
-
-<h2 id="动态字符串-sds">动态字符串 sds</h2>
-
+</code></pre></div><h2 id="动态字符串-sds">动态字符串 sds</h2>
 <p><code>sds</code> 在基础的 <code>char*</code> 前面加一段 <code>header</code> 来记录信息（类似于 Go 实现）。</p>
-
-<pre><code class="language-c">// 除了 sdshdr64，还有 sdshdr32、sdshdr16... 区分不同的长度上限
-struct __attribute__ ((__packed__)) sdshdr64 {
-    uint64_t len; /* used */
-    uint64_t alloc; /* excluding the header and null terminator */
-    unsigned char flags; /* 3 lsb of type, 5 unused bits */
-    char buf[];
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// 除了 sdshdr64，还有 sdshdr32、sdshdr16... 区分不同的长度上限
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">__attribute__</span> ((__packed__)) sdshdr64 {
+    uint64_t len; <span style="color:#75715e">/* used */</span>
+    uint64_t alloc; <span style="color:#75715e">/* excluding the header and null terminator */</span>
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> flags; <span style="color:#75715e">/* 3 lsb of type, 5 unused bits */</span>
+    <span style="color:#66d9ef">char</span> buf[];
 };
 
-sds sdsnewlen(const void *init, size_t initlen) {
+sds <span style="color:#a6e22e">sdsnewlen</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>init, size_t initlen) {
     ...
-    sh = s_malloc(hdrlen+initlen+1);
-    s = (char*)sh+hdrlen;	// 实际字符串
-    memcpy(s, init, initlen);
-    return s;
+    sh <span style="color:#f92672">=</span> s_malloc(hdrlen<span style="color:#f92672">+</span>initlen<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+    s <span style="color:#f92672">=</span> (<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>)sh<span style="color:#f92672">+</span>hdrlen;	<span style="color:#75715e">// 实际字符串
+</span><span style="color:#75715e"></span>    memcpy(s, init, initlen);
+    <span style="color:#66d9ef">return</span> s;
 }
-</code></pre>
-
-<h2 id="字典-dict">字典 dict</h2>
-
+</code></pre></div><h2 id="字典-dict">字典 dict</h2>
 <ul>
-<li><p>基本数据结构</p>
-
+<li>
+<p>基本数据结构</p>
 <ul>
 <li>dictEntry：键值对。（冲突处理：开链）</li>
 <li>dictht：哈希表。记录使用情况用来 <code>rehash</code></li>
-
-<li><p>dict</p>
-
-<pre><code class="language-c">typedef struct dict {
-dictType *type; // 不同type有不同的hash算法
-void *privdata;
-dictht ht[2];   // 两个 ht 来实现渐进式的 rehash
-long rehashidx; /* rehashing not in progress if rehashidx == -1 */
-unsigned long iterators; /* number of iterators currently running */
+<li>dict
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> dict {
+    dictType <span style="color:#f92672">*</span>type;	<span style="color:#75715e">// 不同type有不同的hash算法
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>privdata;
+    dictht ht[<span style="color:#ae81ff">2</span>];	<span style="color:#75715e">// 两个 ht 来实现渐进式的 rehash
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">long</span> rehashidx; <span style="color:#75715e">/* rehashing not in progress if rehashidx == -1 */</span>
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> iterators; <span style="color:#75715e">/* number of iterators currently running */</span>
 } dict;
-</code></pre></li>
-</ul></li>
-
-<li><p>哈希算法</p></li>
-
-<li><p>rehash：冲突元素太多时扩容。通过两个哈希表进行</p>
-
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>哈希算法</p>
+</li>
+<li>
+<p>rehash：冲突元素太多时扩容。通过两个哈希表进行</p>
 <ul>
-<li>渐进式策略：</li>
+<li>渐进式策略：
+<ul>
 <li>每次执行操作时转移一个</li>
 <li>定时每次转移100个</li>
-</ul></li>
-
-<li><p>数据操作</p>
-
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>数据操作</p>
 <ul>
 <li>每次操作前尽可能进行一次 <code>rehash</code>。</li>
 <li><code>rehash</code> 时，要依次在两个表里查询；其他操作类似。</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="跳跃表-zset">跳跃表 zset</h2>
-
 <ul>
 <li>数据结构
-
 <ul>
 <li>span</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="整数集合-intset">整数集合 intset</h2>
-
 <ul>
 <li>数据结构
-
 <ul>
 <li><code>encoding</code> 记录元素大小，对于小的数字，使用 <code>int16_t</code> 来节省内存。</li>
-</ul></li>
+</ul>
+</li>
 <li>resize
-
 <ul>
 <li>先分配足够内存，再调用 <code>memmove</code> 函数进行搬移</li>
 <li>单向升级，只有在插入元素的时候，如果 <code>encoding</code> 过小时会进行</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="鸣谢">鸣谢</h1>
-
 <ul>
-<li><a href="https://zcheng.ren/tags/redis/" target="_blank">Redis源码剖析</a></li>
+<li><a href="https://zcheng.ren/tags/redis/">Redis源码剖析</a></li>
 </ul>
 
     </div>
@@ -685,11 +669,15 @@ unsigned long iterators; /* number of iterators currently running */
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

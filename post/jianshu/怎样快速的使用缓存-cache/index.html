@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -410,20 +410,14 @@
       <blockquote>
 <p>迁移自简书，格式可能未经校对。</p>
 </blockquote>
-
 <p>最近看到了几种加缓存的方法，整理对比一下。</p>
-
 <p>拿一个case来说，我们要去数据库取一条用户记录，迫于性能，还要加一层缓存。我们针对这个问题看看几种使用姿势的对比。</p>
-
 <p>Laravel 中 Facades 做法</p>
-
 <pre><code>$person = Cache::remember(&quot;person.{$id}&quot;, 5, function () use ($id) {
     return PersonDao::find($id);
 });
 </code></pre>
-
 <p>Spring Cache 的做法</p>
-
 <pre><code>@Cache(key = &quot;person#id&quot;, ttl = 5)
 public Person getPerson(Integer id) {
     return PersonDao.find(id);
@@ -431,62 +425,39 @@ public Person getPerson(Integer id) {
 
 Person person = repository.getPerson();
 </code></pre>
-
 <p>备注：</p>
-
 <ul>
 <li>PersonDao.find 表示从DB里去拿数据</li>
 </ul>
-
 <p>这两种方法看起来都很简单，除了必要的语法格式，你需要写的代码就是：</p>
-
 <ul>
 <li>cache 函数或标记，表明需要缓存</li>
 <li>key 不解释</li>
 <li>ttl 不解释</li>
 <li>func… 回源数据</li>
 </ul>
-
 <p>基本上可以说是要啥写啥了，不啰嗦。</p>
-
 <p>其实 Php 和 Java 的语法很接近，两种方法在两种语言里都适用。不过 Php 需要第三方的注解支持；Java 需要 8 以上来支持 lambda。</p>
-
 <p>简单的东西一定面临扩展性的问题，我们来看一看他们的可能性。</p>
-
 <p>如果我们要更换缓存驱动怎么办？</p>
-
 <p>Laravel</p>
-
 <pre><code>Cache::store('redis')-&gt;remember(...)
 </code></pre>
-
 <p>Spring</p>
-
 <pre><code>@Cache(driver = redisCache.class)
 </code></pre>
-
 <p>依然很简单。</p>
-
 <p>有些时候，在使用 redis 作为缓存的时候，我们会用不同的编码</p>
-
 <p>Laravel</p>
-
 <pre><code>Cache::store('redis')-&gt;encoding('json')-&gt;remember(...)
 </code></pre>
-
 <p>Spring</p>
-
 <pre><code>@Cache(encoding = JsonEncoding.class)
 </code></pre>
-
 <p>方法其实是相似的，一般的，Lavavel 利用自己习惯的链式操作和 Php 的不定参数，可以让你随时传入自己个性化的需求。Spring 也利用 Annotation 来实现类似的效果。</p>
-
 <p>更多的，Laravel 和 Spring Boot 都遵循了约定优于配置的原则，使得在大多数情况下，你都不需要传这些，只需要使用全局的默认配置就能满足需求。也就是上面的最方便的办法。</p>
-
 <p>简单的方法介绍完了，我们来聊聊 Go 里的做法</p>
-
 <p>刚刚接手一个 Go 项目，里面看到是这样处理缓存的：</p>
-
 <pre><code>proxy := Proxy{
     Prefered: RedisAdapter{
         RedisClient
@@ -497,13 +468,9 @@ Person person = repository.getPerson();
 }
 person := proxy.Get('xxx').(Person)
 </code></pre>
-
 <p>是不是一下看懵逼了，我也是，这还是简化的版本。真正实现一个这样的功能，大约新增了三个实现了数个空接口新类和几个方法。</p>
-
 <p>更蛋疼的，这三个类都是类型相关的，换句话说，list/detail 两种功能各自都需要3个类，换个 model 也不能复用。更悲催的，因为 IDE 对 Go 的 interface 分析都不太好，当你阅读别人的代码的时候，你完全不知道哪里是哪里。</p>
-
 <p>所以，这里想尝试一下，能否在 Go 里使用上面的简单方法处理缓存。</p>
-
 <pre><code>id := 9
 
 person := remember(&quot;key&quot;, 30 * time.Second, func() interface{} {
@@ -517,15 +484,10 @@ remember(&amp;person, &quot;key&quot;, 30 * time.Second, func(iface interface{})
     *iface.(*Person) = *PersonDao.find(id)
 })
 </code></pre>
-
 <p>比较烦的是，Go 不支持泛型，定义函数的时候要尽可能少依赖类型。常用的办法是把类型传入。</p>
-
 <p>前者看起来简单，但有个很要命的地方，你需要很严格的把 Person 类进行序列化。否则从 cache 里取出来后类型可能会丢，导致断言失败。</p>
-
 <p>那么，第二种办法可以吗？或者说，在 Go 里能不能通过简单标记的办法来实现多态？</p>
-
 <p>我只能说，不好弄。</p>
-
 <p>Spring 里很多注解效果，都是靠动态代理实现的（相当于 Php 里阉割版的 __call )。但遗憾的是，Go 目前不能支持这一特性。如果要硬上的话，也可以，搞出来可能跟我接的代码挺像的。</p>
 
     </div>
@@ -726,11 +688,15 @@ remember(&amp;person, &quot;key&quot;, 30 * time.Second, func(iface interface{})
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

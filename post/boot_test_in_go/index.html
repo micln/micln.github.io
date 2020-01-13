@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -398,141 +398,108 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>最开始的项目目录</p>
-
-<pre><code class="language-bash">$ tree
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ tree
 .
 ├── ./api/
 ├── ./service/
 ├── ./dao/
 ├── ./model/
 ├── main.go
-</code></pre>
-
-<pre><code class="language-go">func main(){
-	flag.Parse()
-	artemis := NewArtemis(flag.String(`config`))	// artemis 是我们的框架，类似beego
-	log.init()
-	service.init()
-	dao.init()
-	worker.init()
-	api.Route(artemis.Router)
-	artemis.Run()
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
+	<span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">Parse</span>()
+	<span style="color:#a6e22e">artemis</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewArtemis</span>(<span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">config</span><span style="color:#e6db74">`</span>))	<span style="color:#75715e">// artemis 是我们的框架，类似beego
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">init</span>()
+	<span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">init</span>()
+	<span style="color:#a6e22e">dao</span>.<span style="color:#a6e22e">init</span>()
+	<span style="color:#a6e22e">worker</span>.<span style="color:#a6e22e">init</span>()
+	<span style="color:#a6e22e">api</span>.<span style="color:#a6e22e">Route</span>(<span style="color:#a6e22e">artemis</span>.<span style="color:#a6e22e">Router</span>)
+	<span style="color:#a6e22e">artemis</span>.<span style="color:#a6e22e">Run</span>()
 }
-</code></pre>
+</code></pre></div><p>写个测试吧</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">packege</span> <span style="color:#a6e22e">dao</span>
 
-<p>写个测试吧</p>
-
-<pre><code class="language-go">packege dao
-
-func TestGetNote(t *testing.T){
-	db := NewNoteDB()	// panic: app not init
-	db.Get(1)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestGetNote</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>){
+	<span style="color:#a6e22e">db</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewNoteDB</span>()	<span style="color:#75715e">// panic: app not init
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#ae81ff">1</span>)
 }
-</code></pre>
-
-<p>改：</p>
-
+</code></pre></div><p>改：</p>
 <ul>
 <li>copy启动代码</li>
 <li>把config路径改一下</li>
-
-<li><p>去除不需要的部分，比如在 dao 里去掉 service.init()</p>
-
-<pre><code class="language-go">func TestGetNote(t *testing.T){
-	artemis := NewArtemis(`../../config`)
-	log.init()
-	ddns.init()
-	service.init()
-	dao.init()
-	// test code 
-}
-
-// 也可以放在 TestMain 里统一处理
-func TestMain(m *testing.M){
-// init()
-m.Run()
-}
-</code></pre></li>
+<li>去除不需要的部分，比如在 dao 里去掉 service.init()</li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestGetNote</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>){
+	<span style="color:#a6e22e">artemis</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewArtemis</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">../../config</span><span style="color:#e6db74">`</span>)
+	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">init</span>()
+	<span style="color:#a6e22e">ddns</span>.<span style="color:#a6e22e">init</span>()
+	<span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">init</span>()
+	<span style="color:#a6e22e">dao</span>.<span style="color:#a6e22e">init</span>()
+	<span style="color:#75715e">// test code 
+</span><span style="color:#75715e"></span>}
 
-<blockquote>
+<span style="color:#75715e">// 也可以放在 TestMain 里统一处理
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestMain</span>(<span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">M</span>){
+  <span style="color:#75715e">// init()
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Run</span>()
+}
+</code></pre></div><blockquote>
 <p>简单粗暴的解决办法，调试也够用了。</p>
-
 <p>如果 package 比较少，也没那么多脚本要用，已经能满足需要了</p>
 </blockquote>
-
 <p>但当时我觉得还是不完美，我的项目又比较复杂，然后继续尝试优化：</p>
-
 <p>先抽出个函数放重复代码</p>
-
-<pre><code class="language-go">package boot
-func Boot(){
-	// init()
-}
-func BootTest(){
-	SetRootPath()		// 在子目录跑ut时，要把 wd 对齐到项目目录
-	Boot()
-}
-
-package main
-func main(){
-	boot.Boot()
-	artemis.Run()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">boot</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Boot</span>(){
+	<span style="color:#75715e">// init()
+</span><span style="color:#75715e"></span>}
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">BootTest</span>(){
+	<span style="color:#a6e22e">SetRootPath</span>()		<span style="color:#75715e">// 在子目录跑ut时，要把 wd 对齐到项目目录
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Boot</span>()
 }
 
-package dao
-func test(){
-	boot.BootTest()
-	// test code
+<span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
+	<span style="color:#a6e22e">boot</span>.<span style="color:#a6e22e">Boot</span>()
+	<span style="color:#a6e22e">artemis</span>.<span style="color:#a6e22e">Run</span>()
 }
-</code></pre>
 
-<pre><code class="language-shell">$ go build
+<span style="color:#f92672">package</span> <span style="color:#a6e22e">dao</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">test</span>(){
+	<span style="color:#a6e22e">boot</span>.<span style="color:#a6e22e">BootTest</span>()
+	<span style="color:#75715e">// test code
+</span><span style="color:#75715e"></span>}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go build
 import cycle not allowed
-# dao 和 boot 互相依赖
-</code></pre>
+<span style="color:#75715e"># dao 和 boot 互相依赖</span>
+</code></pre></div><p>改成外部测试</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">dao_test</span>
 
-<p>改成外部测试</p>
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;dao&#34;</span>
 
-<pre><code class="language-go">package dao_test
-
-import &quot;dao&quot;
-
-func test(){
-	db := dao.NewDB()
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">test</span>(){
+	<span style="color:#a6e22e">db</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">dao</span>.<span style="color:#a6e22e">NewDB</span>()
 }
-</code></pre>
-
-<p>缺点：</p>
-
+</code></pre></div><p>缺点：</p>
 <ul>
 <li>ugly</li>
 <li>不能测私有函数</li>
 <li>每次改动几乎重新编译整个项目</li>
 </ul>
-
 <p>最后一点很重要，测试代码时会频繁修改，而每次修改几乎都要重新编译整个项目。
 我的项目在忽略缓存的情况下，编译需要30s
 调个bug，一下午就过去了。。</p>
-
 <p>回头一看整个过程，总结就是</p>
-
-<p>　　<center> <h2> 民科 </h2> </center></p>
-
+<p>　　<!-- raw HTML omitted --> <!-- raw HTML omitted --> 民科 <!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
 <p>于是，放下一切，重新开始</p>
-
 <p>我想要什么？</p>
-
 <ul>
 <li>不用太多重复代码，好维护</li>
 <li>需要时再加载，不需要在测试时搞一堆没用的东西</li>
 </ul>
-
 <p>看看成熟的框架是如何处理的，以我熟悉的 Laravel 为例，很多地方都采用了这样的思路：先注册，后使用</p>
-
-<pre><code class="language-php">class FooServiceProvider {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">class FooServiceProvider {
 	function register($app) {
-		$app-&gt;singleton(&quot;noteDB&quot;, function(){
+		$app-&gt;singleton(&#34;noteDB&#34;, function(){
 			$noteDB = new NoteDB();
 		})
 		
@@ -543,66 +510,51 @@ func test(){
 		make(IRouter::class)-&gt;load();
 	}
 }
-</code></pre>
-
-<p>突然发现，Go的init就是天然的注册机制</p>
-
+</code></pre></div><p>突然发现，Go的init就是天然的注册机制</p>
 <ul>
 <li>所有的init都一定会在main之前执行</li>
 <li>依赖包的init一定先于本包的init，连优先级都帮我做好了</li>
 </ul>
-
 <p>于是大概轮廓就出来了：</p>
-
 <ul>
 <li>在每个 init 里定义自己需要启动什么，代码里依赖了哪个包，就会调用对应的init，不依赖的不会启动</li>
-
-<li><p>运行cmd（webserver/script/test）时，再逐个执行init时注册的任务</p>
-
-<pre><code class="language-go">package dao
-func init(){
-	boot.Register(func(){
-		// ...
-	})
-}
-</code></pre>
-
-<pre><code class="language-go">// web server
-func main(){
-	boot.Boot()
-	defer boot.Shutdown()
-
-	api.Route(artemis.App)
-	artemis.Run()
-}
-
-// script
-func main(){
-	boot.Boot()
-	// ...
-}
-
-// test
-func TestMain(m *testing.M){
-	boot.Register(factories.Init)
-
-	boottest.Boot()
-	defer boottest.Shutdown()
-
-	m.Run()
-	// ...
-}
-</code></pre></li>
+<li>运行cmd（webserver/script/test）时，再逐个执行init时注册的任务</li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">dao</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>(){
+	<span style="color:#a6e22e">boot</span>.<span style="color:#a6e22e">Register</span>(<span style="color:#66d9ef">func</span>(){
+		<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>	})
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// web server
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
+	<span style="color:#a6e22e">boot</span>.<span style="color:#a6e22e">Boot</span>()
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">boot</span>.<span style="color:#a6e22e">Shutdown</span>()
 
-<p><img src="https://i.loli.net/2019/07/07/5d20cf8d95b3762646.png" alt="" /></p>
+	<span style="color:#a6e22e">api</span>.<span style="color:#a6e22e">Route</span>(<span style="color:#a6e22e">artemis</span>.<span style="color:#a6e22e">App</span>)
+	<span style="color:#a6e22e">artemis</span>.<span style="color:#a6e22e">Run</span>()
+}
 
-<!-- ![image-20190702122735634](boot_test_in_go.assets/image-20190702122735634.png) -->
+<span style="color:#75715e">// script
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
+	<span style="color:#a6e22e">boot</span>.<span style="color:#a6e22e">Boot</span>()
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
 
+<span style="color:#75715e">// test
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestMain</span>(<span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">M</span>){
+	<span style="color:#a6e22e">boot</span>.<span style="color:#a6e22e">Register</span>(<span style="color:#a6e22e">factories</span>.<span style="color:#a6e22e">Init</span>)
+
+	<span style="color:#a6e22e">boottest</span>.<span style="color:#a6e22e">Boot</span>()
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">boottest</span>.<span style="color:#a6e22e">Shutdown</span>()
+
+	<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Run</span>()
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p><img src="https://i.loli.net/2019/07/07/5d20cf8d95b3762646.png" alt=""></p>
+<!-- raw HTML omitted -->
 <p>到此，基本上达成了写脚本、写单测时不用操心框架启动的问题。</p>
-
 <p>不过限于框架限制，依然有一些不爽的地方没有解决。</p>
-
 <ul>
 <li>Go很多人摒弃了面向接口编程，导致在写UT时无从mock。后面想办法靠工具对所有的类走一次DI容器</li>
 <li>测试的问题，限于框架限制，不能全局开始事务</li>
@@ -800,11 +752,15 @@ func TestMain(m *testing.M){
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

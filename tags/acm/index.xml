@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ACM on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in ACM on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Tue, 30 Sep 2014 17:20:25 +0800</lastBuildDate>
     
 	<atom:link href="/tags/acm/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,7 @@
       <pubDate>Tue, 30 Sep 2014 17:20:25 +0800</pubDate>
       
       <guid>/post/csdn/uva-437-the-tower-of-babylon/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 好久不水 开始深入算法了。 题目传送门 题目其实很简单，暴搜都可以，网上最多的解法都是记忆化搜索，效率应该</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 const int INF = 0x3fffffff; const double eps = 1e-6; struct NODE{ int a,b,c; NODE(){} NODE(int x,int y,int z): a(x),b(y),c(z) {} }a[111]; bool cmp(NODE a,NODE b){ if (a.a==b.a) return a.b&amp;lt;b.b; return a.a&amp;lt;b.a; } int d[111]; int I,T,n,m; int main(){ freopen(&amp;ldquo;in.txt&amp;rdquo;,&amp;ldquo;r&amp;rdquo;,stdin); while ( scanf(&amp;quot;%d&amp;rdquo;,&amp;amp;n) &amp;amp;&amp;amp; n){ for ( int i(0); i&amp;lt;n;</description>
     </item>
     
     <item>
@@ -26,7 +27,7 @@
       <pubDate>Thu, 14 Aug 2014 20:54:58 +0800</pubDate>
       
       <guid>/post/csdn/uva-10129-play-on-words/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 好久不写代码果然手会生成屎 题目在 poj上也有 题意就是给你一堆单词，按首位顺序排列起来，问你有没有解。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 int sz[333]; int fa[333]; bool ok[333]; // 数据中使用到的单词 int n, T; int getfa(int v) { if ( fa[v] == v ) return v; return fa[v] = getfa(fa[v]); } void init() { memset(ok, 0, sizeof(ok)); memset(sz, 0, sizeof(sz)); cin &amp;gt;&amp;gt; n; string a;</description>
     </item>
     
     <item>
@@ -35,7 +36,7 @@
       <pubDate>Fri, 18 Jul 2014 18:51:34 +0800</pubDate>
       
       <guid>/post/csdn/poj-1017-packets-%E6%82%BC%E5%BF%B5%E6%AD%BB%E5%8E%BB%E7%9A%84%E6%A8%A1%E6%8B%9F/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很水，纯模拟 麻烦的地方在于，会面临多次用小件填充大件剩余。 最开始觉得不同大小时决策不一样</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 int s =a[6]+a[5]+a[4]; // a5 if (a[5]*11 &amp;amp;gt;= a[1]) a[1] = 0; else a[1] -= a[5]*11; // a4 for ( int i(1);i&amp;amp;lt;=a[4];i++){ t = push(20,2,5); if (t) t = push(t,1,t); } // a3 s += a[3] / 4; // 整装3 a[3] %= 4; if (a[3]){ // 剩下</description>
     </item>
     
     <item>
@@ -44,7 +45,7 @@
       <pubDate>Wed, 02 Apr 2014 22:57:45 +0800</pubDate>
       
       <guid>/post/csdn/poj-1273-drainage-ditches-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%A8%A1%E7%89%88/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目传送门 网络流模版题，本想水一水，莫想到因为没好好看题给跪了。 题目大意就是 给你一堆水洼地，还有一些</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 struct EDGE { int to, cap, rev; }; vector&amp;lt;EDGE&amp;gt; g[N]; int ff[N][N]; bool used[N]; int n,m; int dfs(int v,int t,int f){ if ( v == t ) return f; used[v]= true; for ( int i(0); i &amp;lt; g[v].size(); i++){ EDGE &amp;amp;e = g[v][i]; if ( !used[e.to] &amp;amp;&amp;amp; e.cap &amp;gt; 0){</description>
     </item>
     
     <item>
@@ -53,7 +54,7 @@
       <pubDate>Mon, 31 Mar 2014 09:56:24 +0800</pubDate>
       
       <guid>/post/csdn/poj-3321-apple-tree-dfs%E5%BA%8F%E7%9A%84%E5%BA%94%E7%94%A8/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 dfs序 说来很简单，却从来没有想到过。必须得深刻反省一下到底自己学了些啥。 题目大意是给你一棵</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 void dfs(int v) { P1[v]=++tt; for ( int p = a[v].next; p; p=st[p].next ) dfs(st[p].v); P2[v]=tt; return; } inline int l(int i) { return i &amp;amp; -i; } void update(int x,int k) { while (x&amp;lt;=n) { t[x] += k; x += l(x); } } int gs(int x) { int s</description>
     </item>
     
     <item>
@@ -62,7 +63,7 @@
       <pubDate>Mon, 31 Mar 2014 09:34:47 +0800</pubDate>
       
       <guid>/post/csdn/poj-3461-oulipo-kmp%E7%BB%83%E4%B9%A0/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很长，其实就是字符串匹配。 所以，权当练习 KMP #include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstring&amp;gt; #define MB 10101 #define MA 1000100 char a[MA],b[MB]; int next[MB]; void prekmp(char* b) { next[0]=-1; int j=-1; for (</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 void prekmp(char* b) { next[0]=-1; int j=-1; for ( int i(1); b[i]; i++) { while ( j!=-1 &amp;amp;&amp;amp; b[i]!=b[j+1]) j=next[j]; if ( b[i]==b[j+1] ) j++; next[i]=j; } } int kmp(char *a,char *b) { int j=-1,ans=0; for ( int i(0); a[i]; i++) { while ( j!=-1 &amp;amp;&amp;amp; a[i]!=b[j+1] ) j=next[j]; if</description>
     </item>
     
     <item>
@@ -71,7 +72,7 @@
       <pubDate>Thu, 28 Nov 2013 16:37:01 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.4.3-the-clocks/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 The Clocks IOI&amp;rsquo;94 - Day 2 Consider nine clocks arranged in a 3x3 array thusly: |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| | | | | | | | |&amp;mdash;O | |&amp;mdash;O | | O | | | | | | | |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| A B C |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| | | | | | | | O | | O | | O | | | | | | | | | | |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| D E F |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| | | | | | | | O | | O&amp;mdash;| | O |</description>
     </item>
     
     <item>
@@ -80,7 +81,7 @@
       <pubDate>Fri, 15 Nov 2013 16:23:18 +0800</pubDate>
       
       <guid>/post/csdn/poj-3041-asteroids-%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95-%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接： http://poj.org/problem?id=3041 看起来像个 DP 神马的。竟然是二分图匹配。。 看着啊，行与行之间相互独立，一个行可以就炸掉很多</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 const int N = 555; int n, m, g[N][N], chk[N], match[N]; int dfs(int v){ int t; for ( int i = 1; i &amp;lt;= n; i++){ if ( g[i][v] &amp;amp;&amp;amp; !chk[i] ){ chk[i] = 1; t = match[i]; match[i] = v; if ( t == -1 || dfs(t) ) return</description>
     </item>
     
     <item>
@@ -89,7 +90,7 @@
       <pubDate>Wed, 16 Oct 2013 01:46:40 +0800</pubDate>
       
       <guid>/post/csdn/ubuntu-%E5%AE%89%E8%A3%85-hustoj/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 安装好 LAMP 环境 方法： http://blog.csdn.net/kzzhr/article/details/12755671 下载 HUSTOJ HUSTOJ 主页 http://code.google.com/p/hustoj/ 我下载了 安装包 install.rxxxx.tar.gz 上传至服务器 #scp -r /home/foo/isntall foo@xxx.xx.xxx.xxx:/var/www 安装中的那些事儿～ install/README 中有详细的</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -98,7 +99,7 @@
       <pubDate>Thu, 27 Jun 2013 16:56:29 +0800</pubDate>
       
       <guid>/post/csdn/hoj-2651-pie/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hit.edu.cn/hoj/problem/view?id=2651 很简单的二分枚举， 要注意的是 1、一共是 f+1 个人（包括他自己） 2、精度问题。。被吭了好久，我把面</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -107,7 +108,7 @@
       <pubDate>Thu, 27 Jun 2013 02:38:45 +0800</pubDate>
       
       <guid>/post/csdn/hdoj-4152-zzys-dilemma/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hdu.edu.cn/showproblem.php?pid=4152 队长大人给某菜鸟赛出的题，但是却让我傻了半天。 裸暴力，由于数据弱，我直接用了位运算标记，其实</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -116,7 +117,7 @@
       <pubDate>Thu, 27 Jun 2013 02:34:39 +0800</pubDate>
       
       <guid>/post/csdn/zoj-3203-light-bulb/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://openoj.awaysoft.com:8080/judge/problem/viewProblem.action?id=14179 三分入门题目 三分： 区间上求凸（凹）点时，把区间ad分为 abcd 其中 b = ( a+d) / 2 ; c = ( b + d) / 2; 比</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -125,7 +126,7 @@
       <pubDate>Wed, 22 May 2013 11:07:06 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.3.6-prime-cryptarithm/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Prime Cryptarithm The following cryptarithm is a multiplication problem that can be solved by substituting digits from a specified set of N digits into the positions marked with *. If the set of prime digits {2,3,5,7} is selected, the cryptarithm is called a PRIME CRYPTARITHM. * * *</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 if (i*j&amp;amp;lt;10000 &amp;amp;amp;&amp;amp;amp; i*(j/10)&amp;amp;lt;1000 &amp;amp;amp;&amp;amp;amp; i*(j%10)&amp;amp;lt;1000 &amp;amp;amp;&amp;amp;amp; hash(j) &amp;amp;amp;&amp;amp;amp; hash(i*(j%10)) &amp;amp;amp;&amp;amp;amp; hash(i*(j/10)) &amp;amp;amp;&amp;amp;amp; hash(i*j)) { ans++; // printf(&amp;quot;%d * %d = %d0 + %d = %d \n&amp;quot;,i,j,i*(j/10),i*(j%10),i*j); } } } } printf(&amp;quot;%d\n&amp;quot;,ans); return 0; }</description>
     </item>
     
     <item>
@@ -134,7 +135,7 @@
       <pubDate>Wed, 22 May 2013 11:03:07 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.3.5-calf-flac/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Calf Flac It is said that if you give an infinite number of cows an infinite number of heavy-duty laptops (with very large keys), that they will ultimately produce all the world&amp;rsquo;s great palindromes. Your job will be to detect these bovine beauties. Ignore punctuation, whitespace, numbers, and</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -143,7 +144,7 @@
       <pubDate>Wed, 22 May 2013 10:54:09 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.3.3-barn-repair/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Barn Repair It was a dark and stormy night that ripped the roof and gates off the stalls that hold Farmer John&amp;rsquo;s cows. Happily, many of the cows were on vacation, so the barn was not completely full. The cows spend the night in stalls that are arranged</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -152,7 +153,7 @@
       <pubDate>Wed, 22 May 2013 10:44:34 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.3.2-mixing-milk/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Mixing Milk Since milk packaging is such a low margin business, it is important to keep the price of the raw product (milk) as low as possible. Help Merry Milk Makers get the milk they need in the cheapest possible manner. The Merry Milk Makers company has several</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 using namespace std; struct milk { int w,p; }; milk a[maxn+1]; int m,n; bool cmp(milk a ,milk b){ return a.p &amp;lt; b.p; } int main(){ freopen(&amp;ldquo;milk.in&amp;rdquo;,&amp;ldquo;r&amp;rdquo;,stdin); freopen(&amp;ldquo;milk.out&amp;rdquo;,&amp;ldquo;w&amp;rdquo;,stdout); scanf(&amp;quot;%d%d&amp;rdquo;,&amp;amp;m,&amp;amp;n); for (int i=1;i&amp;lt;=n;i++){ scanf(&amp;quot;%d%d&amp;rdquo;,&amp;amp;a[i].p,&amp;amp;(a[i].w)); } sort(a+1,a+n+1,cmp); int s=m,sp=0,k; for (int i=1;s;i++){ if ((k=a[i].w)&amp;gt;s) k=s; s-=k; sp+=k*a[i].p; } printf(&amp;quot;%d\n&amp;rdquo;,sp); return 0; }</description>
     </item>
     
     <item>
@@ -161,7 +162,7 @@
       <pubDate>Sat, 23 Mar 2013 13:03:02 +0800</pubDate>
       
       <guid>/post/csdn/poj-1088-%E6%BB%91%E9%9B%AA/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 http://poj.org/problem?id=1088 思路 经典的记忆化搜索：搜索+记忆化 搜索：一个一个找，能滑就滑 记忆化：优化重复的路径，记录每个点</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -170,7 +171,7 @@
       <pubDate>Mon, 11 Mar 2013 18:15:41 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.2.5-palindromic-squares/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Palindromic Squares Rob Kolstad Palindromes are numbers that read the same forwards as backwards. The number 12321 is a typical palindrome. Given a number base B (2 &amp;lt;= B &amp;lt;= 20 base 10), print all the integers N (1 &amp;lt;= N &amp;lt;= 300 base 10) such that the</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -179,7 +180,7 @@
       <pubDate>Mon, 11 Mar 2013 16:04:47 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.2.3-transformations/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Transformations A square pattern of size N x N (1 &amp;lt;= N &amp;lt;= 10) black and white square tiles is transformed into another square pattern. Write a program that will recognize the minimum transformation that has been applied to the original pattern given the following list of possible</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -188,7 +189,7 @@
       <pubDate>Tue, 05 Mar 2013 13:20:17 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.2.4-name-that-number/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Name That Number Among the large Wisconsin cattle ranchers, it is customary to brand cows with serial numbers to please the Accounting Department. The cow hands don&amp;rsquo;t appreciate the advantage of this filing system, though, and wish to call the members of their herd by a pleasing name</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -197,7 +198,7 @@
       <pubDate>Mon, 04 Mar 2013 22:23:21 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.2.2-milking-cows/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Milking Cows Three farmers rise at 5 am each morning and head for the barn to milk three cows. The first farmer begins milking his cow at time 300 (measured in seconds after 5 am) and ends at time 1000. The second farmer begins at time 700 and</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 OUTPUT FORMAT A single line with two integers that represent the longest continuous time of milking and the longest idle time. SAMPLE OUTPUT (file milk2.out) 900 300</description>
     </item>
     
     <item>
@@ -206,7 +207,7 @@
       <pubDate>Mon, 04 Mar 2013 21:58:18 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.1.7-broken-necklace/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 （由于USACO在外部无法直接访问题库，所以把题目贴上，可以通过上面的目录跳过） Broken Necklace You have a necklace of N</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -215,7 +216,7 @@
       <pubDate>Thu, 31 Jan 2013 14:41:53 +0800</pubDate>
       
       <guid>/post/csdn/poj-%E9%A2%98%E7%9B%AE%E5%88%86%E7%B1%BB%E4%B8%8E%E8%AE%A1%E5%88%92/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 初期: 一.基本算法: (1)枚举. (poj1753,poj2965) (2)贪心(poj1328,poj2109,poj2586) (3)</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -224,7 +225,7 @@
       <pubDate>Thu, 17 Jan 2013 13:36:47 +0800</pubDate>
       
       <guid>/post/csdn/hdoj-1318-palindromes/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hdu.edu.cn/showproblem.php?pid=1318 一般的字符串处理问题，一个共性：思路简单，代码繁琐。 譬如此题，首先会有一个问题要考虑：如何去</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -233,7 +234,7 @@
       <pubDate>Thu, 22 Nov 2012 21:01:27 +0800</pubDate>
       
       <guid>/post/csdn/hdoj-2045-rpg%E9%9A%BE%E9%A2%98/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目地址： http://acm.hdu.edu.cn/showproblem.php?pid=2045 算法思想： 1）有三种颜色，在涂某一块区域时，由于它的前一块区域已经确定，且相邻区域不能重</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
     <item>
@@ -242,7 +243,7 @@
       <pubDate>Thu, 22 Nov 2012 19:17:42 +0800</pubDate>
       
       <guid>/post/csdn/hdoj-2043-%E5%AF%86%E7%A0%81/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目地址： http://acm.hdu.edu.cn/showproblem.php?pid=2043 最基础的模拟题目，只要按照题目给出的要求进行判断即可。 代码如下： #include&amp;lt;iostream&amp;gt; #include&amp;lt;string&amp;gt; using namespace std; const string s=&amp;rdquo;~!@#$%^&amp;ldquo;; string ss; int n;</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 scanf(&amp;quot;%d\n&amp;quot;,&amp;amp;amp;n); while (n--){ getline(cin,ss); if (yes(ss)) printf(&amp;quot;YES\n&amp;quot;); else printf(&amp;quot;NO\n&amp;quot;); } return 0; } 我的博客</description>
     </item>
     
   </channel>

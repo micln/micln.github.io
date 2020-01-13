@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HDU on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in HDU on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Mon, 31 Mar 2014 21:59:58 +0800</lastBuildDate>
     
 	<atom:link href="/tags/hdu/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,7 @@
       <pubDate>Mon, 31 Mar 2014 21:59:58 +0800</pubDate>
       
       <guid>/post/csdn/hdu-3887-counting-offspring-dfs%E5%BA%8F%E7%9A%84%E8%BF%90%E7%94%A8-%E9%9D%9E%E9%80%92%E5%BD%92/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 一天时间做了两道 dfs序 的题， 都是 WA 不停，最后一道改成 100W的数组，一道改成双向边就AC了</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 stack&amp;lt;int&amp;gt; st; struct NODE { int v,next; } a[N],e[N]; int tr[N],pre[N],s[N],b[N]; int n,em,root,tt; void update(int x) { while ( x&amp;lt;=n) { tr[x] += 1; x += x &amp;amp; -x; } } int gs(int x) { int s = 0; while (x&amp;gt;0) { s += tr[x]; x -= x &amp;amp; -x;</description>
     </item>
     
   </channel>

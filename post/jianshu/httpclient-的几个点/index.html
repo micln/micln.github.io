@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -402,71 +402,84 @@
       <blockquote>
 <p>迁移自简书，格式可能未经校对。</p>
 </blockquote>
-
 <p>越来越多的应用里需要依赖大量的对外请求（内部服务或第三方平台）。但是很多的 client 只有基本的请求，这在复杂的场景里根本无法应对各种问题，所以我试图整理一下之前遇到的坑，也是封装一个 httpClient 所需要支持的地方。</p>
-
 <p>重试策略：</p>
-
 <ul>
-<li><p>立即重试</p></li>
-
-<li><p>延时重试</p>
-
+<li>
+<p>立即重试</p>
+</li>
+<li>
+<p>延时重试</p>
 <ul>
 <li>动态延时，1s 2s 4s 8s &hellip;</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>频率限制</p>
-
 <ul>
-<li><p>全局 Pool</p></li>
-
-<li><p>针对同一服务下，排队</p></li>
+<li>
+<p>全局 Pool</p>
+</li>
+<li>
+<p>针对同一服务下，排队</p>
+</li>
 </ul>
-
 <p>配置级别：</p>
-
 <ul>
-<li><p>全局</p></li>
-
-<li><p>服务级</p>
-
+<li>
+<p>全局</p>
+</li>
+<li>
+<p>服务级</p>
 <ul>
-<li><p>调用方</p></li>
-
-<li><p>服务方</p></li>
-</ul></li>
-
-<li><p>Request</p></li>
+<li>
+<p>调用方</p>
+</li>
+<li>
+<p>服务方</p>
+</li>
 </ul>
-
+</li>
+<li>
+<p>Request</p>
+</li>
+</ul>
 <p>日志记什么：</p>
-
 <ul>
-<li><p>请求耗时</p></li>
-
-<li><p>请求信息</p>
-
+<li>
+<p>请求耗时</p>
+</li>
+<li>
+<p>请求信息</p>
 <ul>
-<li><p>url = host + path</p></li>
-
-<li><p>args = header + query + form</p></li>
-</ul></li>
-
-<li><p>请求结果</p>
-
+<li>
+<p>url = host + path</p>
+</li>
+<li>
+<p>args = header + query + form</p>
+</li>
+</ul>
+</li>
+<li>
+<p>请求结果</p>
 <ul>
-<li><p>response header 一定得记</p></li>
-
-<li><p>如果结果是简单数据，比如 json，就全记下</p></li>
-
-<li><p>如果对方接口挂了，返回了 nginx 错误HTML，比如5xx，要记录</p></li>
-
-<li><p>如果是文本文件流，可以记录关键部分；如果是二进制，至少记下 md5 + size</p></li>
-</ul></li>
-
-<li><p>TraceId（参考 <a href="https://www.jianshu.com/p/73346f667f3d" target="_blank">https://www.jianshu.com/p/73346f667f3d</a>)</p></li>
+<li>
+<p>response header 一定得记</p>
+</li>
+<li>
+<p>如果结果是简单数据，比如 json，就全记下</p>
+</li>
+<li>
+<p>如果对方接口挂了，返回了 nginx 错误HTML，比如5xx，要记录</p>
+</li>
+<li>
+<p>如果是文本文件流，可以记录关键部分；如果是二进制，至少记下 md5 + size</p>
+</li>
+</ul>
+</li>
+<li>
+<p>TraceId（参考 <a href="https://www.jianshu.com/p/73346f667f3d">https://www.jianshu.com/p/73346f667f3d</a>)</p>
+</li>
 </ul>
 
     </div>
@@ -643,11 +656,15 @@
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

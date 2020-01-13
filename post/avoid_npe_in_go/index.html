@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -399,131 +399,81 @@
     <br>
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p>空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围。但是由于 Go 刻意隐藏了值和引用的概念，使得很多新手在处理的时候把空引用当成空值，从而又引发了不少 panic。另一种常见的 npe 是使用指针不当引起。</p>
-
+      <p>空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围。但是由于 Go 刻意隐藏了值和引用的概念，使得很多新手在处理的时候把空引用当成空值，从而又引发了不少 panic。另一种常见的 npe 是使用指针不当引起。</p>
 <p>本文通过自己的经验，试图提供一些避免 NPE 的方法出来。</p>
-
-<hr />
-
+<hr>
 <p>先来看一种最常见的情形</p>
-
-<h2 id="定义嵌套结构体时-尽可能不嵌套指针">定义嵌套结构体时，尽可能不嵌套指针</h2>
-
+<h2 id="定义嵌套结构体时尽可能不嵌套指针">定义嵌套结构体时，尽可能不嵌套指针</h2>
 <p>比较容易理解</p>
-
-<pre><code class="language-go">type Male struct{
-	Human
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Male</span> <span style="color:#66d9ef">struct</span>{
+	<span style="color:#a6e22e">Human</span>
 }
-</code></pre>
-
-<p>组合时优先用 Human 而不是 <code>*Human</code>。</p>
-
+</code></pre></div><p>组合时优先用 Human 而不是 <code>*Human</code>。</p>
 <p>有人会顾虑，那我想用 <code>*Human</code> 的方法怎么办，其实，<code>*Male</code> 其实是包含 <code>*Human</code> 的方法的。</p>
-
 <p>这样做最主要的原因，也是很多人在 <code>new(Male)</code> 时忘记 <code>new(Human)</code>，导致给上层抛了个 nil。更要命的，如果这个 struct 直接转成 json 抛了出去，如果下游对 null 也没处理好，这就是个跨端 bug 了。</p>
-
 <p>后来帮同事查问题时发现个更隐藏的坑，这个 <code>Human</code> 里可能还有个结构体指针假如是 <code>*Face</code>，代码从 <code>Male</code> 直接调 <code>*Face</code> 的方法，自然就 panic 了。悲催的是，在 IDE 里帮他调代码，会直接跳过 <code>Human</code> 这一层，使得查起来更难以发现问题所在。</p>
-
 <p>这个也可以衍生一个小规范，定义变量尽量用 struct 而不是指针，传参的时候再使用。不过我感觉这个带来的坑不如上面大，所以不支持不反对。。</p>
-
 <h2 id="函数返回值返回了-nil">函数返回值返回了 nil</h2>
-
 <p>看一个连环坑</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 获取 user 对象
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">GetUser</span>() (<span style="color:#f92672">*</span><span style="color:#a6e22e">User</span>, <span style="color:#66d9ef">error</span>)
 
-<pre><code class="language-go">// 获取 user 对象
-func GetUser() (*User, error)
-
-func main() {
-	user,err := GetUser()
-	if err != nil { 
-		write(err.Error())
-		return 
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">user</span>,<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">GetUser</span>()
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { 
+		<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
+		<span style="color:#66d9ef">return</span> 
 	}
 
-	println(user.Name)	// panic user=nil
+	println(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">Name</span>)	<span style="color:#75715e">// panic user=nil
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>一般的，我们会觉得既然我都判 error 了，user 的值总该是正常了吧。只能说 too naive，真正垃圾的代码是没有底线的。反应快的人可能马上想到解决办法，在 <code>err != nil</code> 的地方也判一下 user：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+	<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
 }
-</code></pre>
-
-<p>一般的，我们会觉得既然我都判 error 了，user 的值总该是正常了吧。只能说 too naive，真正垃圾的代码是没有底线的。反应快的人可能马上想到解决办法，在 <code>err != nil</code> 的地方也判一下 user：</p>
-
-<pre><code class="language-go">if err != nil || user == nil {
-	write(err.Error())
-}
-</code></pre>
-
-<p>然后，就悲催的发现还是 panic 了。因为当 <code>user=nil &amp;&amp; err==nil</code> 时，也会走到 <code>err.Error()</code> 这里，这里的 <code>err.xx</code> 又是一个 NPE！</p>
-
+</code></pre></div><p>然后，就悲催的发现还是 panic 了。因为当 <code>user=nil &amp;&amp; err==nil</code> 时，也会走到 <code>err.Error()</code> 这里，这里的 <code>err.xx</code> 又是一个 NPE！</p>
 <p>老老实实的一个个处理固然是好办法，但是难保谁一个手抖。</p>
-
 <p>所以我们换个思路，想想能不能对 GetUser 这个函数做一些要求。问题就变成了有什么简单的办法让函数不返回 nil。</p>
-
 <p>不说中间的尝试了，直接说我们的结论：</p>
-
 <blockquote>
-<p>函数返回值可能返回 nil 时，定义返回值必须 <strong><em>带上变量名</em></strong>，并且在函数体内 <strong><em>首行进行初始化</em></strong>。函数返回时 <strong><em>不带变量名</em></strong></p>
+<p>函数返回值可能返回 nil 时，定义返回值必须 <em><strong>带上变量名</strong></em>，并且在函数体内 <em><strong>首行进行初始化</strong></em>。函数返回时 <em><strong>不带变量名</strong></em></p>
 </blockquote>
-
 <p>给个例子：</p>
-
-<pre><code class="language-go">func GetUsers() (users []*User, err error) {
-	users = make([]*User, 0, 32)
-	// function body
-	return
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">GetUsers</span>() (<span style="color:#a6e22e">users</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">User</span>, <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>) {
+	<span style="color:#a6e22e">users</span> = make([]<span style="color:#f92672">*</span><span style="color:#a6e22e">User</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">32</span>)
+	<span style="color:#75715e">// function body
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">return</span>
 }
-</code></pre>
-
-<p>三个条件</p>
-
+</code></pre></div><p>三个条件</p>
 <ul>
 <li>必须有变量名</li>
 <li>必须首行初始化</li>
 <li>return 无参数</li>
 </ul>
-
 <p>这三点共同保证第一个目的：函数在任何地方 return，都不会给上层抛出 nil</p>
-
 <p>具体解释一下，为什么 变量名放在函数签名里而不在 return 里。是因为当函数很复杂需要多个 return 时，每个 return 时 users 里是啥你心里不一定有概念。也顾不上去考虑。索性把这个任务就交给定义阶段了。</p>
-
 <p>另外，返回值在函数开头就一起定义&amp;初始化了。在 code review 时也更容易注意到。在看函数体的时候也不用再去想这个问题了。</p>
-
-<hr />
-
+<hr>
 <h2 id="函数入参有指针时给了-nil-怎么办">函数入参有指针时给了 nil 怎么办</h2>
-
 <p>在 Go 里有个很普遍的情况，函数的最后一个入参其实表示的是函数返回值。看例子：</p>
-
-<pre><code class="language-go">func getUserArticles(userId int, articles map[int]Article) {
-	articles[1] = &amp;Article{}	// panic: articles 未初始化
-}
-</code></pre>
-
-<p>好说，那我 new 一个吧。一般没问题。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getUserArticles</span>(<span style="color:#a6e22e">userId</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">articles</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">int</span>]<span style="color:#a6e22e">Article</span>) {
+	<span style="color:#a6e22e">articles</span>[<span style="color:#ae81ff">1</span>] = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Article</span>{}	<span style="color:#75715e">// panic: articles 未初始化
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>好说，那我 new 一个吧。一般没问题。</p>
 <p>但是如果 articles 里已经有一部分数据了，这里只是需要你 append 呢？更常见的，articels 是个结构体指针，里面有一些字段是需要的，你不能给删咯。</p>
-
 <p>更可怕的，如果这个参数传了好多层，鬼还记得他里面到底是啥。</p>
-
 <p>针对这种 case，我们也做了一些简单的约定：</p>
-
 <blockquote>
 <p>谁定义，谁初始化</p>
 </blockquote>
-
 <p>参照这个例子来说，</p>
-
 <ul>
 <li>如果函数为 <code>func() articles</code>，那我来初始化，保证不返回 nil，如果保证呢？参照上面那条规范。</li>
 <li>如果函数为 <code>func(articles)</code>，那调用方来初始化，保证不传 nil</li>
 </ul>
-
 <p>两个简单的约束，保证绝大多数参数简单稳定地运行。</p>
-
-<hr />
-
+<hr>
 <p>下班时突然心血来潮想整理一下，休息一下。未完待续。。</p>
-
 <p>欢迎讨论。</p>
 
     </div>
@@ -720,11 +670,15 @@ func main() {
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

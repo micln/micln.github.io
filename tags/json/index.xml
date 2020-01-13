@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JSON on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in JSON on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Mon, 25 Mar 2019 00:22:45 +0800</lastBuildDate>
     
 	<atom:link href="/tags/json/index.xml" rel="self" type="application/rss+xml" />
@@ -35,7 +36,7 @@
       <pubDate>Tue, 14 May 2013 12:49:58 +0800</pubDate>
       
       <guid>/post/csdn/json-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 对象元素 obj = {&amp;ldquo;name&amp;rdquo;:&amp;ldquo;Jom&amp;rdquo;}; document.writeln(obj.name); 数组 obj = [&amp;ldquo;name&amp;rdquo;,&amp;ldquo;Jom&amp;rdquo;]; document.writeln(obj); 对象数组 obj = [{&amp;ldquo;name&amp;rdquo;:&amp;ldquo;Jom&amp;rdquo;}]; document.writeln(obj[0].name); 与字符串转换 txt = &amp;ldquo;{\&amp;ldquo;name\&amp;rdquo;:\&amp;ldquo;Jank\&amp;ldquo;}&amp;rdquo;; obj = eval(&amp;ldquo;(&amp;rdquo;+txt+&amp;ldquo;)&amp;rdquo;); document.writeln(obj.name); JSON的值： 数字（整数或浮点</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
     </item>
     
   </channel>

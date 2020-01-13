@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mac on 在水异方</title>
@@ -6,6 +6,7 @@
     <description>Recent content in Mac on 在水异方</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
     <lastBuildDate>Mon, 19 Dec 2016 11:03:11 +0800</lastBuildDate>
     
 	<atom:link href="/tags/mac/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,7 @@
       <pubDate>Mon, 19 Dec 2016 11:03:11 +0800</pubDate>
       
       <guid>/post/jianshu/mac-%E5%9F%BA%E6%9C%AC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
-      <description>迁移自简书，格式可能未经校对。 !/bin/sh # homebrew /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; # iTerm2 brew install Caskroom/cask/iterm2 # zsh zsh # .oh-my-zsh sh -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&amp;quot; # macdown brew install Caskroom/cask/macdown PhpStorm Dash macdown</description>
+      <description>迁移自简书，格式可能未经校对。 !/bin/sh # homebrew /usr/bin/ruby -e &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;#34; # iTerm2 brew install Caskroom/cask/iterm2 # zsh zsh # .oh-my-zsh sh -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&amp;#34; # macdown brew install Caskroom/cask/macdown PhpStorm Dash macdown</description>
     </item>
     
     <item>
@@ -27,9 +28,7 @@
       
       <guid>/post/typecho/54-hp-4421s-%E5%95%83%E5%88%B0%E9%BB%91%E8%8B%B9%E6%9E%9C/</guid>
       <description>&lt;p&gt;高考前后，RP掉到渣，电脑也各种犯毛病。无意中看到了一份比较不错的黑苹果安装视频教程，反正机子也各种毛病，破罐子摔摔看，看能不能摔出什么宝贝出来。&lt;/p&gt;
-
 &lt;p&gt;那时候还没有关于ProBook 4421s 的教程，很多人说这机子不能装！后来用工具测试果然显示不行.&lt;/p&gt;
-
 &lt;p&gt;那时候还不知道懒人版是什么东西只觉得自己好牛逼的，下载的都是原版自己提取自己配置到最后得知内核不兼容。&lt;/p&gt;</description>
     </item>
     

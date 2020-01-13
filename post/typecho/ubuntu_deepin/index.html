@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -398,27 +398,17 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>昨天<code>Deepin2014.2</code>内置了<code>CrossOver Deepin专版</code>，其中最大的惊喜莫过于<code>QQ</code>的正常使用。越来越感觉到 Deepin 才是普通 Linux 用户的未来。所以整理了一下这份资料。</p>
-
-<h2 id="第一步-添加软件源">第一步：添加软件源</h2>
-
+<h2 id="第一步添加软件源">第一步：添加软件源</h2>
 <p>这一步网上可以看到很多教程，但是都是两年前的版本了，还得自己改成新的，所以这里重新整理一下</p>
-
 <p>打开 <code>/etc/apt/sources.list</code>，在末尾添加下面两行。</p>
-
 <pre><code>deb http://packages.linuxdeepin.com/deepin trusty main non-free universe
 deb-src http://packages.linuxdeepin.com/deepin trusty main non-free universe%
-</code></pre>
-
-<p>打开终端，导入密钥</p>
-
+</code></pre><p>打开终端，导入密钥</p>
 <pre><code>wget http://packages.linuxdeepin.com/deepin/project/deepin-keyring.gpg
 gpg --import deepin-keyring.gpg
 sudo gpg --export --armor 209088E7 | sudo apt-key add -
 sudo apt-get update
-</code></pre>
-
-<h2 id="第二步-安装深度商店及组件">第二步：安装深度商店及组件</h2>
-
+</code></pre><h2 id="第二步安装深度商店及组件">第二步：安装深度商店及组件</h2>
 <pre><code>sudo apt-get install deepin-software-center
 sudo apt-get install python-deepin-gsettings
 </code></pre>
@@ -612,11 +602,15 @@ sudo apt-get install python-deepin-gsettings
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">

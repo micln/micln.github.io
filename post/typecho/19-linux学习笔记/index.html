@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.62.2" />
 
   
 
@@ -398,72 +398,40 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>以下所有命令基于 ubuntu12.04 系统。centos、rhel 慎重</p>
-
 <h1 id="系统环境">系统环境</h1>
-
 <h2 id="grub修复">grub修复</h2>
-
 <p>linux改为主引导</p>
-
 <p>之前装mac时把引导毁掉了，pe只能修复win引导。linux引导还得自己再修复。</p>
-
 <p>liveCD（我直接用的烧在U盘的ubuntu试用）。</p>
-
 <pre><code># fdisk -l  
 # mount /dev/sdaX /mnt  
 # mount /dev/sdaY /mnt/boot                     #如果有单独boot分区  
 # grub-install --root-directory=/mnt /dev/sda  
 # init 6  
-</code></pre>
-
-<p>重启之后就ok了～</p>
-
+</code></pre><p>重启之后就ok了～</p>
 <p>过程中出现了warning 。不用管，重启没有问题。</p>
-
 <h2 id="grub添加到windows下">grub添加到windows下</h2>
-
 <p>主要目的是兼顾mac</p>
-
 <p>在装linux 的时候，可以把grub安装在linux磁盘<code>/sdaX</code>，然后在win下用easyBCD把grub添加到win下，这样在一个引导下就可以选择三个系统。</p>
-
 <h2 id="不启动桌面环境">不启动桌面环境</h2>
-
 <p>首先在 <code>/etc/default/grub</code> 里添加</p>
-
 <p>然后 <code>sudo update-grub</code></p>
-
 <h1 id="用户相关">用户相关</h1>
-
 <h2 id="添加用户">添加用户</h2>
-
 <pre><code># useradd
 # adduser    #会自动创建目录
-</code></pre>
-
-<h2 id="添加-sudoers">添加 sudoers</h2>
-
+</code></pre><h2 id="添加-sudoers">添加 sudoers</h2>
 <pre><code># vim /etc/sudoers
 user    All=(All) NOPASSWD: ALL
 %admin	ALL=(ALL) NOPASSWD: ALL
-</code></pre>
-
-<h1 id="服务器环境">服务器环境</h1>
-
-<h2 id="修改主机名-机器名">修改主机名/机器名</h2>
-
+</code></pre><h1 id="服务器环境">服务器环境</h1>
+<h2 id="修改主机名机器名">修改主机名/机器名</h2>
 <p>首选修改 <code>/etc/hostname</code> 和 <code>/etc/hosts</code> 文件对应的机器名</p>
-
 <p>然后 <code>hostname NAME</code></p>
-
 <h2 id="查看端口占用">查看端口占用</h2>
-
 <pre><code>$ netstat -tunpl
-</code></pre>
-
-<h2 id="添加ssh免密码登陆">添加ssh免密码登陆</h2>
-
+</code></pre><h2 id="添加ssh免密码登陆">添加ssh免密码登陆</h2>
 <p>网上教程一大堆，坑在了权限</p>
-
 <pre><code>sudo chmod 700 ~/.ssh
 sudo chmod 644 ~/.ssh/authorized_keys
 sudo chmod 600 ~/.ssh/id_rsa.pub
@@ -654,11 +622,15 @@ sudo chmod 600 ~/.ssh/id_rsa.pub
   
 
   <p class="powered-by">
-    
+    ©2020 在水异方 
+
+    &nbsp; &middot; &nbsp;
+    <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
+    &nbsp; &middot; &nbsp;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
 
     
     <span class="float-right" aria-hidden="true">
