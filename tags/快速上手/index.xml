@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>快速上手 on 在水异方</title>
+    <link>/tags/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/</link>
+    <description>Recent content in 快速上手 on 在水异方</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>©{year} 在水异方</copyright>
+    <lastBuildDate>Thu, 12 Mar 2020 12:07:34 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>k8s 上手笔记</title>
+      <link>/post/k8s_starter/</link>
+      <pubDate>Thu, 12 Mar 2020 12:07:34 +0800</pubDate>
+      
+      <guid>/post/k8s_starter/</guid>
+      <description>[TOC] 从哪学 官方教程，有中文，提供给交互式练习，注意网络环境 https://kubernetes.io/zh/docs/tutorials/ 概念 Pod：一个抽象的应用实例，含义上约等于 docker 里 container 的一层 wrapper，但是因为有</description>
+    </item>
+    
+  </channel>
+</rss>

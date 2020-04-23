@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.67.1" />
 
   
 
@@ -396,9 +396,9 @@ fatal error: stack overflow
 runtime stack:
 runtime.throw<span style="color:#f92672">(</span>0x1a556a1, 0xe<span style="color:#f92672">)</span>
 /usr/local/Cellar/go/1.12.5/libexec/src/runtime/panic.go:617 +0x72
-runtime.newstack<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+runtime.newstack<span style="color:#f92672">()</span>
 /usr/local/Cellar/go/1.12.5/libexec/src/runtime/stack.go:1041 +0x6f0
-runtime.morestack<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+runtime.morestack<span style="color:#f92672">()</span>
 /usr/local/Cellar/go/1.12.5/libexec/src/runtime/asm_amd64.s:429 +0x8f
 ...
 </code></pre></div><p>以为是程序出 panic 了，不过仔细看了看，好像不是我的代码，仔细一研究，发现程序还没跑起来，<code>go build</code> 时已经 panic 了。然后经过各种 <code>git stash</code>，终于发现，原来是因为外面也定义了一个 <code>type Article struct{}</code> 导致的 panic。</p>

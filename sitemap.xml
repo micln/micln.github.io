@@ -2,26 +2,44 @@
   
     <url>
     
+      <loc>/tags/k8s/</loc>
+      <lastmod>2020-03-12T12:07:34+08:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/post/k8s_starter/</loc>
+      <lastmod>2020-03-12T12:07:34+08:00</lastmod>
+    </url>
+  
+    <url>
+    
       <loc>/post/</loc>
-      <lastmod>2020-01-02T20:34:02+08:00</lastmod>
+      <lastmod>2020-03-12T12:07:34+08:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/</loc>
+      <lastmod>2020-03-12T12:07:34+08:00</lastmod>
     </url>
   
     <url>
     
       <loc>/</loc>
-      <lastmod>2020-01-02T20:34:02+08:00</lastmod>
+      <lastmod>2020-03-12T12:07:34+08:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/</loc>
+      <lastmod>2020-03-12T12:07:34+08:00</lastmod>
     </url>
   
     <url>
     
       <loc>/post/tools/</loc>
       <lastmod>2020-01-02T20:34:02+08:00</lastmod>
-    </url>
-  
-    <url>
-    
-      <loc>/post/go_max_procs/</loc>
-      <lastmod>2019-11-09T19:34:55+08:00</lastmod>
     </url>
   
     <url>
@@ -51,12 +69,6 @@
     <url>
     
       <loc>/post/go_net_errors/</loc>
-      <lastmod>2019-10-04T16:11:14+08:00</lastmod>
-    </url>
-  
-    <url>
-    
-      <loc>/tags/</loc>
       <lastmod>2019-10-04T16:11:14+08:00</lastmod>
     </url>
   
@@ -128,13 +140,13 @@
   
     <url>
     
-      <loc>/tags/npe/</loc>
+      <loc>/post/avoid_npe_in_go/</loc>
       <lastmod>2019-05-16T21:58:24+08:00</lastmod>
     </url>
   
     <url>
     
-      <loc>/post/avoid_npe_in_go/</loc>
+      <loc>/tags/npe/</loc>
       <lastmod>2019-05-16T21:58:24+08:00</lastmod>
     </url>
   
@@ -292,6 +304,12 @@
     
       <loc>/tags/wherehas/</loc>
       <lastmod>2018-06-26T21:07:21+08:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/c/</loc>
+      <lastmod>2018-06-15T21:03:34+08:00</lastmod>
     </url>
   
     <url>
@@ -1262,12 +1280,6 @@
   
     <url>
     
-      <loc>/tags/c/</loc>
-      <lastmod>2013-01-08T19:53:44+08:00</lastmod>
-    </url>
-  
-    <url>
-    
       <loc>/post/csdn/c%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-%E4%B9%8B-printf%E5%8E%8B%E6%A0%88%E9%A1%BA%E5%BA%8F/</loc>
       <lastmod>2013-01-08T19:53:44+08:00</lastmod>
     </url>
@@ -1357,12 +1369,17 @@
   
     <url>
     
-      <loc>/author/</loc>
+      <loc>/authors/admin/</loc>
     </url>
   
     <url>
     
       <loc>/authors/</loc>
+    </url>
+  
+    <url>
+    
+      <loc>/author/</loc>
     </url>
   
     <url>

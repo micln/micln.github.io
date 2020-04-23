@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.67.1" />
 
   
 
@@ -442,15 +442,15 @@ C说xxx</p>
 </code></pre>
 <p>关键在于，如何描述“A说”的这个过程。很容易想到，这个过程实际上是一个从字符到表达式的映射。表达式在C语言中如何作为一个变量来使用？当然是函数指针，于是可以写出下面的代码：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">guessA</span>(){
-	<span style="color:#66d9ef">return</span> Score[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">E</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">return</span> Score[<span style="color:#e6db74">&#39;E&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>;
 }
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">guessB</span>(){
-	<span style="color:#66d9ef">return</span> Score[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">B</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+	<span style="color:#66d9ef">return</span> Score[<span style="color:#e6db74">&#39;B&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>;
 }
 ...
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> (<span style="color:#f92672">*</span>guess[<span style="color:#ae81ff">256</span>])();	<span style="color:#75715e">//	定义一个函数指针的数组
-</span><span style="color:#75715e"></span>guess[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">A</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">=</span> guessA;
-guess[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">B</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">=</span> guessB;
+</span><span style="color:#75715e"></span>guess[<span style="color:#e6db74">&#39;A&#39;</span>] <span style="color:#f92672">=</span> guessA;
+guess[<span style="color:#e6db74">&#39;B&#39;</span>] <span style="color:#f92672">=</span> guessB;
 ...
 </code></pre></div><p>这样的话，就可以用<code>guess['A']()</code>来表示A猜得正确与否</p>
 <h3 id="枚举解空间">枚举解空间</h3>
@@ -459,45 +459,45 @@ guess[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span
 <span style="color:#75715e">//	生成1~n的全排列中得第k项，返回值在ret中
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> fac[]<span style="color:#f92672">=</span>{<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">24</span>,<span style="color:#ae81ff">120</span>,<span style="color:#ae81ff">720</span>,<span style="color:#ae81ff">5040</span>,<span style="color:#ae81ff">40320</span>,<span style="color:#ae81ff">362880</span>};
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">invKT</span>(<span style="color:#66d9ef">int</span> n, <span style="color:#66d9ef">int</span> k, <span style="color:#66d9ef">int</span> ret[]){
-    k<span style="color:#f92672">-</span><span style="color:#f92672">-</span>;
+    k<span style="color:#f92672">--</span>;
     <span style="color:#66d9ef">int</span> vst[<span style="color:#ae81ff">8</span>]<span style="color:#f92672">=</span>{<span style="color:#ae81ff">0</span>}, j;
-    <span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>n; i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>){
+    <span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>n; i<span style="color:#f92672">++</span>){
         <span style="color:#66d9ef">int</span> t <span style="color:#f92672">=</span> k<span style="color:#f92672">/</span>fac[n<span style="color:#f92672">-</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
-        <span style="color:#66d9ef">for</span> (j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; j<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span>n; j<span style="color:#f92672">+</span><span style="color:#f92672">+</span>){
+        <span style="color:#66d9ef">for</span> (j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; j<span style="color:#f92672">&lt;=</span>n; j<span style="color:#f92672">++</span>){
             <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>vst[j]){
-                <span style="color:#66d9ef">if</span> (t<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">break</span>;
-                t<span style="color:#f92672">-</span><span style="color:#f92672">-</span>;
+                <span style="color:#66d9ef">if</span> (t<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">break</span>;
+                t<span style="color:#f92672">--</span>;
             }
         }
         ret[i] <span style="color:#f92672">=</span> j;
         vst[j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-        k <span style="color:#f92672">%</span><span style="color:#f92672">=</span> fac[n<span style="color:#f92672">-</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
+        k <span style="color:#f92672">%=</span> fac[n<span style="color:#f92672">-</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
     }
 }
 </code></pre></div><p>我们可以枚举得到每次的结果：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> score[N];	<span style="color:#75715e">//	score[i]表示(&#39;A&#39;+i)排第几名
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> rank[N];	<span style="color:#75715e">//	rank[i]表示第i名是谁
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; i<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span>fac[n]; i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>) {
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; i<span style="color:#f92672">&lt;=</span>fac[n]; i<span style="color:#f92672">++</span>) {
 	invKT(n, i, score);
-	<span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; j<span style="color:#f92672">&lt;</span>n; j<span style="color:#f92672">+</span><span style="color:#f92672">+</span>) rank[score[i]] <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">A</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span>i;
+	<span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; j<span style="color:#f92672">&lt;</span>n; j<span style="color:#f92672">++</span>) rank[score[i]] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;A&#39;</span><span style="color:#f92672">+</span>i;
 }
 </code></pre></div><h3 id="筛选">筛选</h3>
 <p>有了以上的准备工作，筛选就非常容易了。</p>
 <p>只有第一名和第二名说的正确：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">if</span> ( 
-	guess[ rank[<span style="color:#ae81ff">1</span>] ]() <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span>
-	guess[ rank[<span style="color:#ae81ff">2</span>] ]() <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span>
-	guess[ rank[<span style="color:#ae81ff">3</span>] ]() <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span>
-	guess[ rank[<span style="color:#ae81ff">4</span>] ]() <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span>
-	guess[ rank[<span style="color:#ae81ff">5</span>] ]() <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+	guess[ rank[<span style="color:#ae81ff">1</span>] ]() <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span>
+	guess[ rank[<span style="color:#ae81ff">2</span>] ]() <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span>
+	guess[ rank[<span style="color:#ae81ff">3</span>] ]() <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span>
+	guess[ rank[<span style="color:#ae81ff">4</span>] ]() <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span>
+	guess[ rank[<span style="color:#ae81ff">5</span>] ]() <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
 )
 </code></pre></div><p>E不是第二和第三：</p>
 <pre><code>if ( score['E'-'A'] != 2 &amp;&amp; score['E'-'A'] != 3 )
 </code></pre>
 <h2 id="总代码">总代码</h2>
 <p>实际的代码为了偷懒，在一些细节上跟上面的分析不太一样，仅供参考。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;cstdlib&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdlib&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> score[<span style="color:#ae81ff">6</span>];   <span style="color:#75715e">//  i排第几
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> rank[<span style="color:#ae81ff">6</span>];    <span style="color:#75715e">//  第i名是谁
@@ -508,16 +508,16 @@ guess[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
     
     <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
-    <span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span><span style="color:#ae81ff">120</span>;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>){
+    <span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">120</span>;i<span style="color:#f92672">++</span>){
         invKT(n, i, score<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
-        <span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span>n;j<span style="color:#f92672">+</span><span style="color:#f92672">+</span>) rank[score[j]] <span style="color:#f92672">=</span> j;
+        <span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>n;j<span style="color:#f92672">++</span>) rank[score[j]] <span style="color:#f92672">=</span> j;
         
-        <span style="color:#66d9ef">if</span> (guess(rank[<span style="color:#ae81ff">1</span>]) <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> guess(rank[<span style="color:#ae81ff">2</span>]) 
-            <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> guess(rank[<span style="color:#ae81ff">3</span>])<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> guess(rank[<span style="color:#ae81ff">4</span>])<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> 
-            <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> guess(rank[<span style="color:#ae81ff">5</span>])<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> 
-            <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> score[<span style="color:#ae81ff">5</span>]<span style="color:#f92672">!</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> score[<span style="color:#ae81ff">5</span>]<span style="color:#f92672">!</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>) {
-                <span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span>n;j<span style="color:#f92672">+</span><span style="color:#f92672">+</span>){
-                    printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%c：第%d名</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">A</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span>j<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, score[j]);
+        <span style="color:#66d9ef">if</span> (guess(rank[<span style="color:#ae81ff">1</span>]) <span style="color:#f92672">&amp;&amp;</span> guess(rank[<span style="color:#ae81ff">2</span>]) 
+            <span style="color:#f92672">&amp;&amp;</span> guess(rank[<span style="color:#ae81ff">3</span>])<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> guess(rank[<span style="color:#ae81ff">4</span>])<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span> 
+            <span style="color:#f92672">&amp;&amp;</span> guess(rank[<span style="color:#ae81ff">5</span>])<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span> 
+            <span style="color:#f92672">&amp;&amp;</span> score[<span style="color:#ae81ff">5</span>]<span style="color:#f92672">!=</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> score[<span style="color:#ae81ff">5</span>]<span style="color:#f92672">!=</span><span style="color:#ae81ff">3</span>) {
+                <span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&lt;=</span>n;j<span style="color:#f92672">++</span>){
+                    printf(<span style="color:#e6db74">&#34;%c：第%d名</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#39;A&#39;</span><span style="color:#f92672">+</span>j<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, score[j]);
                 }
         }
     }
@@ -525,28 +525,28 @@ guess[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span
 }
 
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">guess</span>(<span style="color:#66d9ef">int</span> i){
-    <span style="color:#66d9ef">return</span> (i<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span>(score[<span style="color:#ae81ff">5</span>]<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-        <span style="color:#f92672">|</span><span style="color:#f92672">|</span>  (i<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">*</span>(score[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
-        <span style="color:#f92672">|</span><span style="color:#f92672">|</span>  (i<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)<span style="color:#f92672">*</span>(score[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
-        <span style="color:#f92672">|</span><span style="color:#f92672">|</span>  (i<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)<span style="color:#f92672">*</span>(score[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">!</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-        <span style="color:#f92672">|</span><span style="color:#f92672">|</span>  (i<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)<span style="color:#f92672">*</span>(score[<span style="color:#ae81ff">4</span>]<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>);
+    <span style="color:#66d9ef">return</span> (i<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span>(score[<span style="color:#ae81ff">5</span>]<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>)
+        <span style="color:#f92672">||</span>  (i<span style="color:#f92672">==</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">*</span>(score[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">==</span><span style="color:#ae81ff">2</span>)
+        <span style="color:#f92672">||</span>  (i<span style="color:#f92672">==</span><span style="color:#ae81ff">3</span>)<span style="color:#f92672">*</span>(score[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">==</span><span style="color:#ae81ff">5</span>)
+        <span style="color:#f92672">||</span>  (i<span style="color:#f92672">==</span><span style="color:#ae81ff">4</span>)<span style="color:#f92672">*</span>(score[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">!=</span><span style="color:#ae81ff">1</span>)
+        <span style="color:#f92672">||</span>  (i<span style="color:#f92672">==</span><span style="color:#ae81ff">5</span>)<span style="color:#f92672">*</span>(score[<span style="color:#ae81ff">4</span>]<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>);
 }
 
 <span style="color:#66d9ef">int</span> fac[]<span style="color:#f92672">=</span>{<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">24</span>,<span style="color:#ae81ff">120</span>,<span style="color:#ae81ff">720</span>,<span style="color:#ae81ff">5040</span>,<span style="color:#ae81ff">40320</span>,<span style="color:#ae81ff">362880</span>};
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">invKT</span>(<span style="color:#66d9ef">int</span> n, <span style="color:#66d9ef">int</span> k, <span style="color:#66d9ef">int</span> ret[]){
-    k<span style="color:#f92672">-</span><span style="color:#f92672">-</span>;
+    k<span style="color:#f92672">--</span>;
     <span style="color:#66d9ef">int</span> vst[<span style="color:#ae81ff">8</span>]<span style="color:#f92672">=</span>{<span style="color:#ae81ff">0</span>}, j;
-    <span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>n; i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>){
+    <span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>n; i<span style="color:#f92672">++</span>){
         <span style="color:#66d9ef">int</span> t <span style="color:#f92672">=</span> k<span style="color:#f92672">/</span>fac[n<span style="color:#f92672">-</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
-        <span style="color:#66d9ef">for</span> (j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; j<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span>n; j<span style="color:#f92672">+</span><span style="color:#f92672">+</span>){
+        <span style="color:#66d9ef">for</span> (j<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; j<span style="color:#f92672">&lt;=</span>n; j<span style="color:#f92672">++</span>){
             <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>vst[j]){
-                <span style="color:#66d9ef">if</span> (t<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">break</span>;
-                t<span style="color:#f92672">-</span><span style="color:#f92672">-</span>;
+                <span style="color:#66d9ef">if</span> (t<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">break</span>;
+                t<span style="color:#f92672">--</span>;
             }
         }
         ret[i] <span style="color:#f92672">=</span> j;
         vst[j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-        k <span style="color:#f92672">%</span><span style="color:#f92672">=</span> fac[n<span style="color:#f92672">-</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
+        k <span style="color:#f92672">%=</span> fac[n<span style="color:#f92672">-</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
     }
 }
 </code></pre></div>

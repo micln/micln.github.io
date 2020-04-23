@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Thu, 02 Jan 2020 20:34:02 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2020 12:07:34 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>k8s 上手笔记</title>
+      <link>/post/k8s_starter/</link>
+      <pubDate>Thu, 12 Mar 2020 12:07:34 +0800</pubDate>
+      
+      <guid>/post/k8s_starter/</guid>
+      <description>[TOC] 从哪学 官方教程，有中文，提供给交互式练习，注意网络环境 https://kubernetes.io/zh/docs/tutorials/ 概念 Pod：一个抽象的应用实例，含义上约等于 docker 里 container 的一层 wrapper，但是因为有</description>
+    </item>
     
     <item>
       <title>码农的神兵利器</title>
@@ -18,16 +27,7 @@
       <pubDate>Thu, 02 Jan 2020 20:34:02 +0800</pubDate>
       
       <guid>/post/tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Go 性能与GOMAXPROCS的关系</title>
-      <link>/post/go_max_procs/</link>
-      <pubDate>Sat, 09 Nov 2019 19:34:55 +0800</pubDate>
-      
-      <guid>/post/go_max_procs/</guid>
-      <description>起初是看到一篇文章《[容器中某Go服务GC停顿经常超过100ms排查][(https://mp.weixin.qq.com/s/Lk1Ebi</description>
+      <description>放在幕布里了，有需要再解释：https://mubu.com/doc/2neaB-ofTo</description>
     </item>
     
     <item>
@@ -103,12 +103,12 @@
     </item>
     
     <item>
-      <title>在 Go 里避免空指针问题</title>
+      <title>Go 里减少空指针异常的小经验</title>
       <link>/post/avoid_npe_in_go/</link>
       <pubDate>Thu, 16 May 2019 21:58:24 +0800</pubDate>
       
       <guid>/post/avoid_npe_in_go/</guid>
-      <description>空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围。但是由于 Go 刻意隐藏了值和引用的概念，使得很多新手在</description>
+      <description>原文地址：https://romatic.net/post/avoid_npe_in_go/ 空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，</description>
     </item>
     
     <item>

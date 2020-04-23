@@ -49,12 +49,12 @@
     </item>
     
     <item>
-      <title>在 Go 里避免空指针问题</title>
+      <title>Go 里减少空指针异常的小经验</title>
       <link>/post/avoid_npe_in_go/</link>
       <pubDate>Thu, 16 May 2019 21:58:24 +0800</pubDate>
       
       <guid>/post/avoid_npe_in_go/</guid>
-      <description>空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，Go 在设计之初已经在尽力减少 null 的使用范围。但是由于 Go 刻意隐藏了值和引用的概念，使得很多新手在</description>
+      <description>原文地址：https://romatic.net/post/avoid_npe_in_go/ 空指针异常 NPE 在所有编程语言里都是个很麻烦的事情，</description>
     </item>
     
     <item>

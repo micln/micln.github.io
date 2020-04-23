@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.67.1" />
 
   
 
@@ -418,9 +418,9 @@ cd ngrok
 
 <span style="color:#75715e"># 生成 key</span>
 openssl genrsa -out rootCA.key <span style="color:#ae81ff">2048</span>
-openssl req -x509 -new -nodes -key rootCA.key -subj <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">/CN=</span><span style="color:#e6db74">${</span>DOMAIN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -days <span style="color:#ae81ff">5000</span> -out rootCA.pem
+openssl req -x509 -new -nodes -key rootCA.key -subj <span style="color:#e6db74">&#34;/CN=</span><span style="color:#e6db74">${</span>DOMAIN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -days <span style="color:#ae81ff">5000</span> -out rootCA.pem
 openssl genrsa -out device.key <span style="color:#ae81ff">2048</span>
-openssl req -new -key device.key -subj <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">/CN=</span><span style="color:#e6db74">${</span>DOMAIN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -out device.csr
+openssl req -new -key device.key -subj <span style="color:#e6db74">&#34;/CN=</span><span style="color:#e6db74">${</span>DOMAIN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -out device.csr
 openssl x509 -req -in device.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out device.crt -days <span style="color:#ae81ff">5000</span>
 
 cp rootCA.pem assets/client/tls/ngrokroot.crt
