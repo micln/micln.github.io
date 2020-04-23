@@ -18,7 +18,7 @@
       <pubDate>Mon, 13 May 2013 13:59:15 +0800</pubDate>
       
       <guid>/post/csdn/ajax-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 建立请求 var xmlhttp; if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari xmlhttp=new XMLHttpRequest(); } else {// code for IE6, IE5 xmlhttp=new ActiveXObject(&#34;Microsoft.XMLHTTP&#34;); } 发送请求 xmlhttp.open(&#34;GET&#34;,&#34;kzzhr&#34;,true); xmlhttp.send(); aa 输出内容 xmlhttp.onreadystatechange=function(){ if (xmlhttp.readyState==4 &amp;amp;&amp;amp; xmlhttp.status==200){ document.getElementById(&#34;myDiv&#34;).innerHTML=xmlhttp.responseText; } } 放置数</description>
     </item>
     
   </channel>

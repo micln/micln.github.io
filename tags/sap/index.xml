@@ -18,7 +18,7 @@
       <pubDate>Tue, 05 Feb 2013 15:00:43 +0800</pubDate>
       
       <guid>/post/csdn/sap%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97-~%E8%BD%AC%E7%9A%84%E5%90%A7/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 #include &amp;lt;cstring&amp;gt; const int MAXN=201,INF=(1&amp;lt;&amp;lt;31)-1; int c[MAXN][MAXN]; //残留网络 int d[MAXN],vd[MAXN]; //d[]:距离标号, vd[]:标号为i的结点个数 int n,m,flow; void init() { scanf(&amp;quot;%d%d&amp;rdquo;,&amp;amp;m,&amp;amp;n); for(int i=1;i&amp;lt;=m;i++) { int</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 网络最大流算法是网络流算法的基础，实现方法很多，但时间复杂度与编程复杂 度难于兼顾。一方面，诸如预流推</description>
     </item>
     
   </channel>

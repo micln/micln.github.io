@@ -18,7 +18,7 @@
       <pubDate>Sun, 16 Nov 2014 15:46:42 +0800</pubDate>
       
       <guid>/post/csdn/struts2-%E5%85%A5%E9%97%A8%E5%9B%BE%E8%A7%A3/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 目录结构： ./project/ |- src/ | |- package1/a.java java source | |- package2/b.java | |- WebRoot/ | |- META-INF/ | |- MANIFEST.MF | |- WEB-INF/ | |- classes/ | | |- */*.class 编译后自动生成 | | |- struts.xml | |- lib/ |</description>
     </item>
     
   </channel>

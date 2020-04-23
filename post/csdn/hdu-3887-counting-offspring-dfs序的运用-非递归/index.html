@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 stack&lt;int&gt; st; struct NODE { int v,next; } a[N],e[N]; int tr[N],pre[N],s[N],b[N]; int n,em,root,tt; void update(int x) { while ( x&lt;=n) { tr[x] &#43;= 1; x &#43;= x &amp; -x; } } int gs(int x) { int s = 0; while (x&gt;0) { s &#43;= tr[x]; x -= x &amp; -x;">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 一天时间做了两道 dfs序 的题， 都是 WA 不停，最后一道改成 100W的数组，一道改成双向边就AC了">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/hdu-3887-counting-offspring-dfs%E5%BA%8F%E7%9A%84%E8%BF%90%E7%94%A8-%E9%9D%9E%E9%80%92%E5%BD%92/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/hdu-3887-counting-offspring-dfs%E5%BA%8F%E7%9A%84%E8%BF%90%E7%94%A8-%E9%9D%9E%E9%80%92%E5%BD%92/">
   <meta property="og:title" content="HDU 3887 Counting Offspring dfs序的运用 | 非递归 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 stack&lt;int&gt; st; struct NODE { int v,next; } a[N],e[N]; int tr[N],pre[N],s[N],b[N]; int n,em,root,tt; void update(int x) { while ( x&lt;=n) { tr[x] &#43;= 1; x &#43;= x &amp; -x; } } int gs(int x) { int s = 0; while (x&gt;0) { s &#43;= tr[x]; x -= x &amp; -x;"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 一天时间做了两道 dfs序 的题， 都是 WA 不停，最后一道改成 100W的数组，一道改成双向边就AC了"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2014-03-31T21:59:58&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 分钟阅读时间
+    2 分钟阅读时间
   </span>
   
 
@@ -402,7 +402,78 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-<!-- raw HTML omitted -->
+ <div class="htmledit_views" id="content_views">
+ <blockquote style="border:none;">
+  <p>
+   <a href="http://acm.hdu.edu.cn/showproblem.php?pid=3887" rel="nofollow">
+    题目链接
+   </a>
+  </p>
+  <p>
+   一天时间做了两道 dfs序 的题， 都是 WA 不停，最后一道改成 100W的数组，一道改成双向边就AC了。。能不能再坑一点的。。
+  </p>
+  <p>
+   <br/>
+  </p>
+  <p>
+   好，继续说这道题。。
+  </p>
+  <p>
+   上一道题苹果树是统计叶子节点的和，这道题是统计叶子节点中比自己权值小的和
+  </p>
+  <p>
+   <br/>
+  </p>
+  <h2>
+   思路
+  </h2>
+  <p>
+   首先按照上一道题的惯性思路，会觉得很复杂。因为再算和的时候要额外判断一下大小。由于树状数组是预处理的，显然无法再单独判断，于是就不知如何是好。
+  </p>
+  <p>
+   后来想到，能不能在 dfs 中记录一下比自己小的数。
+  </p>
+  <p>
+   <br/>
+  </p>
+  <p>
+   如何统计？
+  </p>
+  <p>
+   第一会想到 DP 一样的东西，如果比子节点大，直接加上，如果小的话，貌似跪了。。。
+  </p>
+  <p>
+   突然想到以前有过一次 在树状数组的建树过程中动态维护区间和，觉得可以试试。
+  </p>
+  <p>
+   于是就有了这样的算法：
+  </p>
+  <p>
+   <br/>
+  </p>
+  <p>
+   在dfs过程中，第一次（也是唯一一次）碰到一个点 v 时， visit[i] = 1. 此时，pre[v] = visit[0,v) 的和也就是比v小的数的个数！因为 dfs序的性质，现在计算的和是不含它的子节点的，当一个点dfs过后，再计算一下s = visit[0,v) 的和，它表示的便是包含子节点在内的所有比 v 小的点的和。因为dfs序的性质，s[v]-pre[v] 便是子节点中比自己小的点的权值的和。
+  </p>
+  <p>
+   有木有发现，其实连进出的时间戳都没有记录！只是在进出栈时就把ans计算出来了。
+  </p>
+  <p>
+   <br/>
+  </p>
+  <p>
+   另外比较坑的就是如果用 递归写法会耗费很多堆栈，不得已改用非递归写法。
+  </p>
+  <p>
+   <br/>
+  </p>
+  <h2>
+   上代码：
+  </h2>
+  <div>
+   <pre><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;stack&gt;
+#define N 201010
+using namespace std;
 <p>stack&lt;int&gt; st;
 struct NODE {
 int v,next;
@@ -467,10 +538,15 @@ tt = 0;</p>
 return 0;
 </code></pre>
 <p>}
-<!-- raw HTML omitted --><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+</code></pre>
+<br/>
+<br/></p>
+  </div>
+  <div>
+   <br/>
+  </div>
+ </blockquote>
+</div>
 
     </div>
 

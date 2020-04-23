@@ -18,7 +18,7 @@
       <pubDate>Mon, 07 Apr 2014 21:13:59 +0800</pubDate>
       
       <guid>/post/csdn/led%E7%82%B9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E6%8E%A2%E7%B4%A2/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 void setup() { for ( int i(_r); i &amp;lt;= 12; i++) pinMode(i, OUTPUT); flash(); } void flash(){ for ( int i(1 + _r); i &amp;lt;= 4 + _r; i++) digitalWrite(i, LOW); for ( int i(1 + _c); i &amp;lt;= 4 + _c; i++) digitalWrite(i, HIGH); } void echo(int i, int</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 以 CL1588BS 8*8点阵 为例 引脚说明 这个家伙有上下两排共16个引脚，每个引脚负责一行（或一列的信号）。 当 行为高</description>
     </item>
     
   </channel>

@@ -18,7 +18,7 @@
       <pubDate>Sat, 31 Aug 2013 23:37:50 +0800</pubDate>
       
       <guid>/post/csdn/notonlysuccess-%E7%BA%BF%E6%AE%B5%E6%A0%91-%E9%AB%98%E4%BA%BA%E6%8E%A8%E8%8D%90/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 #define lson l , m , rt &amp;lt;&amp;lt; 1 #define rson m + 1 , r , rt &amp;lt;&amp;lt; 1 | 1 const int maxn = 222222; int MAX[maxn&amp;lt;&amp;lt;2]; void PushUP(int rt) { MAX[rt] = max(MAX[rt&amp;lt;&amp;lt;1] , MAX[rt&amp;lt;&amp;lt;1|1]); } void build(int l,int r,int rt) { if (l == r) {</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 很早前写的那篇线段树专辑至今一直是本博客阅读点击量最大的一片文章,当时觉得挺自豪的,还去pku打广告</description>
     </item>
     
   </channel>

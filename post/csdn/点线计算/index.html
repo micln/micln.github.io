@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 #include &lt;iostream&gt; #include &lt;cstdio&gt; #include &lt;cmath&gt; using namespace std; struct Point{ double x,y; Point(){}; Point(double a,double b):x(a),y(b){} friend Point operator &#43; (Point a,Point b){ return Point(a.x&#43;b.x,a.y&#43;b.y); } friend Point operator - (Point a,Point b){ return Point(a.x-b.x,a.y-b.y); } friend Point operator * (Point a,double b){ return Point(a.x*b,a.y*b); } friend Point operator">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/%E7%82%B9%E7%BA%BF%E8%AE%A1%E7%AE%97/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/%E7%82%B9%E7%BA%BF%E8%AE%A1%E7%AE%97/">
   <meta property="og:title" content="点线计算 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 #include &lt;iostream&gt; #include &lt;cstdio&gt; #include &lt;cmath&gt; using namespace std; struct Point{ double x,y; Point(){}; Point(double a,double b):x(a),y(b){} friend Point operator &#43; (Point a,Point b){ return Point(a.x&#43;b.x,a.y&#43;b.y); } friend Point operator - (Point a,Point b){ return Point(a.x-b.x,a.y-b.y); } friend Point operator * (Point a,double b){ return Point(a.x*b,a.y*b); } friend Point operator"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-05-18T14:42:32&#43;08:00">
@@ -396,7 +396,98 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-<!-- raw HTML omitted -->
+ <div class="htmledit_views" id="content_views">
+ <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+using namespace std;
+struct Point{
+    double x,y;
+    Point(){};
+    Point(double a,double b):x(a),y(b){}
+    friend Point operator + (Point a,Point b){
+        return Point(a.x+b.x,a.y+b.y);
+    }
+    friend Point operator - (Point a,Point b){
+        return Point(a.x-b.x,a.y-b.y);
+    }
+    friend Point operator * (Point a,double b){
+        return Point(a.x*b,a.y*b);
+    }
+    friend Point operator / (Point a,double b){
+        return Point(a.x/b,a.y/b);
+    }
+    void input(){
+        scanf("%lf%lf",&amp;x,&amp;y);
+    }
+};
+struct line{
+    Point a,b;
+    line(Point x,Point y):a(x),b(y){}
+};
+// 点积
+double dot(Point a,Point b){
+    return a.x*b.x+a.y*b.y;
+}
+// 叉积
+double det(Point a,Point b){
+    return a.x*b.y-a.y*b.x;
+}
+// 判断符号
+int aps(double x){
+    double eps = 1e-8;
+    if (fabs(x)&lt;=eps) return 0;
+    if (x&gt;0) return 1;
+    return -1;
+}
+// 有交点
+bool isCom(line a,line b){
+    return (bool)aps(det(a.a-a.b,b.a-b.b));
+}
+// 同线
+bool isOne(line a,line b){
+    if (!aps(det(a.b-a.a,b.a-a.a)) &amp;&amp; !(aps(det(a.b-a.a,b.b-a.a)))) return 1;
+    return 0;
+}
+// 求交点
+Point crossPoint(line a,line b){
+    double s1=det(a.a-b.a,b.b-b.a);
+    double s2=det(a.b-b.a,b.b-b.a);
+    return (a.a*s2-a.b*s1)/(s2-s1);
+}</code></pre>
+ <p>
+  调用
+ </p>
+ <p>
+ </p>
+ <pre><code class="language-cpp">int main(){
+    int n;
+    Point c[8];
+    scanf("%d",&amp;n);
+    printf("INTERSECTING LINES OUTPUT\n");
+    while (n--){
+        for (int i(1);i&lt;=4;i++){
+            c[i].input();
+            //printf(" %.2lf %.2lf\n",c[i].x,c[i].y);
+        }
+        line a = line(c[1],c[2]);
+        line b = line(c[3],c[4]);
+        if (isOne(a,b)) printf("LINE\n");
+            else if (!isCom(a,b)) printf("NONE\n");
+                else {
+                    Point t=crossPoint(a,b);
+                    printf("POINT %.2f %.2f\n",t.x,t.y);    // PS：在G++里，double以%lf读入以%f输出
+                }
+    }
+    printf("END OF OUTPUT\n");
+    return 0;
+}</code></pre>
+ <br/>
+ <br/>
+ <p>
+ </p>
+ <br/>
+</div>
 
     </div>
 

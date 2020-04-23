@@ -36,7 +36,7 @@
       <pubDate>Tue, 14 May 2013 12:49:58 +0800</pubDate>
       
       <guid>/post/csdn/json-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 对象元素 obj = {&#34;name&#34;:&#34;Jom&#34;}; document.writeln(obj.name); 数组 obj = [&#34;name&#34;,&#34;Jom&#34;]; document.writeln(obj); 对象数组 obj = [{&#34;name&#34;:&#34;Jom&#34;}]; document.writeln(obj[0].name); 与字符串转换 txt = &#34;{\&#34;name\&#34;:\&#34;Jank\&#34;}&#34;; obj = eval(&#34;(&#34;+txt+&#34;)&#34;); document.writeln(obj.name); JSON的值： 数字（整数或浮点</description>
     </item>
     
   </channel>

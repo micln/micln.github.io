@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="本文通过工具从以前的 html 转成 markdown，格式可能有问题。 window.onload = function(){ return; h1 = document.querySelectorAll(&quot;h1&quot;); h2 = document.querySelectorAll(&quot;h2&quot;); h3 = document.querySelectorAll(&quot;h3&quot;); h4 = document.querySelectorAll(&quot;h4&quot;); var txt = &quot;&lt;h2&gt; Directory &quot;; txt &#43;= &quot;&lt;pre&gt;&quot; for ( t1=0; t1&lt;h1.length; t1&#43;&#43; ){ txt &#43;= &quot;&lt;h3&gt;&quot; &#43; (tt[t1&#43;1]) &#43; &quot;.&quot; &#43; h1[t1].innerHTML">
+  <meta name="description" content="本文通过工具从以前的 html 转成 markdown，格式可能有问题。 var tt = [&#34;&#34;, &#34;一&#34;, &#34;二&#34;, &#34;三&#34;, &#34;四&#34;, &#34;五&#34;, &#34;六&#34;, &#34;七&#34;, &#34;八&#34;, &#34;九&#34;,">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/dashayu/1349668800-acmtips/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/dashayu/1349668800-acmtips/">
   <meta property="og:title" content="acmtips | 在水异方">
-  <meta property="og:description" content="本文通过工具从以前的 html 转成 markdown，格式可能有问题。 window.onload = function(){ return; h1 = document.querySelectorAll(&quot;h1&quot;); h2 = document.querySelectorAll(&quot;h2&quot;); h3 = document.querySelectorAll(&quot;h3&quot;); h4 = document.querySelectorAll(&quot;h4&quot;); var txt = &quot;&lt;h2&gt; Directory &quot;; txt &#43;= &quot;&lt;pre&gt;&quot; for ( t1=0; t1&lt;h1.length; t1&#43;&#43; ){ txt &#43;= &quot;&lt;h3&gt;&quot; &#43; (tt[t1&#43;1]) &#43; &quot;.&quot; &#43; h1[t1].innerHTML"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="本文通过工具从以前的 html 转成 markdown，格式可能有问题。 var tt = [&#34;&#34;, &#34;一&#34;, &#34;二&#34;, &#34;三&#34;, &#34;四&#34;, &#34;五&#34;, &#34;六&#34;, &#34;七&#34;, &#34;八&#34;, &#34;九&#34;,"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2012-10-08T12:00:00&#43;08:00">
@@ -391,7 +391,11 @@
       <blockquote>
 <p>本文通过工具从以前的 html 转成 markdown，格式可能有问题。</p>
 </blockquote>
-<!-- raw HTML omitted -->
+<div>
+<div id="Directory"></div> 
+<script>
+        var tt = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
+        var tq = ["", "①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩"];
 <pre><code>    window.onload = function(){
         return;
         h1 = document.querySelectorAll(&quot;h1&quot;);           h2 = document.querySelectorAll(&quot;h2&quot;);           h3 = document.querySelectorAll(&quot;h3&quot;);           h4 = document.querySelectorAll(&quot;h4&quot;);
@@ -414,10 +418,10 @@
         document.getElementById(&quot;Directory&quot;).innerHTML = txt;
     }
 </code></pre>
-<p><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<h1 id="acm语法基础acm语法基础">[](#acm语法基础)ACM语法基础</h1>
-<h2 id="ccpp不常用的知识点ccpp不常用的知识点">[](#c/cpp不常用的知识点)C/CPP不常用的知识点</h2>
+<p></script></p>
+</div>
+<h1 id="acm语法基础acm语法基础"><a href="#acm%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80"></a>ACM语法基础</h1>
+<h2 id="ccpp不常用的知识点ccpp不常用的知识点"><a href="#c/cpp%E4%B8%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9"></a>C/CPP不常用的知识点</h2>
 <h3 id="字符串拆分">字符串拆分</h3>
 <pre><code>char ss[] = &quot;(1,2,3,4)&quot;;
 char *p = strtok(ss, &quot;(,)&quot;);
@@ -432,7 +436,7 @@ for (int i(1); i&lt;=n; i++) {
 <li>fgets 完全读入，把<code>\n</code>吃进字符串末位，与scanf混用时容易出错</li>
 <li>getline 自动跳转下一行，不会过滤行首空格</li>
 </ul>
-<h2 id="java快速读写java快速读写">[](#java快速读写)Java快速读写</h2>
+<h2 id="java快速读写java快速读写"><a href="#java%E5%BF%AB%E9%80%9F%E8%AF%BB%E5%86%99"></a>Java快速读写</h2>
 <h3 id="例题">例题</h3>
 <h4 id="-hdoj-5047-sawtooth">@ hdoj 5047 Sawtooth</h4>
 <p>读入一个大数，按照特定公式计算结果。</p>
@@ -472,8 +476,8 @@ public class Main {
     }  
 }  
 
-</code></pre><h1 id="模拟易错点模拟易错点">[](#模拟易错点)模拟易错点</h1>
-<h2 id="aa">[](#a)a</h2>
+</code></pre><h1 id="模拟易错点模拟易错点"><a href="#%E6%A8%A1%E6%8B%9F%E6%98%93%E9%94%99%E7%82%B9"></a>模拟易错点</h1>
+<h2 id="aa"><a href="#a"></a>a</h2>
 <h3 id="b">b</h3>
 <h4 id="-poj-1017-packets--装完大包装小包">@ POJ 1017 Packets | 装完大包装小包</h4>
 <pre><code>/*
@@ -618,8 +622,8 @@ int main(){
     return 0;
 }
 
-</code></pre><h1 id="搜索搜索">[](#搜索)搜索</h1>
-<h2 id="多状态标记多状态标记">[](#多状态标记)多状态标记</h2>
+</code></pre><h1 id="搜索搜索"><a href="#%E6%90%9C%E7%B4%A2"></a>搜索</h1>
+<h2 id="多状态标记多状态标记"><a href="#%E5%A4%9A%E7%8A%B6%E6%80%81%E6%A0%87%E8%AE%B0"></a>多状态标记</h2>
 <h4 id="-hdu-5024-wang-xifengs-little-plot-广州区域赛">@ HDU 5024 Wang Xifeng’s Little Plot 广州区域赛</h4>
 <pre><code>/*
 题意：找到一个最长的L型
@@ -929,8 +933,8 @@ int main()
 }
 
 
-</code></pre><h1 id="图论图论">[](#图论)图论</h1>
-<h2 id="欧拉回路-哈密顿回路欧拉回路-哈密顿回路">[](#欧拉回路-哈密顿回路)欧拉回路 哈密顿回路</h2>
+</code></pre><h1 id="图论图论"><a href="#%E5%9B%BE%E8%AE%BA"></a>图论</h1>
+<h2 id="欧拉回路-哈密顿回路欧拉回路-哈密顿回路"><a href="#%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF-%E5%93%88%E5%AF%86%E9%A1%BF%E5%9B%9E%E8%B7%AF"></a>欧拉回路 哈密顿回路</h2>
 <h3 id="判断存在">判断存在</h3>
 <p>判断欧拉通路：</p>
 <blockquote>
@@ -1041,7 +1045,7 @@ int main()
     }
 }
 
-</code></pre><h2 id="二分图最大匹配二分图最大匹配">[](#二分图最大匹配)二分图最大匹配</h2>
+</code></pre><h2 id="二分图最大匹配二分图最大匹配"><a href="#%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D"></a>二分图最大匹配</h2>
 <h4 id="-poj-3041-asteroids-匈牙利算法">@ POJ 3041 Asteroids 匈牙利算法</h4>
 <pre><code>/*
 看起来像个 DP 神马的。竟然是二分图匹配。。

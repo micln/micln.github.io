@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hdu.edu.cn/showproblem.php?pid=1318 一般的字符串处理问题，一个共性：思路简单，代码繁琐。 譬如此题，首先会有一个问题要考虑：如何去">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/hdoj-1318-palindromes/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/hdoj-1318-palindromes/">
   <meta property="og:title" content="HDOJ - 1318 Palindromes | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hdu.edu.cn/showproblem.php?pid=1318 一般的字符串处理问题，一个共性：思路简单，代码繁琐。 譬如此题，首先会有一个问题要考虑：如何去"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-01-17T13:36:47&#43;08:00">
@@ -406,7 +406,108 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-<!-- raw HTML omitted -->
+ <div class="htmledit_views" id="content_views">
+ <p>
+  题目：
+  <a href="http://acm.hdu.edu.cn/showproblem.php?pid=1318" rel="nofollow">
+   http://acm.hdu.edu.cn/showproblem.php?pid=1318
+  </a>
+ </p>
+ <p>
+  <br/>
+ </p>
+ <p>
+  一般的字符串处理问题，一个共性：思路简单，代码繁琐。
+ </p>
+ <p>
+  譬如此题，首先会有一个问题要考虑：如何去建立
+  <strong>
+   <span>
+    镜像字母表
+   </span>
+  </strong>
+  。这里我采用的是两个常量字符串作为一一对应。
+ </p>
+ <p>
+  至于回文判断应该就不用说了吧。
+ </p>
+ <p>
+  <br/>
+ </p>
+ <p>
+  代码如下：
+ </p>
+ <p>
+ </p>
+ <pre><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+const char ch1[]="AEHIJLMOSTUVWXYZ123580";
+const char ch2[]="A3HILJMO2TUVWXY51SEZ80";
+char s[22];
+int mir[130];
+int pal(char *s){
+	int n=strlen(s)-1;
+	for (int i(0);i&lt;=n/2;i++)
+		if (s[i]!=s[n-i]) return 0;
+	return 1;
+}
+int mirr(char* s){
+	int n=strlen(s)-1;
+	for (int i(0);i&lt;=n/2;i++)
+		if (mir[s[i]]&lt;0 || mir[s[i]]!=s[n-i]) return 0;
+	return 1;  
+}
+int main(){
+	freopen("in.txt","r",stdin);
+	for (int i('A');i&lt;='Z';i++) mir[i]=-1;
+	for (int i(0);i&lt;22;i++) mir[ch1[i]]=ch2[i];
+	while (scanf("%s",s)!=EOF){
+		int a=pal(s),b=mirr(s);
+		if (!(a+b)) printf("%s -- is not a palindrome.\n",s);
+		else {
+			if (a&gt;b) printf("%s -- is a regular palindrome.\n",s);
+			else {
+				if (a&lt;b) printf("%s -- is a mirrored string.\n",s);
+				else {
+					printf("%s -- is a mirrored palindrome.\n",s);
+				}
+			}
+		}
+		printf("\n");
+	}
+	return 0;
+}
+</code></pre>
+ <br/>
+ <table align="center" border="0" cellspacing="2" class="table_text" style="font-family:Tahoma;font-size:12px;border-bottom-color:rgb(135,155,255);border-bottom-width:1px;border-bottom-style:dashed;" width="100%">
+  <tbody>
+   <tr align="center">
+    <td>
+     <span style="color:#FF0000;">
+      Accepted
+     </span>
+    </td>
+    <td>
+     0MS
+    </td>
+    <td>
+     220K
+    </td>
+    <td>
+     <a href="http://acm.hdu.edu.cn/viewcode.php?rid=7421221" rel="nofollow" style="color:rgb(26,92,200);">
+      876 B
+     </a>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <br/>
+ <p>
+ </p>
+ <p>
+  <br/>
+ </p>
+</div>
 
     </div>
 

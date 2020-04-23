@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 using namespace std; const int INF = 999999999; const double eps = 1e-6; int T,I,n,m,t; LL tt, sum; int a[1111]; int f[1111]; int dp[888][888]; char s[888]; char ans[888]; char ss[888]; int so(int v){ if (a[v] == v ) return 1; int t = a[v]; int res = 1; while (t!=v){">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 其实一贯都是用string来着。。 其实后来看刘汝佳的书又喜欢上了fgets然后一路过关斩将来着。。 这">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/usc-1329-decode-%E5%9D%91%E5%9D%91%E5%9D%91gets/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/usc-1329-decode-%E5%9D%91%E5%9D%91%E5%9D%91gets/">
   <meta property="og:title" content="USC 1329 Decode 坑坑坑gets | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 using namespace std; const int INF = 999999999; const double eps = 1e-6; int T,I,n,m,t; LL tt, sum; int a[1111]; int f[1111]; int dp[888][888]; char s[888]; char ans[888]; char ss[888]; int so(int v){ if (a[v] == v ) return 1; int t = a[v]; int res = 1; while (t!=v){"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 其实一贯都是用string来着。。 其实后来看刘汝佳的书又喜欢上了fgets然后一路过关斩将来着。。 这"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2014-10-08T10:09:31&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 分钟阅读时间
+    2 分钟阅读时间
   </span>
   
 
@@ -402,7 +402,422 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-<!-- raw HTML omitted -->
+ <div class="htmledit_views" id="content_views">
+ <p>
+  <br/>
+ </p>
+ <p>
+ </p>
+ <blockquote style="border:none;">
+  <p>
+   其实一贯都是用string来着。。
+  </p>
+  <p>
+   其实后来看刘汝佳的书又喜欢上了fgets然后一路过关斩将来着。。
+  </p>
+  <p>
+   <br/>
+  </p>
+  <p>
+   这次觉得题水就用了gets啊啊啊啊
+  </p>
+  <p>
+   然后就WA了9次啊有木有！！！
+  </p>
+  <p>
+   <br/>
+  </p>
+  <p>
+  </p>
+  <table border="1" cellpadding="1" cellspacing="1" width="200">
+   <tbody>
+    <tr>
+     <td>
+      <h3 style="font-family:monospace;text-align:center;">
+       H. Decode
+      </h3>
+      <center style="font-family:monospace;font-size:14px;">
+       TimeLimit: 1s   MemoryLimit: 64M
+      </center>
+      <h3 style="font-family:monospace;">
+       Description
+      </h3>
+      <div style="font-family:monospace;font-size:14px;">
+       <span style="font-size:10.5pt;">
+        Bruce Force has had an interesting idea how to encode strings. The following is the description of how the encoding is done:
+       </span>
+      </div>
+      <div style="font-family:monospace;font-size:14px;">
+       <span style="font-size:10.5pt;">
+        Let x
+       </span>
+       <span style="font-size:10.5pt;">
+        <sub>
+         1
+        </sub>
+       </span>
+       <span style="font-size:10.5pt;">
+        ,x
+       </span>
+       <span style="font-size:10.5pt;">
+        <sub>
+         2
+        </sub>
+       </span>
+       <span style="font-size:10.5pt;">
+        ,...,x
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         <sub>
+          n
+         </sub>
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        be
+ the sequence of characters of the string to be encoded.
+       </span>
+      </div>
+      <div style="font-family:monospace;font-size:14px;margin-left:36pt;text-indent:-18pt;">
+       1.Choose an integer
+       <span style="font-style:italic;">
+        m
+       </span>
+       and
+       <span style="font-style:italic;">
+        n
+       </span>
+       pairwise distinct numbers p
+       <sub>
+        1
+       </sub>
+       ,p
+       <sub>
+        2
+       </sub>
+       ,...,p
+       <span style="font-style:italic;">
+        <sub>
+         n
+        </sub>
+       </span>
+       from the set {
+       <span style="font-style:italic;">
+        1
+       </span>
+       ,
+       <span style="font-style:italic;">
+        2
+       </span>
+       ,
+ ...,
+       <span style="font-style:italic;">
+        n
+       </span>
+       } (a permutation of the numbers
+       <span style="font-style:italic;">
+        1
+       </span>
+       to
+       <span style="font-style:italic;">
+        n
+       </span>
+       ).
+      </div>
+      <div style="font-family:monospace;font-size:14px;margin-left:36pt;text-indent:-18pt;">
+       2.Repeat the following step
+       <span style="font-style:italic;">
+        m
+       </span>
+       times.
+      </div>
+      <div style="font-family:monospace;font-size:14px;margin-left:36pt;text-indent:-18pt;">
+       3.For
+       <span style="font-style:italic;">
+        1
+       </span>
+       ≤ i ≤
+       <span style="font-style:italic;">
+        n
+       </span>
+       set y
+       <sub>
+        i
+       </sub>
+       to x
+       <sub>
+        pi
+       </sub>
+       , and then for
+       <span style="font-style:italic;">
+        1
+       </span>
+       ≤ i ≤
+       <span style="font-style:italic;">
+        n
+       </span>
+       replace x
+       <sub>
+        i
+       </sub>
+       by
+ y
+       <sub>
+        i
+       </sub>
+       .
+      </div>
+      <div style="font-family:monospace;font-size:14px;">
+       <span style="font-size:10.5pt;">
+        For example, when we want to encode the string "hello", and we choose the value
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         m = 3
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        and the permutation
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         2,
+ 3, 1, 5, 4
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        , the data would be encoded in 3 steps: "hello" -
+       </span>
+       <span style="font-size:10.5pt;">
+        &gt; "elhol" -&gt; "lhelo" -&gt; "helol".
+       </span>
+      </div>
+      <div style="font-family:monospace;font-size:14px;">
+       <span style="font-size:10.5pt;">
+        Bruce gives you the encoded strings, and the numbers
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         m
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        and p
+       </span>
+       <span style="font-size:10.5pt;">
+        <sub>
+         1
+        </sub>
+       </span>
+       <span style="font-size:10.5pt;">
+        ,
+ ..., p
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         <sub>
+          n
+         </sub>
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        used to encode these strings. He claims that because he used huge numbers
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         m
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        for
+ encoding, you will need a lot of time to decode the strings. Can you disprove this claim by quickly decoding the strings?
+       </span>
+      </div>
+      <p style="font-family:monospace;font-size:14px;">
+      </p>
+      <h3 style="font-family:monospace;">
+       Input
+      </h3>
+      <p style="font-family:monospace;font-size:14px;">
+       <span style="font-size:10.5pt;">
+        The input contains several test cases. Each test case starts with a line containing two numbers
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         n
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        and
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         m
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        (
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         1
+ ≤ n ≤ 80
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        ,
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         1 ≤ m ≤ 10
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         <sup>
+          9
+         </sup>
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        ). The following line consists of
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         n
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        pairwise
+ different numbers p
+       </span>
+       <span style="font-size:10.5pt;">
+        <sub>
+         1
+        </sub>
+       </span>
+       <span style="font-size:10.5pt;">
+        ,...,p
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         <sub>
+          n
+         </sub>
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        (
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         1
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        ≤
+ p
+       </span>
+       <span style="font-size:10.5pt;">
+        <sub>
+         i
+        </sub>
+       </span>
+       <span style="font-size:10.5pt;">
+        ≤
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         n
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        ). The third line of each test case consists of exactly
+       </span>
+       <span style="font-size:10.5pt;">
+        <em>
+         n
+        </em>
+       </span>
+       <span style="font-size:10.5pt;">
+        characters,
+ and represent the encoded string. The last test case is followed by a line cont
+       </span>
+       <span style="font-size:10.5pt;">
+        aining two zeros.
+       </span>
+      </p>
+      <p style="font-family:monospace;font-size:14px;">
+      </p>
+      <h3 style="font-family:monospace;">
+       Output
+      </h3>
+      <p style="font-family:monospace;font-size:14px;">
+       <span style="font-size:14px;">
+        For each test case, print one line with the decoded string.
+       </span>
+      </p>
+      <p style="font-family:monospace;font-size:14px;">
+      </p>
+      <table style="font-family:monospace;">
+       <tbody>
+        <tr style="vertical-align:top;">
+         <td>
+          <h3>
+           SampleInput
+          </h3>
+          <pre>5 3
+2 3 1 5 4
+helol
+16 804289384
+13 10 2 7 8 1 16 12 15 6 5 14 3 4 11 9
+scssoet tcaede n
+8 12
+5 3 4 2 1 8 6 7
+encoded?
+0 0
+</pre>
+         </td>
+         <td>
+          <h3>
+           SampleOutput
+          </h3>
+          <pre>hello
+second test case
+encoded?</pre>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+      <br/>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <br/>
+  <p>
+   不说啥了，就是mod一个周期就行。getline的代码在最下面，纪念一下死的多坑。
+  </p>
+  <p>
+   <br/>
+  </p>
+  <p>
+  </p>
+  <pre><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cmath&gt;
+#include &lt;cctype&gt;
+#include &lt;ctime&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+#include &lt;stack&gt;
+#include &lt;map&gt;
+#include &lt;algorithm&gt;
+#define LL long long
 <p>using namespace std;</p>
 <p>const int INF = 999999999;
 const double eps = 1e-6;</p>
@@ -457,8 +872,21 @@ if (n==0 &amp;&amp; m==0) break;</p>
 return 0;
 </code></pre>
 <p>}
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+</code></pre></p>
+  <p>
+   <br/>
+  </p>
+  <p>
+  </p>
+  <pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+const int MAXN = 888;
+int n, m;
+int a[MAXN], f[MAXN];
+char ans[MAXN], s[MAXN], ch;
 <p>int to(int v, int w){
 while( w&ndash; )    v = a[v];
 return v;
@@ -485,9 +913,16 @@ cout&lt;&lt;ans+1&lt;&lt;endl;
 }
 return 0;
 }
-<!-- raw HTML omitted --><!-- raw HTML omitted -->
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+</code></pre>
+<br/></p>
+  <p>
+   真切感慨以后在时间充裕的时候能用C++就用C++。别自作多情的装逼用c啥啥的
+  </p>
+  <p>
+   <br/>
+  </p>
+ </blockquote>
+</div>
 
     </div>
 

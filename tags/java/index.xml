@@ -27,7 +27,7 @@
       <pubDate>Wed, 25 Sep 2013 20:44:59 +0800</pubDate>
       
       <guid>/post/csdn/java-for-acm-%E5%B0%8F%E7%BB%93/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 一、提交格式代码 import java.util.*; public class Main{ public static void main(String[] args){ Scanner cin = new Scanner(System.in)); } } 二、输入 cin.hasNext() 或 cin.hasNextInt() 或 cin.hasNextDouble() // 判断是否有下一个输入可以用 int n</description>
     </item>
     
   </channel>

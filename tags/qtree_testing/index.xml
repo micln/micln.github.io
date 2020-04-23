@@ -18,7 +18,7 @@
       <pubDate>Tue, 20 Nov 2012 13:14:53 +0800</pubDate>
       
       <guid>/post/csdn/qtree_testing/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 inline int MAX(int a,int b) { if (a&amp;gt;b)return a; else return b; } inline void add(int u,int v,int cost) { e++; pre[e]=last[u]; last[u]=e; other[e]=v; w[e]=cost; } inline void init() { int i,u,v,cost; memset(last,0,sizeof(last)); e=0; scanf(&amp;quot;%d\n&amp;rdquo;,&amp;amp;n); for (i=1;i&amp;lt;n;i++) { scanf(&amp;quot;%d%d%d\n&amp;rdquo;,&amp;amp;u,&amp;amp;v,&amp;amp;cost); add(u,v,cost); add(v,u,cost); } } inline void dfs(int u) { dfsq[++indexs]=u; depq[indexs]=dep;</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 testing... #include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstring&amp;gt; #include &amp;lt;cstdlib&amp;gt; #include &amp;lt;cmath&amp;gt; using namespace std; const int maxn=10010; const int maxm=maxn*2; const int maxu=maxn*4; const int maxt=maxn*10; const int oo=1993101215; int test,n,e,indexs,dep,tot,lca,debug; int id; //重链编号 int node; //线段树节点 int pre[maxm],other[maxm],last[maxm],w[maxm]; //</description>
     </item>
     
   </channel>

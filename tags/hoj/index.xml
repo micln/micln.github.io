@@ -18,7 +18,7 @@
       <pubDate>Thu, 27 Jun 2013 16:56:29 +0800</pubDate>
       
       <guid>/post/csdn/hoj-2651-pie/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hit.edu.cn/hoj/problem/view?id=2651 很简单的二分枚举， 要注意的是 1、一共是 f+1 个人（包括他自己） 2、精度问题。。被吭了好久，我把面</description>
     </item>
     
   </channel>

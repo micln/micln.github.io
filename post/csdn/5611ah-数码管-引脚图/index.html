@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 arduino套装，给了个5611AH的数码管。在网上找不到现成的引脚图，无奈只好自己画了。初学ar">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/5611ah-%E6%95%B0%E7%A0%81%E7%AE%A1-%E5%BC%95%E8%84%9A%E5%9B%BE/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/5611ah-%E6%95%B0%E7%A0%81%E7%AE%A1-%E5%BC%95%E8%84%9A%E5%9B%BE/">
   <meta property="og:title" content="5611AH 数码管 引脚图 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 arduino套装，给了个5611AH的数码管。在网上找不到现成的引脚图，无奈只好自己画了。初学ar"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-05-24T17:52:31&#43;08:00">
@@ -402,7 +402,68 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-<!-- raw HTML omitted -->
+ <div class="htmledit_views" id="content_views">
+ <p>
+ </p>
+ <hr/>
+ <p>
+ </p>
+ <p>
+  arduino套装，给了个5611AH的数码管。在网上找不到现成的引脚图，无奈只好自己画了。初学arduino第一天，不懂得标准，还望见谅。
+ </p>
+ <p>
+ </p>
+ <hr/>
+ <p>
+ </p>
+ <h2>
+  图示
+ </h2>
+ <p>
+  <img alt="" src="https://img-blog.csdn.net/20130524174637363"/>
+ </p>
+ <h2>
+  代码：
+ </h2>
+ <div>
+  <pre><code class="language-cpp">  int a[10][10]={{0,0,0,1,1,1,1,1,1,0},
+               {0,0,0,0,1,1,0,0,0,0},
+               {0,0,0,1,1,0,1,1,0,1},
+               {0,0,0,1,1,1,1,0,0,1},
+               {0,0,0,0,1,1,0,0,1,1},
+               {0,0,0,1,0,1,1,0,1,1},
+               {0,0,0,1,0,1,1,1,1,1},
+               {0,0,0,1,1,1,0,0,0,0},
+               {0,0,0,1,1,1,1,1,1,1},
+               {0,0,0,1,1,1,1,0,1,1},};
+void setup(){
+  for (int i=3;i&lt;=9;i++) {
+    pinMode(i,OUTPUT);
+  }
+}
+void printf(int v){
+  for (int i=3;i&lt;=9;i++){
+    digitalWrite(i,a[v][i]);
+  }
+}
+void loop(){
+  for (int i=0;i&lt;=9;i++){
+    printf(i);
+    delay(400);
+  }
+}</code></pre>
+ </div>
+ <h2>
+  我的乱七八糟的接线
+ </h2>
+ <div>
+  <img alt="" src="https://img-blog.csdn.net/20130524175217057"/>
+  <br/>
+ </div>
+ <p>
+  <br/>
+ </p>
+</div>
 
     </div>
 

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 int s =a[6]&#43;a[5]&#43;a[4]; // a5 if (a[5]*11 &amp;gt;= a[1]) a[1] = 0; else a[1] -= a[5]*11; // a4 for ( int i(1);i&amp;lt;=a[4];i&#43;&#43;){ t = push(20,2,5); if (t) t = push(t,1,t); } // a3 s &#43;= a[3] / 4; // 整装3 a[3] %= 4; if (a[3]){ // 剩下">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很水，纯模拟 麻烦的地方在于，会面临多次用小件填充大件剩余。 最开始觉得不同大小时决策不一样">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/poj-1017-packets-%E6%82%BC%E5%BF%B5%E6%AD%BB%E5%8E%BB%E7%9A%84%E6%A8%A1%E6%8B%9F/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/poj-1017-packets-%E6%82%BC%E5%BF%B5%E6%AD%BB%E5%8E%BB%E7%9A%84%E6%A8%A1%E6%8B%9F/">
   <meta property="og:title" content="POJ 1017 Packets 悼念死去的模拟 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 int s =a[6]&#43;a[5]&#43;a[4]; // a5 if (a[5]*11 &amp;gt;= a[1]) a[1] = 0; else a[1] -= a[5]*11; // a4 for ( int i(1);i&amp;lt;=a[4];i&#43;&#43;){ t = push(20,2,5); if (t) t = push(t,1,t); } // a3 s &#43;= a[3] / 4; // 整装3 a[3] %= 4; if (a[3]){ // 剩下"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很水，纯模拟 麻烦的地方在于，会面临多次用小件填充大件剩余。 最开始觉得不同大小时决策不一样"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2014-07-18T18:51:34&#43;08:00">
@@ -406,7 +406,57 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-<!-- raw HTML omitted -->
+ <div class="htmledit_views" id="content_views">
+ <p style="border:none;">
+  <a href="http://poj.org/problem?id=1017" rel="nofollow">
+   题目链接
+  </a>
+ </p>
+ <p style="border:none;">
+  题目很水，纯模拟
+ </p>
+ <p style="border:none;">
+  麻烦的地方在于，会面临多次用小件填充大件剩余。
+ </p>
+ <p style="border:none;">
+  最开始觉得不同大小时决策不一样，所以各自写各自的，结果越写越凌乱，果断wa了。
+ </p>
+ <p style="border:none;">
+  最悲催的是拿到数据后依然无从下爪（代码真的太乱了！）
+ </p>
+ <p style="border:none;">
+  <br/>
+ </p>
+ <p style="border:none;">
+  于是开始重理思路，把该有的地方封装起来再调试，果然明朗许多。
+ </p>
+ <p style="border:none;">
+  唉教训啊教训
+ </p>
+ <p style="border:none;">
+  <br/>
+ </p>
+ <p style="border:none;">
+ </p>
+ <pre><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int n=6,t;
+int a[8];
+int push(int t,int i, int num){             // 把num个a[i]放进容量为t的箱子里，返回箱子容量
+	if ( num &gt; a[i]) num = a[i];
+	t -= i*i * num;
+	a[i] -= num;
+	return t;
+}
+int main(){
+	for(;;){
+		int ts = 0;
+		for ( int i(1);i&lt;=n;i++){
+			cin &gt;&gt; a[i];
+			ts+=a[i];
+		}
+		if (!ts) break;
 <pre><code>    int s =a[6]+a[5]+a[4];
 
     // a5
@@ -450,10 +500,12 @@
 return 0;
 </code></pre>
 <p>}
-<!-- raw HTML omitted --><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+</code></pre>
+<br/>
+<br/></p>
+ <p>
+ </p>
+</div>
 
     </div>
 

@@ -18,7 +18,7 @@
       <pubDate>Fri, 01 Feb 2013 20:35:14 +0800</pubDate>
       
       <guid>/post/csdn/jquery-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 添加jQuery库： &amp;lt;script src=&#34;http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js&#34;&amp;gt;&amp;lt;/script&amp;gt; PS： ../1/.. 可以找到1.*.* 的最高版本。 2.0.2 不再支持IE8- jQuery语法： $(selector).action()</description>
     </item>
     
   </channel>

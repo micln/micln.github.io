@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 int sz[333]; int fa[333]; bool ok[333]; // 数据中使用到的单词 int n, T; int getfa(int v) { if ( fa[v] == v ) return v; return fa[v] = getfa(fa[v]); } void init() { memset(ok, 0, sizeof(ok)); memset(sz, 0, sizeof(sz)); cin &gt;&gt; n; string a;">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 好久不写代码果然手会生成屎 题目在 poj上也有 题意就是给你一堆单词，按首位顺序排列起来，问你有没有解。">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/uva-10129-play-on-words/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/uva-10129-play-on-words/">
   <meta property="og:title" content="UVa 10129 Play on Words | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 int sz[333]; int fa[333]; bool ok[333]; // 数据中使用到的单词 int n, T; int getfa(int v) { if ( fa[v] == v ) return v; return fa[v] = getfa(fa[v]); } void init() { memset(ok, 0, sizeof(ok)); memset(sz, 0, sizeof(sz)); cin &gt;&gt; n; string a;"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 好久不写代码果然手会生成屎 题目在 poj上也有 题意就是给你一堆单词，按首位顺序排列起来，问你有没有解。"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2014-08-14T20:54:58&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 分钟阅读时间
+    3 分钟阅读时间
   </span>
   
 
@@ -406,7 +406,125 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-<!-- raw HTML omitted -->
+ <div class="htmledit_views" id="content_views">
+ <p style="border:none;">
+  <br/>
+ </p>
+ <p style="border:none;">
+  好久不写代码果然手会生成屎
+ </p>
+ <p style="border:none;">
+  题目在
+  <a href="http://poj.org/problem?id=1386" rel="nofollow">
+   poj上也有
+  </a>
+ </p>
+ <p style="border:none;">
+  <br/>
+ </p>
+ <p style="border:none;">
+  题意就是给你一堆单词，按首位顺序排列起来，问你有没有解。
+ </p>
+ <p style="border:none;">
+  第一眼看上去是个哈密顿通路，单词当做节点，首尾关系作边，听上去妥妥的不过N有100000 复杂度太恐怖。
+ </p>
+ <p style="border:none;">
+  其实是从刘汝佳的小白书第二版（其实该叫小紫红书了）上欧拉回路那节看到的，所以得考虑考虑转换
+ </p>
+ <p style="border:none;">
+  把单词当边，首尾字符当做点 题目就转变为 欧拉通路
+ </p>
+ <p style="border:none;">
+  <br/>
+ </p>
+ <p style="border:none;">
+  不得不感慨，图论算法的重点还是在构图！！！
+ </p>
+ <p style="border:none;">
+  <br/>
+ </p>
+ <p style="border:none;">
+  <strong>
+   判断欧拉通路：
+  </strong>
+ </p>
+ <p style="border:none;">
+  1. 一个有向图存在欧拉回路必定也存在欧拉通路...因为通路的定义包括了回路
+  <br/>
+  2. 不考虑为欧拉回路的情况..一个有向图是欧拉通路就必须有一个点出度-入度=1,一个点入度-出度=1..这两点就是欧拉通路的起点和终点..并且该图连通
+  <br/>
+ </p>
+ <p style="border:none;">
+  3.
+  <span style="color:#ff0000;">
+   我自己加一条，其实是对2的理解：
+  </span>
+  入读-出度&gt;1 时直接return false ，排除 a-&gt;b a-&gt;c 这种情况
+ </p>
+ <p style="border:none;">
+  <br/>
+ </p>
+ <p style="border:none;">
+  <strong>
+   判断欧拉回路：
+  </strong>
+ </p>
+ <p style="border:none;">
+  无向图是欧拉图的充要条件是所有点的度为偶数并且所有点联通
+  <br/>
+  <strong>
+   有向图是欧拉图的充要条件是所有点的入度=出度..并且联通...
+  </strong>
+  <br/>
+ </p>
+ <p style="border:none;">
+  <br/>
+ </p>
+ <p style="border:none;">
+  <strong>
+   判断连通
+  </strong>
+ </p>
+ <p style="border:none;">
+  1. dfs遍历，
+  <a href="http://blog.csdn.net/zgkdzw/article/details/8822792" rel="nofollow">
+   这里有一份参考代码
+  </a>
+  不过我一直怀疑其正确性。因为你无法确定有向图的起点，比如 a-&gt;b-&gt;c 如果你从b点开始搜的话就会悲催，但是你不知道b点上面还有没有点。
+ </p>
+ <p style="border:none;">
+  2. 并查集，并查集的方便之处不用废话。但是在图论中两点之间有多条边时需要注意一些细节的处理。
+ </p>
+ <p style="border:none;">
+  <br/>
+ </p>
+ <p style="border:none;">
+  关于判断入读出度
+ </p>
+ <p style="border:none;">
+  一种办法是分别记录 in[] out[]
+ </p>
+ <p style="border:none;">
+  我用的办法是一个数组：sz[x]++ 表示拉出一条边，sz[x]--表示走来一条边，sz[x]==1 sz[x]==-1 就是上面的两种情况
+ </p>
+ <p style="border:none;">
+  <br/>
+ </p>
+ <p style="border:none;">
+  上代码吧
+ </p>
+ <p style="border:none;">
+  这是只开sz[]的
+ </p>
+ <p style="border:none;">
+ </p>
+ <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#define N 101010
+using namespace std;
 <p>int sz[333];
 int fa[333];
 bool ok[333];   //  数据中使用到的单词
@@ -471,10 +589,21 @@ cout &lt;&lt; &ldquo;Ordering is possible.&rdquo; &lt;&lt; endl;
 else
 cout &lt;&lt; &ldquo;The door cannot be opened.&rdquo; &lt;&lt; endl;
 }
-}<!-- raw HTML omitted --><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+}</code></pre>
+<br/>
+<br/></p>
+ <p style="border:none;">
+  为保险起见，还是开了两个数组的
+ </p>
+ <p style="border:none;">
+ </p>
+ <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#define N 101010
+using namespace std;
 <p>int in[333], out[333];
 int fa[333];
 bool ok[333];   //  数据中使用到的单词
@@ -541,10 +670,19 @@ cout &lt;&lt; &ldquo;Ordering is possible.&rdquo; &lt;&lt; endl;
 else
 cout &lt;&lt; &ldquo;The door cannot be opened.&rdquo; &lt;&lt; endl;
 }
-}<!-- raw HTML omitted --><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+}</code></pre>
+<br/>
+<br/></p>
+ <p style="border:none;">
+  <br/>
+ </p>
+ <p style="border:none;">
+  <br/>
+ </p>
+ <p style="border:none;">
+  <br/>
+ </p>
+</div>
 
     </div>
 

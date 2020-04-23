@@ -27,7 +27,7 @@
       <pubDate>Mon, 01 Dec 2014 12:00:00 +0800</pubDate>
       
       <guid>/post/dashayu/1417406400-tkinter%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 [](#什么是tkinter)什么是Tkinter Tkinter（也叫Tk接口）</description>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 什么是Tkinter Tkinter（也叫Tk接口）是Tk图形用户界面工具包标准的</description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@
       <pubDate>Thu, 27 Nov 2014 12:00:00 +0800</pubDate>
       
       <guid>/post/dashayu/1417060800-python%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97/</guid>
-      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 [](#资源列表：)资源列表： python 简明 Python 教程 浅显易懂，快速上手 Python快速教程</description>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 资源列表： python 简明 Python 教程 浅显易懂，快速上手 Python快速教程 全。不过对新手会有点</description>
     </item>
     
     <item>
@@ -63,7 +63,7 @@
       <pubDate>Mon, 30 Jun 2014 12:00:00 +0800</pubDate>
       
       <guid>/post/dashayu/1404100800-about-me/</guid>
-      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 爱生活，爱思考 [](#兴趣爱好)兴趣爱好 编程技术 程序设计 服务端开发 前段折腾 嵌入式</description>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 爱生活，爱思考 兴趣爱好 编程技术 程序设计 服务端开发 前段折腾 嵌入式探索 社交网络 Weibo Facebook Github</description>
     </item>
     
     <item>
@@ -90,7 +90,7 @@
       <pubDate>Mon, 08 Oct 2012 12:00:00 +0800</pubDate>
       
       <guid>/post/dashayu/1349668800-acmtips/</guid>
-      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 window.onload = function(){ return; h1 = document.querySelectorAll(&amp;quot;h1&amp;quot;); h2 = document.querySelectorAll(&amp;quot;h2&amp;quot;); h3 = document.querySelectorAll(&amp;quot;h3&amp;quot;); h4 = document.querySelectorAll(&amp;quot;h4&amp;quot;); var txt = &amp;quot;&amp;lt;h2&amp;gt; Directory &amp;quot;; txt += &amp;quot;&amp;lt;pre&amp;gt;&amp;quot; for ( t1=0; t1&amp;lt;h1.length; t1++ ){ txt += &amp;quot;&amp;lt;h3&amp;gt;&amp;quot; + (tt[t1+1]) + &amp;quot;.&amp;quot; + h1[t1].innerHTML</description>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 var tt = [&#34;&#34;, &#34;一&#34;, &#34;二&#34;, &#34;三&#34;, &#34;四&#34;, &#34;五&#34;, &#34;六&#34;, &#34;七&#34;, &#34;八&#34;, &#34;九&#34;,</description>
     </item>
     
   </channel>

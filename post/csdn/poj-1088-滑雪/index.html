@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 http://poj.org/problem?id=1088 思路 经典的记忆化搜索：搜索&#43;记忆化 搜索：一个一个找，能滑就滑 记忆化：优化重复的路径，记录每个点">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/poj-1088-%E6%BB%91%E9%9B%AA/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/poj-1088-%E6%BB%91%E9%9B%AA/">
   <meta property="og:title" content="POJ 1088 滑雪 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 http://poj.org/problem?id=1088 思路 经典的记忆化搜索：搜索&#43;记忆化 搜索：一个一个找，能滑就滑 记忆化：优化重复的路径，记录每个点"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-03-23T13:03:02&#43;08:00">
@@ -406,7 +406,72 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-<!-- raw HTML omitted -->
+ <div class="htmledit_views" id="content_views">
+ <h2>
+  题目
+ </h2>
+ <div>
+  <a href="http://poj.org/problem?id=1088" rel="nofollow">
+   http://poj.org/problem?id=1088
+  </a>
+  <br/>
+ </div>
+ <h2>
+  思路
+ </h2>
+ <div>
+  经典的记忆化搜索：搜索+记忆化
+ </div>
+ <blockquote style="border:none;">
+  <div>
+   搜索：一个一个找，能滑就滑
+  </div>
+ </blockquote>
+ <blockquote style="border:none;">
+  <div>
+   记忆化：优化重复的路径，记录每个点能滑的最远距离（不论从哪里滑倒这里，从这里往下滑行的最远距离是一定的）
+  </div>
+ </blockquote>
+ <h2>
+  代码
+ </h2>
+ <div>
+  <pre><code class="language-cpp">#include &lt;cstdio&gt;
+const int dx[]={0,0,1,-1};
+const int dy[]={1,-1,0,0};
+int n,m,a[111][111],f[111][111],max;
+int so(int x,int y){
+	if (f[x][y]) return f[x][y];
+	for (int i(0);i&lt;4;i++){
+		int xx=x+dx[i];
+		int yy=y+dy[i];
+		if (a[xx][yy]&gt;=a[x][y]) continue;
+		if (so(xx,yy)+1&gt;f[x][y]) f[x][y]=f[xx][yy]+1;
+	}
+	return f[x][y];
+}
+int main(){
+	scanf("%d%d",&amp;n,&amp;m);
+	for (int i(1);i&lt;=n;i++) a[i][0]=a[i][m+1]=11111;
+	for (int i(1);i&lt;=m;i++) a[0][i]=a[n+1][i]=11111;
+	for (int i(1);i&lt;=n;i++){
+		for (int j(1);j&lt;=m;j++){
+			scanf("%d",&amp;a[i][j]);
+		}
+	}
+	for (int i(1);i&lt;=n;i++){
+		for (int j(1);j&lt;=m;j++){
+			f[i][j]=so(i,j);
+			if (f[i][j]&gt;max) max=f[i][j];
+		}
+	}
+	printf("%d\n",max+1);
+	return 0;
+}</code></pre>
+  <br/>
+  <br/>
+ </div>
+</div>
 
     </div>
 

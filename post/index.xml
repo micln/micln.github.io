@@ -428,7 +428,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 01 Dec 2014 12:00:00 +0800</pubDate>
       
       <guid>/post/dashayu/1417406400-tkinter%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 [](#什么是tkinter)什么是Tkinter Tkinter（也叫Tk接口）</description>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 什么是Tkinter Tkinter（也叫Tk接口）是Tk图形用户界面工具包标准的</description>
     </item>
     
     <item>
@@ -437,7 +437,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 27 Nov 2014 12:00:00 +0800</pubDate>
       
       <guid>/post/dashayu/1417060800-python%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97/</guid>
-      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 [](#资源列表：)资源列表： python 简明 Python 教程 浅显易懂，快速上手 Python快速教程</description>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 资源列表： python 简明 Python 教程 浅显易懂，快速上手 Python快速教程 全。不过对新手会有点</description>
     </item>
     
     <item>
@@ -446,7 +446,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sun, 16 Nov 2014 15:46:42 +0800</pubDate>
       
       <guid>/post/csdn/struts2-%E5%85%A5%E9%97%A8%E5%9B%BE%E8%A7%A3/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 目录结构： ./project/ |- src/ | |- package1/a.java java source | |- package2/b.java | |- WebRoot/ | |- META-INF/ | |- MANIFEST.MF | |- WEB-INF/ | |- classes/ | | |- */*.class 编译后自动生成 | | |- struts.xml | |- lib/ |</description>
     </item>
     
     <item>
@@ -482,7 +482,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 08 Oct 2014 10:09:31 +0800</pubDate>
       
       <guid>/post/csdn/usc-1329-decode-%E5%9D%91%E5%9D%91%E5%9D%91gets/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 using namespace std; const int INF = 999999999; const double eps = 1e-6; int T,I,n,m,t; LL tt, sum; int a[1111]; int f[1111]; int dp[888][888]; char s[888]; char ans[888]; char ss[888]; int so(int v){ if (a[v] == v ) return 1; int t = a[v]; int res = 1; while (t!=v){</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 其实一贯都是用string来着。。 其实后来看刘汝佳的书又喜欢上了fgets然后一路过关斩将来着。。 这</description>
     </item>
     
     <item>
@@ -491,7 +491,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Tue, 30 Sep 2014 17:20:25 +0800</pubDate>
       
       <guid>/post/csdn/uva-437-the-tower-of-babylon/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 const int INF = 0x3fffffff; const double eps = 1e-6; struct NODE{ int a,b,c; NODE(){} NODE(int x,int y,int z): a(x),b(y),c(z) {} }a[111]; bool cmp(NODE a,NODE b){ if (a.a==b.a) return a.b&amp;lt;b.b; return a.a&amp;lt;b.a; } int d[111]; int I,T,n,m; int main(){ freopen(&amp;ldquo;in.txt&amp;rdquo;,&amp;ldquo;r&amp;rdquo;,stdin); while ( scanf(&amp;quot;%d&amp;rdquo;,&amp;amp;n) &amp;amp;&amp;amp; n){ for ( int i(0); i&amp;lt;n;</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 好久不水 开始深入算法了。 题目传送门 题目其实很简单，暴搜都可以，网上最多的解法都是记忆化搜索，效率应该</description>
     </item>
     
     <item>
@@ -509,7 +509,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 14 Aug 2014 20:54:58 +0800</pubDate>
       
       <guid>/post/csdn/uva-10129-play-on-words/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 int sz[333]; int fa[333]; bool ok[333]; // 数据中使用到的单词 int n, T; int getfa(int v) { if ( fa[v] == v ) return v; return fa[v] = getfa(fa[v]); } void init() { memset(ok, 0, sizeof(ok)); memset(sz, 0, sizeof(sz)); cin &amp;gt;&amp;gt; n; string a;</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 好久不写代码果然手会生成屎 题目在 poj上也有 题意就是给你一堆单词，按首位顺序排列起来，问你有没有解。</description>
     </item>
     
     <item>
@@ -518,7 +518,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 21 Jul 2014 14:16:52 +0800</pubDate>
       
       <guid>/post/csdn/ubuntu-%E5%AE%89%E8%A3%85-wps.deb/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 首先到官网下载最新版本，由于官网只提供了32bit版本，所以只能下载这个。 wget http://wdl1.cache.wps.cn/wps/download/Linux/unstable/wps-office_8.1.0.3724~b1p2_i386.deb 安装 sudo dpkg -i wps-office_8.1.0.3724~b1p2_i386.deb 这个时候如</description>
     </item>
     
     <item>
@@ -527,7 +527,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Fri, 18 Jul 2014 18:51:34 +0800</pubDate>
       
       <guid>/post/csdn/poj-1017-packets-%E6%82%BC%E5%BF%B5%E6%AD%BB%E5%8E%BB%E7%9A%84%E6%A8%A1%E6%8B%9F/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 int s =a[6]+a[5]+a[4]; // a5 if (a[5]*11 &amp;amp;gt;= a[1]) a[1] = 0; else a[1] -= a[5]*11; // a4 for ( int i(1);i&amp;amp;lt;=a[4];i++){ t = push(20,2,5); if (t) t = push(t,1,t); } // a3 s += a[3] / 4; // 整装3 a[3] %= 4; if (a[3]){ // 剩下</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很水，纯模拟 麻烦的地方在于，会面临多次用小件填充大件剩余。 最开始觉得不同大小时决策不一样</description>
     </item>
     
     <item>
@@ -563,7 +563,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 30 Jun 2014 12:00:00 +0800</pubDate>
       
       <guid>/post/dashayu/1404100800-about-me/</guid>
-      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 爱生活，爱思考 [](#兴趣爱好)兴趣爱好 编程技术 程序设计 服务端开发 前段折腾 嵌入式</description>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 爱生活，爱思考 兴趣爱好 编程技术 程序设计 服务端开发 前段折腾 嵌入式探索 社交网络 Weibo Facebook Github</description>
     </item>
     
     <item>
@@ -635,7 +635,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 07 Apr 2014 21:13:59 +0800</pubDate>
       
       <guid>/post/csdn/led%E7%82%B9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E6%8E%A2%E7%B4%A2/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 void setup() { for ( int i(_r); i &amp;lt;= 12; i++) pinMode(i, OUTPUT); flash(); } void flash(){ for ( int i(1 + _r); i &amp;lt;= 4 + _r; i++) digitalWrite(i, LOW); for ( int i(1 + _c); i &amp;lt;= 4 + _c; i++) digitalWrite(i, HIGH); } void echo(int i, int</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 以 CL1588BS 8*8点阵 为例 引脚说明 这个家伙有上下两排共16个引脚，每个引脚负责一行（或一列的信号）。 当 行为高</description>
     </item>
     
     <item>
@@ -644,7 +644,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 02 Apr 2014 22:57:45 +0800</pubDate>
       
       <guid>/post/csdn/poj-1273-drainage-ditches-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%A8%A1%E7%89%88/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 struct EDGE { int to, cap, rev; }; vector&amp;lt;EDGE&amp;gt; g[N]; int ff[N][N]; bool used[N]; int n,m; int dfs(int v,int t,int f){ if ( v == t ) return f; used[v]= true; for ( int i(0); i &amp;lt; g[v].size(); i++){ EDGE &amp;amp;e = g[v][i]; if ( !used[e.to] &amp;amp;&amp;amp; e.cap &amp;gt; 0){</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目传送门 网络流模版题，本想水一水，莫想到因为没好好看题给跪了。 题目大意就是 给你一堆水洼地，还有一些</description>
     </item>
     
     <item>
@@ -653,7 +653,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 31 Mar 2014 21:59:58 +0800</pubDate>
       
       <guid>/post/csdn/hdu-3887-counting-offspring-dfs%E5%BA%8F%E7%9A%84%E8%BF%90%E7%94%A8-%E9%9D%9E%E9%80%92%E5%BD%92/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 stack&amp;lt;int&amp;gt; st; struct NODE { int v,next; } a[N],e[N]; int tr[N],pre[N],s[N],b[N]; int n,em,root,tt; void update(int x) { while ( x&amp;lt;=n) { tr[x] += 1; x += x &amp;amp; -x; } } int gs(int x) { int s = 0; while (x&amp;gt;0) { s += tr[x]; x -= x &amp;amp; -x;</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 一天时间做了两道 dfs序 的题， 都是 WA 不停，最后一道改成 100W的数组，一道改成双向边就AC了</description>
     </item>
     
     <item>
@@ -662,7 +662,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 31 Mar 2014 09:56:24 +0800</pubDate>
       
       <guid>/post/csdn/poj-3321-apple-tree-dfs%E5%BA%8F%E7%9A%84%E5%BA%94%E7%94%A8/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 void dfs(int v) { P1[v]=++tt; for ( int p = a[v].next; p; p=st[p].next ) dfs(st[p].v); P2[v]=tt; return; } inline int l(int i) { return i &amp;amp; -i; } void update(int x,int k) { while (x&amp;lt;=n) { t[x] += k; x += l(x); } } int gs(int x) { int s</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 dfs序 说来很简单，却从来没有想到过。必须得深刻反省一下到底自己学了些啥。 题目大意是给你一棵</description>
     </item>
     
     <item>
@@ -671,7 +671,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 31 Mar 2014 09:34:47 +0800</pubDate>
       
       <guid>/post/csdn/poj-3461-oulipo-kmp%E7%BB%83%E4%B9%A0/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 void prekmp(char* b) { next[0]=-1; int j=-1; for ( int i(1); b[i]; i++) { while ( j!=-1 &amp;amp;&amp;amp; b[i]!=b[j+1]) j=next[j]; if ( b[i]==b[j+1] ) j++; next[i]=j; } } int kmp(char *a,char *b) { int j=-1,ans=0; for ( int i(0); a[i]; i++) { while ( j!=-1 &amp;amp;&amp;amp; a[i]!=b[j+1] ) j=next[j]; if</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很长，其实就是字符串匹配。 所以，权当练习 KMP #include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstring&amp;gt; #define MB 10101 #define MA 1000100 char a[MA],b[MB]; int next[MB]; void prekmp(char* b) { next[0]=-1; int j=-1; for (</description>
     </item>
     
     <item>
@@ -680,7 +680,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sat, 29 Mar 2014 12:29:31 +0800</pubDate>
       
       <guid>/post/csdn/webkit-webapp-%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 initial-scale - // 初始的缩放比例 （范围从&amp;gt;0 到10） minimum-scale - // 允许用户缩放到的最小比例 maximum-scale - // 允许用户缩放到的最</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 原文链接 如果你是一名前端er,又想在移动设备上开发出自己的应用，那怎么实现呢？幸好，webkit内核</description>
     </item>
     
     <item>
@@ -689,7 +689,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sun, 22 Dec 2013 20:24:56 +0800</pubDate>
       
       <guid>/post/csdn/%E6%9D%8E%E5%BC%80%E5%A4%8D%E7%AE%97%E6%B3%95%E7%9A%84%E5%8A%9B%E9%87%8F-%E5%AE%8C%E6%95%B4%E7%89%88/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 算法的力量 李开复 2006年5月 算法是计算机科学领域最重要的基石之一，但却受到了国内一些程序员的冷落。</description>
     </item>
     
     <item>
@@ -698,7 +698,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sat, 21 Dec 2013 23:48:31 +0800</pubDate>
       
       <guid>/post/csdn/2013~2014-%E7%AC%AC%E4%B8%80%E5%AD%A6%E6%9C%9F%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 坑爹的电信网，服务器访问不上了。 大家先将就一下吧。 基础班 时间 课件 详情 主讲 10.26 第零讲 ACM介绍 张慧仁 10.31 第</description>
     </item>
     
     <item>
@@ -707,7 +707,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 05 Dec 2013 10:01:51 +0800</pubDate>
       
       <guid>/post/csdn/%E6%95%B4%E7%90%86%E4%B8%80%E4%B8%8Bgo%E7%8E%AF%E5%A2%83%E9%9C%80%E8%A6%81%E7%9A%84%E4%B8%9C%E8%A5%BF%E6%B0%B4%E5%B8%96~/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 先声明 不是搭建教程。。 重做了个系统要重新搭环境，结果原来的很多站点的东西都没了，害我辛辛苦苦折腾了好</description>
     </item>
     
     <item>
@@ -716,7 +716,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 28 Nov 2013 16:37:01 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.4.3-the-clocks/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| | | | | | | | O | | O | | O | | | | | | | | | | |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| D E F |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| | | | | | | | O | | O&amp;mdash;| | O |</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 The Clocks IOI&#39;94 - Day 2 Consider nine clocks arranged in a 3x3 array thusly: |-------| |-------| |-------| | | | | | | | |---O | |---O | | O | | | | | | | |-------| |-------| |-------| A B C |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |&amp;mdash;&amp;mdash;-| |</description>
     </item>
     
     <item>
@@ -725,7 +725,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Fri, 15 Nov 2013 16:23:18 +0800</pubDate>
       
       <guid>/post/csdn/poj-3041-asteroids-%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95-%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 const int N = 555; int n, m, g[N][N], chk[N], match[N]; int dfs(int v){ int t; for ( int i = 1; i &amp;lt;= n; i++){ if ( g[i][v] &amp;amp;&amp;amp; !chk[i] ){ chk[i] = 1; t = match[i]; match[i] = v; if ( t == -1 || dfs(t) ) return</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目链接： http://poj.org/problem?id=3041 看起来像个 DP 神马的。竟然是二分图匹配。。 看着啊，行与行之间相互独立，一个行可以就炸掉很多</description>
     </item>
     
     <item>
@@ -734,7 +734,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 30 Oct 2013 18:50:14 +0800</pubDate>
       
       <guid>/post/csdn/%E5%9B%BD%E9%99%85%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E4%B8%80%E7%AD%89%E5%A5%96%E4%BD%9C%E5%93%81%E6%AC%A3%E8%B5%8F/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 g rcx fff n1.com w q</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 国际程序设计大赛一等奖作品这个程序(omni.com)是97年的Mekka ’97 4K Intro比赛的一</description>
     </item>
     
     <item>
@@ -743,7 +743,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Tue, 29 Oct 2013 13:28:08 +0800</pubDate>
       
       <guid>/post/csdn/ufw-%E7%9B%B8%E5%85%B3/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 有些东西，死活都记不住。。 安装 ufw sudo apt-get install ufw 启用 ufw sudo ufw enable 全局限制访问 sudo ufw default deny 打开端口 sudo ufw allow 22 开放/禁止 IP</description>
     </item>
     
     <item>
@@ -752,7 +752,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 16 Oct 2013 01:46:40 +0800</pubDate>
       
       <guid>/post/csdn/ubuntu-%E5%AE%89%E8%A3%85-hustoj/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 安装好 LAMP 环境 方法： http://blog.csdn.net/kzzhr/article/details/12755671 下载 HUSTOJ HUSTOJ 主页 http://code.google.com/p/hustoj/ 我下载了 安装包 install.rxxxx.tar.gz 上传至服务器 #scp -r /home/foo/isntall foo@xxx.xx.xxx.xxx:/var/www 安装中的那些事儿～ install/README 中有详细的</description>
     </item>
     
     <item>
@@ -761,7 +761,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Tue, 15 Oct 2013 21:13:16 +0800</pubDate>
       
       <guid>/post/csdn/lamp-%E7%9A%84%E6%90%AD%E5%BB%BA/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 用了无数次的XAMPP，终于自己搭一次了。。。。 安装 Linux 我装的是ubuntu。。 安装 Apache2 apt-get install apache2 装好之后，</description>
     </item>
     
     <item>
@@ -770,7 +770,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Tue, 15 Oct 2013 01:27:15 +0800</pubDate>
       
       <guid>/post/csdn/%E9%9D%9E%E6%8A%80%E6%9C%AF%E8%B4%B4%E8%AE%B0%E6%B9%96%E5%8D%97%E7%9C%81%E7%AC%AC%E4%B9%9D%E5%B1%8A%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 昨天诸事不顺，看来还是可以攒点人品。 先说说比赛过程吧（这个比较有价值但很容易忘记） 继续昨天的诸事不顺</description>
     </item>
     
     <item>
@@ -779,7 +779,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 02 Oct 2013 23:11:58 +0800</pubDate>
       
       <guid>/post/csdn/longest-ordered-subsequence-onlogn%E8%A7%A3%E6%B3%95-stl/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 维护一个单调队列，对于每一个新的元素： 如果大于队尾元素，补在后面； 否则替换掉最小的大于它的数，这里用</description>
     </item>
     
     <item>
@@ -788,7 +788,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 25 Sep 2013 20:44:59 +0800</pubDate>
       
       <guid>/post/csdn/java-for-acm-%E5%B0%8F%E7%BB%93/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 一、提交格式代码 import java.util.*; public class Main{ public static void main(String[] args){ Scanner cin = new Scanner(System.in)); } } 二、输入 cin.hasNext() 或 cin.hasNextInt() 或 cin.hasNextDouble() // 判断是否有下一个输入可以用 int n</description>
     </item>
     
     <item>
@@ -797,7 +797,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sun, 22 Sep 2013 12:53:49 +0800</pubDate>
       
       <guid>/post/csdn/%E7%82%B9%E9%9B%86%E9%85%8D%E5%AF%B9%E9%97%AE%E9%A2%98-%E9%9B%86%E5%90%88dp-%E6%8C%89%E4%BD%8Ddp/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 以前就开始看刘汝佳的白皮书了，不过眼高手低，没有码过，发现问题好多。于是开始敲一敲。 题意： 空间有n个</description>
     </item>
     
     <item>
@@ -806,7 +806,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sat, 31 Aug 2013 23:37:50 +0800</pubDate>
       
       <guid>/post/csdn/notonlysuccess-%E7%BA%BF%E6%AE%B5%E6%A0%91-%E9%AB%98%E4%BA%BA%E6%8E%A8%E8%8D%90/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 #define lson l , m , rt &amp;lt;&amp;lt; 1 #define rson m + 1 , r , rt &amp;lt;&amp;lt; 1 | 1 const int maxn = 222222; int MAX[maxn&amp;lt;&amp;lt;2]; void PushUP(int rt) { MAX[rt] = max(MAX[rt&amp;lt;&amp;lt;1] , MAX[rt&amp;lt;&amp;lt;1|1]); } void build(int l,int r,int rt) { if (l == r) {</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 很早前写的那篇线段树专辑至今一直是本博客阅读点击量最大的一片文章,当时觉得挺自豪的,还去pku打广告</description>
     </item>
     
     <item>
@@ -815,7 +815,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 22 Aug 2013 00:11:02 +0800</pubDate>
       
       <guid>/post/csdn/rmq-with-shifts-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9F%BA%E5%9F%BA%E7%A1%80/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 思路 看上去是个线段树，不过每个元素都移动，树结构本身无法实现这个功能，只能一个一个的修改，但是里面的</description>
     </item>
     
     <item>
@@ -824,7 +824,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 27 Jun 2013 16:56:29 +0800</pubDate>
       
       <guid>/post/csdn/hoj-2651-pie/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hit.edu.cn/hoj/problem/view?id=2651 很简单的二分枚举， 要注意的是 1、一共是 f+1 个人（包括他自己） 2、精度问题。。被吭了好久，我把面</description>
     </item>
     
     <item>
@@ -833,7 +833,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 27 Jun 2013 02:38:45 +0800</pubDate>
       
       <guid>/post/csdn/hdoj-4152-zzys-dilemma/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hdu.edu.cn/showproblem.php?pid=4152 队长大人给某菜鸟赛出的题，但是却让我傻了半天。 裸暴力，由于数据弱，我直接用了位运算标记，其实</description>
     </item>
     
     <item>
@@ -842,7 +842,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 27 Jun 2013 02:34:39 +0800</pubDate>
       
       <guid>/post/csdn/zoj-3203-light-bulb/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://openoj.awaysoft.com:8080/judge/problem/viewProblem.action?id=14179 三分入门题目 三分： 区间上求凸（凹）点时，把区间ad分为 abcd 其中 b = ( a+d) / 2 ; c = ( b + d) / 2; 比</description>
     </item>
     
     <item>
@@ -851,7 +851,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sat, 15 Jun 2013 10:28:07 +0800</pubDate>
       
       <guid>/post/csdn/wwdc%E8%8B%B9%E6%9E%9C%E7%9A%84%E9%87%8E%E5%BF%83/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 原题：《 WWDC2013，苹果向世界宣战 》，觉得有些太大了就撤掉了，直到第二天36Kr的报道也使用类</description>
     </item>
     
     <item>
@@ -880,7 +880,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 29 May 2013 11:29:08 +0800</pubDate>
       
       <guid>/post/csdn/%E5%8C%BA%E9%97%B4%E6%8F%92%E5%85%A5%E6%B1%82%E5%92%8C-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8%E4%BA%8C/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 void build(int v,int l,int r){ // 本段代码 同 数列操作1 st[v].l=l; st[v].r=r; if (st[v].l==st[v].r){ st[v].sum=a[l]; return ; } int mid = (l+r)/2; build(v2,l,mid); build(v2+1,mid+1,r); st[v].sum=st[v2].sum + st[v2+1].sum; } void insert(int v,int l,int r,long long c){ // 插入 st[v].sum+=c*(r-l+1); if (l==st[v].l &amp;amp;&amp;amp; r==st[v].r){ //</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 题目描述 Description 给你N个数，有两种操作： 1：给区间[a,b]的所有数增加X 2：询问区间[a,b]的数的</description>
     </item>
     
     <item>
@@ -889,7 +889,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Tue, 28 May 2013 22:42:10 +0800</pubDate>
       
       <guid>/post/csdn/%E6%95%B0%E5%88%97%E6%93%8D%E4%BD%9C-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A5%E9%97%A8/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 void build(int v,int l,int r){ st[v].l = l; st[v].r = r; if (l == r) { // 是叶子，直接赋值，跳出 st[v].v=a[l]; return ; } int mid = (l+r)/2; // 不是叶子，往下扩展 build(2v,l,mid); build(2v+1,mid+1,r); st[v].v=st[v2].v+st[v2+1].v; //</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 题目描述 Description 一行N个方格，开始每个格子里都有一个整数。现在动态地提出一些问题和修改：提问的形式是求</description>
     </item>
     
     <item>
@@ -898,7 +898,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sat, 25 May 2013 01:30:49 +0800</pubDate>
       
       <guid>/post/csdn/csdn%E6%A8%A1%E7%89%88%E4%BF%AE%E6%94%B9/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 序言 首先，你应该可以看到这个页面跟一般的CSDN页面不相同。这也是我们本文的目的。 必须承认，很多IT</description>
     </item>
     
     <item>
@@ -907,7 +907,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Fri, 24 May 2013 17:52:31 +0800</pubDate>
       
       <guid>/post/csdn/5611ah-%E6%95%B0%E7%A0%81%E7%AE%A1-%E5%BC%95%E8%84%9A%E5%9B%BE/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 arduino套装，给了个5611AH的数码管。在网上找不到现成的引脚图，无奈只好自己画了。初学ar</description>
     </item>
     
     <item>
@@ -916,7 +916,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 22 May 2013 11:07:06 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.3.6-prime-cryptarithm/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 if (i*j&amp;amp;lt;10000 &amp;amp;amp;&amp;amp;amp; i*(j/10)&amp;amp;lt;1000 &amp;amp;amp;&amp;amp;amp; i*(j%10)&amp;amp;lt;1000 &amp;amp;amp;&amp;amp;amp; hash(j) &amp;amp;amp;&amp;amp;amp; hash(i*(j%10)) &amp;amp;amp;&amp;amp;amp; hash(i*(j/10)) &amp;amp;amp;&amp;amp;amp; hash(i*j)) { ans++; // printf(&amp;quot;%d * %d = %d0 + %d = %d \n&amp;quot;,i,j,i*(j/10),i*(j%10),i*j); } } } } printf(&amp;quot;%d\n&amp;quot;,ans); return 0; }</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Prime Cryptarithm The following cryptarithm is a multiplication problem that can be solved by substituting digits from a specified set of N digits into the positions marked with *. If the set of prime digits {2,3,5,7} is selected, the cryptarithm is called a PRIME CRYPTARITHM. * * *</description>
     </item>
     
     <item>
@@ -925,7 +925,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 22 May 2013 11:03:07 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.3.5-calf-flac/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Calf Flac It is said that if you give an infinite number of cows an infinite number of heavy-duty laptops (with very large keys), that they will ultimately produce all the world&#39;s great palindromes. Your job will be to detect these bovine beauties. Ignore punctuation, whitespace, numbers, and</description>
     </item>
     
     <item>
@@ -934,7 +934,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 22 May 2013 10:54:09 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.3.3-barn-repair/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Barn Repair It was a dark and stormy night that ripped the roof and gates off the stalls that hold Farmer John&#39;s cows. Happily, many of the cows were on vacation, so the barn was not completely full. The cows spend the night in stalls that are arranged</description>
     </item>
     
     <item>
@@ -943,7 +943,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 22 May 2013 10:44:34 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.3.2-mixing-milk/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 using namespace std; struct milk { int w,p; }; milk a[maxn+1]; int m,n; bool cmp(milk a ,milk b){ return a.p &amp;lt; b.p; } int main(){ freopen(&amp;ldquo;milk.in&amp;rdquo;,&amp;ldquo;r&amp;rdquo;,stdin); freopen(&amp;ldquo;milk.out&amp;rdquo;,&amp;ldquo;w&amp;rdquo;,stdout); scanf(&amp;quot;%d%d&amp;rdquo;,&amp;amp;m,&amp;amp;n); for (int i=1;i&amp;lt;=n;i++){ scanf(&amp;quot;%d%d&amp;rdquo;,&amp;amp;a[i].p,&amp;amp;(a[i].w)); } sort(a+1,a+n+1,cmp); int s=m,sp=0,k; for (int i=1;s;i++){ if ((k=a[i].w)&amp;gt;s) k=s; s-=k; sp+=k*a[i].p; } printf(&amp;quot;%d\n&amp;rdquo;,sp); return 0; }</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Mixing Milk Since milk packaging is such a low margin business, it is important to keep the price of the raw product (milk) as low as possible. Help Merry Milk Makers get the milk they need in the cheapest possible manner. The Merry Milk Makers company has several</description>
     </item>
     
     <item>
@@ -962,7 +962,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sun, 19 May 2013 21:13:42 +0800</pubDate>
       
       <guid>/post/csdn/linux-%E7%B3%BB%E7%BB%9F%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 以下所有命令基于 ubuntu12.04 系统。centos、rhel 慎重 添加用户 useradd adduser 自动创建目录 添加 sudoers vim /etc/sudoers 修改主机名/机器</description>
     </item>
     
     <item>
@@ -971,7 +971,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sat, 18 May 2013 14:42:32 +0800</pubDate>
       
       <guid>/post/csdn/%E7%82%B9%E7%BA%BF%E8%AE%A1%E7%AE%97/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstdio&amp;gt; #include &amp;lt;cmath&amp;gt; using namespace std; struct Point{ double x,y; Point(){}; Point(double a,double b):x(a),y(b){} friend Point operator + (Point a,Point b){ return Point(a.x+b.x,a.y+b.y); } friend Point operator - (Point a,Point b){ return Point(a.x-b.x,a.y-b.y); } friend Point operator * (Point a,double b){ return Point(a.x*b,a.y*b); } friend Point operator</description>
     </item>
     
     <item>
@@ -980,7 +980,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Tue, 14 May 2013 12:49:58 +0800</pubDate>
       
       <guid>/post/csdn/json-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 对象元素 obj = {&#34;name&#34;:&#34;Jom&#34;}; document.writeln(obj.name); 数组 obj = [&#34;name&#34;,&#34;Jom&#34;]; document.writeln(obj); 对象数组 obj = [{&#34;name&#34;:&#34;Jom&#34;}]; document.writeln(obj[0].name); 与字符串转换 txt = &#34;{\&#34;name\&#34;:\&#34;Jank\&#34;}&#34;; obj = eval(&#34;(&#34;+txt+&#34;)&#34;); document.writeln(obj.name); JSON的值： 数字（整数或浮点</description>
     </item>
     
     <item>
@@ -989,7 +989,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 13 May 2013 13:59:15 +0800</pubDate>
       
       <guid>/post/csdn/ajax-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 建立请求 var xmlhttp; if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari xmlhttp=new XMLHttpRequest(); } else {// code for IE6, IE5 xmlhttp=new ActiveXObject(&#34;Microsoft.XMLHTTP&#34;); } 发送请求 xmlhttp.open(&#34;GET&#34;,&#34;kzzhr&#34;,true); xmlhttp.send(); aa 输出内容 xmlhttp.onreadystatechange=function(){ if (xmlhttp.readyState==4 &amp;amp;&amp;amp; xmlhttp.status==200){ document.getElementById(&#34;myDiv&#34;).innerHTML=xmlhttp.responseText; } } 放置数</description>
     </item>
     
     <item>
@@ -998,7 +998,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 02 May 2013 16:31:35 +0800</pubDate>
       
       <guid>/post/csdn/linux-%E5%B0%8F%E7%99%BD%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%95%B4%E7%90%86/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 ####Linux Deepin 特有源#### deb http://packages.linuxdeepin.com/deepin raring main universe non-free deb-src http://packages.linuxdeepin.com/deepin raring main universe non-free deb http://packages.linuxdeepin.com/deepin raring-updates main universe non-free deb-src http://packages.linuxdeepin.com/deepin raring-updates main universe non-free</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 软件源 linuxdeepin 不怎么入流，但是个人觉得在国内做的很用心的一个 注意linuxdeepin 用的命令是 apt-get ####Ubuntu 源##</description>
     </item>
     
     <item>
@@ -1007,7 +1007,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Tue, 30 Apr 2013 14:34:18 +0800</pubDate>
       
       <guid>/post/csdn/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 } } } void calcit(){ for (int i(0);i!=A.size();i++){ if (isNum(A[i][0])) { ans.push_back(gen(A[i])); }else{ double a1=ans[ans.size()-2]; double a2=ans[ans.size()-1]; printf(&amp;quot;%.2f%c%.2f=&amp;rdquo;,a1,A[i][0],a2); switch (A[i][0]){ case &amp;lsquo;+&amp;rsquo;: a1+=a2; break; case &amp;lsquo;-&#39;: a1-=a2; break; case &amp;lsquo;&#39;: a1=a2; break; case &amp;lsquo;/&#39;: if (!a2){ Quit(1); } a1/=a2; break; } printf(&amp;quot;%.2f\n&amp;rdquo;,a1); ans.pop_back(); ans[ans.size()-1]=a1; } } printf(&amp;quot;%.3f\n&amp;rdquo;,ans[0]); } int main(){</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 输入一个表达式，计算出它的值。运算符有 + - × / （ ）。 思路 这是我们学栈时碰到的一个问题，大体方法是</description>
     </item>
     
     <item>
@@ -1016,7 +1016,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 15 Apr 2013 17:42:40 +0800</pubDate>
       
       <guid>/post/csdn/sublime-text-3-%E5%8F%B2%E4%B8%8A%E6%9C%80%E6%80%A7%E6%84%9F%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 &amp;quot;variants&amp;quot;: [ { &amp;quot;name&amp;quot;: &amp;quot;Run&amp;quot;, &amp;quot;shell_cmd&amp;quot;: &amp;quot;g++ \&amp;quot;${file}\&amp;quot; -o \&amp;quot;${file_path}/${file_base_name}\&amp;quot; &amp;amp;amp;&amp;amp;amp; MyCallRun \&amp;quot;${file_path}/${file_base_name}.exe\&amp;quot;&amp;quot; // 其实就是这里加了个MyCallRun } ] } gcc -shared -o libsublime-imfix.so sublime_imfix.c pkg-config --libs --cflags gtk+-2.0 -fPIC LD_PRELOAD=./libsublime-imfix.so sublime_text */ #include &amp;lt;gtk/gtk.h&amp;gt;</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 ↑ ↑ ↑ ↑ ↑ 请看目录 ↑ ↑ ↑ ↑ ↑ 下载 / 安装 windows / MAC OS 官网下载，双击安装，这个都会吧～ linux linux下安装，一</description>
     </item>
     
     <item>
@@ -1025,7 +1025,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sat, 23 Mar 2013 13:03:02 +0800</pubDate>
       
       <guid>/post/csdn/poj-1088-%E6%BB%91%E9%9B%AA/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 http://poj.org/problem?id=1088 思路 经典的记忆化搜索：搜索+记忆化 搜索：一个一个找，能滑就滑 记忆化：优化重复的路径，记录每个点</description>
     </item>
     
     <item>
@@ -1034,7 +1034,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 11 Mar 2013 18:15:41 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.2.5-palindromic-squares/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Palindromic Squares Rob Kolstad Palindromes are numbers that read the same forwards as backwards. The number 12321 is a typical palindrome. Given a number base B (2 &amp;lt;= B &amp;lt;= 20 base 10), print all the integers N (1 &amp;lt;= N &amp;lt;= 300 base 10) such that the</description>
     </item>
     
     <item>
@@ -1043,7 +1043,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 11 Mar 2013 16:04:47 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.2.3-transformations/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Transformations A square pattern of size N x N (1 &amp;lt;= N &amp;lt;= 10) black and white square tiles is transformed into another square pattern. Write a program that will recognize the minimum transformation that has been applied to the original pattern given the following list of possible</description>
     </item>
     
     <item>
@@ -1052,7 +1052,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Tue, 05 Mar 2013 13:20:17 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.2.4-name-that-number/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Name That Number Among the large Wisconsin cattle ranchers, it is customary to brand cows with serial numbers to please the Accounting Department. The cow hands don&#39;t appreciate the advantage of this filing system, though, and wish to call the members of their herd by a pleasing name</description>
     </item>
     
     <item>
@@ -1061,7 +1061,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 04 Mar 2013 22:23:21 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.2.2-milking-cows/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 OUTPUT FORMAT A single line with two integers that represent the longest continuous time of milking and the longest idle time. SAMPLE OUTPUT (file milk2.out) 900 300</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 Milking Cows Three farmers rise at 5 am each morning and head for the barn to milk three cows. The first farmer begins milking his cow at time 300 (measured in seconds after 5 am) and ends at time 1000. The second farmer begins at time 700 and</description>
     </item>
     
     <item>
@@ -1070,7 +1070,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 04 Mar 2013 21:58:18 +0800</pubDate>
       
       <guid>/post/csdn/usaco-section-1.1.7-broken-necklace/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目 （由于USACO在外部无法直接访问题库，所以把题目贴上，可以通过上面的目录跳过） Broken Necklace You have a necklace of N</description>
     </item>
     
     <item>
@@ -1088,7 +1088,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 07 Feb 2013 17:24:42 +0800</pubDate>
       
       <guid>/post/csdn/%E5%81%87%E5%A6%82%E5%A5%B3%E4%BA%BA%E6%98%AF%E4%B8%80%E7%A7%8D%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 计算机语言的实质其实是为了让人类能够更好与计算机打交道，最终结果都是通过编译成二进制代码或通过解释器</description>
     </item>
     
     <item>
@@ -1097,7 +1097,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Tue, 05 Feb 2013 15:00:43 +0800</pubDate>
       
       <guid>/post/csdn/sap%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97-~%E8%BD%AC%E7%9A%84%E5%90%A7/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 #include &amp;lt;cstring&amp;gt; const int MAXN=201,INF=(1&amp;lt;&amp;lt;31)-1; int c[MAXN][MAXN]; //残留网络 int d[MAXN],vd[MAXN]; //d[]:距离标号, vd[]:标号为i的结点个数 int n,m,flow; void init() { scanf(&amp;quot;%d%d&amp;rdquo;,&amp;amp;m,&amp;amp;n); for(int i=1;i&amp;lt;=m;i++) { int</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 网络最大流算法是网络流算法的基础，实现方法很多，但时间复杂度与编程复杂 度难于兼顾。一方面，诸如预流推</description>
     </item>
     
     <item>
@@ -1106,7 +1106,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sat, 02 Feb 2013 09:22:11 +0800</pubDate>
       
       <guid>/post/csdn/%E9%82%A3%E4%BA%9B-helloworld/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 int main(){int i,n[]={(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt; 1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))+((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))), (((1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;( 1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))+((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))+ (1 &amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1 &amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))- ((1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1 )))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;( 1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))-(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1 )&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))+((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))) -((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))),((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1&amp;lt;&amp;lt;1) &amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt; 1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))),(((1&amp;lt;&amp;lt; 1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))-(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))), (((1&amp;lt;&amp;lt;1 )&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))- ((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))+(1&amp;lt;&amp;lt;1)), (((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; ( 1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1&amp;lt;&amp;lt;1) &amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))-((1&amp;lt;&amp;lt;1) &amp;lt;&amp;lt;(1&amp;lt;&amp;lt; (1&amp;gt;&amp;gt;1)))), (((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1&amp;lt;&amp;lt;1))- ((1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))+((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt; 1)))), (((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1) &amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))+(1&amp;lt;&amp;lt;(1 &amp;gt;&amp;gt;1))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))+((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1&amp;lt;&amp;lt;(</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 先看那六个变态的： intn[]={0x48, 0x65,0x6C,0x6C, 0x6F,0x2C,0x20, 0x77,0x6F,0x72, 0x6C,0x64,0x21, 0x0A,0x00},*m=n; main(n){putchar (*m)!=&#39;\0&#39;?main (m++):exit(n++);} #include &#34;stdafx.h&#34; int main(){int i,n[]={(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt; 1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))+((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))), (((1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;( 1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))+((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))+ (1 &amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1 &amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))- ((1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1 )))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;( 1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))-(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1 )&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))+((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))) -((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))),((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1&amp;lt;&amp;lt;1) &amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)),(((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt; 1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))),(((1&amp;lt;&amp;lt; 1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))-((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1 &amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1)))-(1&amp;lt;&amp;lt;(1&amp;gt;&amp;gt;1))), (((1&amp;lt;&amp;lt;1 )&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt;(1&amp;lt;&amp;lt;1))- ((1&amp;lt;&amp;lt;1)&amp;lt;&amp;lt; (1</description>
     </item>
     
     <item>
@@ -1115,7 +1115,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Fri, 01 Feb 2013 20:35:14 +0800</pubDate>
       
       <guid>/post/csdn/jquery-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 添加jQuery库： &amp;lt;script src=&#34;http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js&#34;&amp;gt;&amp;lt;/script&amp;gt; PS： ../1/.. 可以找到1.*.* 的最高版本。 2.0.2 不再支持IE8- jQuery语法： $(selector).action()</description>
     </item>
     
     <item>
@@ -1124,7 +1124,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 31 Jan 2013 14:41:53 +0800</pubDate>
       
       <guid>/post/csdn/poj-%E9%A2%98%E7%9B%AE%E5%88%86%E7%B1%BB%E4%B8%8E%E8%AE%A1%E5%88%92/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 初期: 一.基本算法: (1)枚举. (poj1753,poj2965) (2)贪心(poj1328,poj2109,poj2586) (3)</description>
     </item>
     
     <item>
@@ -1133,7 +1133,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 17 Jan 2013 13:36:47 +0800</pubDate>
       
       <guid>/post/csdn/hdoj-1318-palindromes/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目： http://acm.hdu.edu.cn/showproblem.php?pid=1318 一般的字符串处理问题，一个共性：思路简单，代码繁琐。 譬如此题，首先会有一个问题要考虑：如何去</description>
     </item>
     
     <item>
@@ -1142,7 +1142,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Wed, 09 Jan 2013 19:37:01 +0800</pubDate>
       
       <guid>/post/csdn/%E4%B8%80%E4%BA%9B%E9%9A%8F%E4%BE%BF-%E6%9B%B4%E6%96%B0%E4%B8%AD/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 字体： http://url.cn/CtKsBe linux默认字体 http://url.cn/ClMeMA 苹果系统默认编程字体 http://url.cn/DNLRS8 一种不错的汉英搭配个人感觉 http://url.cn/A4NRay 这个，是我以前的编程字</description>
     </item>
     
     <item>
@@ -1151,7 +1151,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Tue, 08 Jan 2013 19:53:44 +0800</pubDate>
       
       <guid>/post/csdn/c%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-%E4%B9%8B-printf%E5%8E%8B%E6%A0%88%E9%A1%BA%E5%BA%8F/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 写在篇头： 在不同的编译器下结果不同，本例测试的环境为 devcpp5.3.0.1 。 ——————————————————————</description>
     </item>
     
     <item>
@@ -1160,7 +1160,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Fri, 04 Jan 2013 13:37:02 +0800</pubDate>
       
       <guid>/post/csdn/c%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-%E4%B9%8B-p/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 先看代码： int a=16,b=17,c=18; int *p,*q,*g; p=&amp;amp;a;q=&amp;amp;b;g=&amp;amp;c; printf(&#34;%p %p %p\n&#34;,a,b,c); printf(&#34;%p %p %p\n&#34;,&amp;amp;a,&amp;amp;b,&amp;amp;c); printf(&#34;%8x %8x %8x\n&#34;,&amp;amp;a,&amp;amp;b,&amp;amp;c); printf(&#34;%8x %8x %8x\n&#34;,p,q,g); %x 只是把同样的数值以不同的形式输出而已，因此如果要寻址，</description>
     </item>
     
     <item>
@@ -1178,7 +1178,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Tue, 27 Nov 2012 09:26:36 +0800</pubDate>
       
       <guid>/post/csdn/%E6%95%B0%E5%AD%97%E6%A0%B9%E4%BB%8B%E7%BB%8D/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 数字根 参考链接： http://blog.renren.com/share/334504317/8581660295#nogo 定义 数字根（ Digital Root ）就是把一个数的各位数字相加，再将所得数的各位数字相加，直到所得数</description>
     </item>
     
     <item>
@@ -1187,7 +1187,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 22 Nov 2012 21:01:27 +0800</pubDate>
       
       <guid>/post/csdn/hdoj-2045-rpg%E9%9A%BE%E9%A2%98/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目地址： http://acm.hdu.edu.cn/showproblem.php?pid=2045 算法思想： 1）有三种颜色，在涂某一块区域时，由于它的前一块区域已经确定，且相邻区域不能重</description>
     </item>
     
     <item>
@@ -1196,7 +1196,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Thu, 22 Nov 2012 19:17:42 +0800</pubDate>
       
       <guid>/post/csdn/hdoj-2043-%E5%AF%86%E7%A0%81/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 scanf(&amp;quot;%d\n&amp;quot;,&amp;amp;amp;n); while (n--){ getline(cin,ss); if (yes(ss)) printf(&amp;quot;YES\n&amp;quot;); else printf(&amp;quot;NO\n&amp;quot;); } return 0; } 我的博客</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 题目地址： http://acm.hdu.edu.cn/showproblem.php?pid=2043 最基础的模拟题目，只要按照题目给出的要求进行判断即可。 代码如下： #include&amp;lt;iostream&amp;gt; #include&amp;lt;string&amp;gt; using namespace std; const string s=&#34;~!@#$%^&#34;; string ss; int n;</description>
     </item>
     
     <item>
@@ -1205,7 +1205,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Tue, 20 Nov 2012 13:14:53 +0800</pubDate>
       
       <guid>/post/csdn/qtree_testing/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 inline int MAX(int a,int b) { if (a&amp;gt;b)return a; else return b; } inline void add(int u,int v,int cost) { e++; pre[e]=last[u]; last[u]=e; other[e]=v; w[e]=cost; } inline void init() { int i,u,v,cost; memset(last,0,sizeof(last)); e=0; scanf(&amp;quot;%d\n&amp;rdquo;,&amp;amp;n); for (i=1;i&amp;lt;n;i++) { scanf(&amp;quot;%d%d%d\n&amp;rdquo;,&amp;amp;u,&amp;amp;v,&amp;amp;cost); add(u,v,cost); add(v,u,cost); } } inline void dfs(int u) { dfsq[++indexs]=u; depq[indexs]=dep;</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 testing... #include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstring&amp;gt; #include &amp;lt;cstdlib&amp;gt; #include &amp;lt;cmath&amp;gt; using namespace std; const int maxn=10010; const int maxm=maxn*2; const int maxu=maxn*4; const int maxt=maxn*10; const int oo=1993101215; int test,n,e,indexs,dep,tot,lca,debug; int id; //重链编号 int node; //线段树节点 int pre[maxm],other[maxm],last[maxm],w[maxm]; //</description>
     </item>
     
     <item>
@@ -1233,7 +1233,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Sat, 13 Oct 2012 11:09:11 +0800</pubDate>
       
       <guid>/post/csdn/%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%8E%BB%E5%88%A4%E6%96%AD%E6%AF%8F%E4%B8%AA%E4%BA%BA%E8%AF%B4%E8%AF%9D%E7%9A%84%E7%9C%9F%E5%81%87-%E5%86%99%E7%BB%99%E6%96%B0%E6%89%8B%E7%9A%84%E6%9E%9A%E4%B8%BE%E4%BB%8B%E7%BB%8D/</guid>
-      <description>此页面通过工具从 csdn 导出，格式可能有问题。 intscore[6]; // i排第几intrank[6]; // 第i名是谁voidinvKT(intn, intk, intret[]); intguess(inti); intmain(){ &amp;lt;span class=&amp;quot;hljs-keyword&amp;quot;&amp;gt;int&amp;lt;/span&amp;gt; n = &amp;lt;span class=&amp;quot;hljs-number&amp;quot;&amp;gt;5&amp;lt;/span&amp;gt;; &amp;lt;span class=&amp;quot;hljs-keyword&amp;quot;&amp;gt;for&amp;lt;/span&amp;gt;</description>
+      <description>此页面通过工具从 csdn 导出，格式可能有问题。 背景 我们在以前的数学题中一定遇到过这样的问题： A说xxxx B说xxx C说xxx 然后给一些条件，让你判</description>
     </item>
     
     <item>
@@ -1242,7 +1242,7 @@ C说xxx&lt;/p&gt;
       <pubDate>Mon, 08 Oct 2012 12:00:00 +0800</pubDate>
       
       <guid>/post/dashayu/1349668800-acmtips/</guid>
-      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 window.onload = function(){ return; h1 = document.querySelectorAll(&amp;quot;h1&amp;quot;); h2 = document.querySelectorAll(&amp;quot;h2&amp;quot;); h3 = document.querySelectorAll(&amp;quot;h3&amp;quot;); h4 = document.querySelectorAll(&amp;quot;h4&amp;quot;); var txt = &amp;quot;&amp;lt;h2&amp;gt; Directory &amp;quot;; txt += &amp;quot;&amp;lt;pre&amp;gt;&amp;quot; for ( t1=0; t1&amp;lt;h1.length; t1++ ){ txt += &amp;quot;&amp;lt;h3&amp;gt;&amp;quot; + (tt[t1+1]) + &amp;quot;.&amp;quot; + h1[t1].innerHTML</description>
+      <description>本文通过工具从以前的 html 转成 markdown，格式可能有问题。 var tt = [&#34;&#34;, &#34;一&#34;, &#34;二&#34;, &#34;三&#34;, &#34;四&#34;, &#34;五&#34;, &#34;六&#34;, &#34;七&#34;, &#34;八&#34;, &#34;九&#34;,</description>
     </item>
     
     <item>

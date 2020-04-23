@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Transformations A square pattern of size N x N (1 &lt;= N &lt;= 10) black and white square tiles is transformed into another square pattern. Write a program that will recognize the minimum transformation that has been applied to the original pattern given the following list of possible">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/usaco-section-1.2.3-transformations/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/usaco-section-1.2.3-transformations/">
   <meta property="og:title" content="USACO Section 1.2.3 Transformations | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Transformations A square pattern of size N x N (1 &lt;= N &lt;= 10) black and white square tiles is transformed into another square pattern. Write a program that will recognize the minimum transformation that has been applied to the original pattern given the following list of possible"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-03-11T16:04:47&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 分钟阅读时间
+    2 分钟阅读时间
   </span>
   
 
@@ -406,7 +406,210 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-<!-- raw HTML omitted -->
+ <div class="htmledit_views" id="content_views">
+ <h2>
+  题目
+ </h2>
+ <div>
+  <table border="1" cellpadding="1" cellspacing="1">
+   <tbody>
+    <tr>
+     <td>
+      <center style="font-size:14px;">
+       <strong>
+        <span style="font-size:48px;">
+         Transformations
+        </span>
+       </strong>
+       <br/>
+      </center>
+      <p style="font-size:14px;">
+       A square pattern of size N x N (1 &lt;= N &lt;= 10) black and white square tiles is transformed into another square pattern. Write a program that will recognize the minimum transformation that has been applied to the original pattern given
+ the following list of possible transformations:
+      </p>
+      <ul style="font-size:14px;">
+       <li>
+        #1: 90 Degree Rotation: The pattern was rotated clockwise 90 degrees.
+       </li>
+       <li>
+        #2: 180 Degree Rotation: The pattern was rotated clockwise 180 degrees.
+       </li>
+       <li>
+        #3: 270 Degree Rotation: The pattern was rotated clockwise 270 degrees.
+       </li>
+       <li>
+        #4: Reflection: The pattern was reflected horizontally (turned into a mirror image of itself by reflecting around a vertical line in the middle of the image).
+       </li>
+       <li>
+        #5: Combination: The pattern was reflected horizontally and then subjected to one of the rotations (#1-#3).
+       </li>
+       <li>
+        #6: No Change: The original pattern was not changed.
+       </li>
+       <li>
+        #7: Invalid Transformation: The new pattern was not obtained by any of the above methods.
+       </li>
+      </ul>
+      <p style="font-size:14px;">
+       In the case that more than one transform could have been used, choose the one with the minimum number above.
+      </p>
+      <h3>
+       PROGRAM NAME: transform
+      </h3>
+      <h3>
+       INPUT FORMAT
+      </h3>
+      <table border="1">
+       <tbody>
+        <tr>
+         <td>
+          Line 1:
+         </td>
+         <td>
+          A single integer, N
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Line 2..N+1:
+         </td>
+         <td>
+          N lines of N characters (each either `@' or `-'); this is the square before transformation
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Line N+2..2*N+1:
+         </td>
+         <td>
+          N lines of N characters (each either `@' or `-'); this is the square after transformation
+         </td>
+        </tr>
+       </tbody>
+      </table>
+      <h3>
+       SAMPLE INPUT (file transform.in)
+      </h3>
+      <pre style="font-size:14px;">3
+@-@
+---
+@@-
+@-@
+@--
+--@
+</pre>
+      <h3>
+       OUTPUT FORMAT
+      </h3>
+      <span style="font-size:14px;">
+       A single line containing the the number from 1 through 7 (described above) that categorizes the transformation required to change from the `before' representation to the `after' representation.
+      </span>
+      <h3>
+       SAMPLE OUTPUT (file transform.out)
+      </h3>
+      <pre style="font-size:14px;">1
+</pre>
+      <div>
+       <br/>
+      </div>
+      <br/>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <h2>
+  思路
+ </h2>
+ <div>
+  思路很简单，就是枚举各种转换方法，然后与莫状态进行比较。
+ </div>
+ <div>
+  繁琐即需要注意的是，对于每种转换方式 i和j的关系，稍有疏忽就会全军覆没
+ </div>
+ <div>
+  另外注意的就是：如果初末状态相同，不能直接输出6，要先看看之前的5种方法能不能得到。因为题目要求从小号优先。我就被坑了一次。
+ </div>
+ <h2>
+  代码
+ </h2>
+ <div>
+  <pre><code class="language-cpp">/*
+ID:zhrln1
+PROG:transform
+LANG:C++
+*/
+#include &lt;cstdio&gt;
+int n;
+typedef struct board{
+	char v[11][11];
+} Board;
+Board a,b;
+Board rdboard(int n){
+	Board c;
+	for (int i(1);i&lt;=n;i++){
+		for (int j(1);j&lt;=n;j++){
+			scanf("%c",&amp;c.v[i][j]);
+		}
+		scanf("\n");
+	}
+	return c;
+}
+Board change(Board a,int k,int n){
+	Board c;
+	for (int i(1);i&lt;=n;i++){
+		for (int j(1);j&lt;=n;j++){
+			switch(k){
+				case 1: c.v[i][j]=a.v[n-j+1][i];break;
+				case 2: c.v[i][j]=a.v[n+1-i][n+1-j];break;
+				case 3: c.v[i][j]=a.v[j][n+1-i];break;
+				case 4: c.v[i][j]=a.v[i][n+1-j];break;
+			}
+		}
+	}
+	return c;
+}
+int isequel(Board a,Board b,int n){
+	for (int i(1);i&lt;=n;i++){
+		for (int j(1);j&lt;=n;j++){
+			if (a.v[i][j]!=b.v[i][j]) return 0;
+		}
+	}
+	return 1;
+}
+int main(){
+	freopen("transform.in","r",stdin);
+	freopen("transform.out","w",stdout);
+	scanf("%d\n",&amp;n);
+	a=rdboard(n);
+	b=rdboard(n);
+	for (int i(1);i&lt;=4;i++){
+		Board t=change(a,i,n);
+		if (isequel(t,b,n)){
+			printf("%d\n",i);
+			return 0;
+		}
+		if (i==4){
+			for (int j(1);j&lt;=3;j++){
+				if (isequel(change(t,j,n),b,n)){
+					printf("5\n");
+					return 0;
+				}
+			}
+		}
+	}
+	if (isequel(a,b,n)){
+		printf("6\n");
+		return 0;
+	}
+	printf("7\n");
+	return 0;
+}
+</code></pre>
+  <br/>
+  <br/>
+ </div>
+</div>
 
     </div>
 

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -312,7 +312,7 @@
     <h2><a href="/post/csdn/poj-1017-packets-%E6%82%BC%E5%BF%B5%E6%AD%BB%E5%8E%BB%E7%9A%84%E6%A8%A1%E6%8B%9F/">POJ 1017 Packets 悼念死去的模拟</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 int s =a[6]+a[5]+a[4]; // a5 if (a[5]*11 &amp;gt;= a[1]) a[1] = 0; else a[1] -= a[5]*11; // a4 for ( int i(1);i&amp;lt;=a[4];i++){ t = push(20,2,5); if (t) t = push(t,1,t); } // a3 s += a[3] / 4; // 整装3 a[3] %= 4; if (a[3]){ // 剩下
+      此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很水，纯模拟 麻烦的地方在于，会面临多次用小件填充大件剩余。 最开始觉得不同大小时决策不一样
       
     </div>
   </div>
@@ -321,7 +321,7 @@
     <h2><a href="/post/csdn/poj-1273-drainage-ditches-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%A8%A1%E7%89%88/">POJ 1273 Drainage Ditches 网络流模版</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 struct EDGE { int to, cap, rev; }; vector&lt;EDGE&gt; g[N]; int ff[N][N]; bool used[N]; int n,m; int dfs(int v,int t,int f){ if ( v == t ) return f; used[v]= true; for ( int i(0); i &lt; g[v].size(); i++){ EDGE &amp;e = g[v][i]; if ( !used[e.to] &amp;&amp; e.cap &gt; 0){
+      此页面通过工具从 csdn 导出，格式可能有问题。 题目传送门 网络流模版题，本想水一水，莫想到因为没好好看题给跪了。 题目大意就是 给你一堆水洼地，还有一些
       
     </div>
   </div>
@@ -330,7 +330,7 @@
     <h2><a href="/post/csdn/poj-3321-apple-tree-dfs%E5%BA%8F%E7%9A%84%E5%BA%94%E7%94%A8/">POJ 3321 Apple Tree dfs序的应用</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 void dfs(int v) { P1[v]=++tt; for ( int p = a[v].next; p; p=st[p].next ) dfs(st[p].v); P2[v]=tt; return; } inline int l(int i) { return i &amp; -i; } void update(int x,int k) { while (x&lt;=n) { t[x] += k; x += l(x); } } int gs(int x) { int s
+      此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 dfs序 说来很简单，却从来没有想到过。必须得深刻反省一下到底自己学了些啥。 题目大意是给你一棵
       
     </div>
   </div>
@@ -339,7 +339,7 @@
     <h2><a href="/post/csdn/poj-3461-oulipo-kmp%E7%BB%83%E4%B9%A0/">POJ 3461 Oulipo KMP练习</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 void prekmp(char* b) { next[0]=-1; int j=-1; for ( int i(1); b[i]; i++) { while ( j!=-1 &amp;&amp; b[i]!=b[j+1]) j=next[j]; if ( b[i]==b[j+1] ) j++; next[i]=j; } } int kmp(char *a,char *b) { int j=-1,ans=0; for ( int i(0); a[i]; i++) { while ( j!=-1 &amp;&amp; a[i]!=b[j+1] ) j=next[j]; if
+      此页面通过工具从 csdn 导出，格式可能有问题。 题目链接 题目很长，其实就是字符串匹配。 所以，权当练习 KMP #include &lt;cstdio&gt; #include &lt;cstring&gt; #define MB 10101 #define MA 1000100 char a[MA],b[MB]; int next[MB]; void prekmp(char* b) { next[0]=-1; int j=-1; for (
       
     </div>
   </div>
@@ -348,7 +348,7 @@
     <h2><a href="/post/csdn/poj-3041-asteroids-%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95-%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/">POJ 3041 Asteroids 匈牙利算法 二分图最大匹配</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。 const int N = 555; int n, m, g[N][N], chk[N], match[N]; int dfs(int v){ int t; for ( int i = 1; i &lt;= n; i++){ if ( g[i][v] &amp;&amp; !chk[i] ){ chk[i] = 1; t = match[i]; match[i] = v; if ( t == -1 || dfs(t) ) return
+      此页面通过工具从 csdn 导出，格式可能有问题。 题目链接： http://poj.org/problem?id=3041 看起来像个 DP 神马的。竟然是二分图匹配。。 看着啊，行与行之间相互独立，一个行可以就炸掉很多
       
     </div>
   </div>
@@ -357,7 +357,7 @@
     <h2><a href="/post/csdn/poj-1088-%E6%BB%91%E9%9B%AA/">POJ 1088 滑雪</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。
+      此页面通过工具从 csdn 导出，格式可能有问题。 题目 http://poj.org/problem?id=1088 思路 经典的记忆化搜索：搜索+记忆化 搜索：一个一个找，能滑就滑 记忆化：优化重复的路径，记录每个点
       
     </div>
   </div>
@@ -366,7 +366,7 @@
     <h2><a href="/post/csdn/poj-%E9%A2%98%E7%9B%AE%E5%88%86%E7%B1%BB%E4%B8%8E%E8%AE%A1%E5%88%92/">POJ 题目分类与计划</a></h2>
     <div class="article-style">
       
-      此页面通过工具从 csdn 导出，格式可能有问题。
+      此页面通过工具从 csdn 导出，格式可能有问题。 初期: 一.基本算法: (1)枚举. (poj1753,poj2965) (2)贪心(poj1328,poj2109,poj2586) (3)
       
     </div>
   </div>

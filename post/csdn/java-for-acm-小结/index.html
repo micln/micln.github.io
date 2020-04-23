@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 一、提交格式代码 import java.util.*; public class Main{ public static void main(String[] args){ Scanner cin = new Scanner(System.in)); } } 二、输入 cin.hasNext() 或 cin.hasNextInt() 或 cin.hasNextDouble() // 判断是否有下一个输入可以用 int n">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/java-for-acm-%E5%B0%8F%E7%BB%93/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/java-for-acm-%E5%B0%8F%E7%BB%93/">
   <meta property="og:title" content="Java for ACM 小结 | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 一、提交格式代码 import java.util.*; public class Main{ public static void main(String[] args){ Scanner cin = new Scanner(System.in)); } } 二、输入 cin.hasNext() 或 cin.hasNextInt() 或 cin.hasNextDouble() // 判断是否有下一个输入可以用 int n"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-09-25T20:44:59&#43;08:00">
@@ -402,7 +402,124 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-<!-- raw HTML omitted -->
+ <div class="htmledit_views" id="content_views">
+ <h3>
+  一、提交格式代码
+ </h3>
+ <div>
+  <pre><code class="language-java">import java.util.*;
+public class Main{
+public static void main(String[] args){
+	Scanner cin = new Scanner(System.in));
+    }
+}</code></pre>
+  <h3>
+   二、输入
+  </h3>
+ </div>
+ <div>
+  <pre><code class="language-java">cin.hasNext() 或 cin.hasNextInt() 或 cin.hasNextDouble()      // 判断是否有下一个输入可以用
+int n = cin.nextInt(); 
+String s = cin.next();
+double t = cin.nextDouble();
+String s = cin.nextLine();</code></pre>
+ </div>
+ <h3>
+  三、浮点控制
+ </h3>
+ <div>
+  <pre><code class="language-java">DecimalFormat g = new DecimalFormat("0.00"); 
+double a = 123.45678;
+System.out.println(g.format(a));        // 输出 123.46
+</code></pre>
+  <h3>
+   四、高精度
+  </h3>
+ </div>
+ <div>
+  <pre><code class="language-java">import java.math.*;     // 需要引入math库
+BigInteger a = BigInteger.valueOf(1000000);
+BigInteger b = BigInteger.valueOf(10000);
+System.out.println(a.add(b));
+System.out.println(a.subtract(b));		
+System.out.println(a.multiply(b));
+System.out.println(a.divide(b));		
+System.out.println(a.mod(b));
+System.out.println(a.compareTo(b));		// 返回值 -1,0,1
+</code></pre>
+  <h3>
+   五、字符串
+  </h3>
+  <div>
+   <p>
+    s.substring(a,b);
+   </p>
+   <p>
+    包含 s[a]不包含 s[b] , 共 b-a 个字符
+   </p>
+   <pre><code class="language-java">String a = "0123456789";
+System.out.println(a.substring(2,5));        // 输出 234</code></pre>
+   <h3>
+    六、数组
+   </h3>
+  </div>
+  <div>
+   <pre><code class="language-java">int[] a = new int[123];
+Arrays.fill(a,123);			
+System.out.println(a[3]);     // 输出 123</code></pre>
+   <h2>
+    一个例题
+   </h2>
+  </div>
+  <div>
+   <a href="http://acm.hit.edu.cn/hoj/problem/view?id=1368" rel="nofollow">
+    Very Simple Arithmetic
+   </a>
+   <br/>
+  </div>
+  <div>
+   <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
+    题目大意：给你一个简单的式子求出对应的结果。我发现这完全就是为了练习java而做的题目。。
+   </span>
+  </div>
+  <div>
+   <span style="font-family:Arial, Helvetica, sans-serif;font-size:12px;">
+   </span>
+   <pre><code class="language-java">import java.util.*;
+import java.math.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner cin = new Scanner(System.in);
+        while ( cin.hasNextBigDecimal() ){
+            BigDecimal a = cin.nextBigDecimal();
+            String op = cin.next();
+            BigDecimal b = cin.nextBigDecimal();
+            if ( op.equals("+") ){
+                System.out.println(a.add(b));
+            }else
+            if ( op.equals("-") ){
+                System.out.println(a.subtract(b));
+            }else
+            if ( op.equals("*") ){
+                System.out.println(a.multiply(b));
+            }else
+            if ( op.equals("/") ){
+                int c = cin.nextInt();
+                BigDecimal res[] = a.divideAndRemainder(b);
+                System.out.println(res[0]+" "+res[1]+" "+a.divide(b,c,BigDecimal.ROUND_HALF_UP).toPlainString());
+            }
+        }
+    }
+}</code></pre>
+   <br/>
+   <br/>
+  </div>
+  <div>
+   <br/>
+  </div>
+  <br/>
+ </div>
+</div>
 
     </div>
 

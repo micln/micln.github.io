@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.67.1" />
+  <meta name="generator" content="Hugo 0.69.1" />
 
   
 
@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。">
+  <meta name="description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Barn Repair It was a dark and stormy night that ripped the roof and gates off the stalls that hold Farmer John&#39;s cows. Happily, many of the cows were on vacation, so the barn was not completely full. The cows spend the night in stalls that are arranged">
 
   
   <link rel="alternate" hreflang="zh-Hans" href="/post/csdn/usaco-section-1.3.3-barn-repair/">
@@ -120,7 +120,7 @@
   <meta property="og:site_name" content="在水异方">
   <meta property="og:url" content="/post/csdn/usaco-section-1.3.3-barn-repair/">
   <meta property="og:title" content="USACO Section 1.3.3 Barn Repair | 在水异方">
-  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="此页面通过工具从 csdn 导出，格式可能有问题。 题目 Barn Repair It was a dark and stormy night that ripped the roof and gates off the stalls that hold Farmer John&#39;s cows. Happily, many of the cows were on vacation, so the barn was not completely full. The cows spend the night in stalls that are arranged"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="zh-Hans">
   
   <meta property="article:published_time" content="2013-05-22T10:54:09&#43;08:00">
@@ -326,7 +326,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 分钟阅读时间
+    2 分钟阅读时间
   </span>
   
 
@@ -406,7 +406,215 @@
       <blockquote>
 <p>此页面通过工具从 csdn 导出，格式可能有问题。</p>
 </blockquote>
-<!-- raw HTML omitted -->
+ <div class="htmledit_views" id="content_views">
+ <h2>
+  题目
+ </h2>
+ <div>
+  <table border="1" cellpadding="1" cellspacing="1">
+   <tbody>
+    <tr>
+     <td>
+      <center style="font-family:'文泉驿微米黑';font-size:14px;">
+       <h1>
+        Barn Repair
+       </h1>
+      </center>
+      <p style="font-family:'文泉驿微米黑';font-size:14px;">
+       It was a dark and stormy night that ripped the roof and gates off the stalls that hold Farmer John's cows. Happily, many of the cows were on vacation, so the barn was not completely full.
+      </p>
+      <p style="font-family:'文泉驿微米黑';font-size:14px;">
+       The cows spend the night in stalls that are arranged adjacent to each other in a long line. Some stalls have cows in them; some do not. All stalls are the same width.
+      </p>
+      <p style="font-family:'文泉驿微米黑';font-size:14px;">
+       Farmer John must quickly erect new boards in front of the stalls, since the doors were lost. His new lumber supplier will supply him boards of any length he wishes, but the supplier can only deliver a small number
+ of total boards. Farmer John wishes to minimize the total length of the boards he must purchase.
+      </p>
+      <p style="font-family:'文泉驿微米黑';font-size:14px;">
+       Given M (1 &lt;= M &lt;= 50), the maximum number of boards that can be purchased; S (1 &lt;= S &lt;= 200), the total number of stalls; C (1 &lt;= C &lt;= S) the number of cows in the stalls, and the C occupied stall numbers (1 &lt;=
+ stall_number &lt;= S), calculate the minimum number of stalls that must be blocked in order to block all the stalls that have cows in them.
+      </p>
+      <p style="font-family:'文泉驿微米黑';font-size:14px;">
+       Print your answer as the total number of stalls blocked.
+      </p>
+      <h3 style="font-family:'文泉驿微米黑';">
+       PROGRAM NAME: barn1
+      </h3>
+      <h3 style="font-family:'文泉驿微米黑';">
+       INPUT FORMAT
+      </h3>
+      <table border="1" style="font-family:'文泉驿微米黑';">
+       <tbody>
+        <tr>
+         <td>
+          Line 1:
+         </td>
+         <td>
+          M, S, and C (space separated)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          Lines 2-C+1:
+         </td>
+         <td>
+          Each line contains one integer, the number of an occupied stall.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+      <h3 style="font-family:'文泉驿微米黑';">
+       SAMPLE INPUT (file barn1.in)
+      </h3>
+      <pre>4 50 18
+3
+4
+6
+8
+14
+15
+16
+17
+21
+25
+26
+27
+30
+31
+40
+41
+42
+43
+</pre>
+      <h3 style="font-family:'文泉驿微米黑';">
+       OUTPUT FORMAT
+      </h3>
+      <span style="font-family:'文泉驿微米黑';font-size:14px;">
+       A single line with one integer that represents the total number of stalls blocked.
+      </span>
+      <h3 style="font-family:'文泉驿微米黑';">
+       SAMPLE OUTPUT (file barn1.out)
+      </h3>
+      <pre>25
+</pre>
+      <span style="font-family:'文泉驿微米黑';font-size:14px;">
+       [One minimum arrangement is one board covering stalls 3-8, one covering 14-21, one covering 25-31, and one covering 40-43.]
+      </span>
+      <br/>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <br/>
+ </div>
+ <h2>
+  思路
+ </h2>
+ <div>
+  非常经典的贪心算法，很多比赛的都有这道题目的变种题（把牛变成猪把人名换成自己的名字）
+ </div>
+ <div>
+  <br/>
+ </div>
+ <div>
+  先来看一个很流行的方法：
+ </div>
+ <div>
+  <br/>
+ </div>
+ <div>
+  相连在一起的牛棚可以看成一个区域，假设一共出现了n个区域，你可以把题目想象成把一块大板子拆成n块，即从中挖n-1的洞，要使挖出的最多，这样就很简单了，自然每次挖最大的洞。
+ </div>
+ <div>
+  举例说明：
+ </div>
+ <div>
+  -----------
+ </div>
+ <div>
+  1     7   9
+ </div>
+ <div>
+  -----------
+ </div>
+ <div>
+  有这样一块大板子，如果你只能挖出一块，挖最大的就是：
+ </div>
+ <div>
+  -   -----
+ </div>
+ <div>
+  1  7  9
+ </div>
+ <div>
+  -   -----
+ </div>
+ <div>
+  这样剩下的就是最小费用了。
+ </div>
+ <div>
+  <br/>
+ </div>
+ <div>
+  <strong>
+   这个方法设计的非常巧妙。问题是，如何证明？如何能一下子就知道反过来考虑？
+  </strong>
+ </div>
+ <div>
+  <strong>
+   <br/>
+  </strong>
+ </div>
+ <div>
+  不妨把算法换一种描述来看，题目M 块板子是一个限制条件，所以我们应该从这里去思考，假如只给你一块板子，那你一定是把所有的全盖上，期中必然会有很多浪费的地方，这些浪费有没有可能避免呢？这个时候给你两块板子，你就会想到两块板子避开空隙，如果有很多空隙你应该避哪个呢？当然是最大的，可以证明，避开另外任意一个缺口都不如避开最大的缺口省材料。于是第三块板子第四块板子也就明白了。
+ </div>
+ <div>
+  <br/>
+ </div>
+ <h2>
+  代码
+ </h2>
+ <div>
+  <pre><code class="language-cpp">/*
+ID:zhrln1
+PROG:barn1
+LANG:C++
+*/
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int n,m,s,c,a[222],b[222],l,r,sum;
+int cmp(int a,int b){
+	return a&gt;b;
+}
+int main(){
+	freopen("barn1.in","r",stdin);
+	freopen("barn1.out","w",stdout);
+	scanf("%d%d%d",&amp;m,&amp;s,&amp;c);
+	for (int i(1);i&lt;=c;i++) scanf("%d",&amp;a[i]);
+	sort(a+1,a+c+1);
+	int l=a[1],r;
+	for (int i(2);i&lt;=c;i++){
+		r=a[i];
+		if (r-l&gt;1){
+			b[++n]=r-l-1;
+		}
+		l=r;
+	}
+	sort(b+1,b+n+1,cmp);
+	if (--m &lt; n ) n=m;
+	s=a[c]-a[1]+1;
+	for (int i(1);i&lt;=n;i++){
+		s-=b[i];
+	}
+	printf("%d\n",s);
+	return 0;
+}
+</code></pre>
+  <br/>
+  <br/>
+ </div>
+</div>
 
     </div>
 
