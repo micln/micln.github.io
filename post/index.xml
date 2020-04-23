@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Thu, 12 Mar 2020 12:07:34 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 23 Apr 2020 12:23:04 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ast in Golang</title>
+      <link>/post/ast_in_go/</link>
+      <pubDate>Thu, 23 Apr 2020 12:23:04 +0800</pubDate>
+      
+      <guid>/post/ast_in_go/</guid>
+      <description>组内分享，大纲见 https://mubu.com/doc/5rXXQikGmPT</description>
+    </item>
     
     <item>
       <title>k8s 上手笔记</title>
