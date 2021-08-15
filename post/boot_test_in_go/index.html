@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.72.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   
 
@@ -59,10 +59,10 @@
   
   
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" integrity="sha256-7rF6RaSKyh16288E3hVdzQtHyzatA2MQRGu0cf6pqqM=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.8.1/css/all.min.css" integrity="sha256-7rF6RaSKyh16288E3hVdzQtHyzatA2MQRGu0cf6pqqM=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
 
     
     
@@ -72,7 +72,7 @@
     
       
       
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous">
       
     
 
@@ -303,8 +303,8 @@
 
 
 
-<meta content="2019-07-02 11:11:16 &#43;0800 CST" itemprop="datePublished">
-<meta content="2019-07-02 11:11:16 &#43;0800 CST" itemprop="dateModified">
+<meta content="2019-07-02 11:11:16 &#43;0800 &#43;0800" itemprop="datePublished">
+<meta content="2019-07-02 11:11:16 &#43;0800 &#43;0800" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -398,14 +398,14 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>最开始的项目目录</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ tree
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ tree
 .
 ├── ./api/
 ├── ./service/
 ├── ./dao/
 ├── ./model/
 ├── main.go
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
 	<span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">Parse</span>()
 	<span style="color:#a6e22e">artemis</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewArtemis</span>(<span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">`config`</span>))	<span style="color:#75715e">// artemis 是我们的框架，类似beego
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">init</span>()
@@ -416,7 +416,7 @@
 	<span style="color:#a6e22e">artemis</span>.<span style="color:#a6e22e">Run</span>()
 }
 </code></pre></div><p>写个测试吧</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">packege</span> <span style="color:#a6e22e">dao</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">packege</span> <span style="color:#a6e22e">dao</span>
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestGetNote</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>){
 	<span style="color:#a6e22e">db</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewNoteDB</span>()	<span style="color:#75715e">// panic: app not init
@@ -428,7 +428,7 @@
 <li>把config路径改一下</li>
 <li>去除不需要的部分，比如在 dao 里去掉 service.init()</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestGetNote</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>){
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestGetNote</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>){
 	<span style="color:#a6e22e">artemis</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewArtemis</span>(<span style="color:#e6db74">`../../config`</span>)
 	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">init</span>()
 	<span style="color:#a6e22e">ddns</span>.<span style="color:#a6e22e">init</span>()
@@ -448,7 +448,7 @@
 </blockquote>
 <p>但当时我觉得还是不完美，我的项目又比较复杂，然后继续尝试优化：</p>
 <p>先抽出个函数放重复代码</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">boot</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">boot</span>
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Boot</span>(){
 	<span style="color:#75715e">// init()
 </span><span style="color:#75715e"></span>}
@@ -468,11 +468,11 @@
 	<span style="color:#a6e22e">boot</span>.<span style="color:#a6e22e">BootTest</span>()
 	<span style="color:#75715e">// test code
 </span><span style="color:#75715e"></span>}
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go build
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go build
 import cycle not allowed
 <span style="color:#75715e"># dao 和 boot 互相依赖</span>
 </code></pre></div><p>改成外部测试</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">dao_test</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">dao_test</span>
 
 <span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;dao&#34;</span>
 
@@ -497,17 +497,17 @@ import cycle not allowed
 <li>需要时再加载，不需要在测试时搞一堆没用的东西</li>
 </ul>
 <p>看看成熟的框架是如何处理的，以我熟悉的 Laravel 为例，很多地方都采用了这样的思路：先注册，后使用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">class FooServiceProvider {
-	function register($app) {
-		$app-&gt;singleton(&#34;noteDB&#34;, function(){
-			$noteDB = new NoteDB();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FooServiceProvider</span> {
+	<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">register</span>($app) {
+		$app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">singleton</span>(<span style="color:#e6db74">&#34;noteDB&#34;</span>, <span style="color:#66d9ef">function</span>(){
+			$noteDB <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">NoteDB</span>();
 		})
 		
-		$app-&gt;sinleton(IRouter::class, new Router())
+		$app<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">sinleton</span>(<span style="color:#a6e22e">IRouter</span><span style="color:#f92672">::</span><span style="color:#a6e22e">class</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Router</span>())
 	}
 	
-	function boot() {
-		make(IRouter::class)-&gt;load();
+	<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">boot</span>() {
+		<span style="color:#a6e22e">make</span>(<span style="color:#a6e22e">IRouter</span><span style="color:#f92672">::</span><span style="color:#a6e22e">class</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">load</span>();
 	}
 }
 </code></pre></div><p>突然发现，Go的init就是天然的注册机制</p>
@@ -520,13 +520,13 @@ import cycle not allowed
 <li>在每个 init 里定义自己需要启动什么，代码里依赖了哪个包，就会调用对应的init，不依赖的不会启动</li>
 <li>运行cmd（webserver/script/test）时，再逐个执行init时注册的任务</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">dao</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">dao</span>
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>(){
 	<span style="color:#a6e22e">boot</span>.<span style="color:#a6e22e">Register</span>(<span style="color:#66d9ef">func</span>(){
 		<span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span>	})
 }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// web server
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// web server
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
 	<span style="color:#a6e22e">boot</span>.<span style="color:#a6e22e">Boot</span>()
 	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">boot</span>.<span style="color:#a6e22e">Shutdown</span>()
@@ -752,7 +752,7 @@ import cycle not allowed
   
 
   <p class="powered-by">
-    ©2020 在水异方 
+    ©2021 在水异方 
 
     &nbsp; &middot; &nbsp;
     <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
@@ -813,23 +813,23 @@ import cycle not allowed
     
     
     
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+      <script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+      <script src="https://cdn.staticfile.org/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdn.staticfile.org/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdn.staticfile.org/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
 
       
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.staticfile.org/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/go.min.js"></script>
+        <script src="//cdn.staticfile.org/highlight.js/9.15.6/languages/go.min.js"></script>
         
       
 
       
       
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      <script src="https://cdn.staticfile.org/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
       
     
 
@@ -885,8 +885,8 @@ import cycle not allowed
 
     
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="https://cdn.staticfile.org/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.staticfile.org/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
     
 
     
@@ -904,7 +904,7 @@ import cycle not allowed
     
     
     
-    <script src="/js/academic.min.7636b87b7ca0b6689810d4b648238174.js"></script>
+    <script src="/js/academic.min.0c9fffc0c6745202edd5b812584e7c48.js"></script>
 
   </body>
 </html>

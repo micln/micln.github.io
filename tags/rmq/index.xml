@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Thu, 22 Aug 2013 00:11:02 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/rmq/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 22 Aug 2013 00:11:02 +0800</lastBuildDate><atom:link href="/tags/rmq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RMQ with Shifts 线段树基基础</title>
       <link>/post/csdn/rmq-with-shifts-%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9F%BA%E5%9F%BA%E7%A1%80/</link>

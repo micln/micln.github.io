@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Tue, 13 Oct 2015 03:15:00 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/it%E6%8A%80%E6%9C%AF%E5%A0%86/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 13 Oct 2015 03:15:00 +0800</lastBuildDate><atom:link href="/tags/it%E6%8A%80%E6%9C%AF%E5%A0%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>用程序去判断每个人说话的真假 - 写给新手的枚举介绍</title>
       <link>/post/typecho/shui-shi-qian-feng/</link>

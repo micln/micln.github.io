@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.72.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   
 
@@ -64,10 +64,10 @@ C说xxx
   
   
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" integrity="sha256-7rF6RaSKyh16288E3hVdzQtHyzatA2MQRGu0cf6pqqM=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.8.1/css/all.min.css" integrity="sha256-7rF6RaSKyh16288E3hVdzQtHyzatA2MQRGu0cf6pqqM=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
 
     
     
@@ -77,7 +77,7 @@ C说xxx
     
       
       
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.6/styles/monokai-sublime.min.css" crossorigin="anonymous">
       
     
 
@@ -441,21 +441,21 @@ C说xxx</p>
 <pre><code>Score['E'] == 1;
 </code></pre>
 <p>关键在于，如何描述“A说”的这个过程。很容易想到，这个过程实际上是一个从字符到表达式的映射。表达式在C语言中如何作为一个变量来使用？当然是函数指针，于是可以写出下面的代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">guessA</span>(){
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">guessA</span>(){
 	<span style="color:#66d9ef">return</span> Score[<span style="color:#e6db74">&#39;E&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>;
 }
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">guessB</span>(){
 	<span style="color:#66d9ef">return</span> Score[<span style="color:#e6db74">&#39;B&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>;
 }
 ...
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> (<span style="color:#f92672">*</span>guess[<span style="color:#ae81ff">256</span>])();	<span style="color:#75715e">//	定义一个函数指针的数组
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> (<span style="color:#f92672">*</span>guess[<span style="color:#ae81ff">256</span>])();	<span style="color:#75715e">//	定义一个函数指针的数组
 </span><span style="color:#75715e"></span>guess[<span style="color:#e6db74">&#39;A&#39;</span>] <span style="color:#f92672">=</span> guessA;
 guess[<span style="color:#e6db74">&#39;B&#39;</span>] <span style="color:#f92672">=</span> guessB;
 ...
 </code></pre></div><p>这样的话，就可以用<code>guess['A']()</code>来表示A猜得正确与否</p>
 <h3 id="枚举解空间">枚举解空间</h3>
 <p>这个题目较为简单，5个人的排名当然有5!种情况，可以用C++提供的全排列的库实现，也可以用深搜自己实现。这里使用<a href="https://zh.wikipedia.org/wiki/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80#.E5.BA.B7.E6.89.98.E5.B1.95.E5.BC.80.E7.9A.84.E9.80.86.E8.BF.90.E7.AE.97">康托展开逆运算</a>得到（每次计算的时间复杂度为O(1)）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">
 <span style="color:#75715e">//	生成1~n的全排列中得第k项，返回值在ret中
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> fac[]<span style="color:#f92672">=</span>{<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">24</span>,<span style="color:#ae81ff">120</span>,<span style="color:#ae81ff">720</span>,<span style="color:#ae81ff">5040</span>,<span style="color:#ae81ff">40320</span>,<span style="color:#ae81ff">362880</span>};
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">invKT</span>(<span style="color:#66d9ef">int</span> n, <span style="color:#66d9ef">int</span> k, <span style="color:#66d9ef">int</span> ret[]){
@@ -475,7 +475,7 @@ guess[<span style="color:#e6db74">&#39;B&#39;</span>] <span style="color:#f92672
     }
 }
 </code></pre></div><p>我们可以枚举得到每次的结果：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> score[N];	<span style="color:#75715e">//	score[i]表示(&#39;A&#39;+i)排第几名
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> score[N];	<span style="color:#75715e">//	score[i]表示(&#39;A&#39;+i)排第几名
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> rank[N];	<span style="color:#75715e">//	rank[i]表示第i名是谁
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; i<span style="color:#f92672">&lt;=</span>fac[n]; i<span style="color:#f92672">++</span>) {
 	invKT(n, i, score);
@@ -484,7 +484,7 @@ guess[<span style="color:#e6db74">&#39;B&#39;</span>] <span style="color:#f92672
 </code></pre></div><h3 id="筛选">筛选</h3>
 <p>有了以上的准备工作，筛选就非常容易了。</p>
 <p>只有第一名和第二名说的正确：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">if</span> ( 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">if</span> ( 
 	guess[ rank[<span style="color:#ae81ff">1</span>] ]() <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span>
 	guess[ rank[<span style="color:#ae81ff">2</span>] ]() <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span>
 	guess[ rank[<span style="color:#ae81ff">3</span>] ]() <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span>
@@ -496,7 +496,7 @@ guess[<span style="color:#e6db74">&#39;B&#39;</span>] <span style="color:#f92672
 </code></pre>
 <h2 id="总代码">总代码</h2>
 <p>实际的代码为了偷懒，在一些细节上跟上面的分析不太一样，仅供参考。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdlib&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> score[<span style="color:#ae81ff">6</span>];   <span style="color:#75715e">//  i排第几
@@ -742,7 +742,7 @@ guess[<span style="color:#e6db74">&#39;B&#39;</span>] <span style="color:#f92672
   
 
   <p class="powered-by">
-    ©2020 在水异方 
+    ©2021 在水异方 
 
     &nbsp; &middot; &nbsp;
     <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
@@ -803,23 +803,23 @@ guess[<span style="color:#e6db74">&#39;B&#39;</span>] <span style="color:#f92672
     
     
     
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+      <script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+      <script src="https://cdn.staticfile.org/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdn.staticfile.org/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdn.staticfile.org/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
 
       
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.staticfile.org/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/go.min.js"></script>
+        <script src="//cdn.staticfile.org/highlight.js/9.15.6/languages/go.min.js"></script>
         
       
 
       
       
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      <script src="https://cdn.staticfile.org/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
       
     
 
@@ -875,8 +875,8 @@ guess[<span style="color:#e6db74">&#39;B&#39;</span>] <span style="color:#f92672
 
     
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="https://cdn.staticfile.org/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.staticfile.org/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
     
 
     
@@ -894,7 +894,7 @@ guess[<span style="color:#e6db74">&#39;B&#39;</span>] <span style="color:#f92672
     
     
     
-    <script src="/js/academic.min.7636b87b7ca0b6689810d4b648238174.js"></script>
+    <script src="/js/academic.min.0c9fffc0c6745202edd5b812584e7c48.js"></script>
 
   </body>
 </html>

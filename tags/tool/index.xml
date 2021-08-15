@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Thu, 11 Apr 2019 23:39:11 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/tool/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 11 Apr 2019 23:39:11 +0800</lastBuildDate><atom:link href="/tags/tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gt</title>
       <link>/project/gt/</link>

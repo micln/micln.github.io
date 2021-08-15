@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Fri, 18 Jul 2014 18:51:34 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/poj/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 18 Jul 2014 18:51:34 +0800</lastBuildDate><atom:link href="/tags/poj/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>POJ 1017 Packets 悼念死去的模拟</title>
       <link>/post/csdn/poj-1017-packets-%E6%82%BC%E5%BF%B5%E6%AD%BB%E5%8E%BB%E7%9A%84%E6%A8%A1%E6%8B%9F/</link>

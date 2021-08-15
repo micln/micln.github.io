@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Thu, 28 Nov 2013 16:37:01 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/usaco/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 28 Nov 2013 16:37:01 +0800</lastBuildDate><atom:link href="/tags/usaco/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>USACO Section 1.4.3 The Clocks</title>
       <link>/post/csdn/usaco-section-1.4.3-the-clocks/</link>

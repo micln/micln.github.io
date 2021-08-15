@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Mon, 21 Jul 2014 14:16:52 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 21 Jul 2014 14:16:52 +0800</lastBuildDate><atom:link href="/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ubuntu 安装 wps.deb</title>
       <link>/post/csdn/ubuntu-%E5%AE%89%E8%A3%85-wps.deb/</link>

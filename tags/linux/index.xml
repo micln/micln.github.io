@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Sun, 11 Aug 2019 00:04:48 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 11 Aug 2019 00:04:48 +0800</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Manjaro 踩坑记录</title>
       <link>/post/manjaro_go/</link>

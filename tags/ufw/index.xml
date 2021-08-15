@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Tue, 29 Oct 2013 13:28:08 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/ufw/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 29 Oct 2013 13:28:08 +0800</lastBuildDate><atom:link href="/tags/ufw/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ufw 相关</title>
       <link>/post/csdn/ufw-%E7%9B%B8%E5%85%B3/</link>

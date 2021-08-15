@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Sun, 04 Jun 2017 23:55:00 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/sftp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 04 Jun 2017 23:55:00 +0800</lastBuildDate><atom:link href="/tags/sftp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>sftp 配置笔记整理</title>
       <link>/post/jianshu/sftp-%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/</link>

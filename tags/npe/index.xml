@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Thu, 16 May 2019 21:58:24 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/npe/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 16 May 2019 21:58:24 +0800</lastBuildDate><atom:link href="/tags/npe/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 里减少空指针异常的小经验</title>
       <link>/post/avoid_npe_in_go/</link>

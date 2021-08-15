@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Thu, 27 Jun 2013 16:56:29 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/hoj/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 27 Jun 2013 16:56:29 +0800</lastBuildDate><atom:link href="/tags/hoj/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HOJ 2651 PIE</title>
       <link>/post/csdn/hoj-2651-pie/</link>

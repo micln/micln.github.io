@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>©{year} 在水异方</copyright>
-    <lastBuildDate>Mon, 31 Mar 2014 21:59:58 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/hdu/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 31 Mar 2014 21:59:58 +0800</lastBuildDate><atom:link href="/tags/hdu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HDU 3887 Counting Offspring dfs序的运用 | 非递归</title>
       <link>/post/csdn/hdu-3887-counting-offspring-dfs%E5%BA%8F%E7%9A%84%E8%BF%90%E7%94%A8-%E9%9D%9E%E9%80%92%E5%BD%92/</link>
