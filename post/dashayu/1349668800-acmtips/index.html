@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.88.0" />
 
   
 
@@ -423,7 +423,7 @@
 <h1 id="acm语法基础acm语法基础"><a href="#acm%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80"></a>ACM语法基础</h1>
 <h2 id="ccpp不常用的知识点ccpp不常用的知识点"><a href="#c/cpp%E4%B8%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9"></a>C/CPP不常用的知识点</h2>
 <h3 id="字符串拆分">字符串拆分</h3>
-<pre><code>char ss[] = &quot;(1,2,3,4)&quot;;
+<pre tabindex="0"><code>char ss[] = &quot;(1,2,3,4)&quot;;
 char *p = strtok(ss, &quot;(,)&quot;);
 for (int i(1); i&lt;=n; i++) {
     sscanf(p, &quot;%d&quot;, &amp;k);
@@ -440,7 +440,7 @@ for (int i(1); i&lt;=n; i++) {
 <h3 id="例题">例题</h3>
 <h4 id="-hdoj-5047-sawtooth">@ hdoj 5047 Sawtooth</h4>
 <p>读入一个大数，按照特定公式计算结果。</p>
-<pre><code>import java.math.*;  
+<pre tabindex="0"><code>import java.math.*;  
 import java.util.*;  
 import java.io.*;  
   
@@ -480,7 +480,7 @@ public class Main {
 <h2 id="aa"><a href="#a"></a>a</h2>
 <h3 id="b">b</h3>
 <h4 id="-poj-1017-packets--装完大包装小包">@ POJ 1017 Packets | 装完大包装小包</h4>
-<pre><code>/*
+<pre tabindex="0"><code>/*
 6种物品，体积分别为1*1 2*2 ... 6*6 。每种数量有20000
 包裹体积为6*6，问装满所有的物品至少需要多少个包裹。
 solution：
@@ -551,7 +551,7 @@ int main(){
 
 
 </code></pre><h4 id="-usaco-143-the-clocks">@ USACO 1.4.3 The Clocks</h4>
-<pre><code>/*
+<pre tabindex="0"><code>/*
 根据九个表和九个操作的关系，得出下列关系表：
 先列一下钟表与矩阵的关系图：
 Ci = C[i] / 3; 
@@ -625,7 +625,7 @@ int main(){
 </code></pre><h1 id="搜索搜索"><a href="#%E6%90%9C%E7%B4%A2"></a>搜索</h1>
 <h2 id="多状态标记多状态标记"><a href="#%E5%A4%9A%E7%8A%B6%E6%80%81%E6%A0%87%E8%AE%B0"></a>多状态标记</h2>
 <h4 id="-hdu-5024-wang-xifengs-little-plot-广州区域赛">@ HDU 5024 Wang Xifeng’s Little Plot 广州区域赛</h4>
-<pre><code>/*
+<pre tabindex="0"><code>/*
 题意：找到一个最长的L型
 思路：把L拆成两个直线，枚举所有的情况，记忆化搜索
 */
@@ -677,7 +677,7 @@ int main() {
 
 </code></pre><h4 id="-hdu-5025-saving-tang-monk">@ HDU 5025 Saving Tang Monk</h4>
 <p>题意：给一个地图，孙悟空(K)救唐僧(T)，地图中’S’表示蛇，第一次到这要杀死蛇（蛇最多5条），多花费一分钟，’1’~’m’表示m个钥匙(m&lt;=9)，孙悟空要依次拿到这m个钥匙，然后才能去救唐僧，集齐m个钥匙之前可以经过唐僧，集齐x个钥匙以前可以经过x+1,x+2..个钥匙，问最少多少步救到唐僧。</p>
-<pre><code>/*
+<pre tabindex="0"><code>/*
 本题主要是每一条蛇状态的记录，使用状态压缩，将每一条蛇的状态用二进制位记录下来，1代表活，0代表死。
 使用vis四维数组记录每一点走过的状态，x,y分别表示位置，k 钥匙，s 表示蛇的状态，b 表示步数。
 */
@@ -770,7 +770,7 @@ int main()
 }
 
 
-</code></pre><pre><code>/*
+</code></pre><pre tabindex="0"><code>/*
 解法：BFS，每个节点维护四个值：
 x,y ： 当前坐标
 key ：已经集齐了key个钥匙
@@ -961,7 +961,7 @@ int main()
 <p>一种办法是分别记录 in[] out[] 我用的办法是一个数组：sz[x]++ 表示拉出一条边，sz[x]–表示走来一条边，sz[x]==1 sz[x]==-1 就是上面的两种情况</p>
 </blockquote>
 <h4 id="-uva-10129-play-on-words">@ UVa 10129 Play on Words</h4>
-<pre><code>/*
+<pre tabindex="0"><code>/*
 题意就是给你一堆单词，按首位顺序排列起来，问你有没有解。
 第一眼看上去是个哈密顿通路，单词当做节点，首尾关系作边，听上去妥妥的不过N有100000 复杂度太恐怖。
 其实是从刘汝佳的小白书第二版（其实该叫小紫红书了）上欧拉回路那节看到的，所以得考虑考虑转换
@@ -1047,7 +1047,7 @@ int main()
 
 </code></pre><h2 id="二分图最大匹配二分图最大匹配"><a href="#%E4%BA%8C%E5%88%86%E5%9B%BE%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D"></a>二分图最大匹配</h2>
 <h4 id="-poj-3041-asteroids-匈牙利算法">@ POJ 3041 Asteroids 匈牙利算法</h4>
-<pre><code>/*
+<pre tabindex="0"><code>/*
 看起来像个 DP 神马的。竟然是二分图匹配。。
 看着啊，行与行之间相互独立，一个行可以就炸掉很多列。（列的道理一样），如果替换一些字。
        点与点之间相互独立，一个点就可以炸掉很多边。

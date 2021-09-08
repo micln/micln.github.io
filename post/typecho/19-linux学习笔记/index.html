@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.88.0" />
 
   
 
@@ -403,7 +403,7 @@
 <p>linux改为主引导</p>
 <p>之前装mac时把引导毁掉了，pe只能修复win引导。linux引导还得自己再修复。</p>
 <p>liveCD（我直接用的烧在U盘的ubuntu试用）。</p>
-<pre><code># fdisk -l  
+<pre tabindex="0"><code># fdisk -l  
 # mount /dev/sdaX /mnt  
 # mount /dev/sdaY /mnt/boot                     #如果有单独boot分区  
 # grub-install --root-directory=/mnt /dev/sda  
@@ -418,10 +418,10 @@
 <p>然后 <code>sudo update-grub</code></p>
 <h1 id="用户相关">用户相关</h1>
 <h2 id="添加用户">添加用户</h2>
-<pre><code># useradd
+<pre tabindex="0"><code># useradd
 # adduser    #会自动创建目录
 </code></pre><h2 id="添加-sudoers">添加 sudoers</h2>
-<pre><code># vim /etc/sudoers
+<pre tabindex="0"><code># vim /etc/sudoers
 user    All=(All) NOPASSWD: ALL
 %admin	ALL=(ALL) NOPASSWD: ALL
 </code></pre><h1 id="服务器环境">服务器环境</h1>
@@ -429,10 +429,10 @@ user    All=(All) NOPASSWD: ALL
 <p>首选修改 <code>/etc/hostname</code> 和 <code>/etc/hosts</code> 文件对应的机器名</p>
 <p>然后 <code>hostname NAME</code></p>
 <h2 id="查看端口占用">查看端口占用</h2>
-<pre><code>$ netstat -tunpl
+<pre tabindex="0"><code>$ netstat -tunpl
 </code></pre><h2 id="添加ssh免密码登陆">添加ssh免密码登陆</h2>
 <p>网上教程一大堆，坑在了权限</p>
-<pre><code>sudo chmod 700 ~/.ssh
+<pre tabindex="0"><code>sudo chmod 700 ~/.ssh
 sudo chmod 644 ~/.ssh/authorized_keys
 sudo chmod 600 ~/.ssh/id_rsa.pub
 </code></pre>

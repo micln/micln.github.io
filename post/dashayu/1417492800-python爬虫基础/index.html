@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.88.0" />
 
   
 
@@ -392,17 +392,17 @@
 <p>本文通过工具从以前的 html 转成 markdown，格式可能有问题。</p>
 </blockquote>
 <h3 id="基本的抓取">基本的抓取</h3>
-<pre><code>import urllib
+<pre tabindex="0"><code>import urllib
 content = urllib.urlopen('http://www.x.com').read()
 
 </code></pre><h3 id="使用代理服务器">使用代理服务器</h3>
-<pre><code>proxy = urllib2.ProxyHandler({'http':'http://host:port'}) 
+<pre tabindex="0"><code>proxy = urllib2.ProxyHandler({'http':'http://host:port'}) 
 opener = urllib2.build_opener(proxy, urllib2.HTTPHandler) 
 urllib2.install_opener(opener) 
 content = urllib2.urlopen('http://www.xxxx.com').read()
 
 </code></pre><h3 id="cookie">Cookie</h3>
-<pre><code>import urllib2, cookielib 
+<pre tabindex="0"><code>import urllib2, cookielib 
 cookie = urllib2.HTTPCookieProcessor(cookielib.CookieJar()) 
 opener = urllib2.build_opener(cookie, urllib2.HTTPHandler) 
 urllib2.install_opener(opener) 
@@ -411,19 +411,19 @@ content = urllib2.urlopen('http://www.xxx.com').read()
 </code></pre><h3 id="post-数据">POST 数据</h3>
 <p>比如说需要向 <a href="http://www.xxx.com/post/">http://www.xxx.com/post/</a> 接口 POST 数据 name=’liluo’, age=’21’, blog=’http://liluo.org’</p>
 <p>首先需要准备数据</p>
-<pre><code>data = urllib.urlencode({ 
+<pre tabindex="0"><code>data = urllib.urlencode({ 
     'name': 'liluo', 
     'age' : '21', 
     'blog': 'http://liluo.org' 
 })
 
 </code></pre><p>然后生成并发送 HTTP 请求</p>
-<pre><code>req = urllib2.Request(url='http://www.xxx.com/post/', data=data) 
+<pre tabindex="0"><code>req = urllib2.Request(url='http://www.xxx.com/post/', data=data) 
 ret = urllib2.urlopen(req).read()
 
 </code></pre><h3 id="伪装成浏览器">伪装成浏览器</h3>
 <p>很多网站不喜欢爬虫（比如糗事百科），发送的请求会被拒绝。这个时候我们可以用修改 HTTP headers 信息来伪装成浏览器:</p>
-<pre><code>headers = {
+<pre tabindex="0"><code>headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.168 Safari/535.19'
 } 
 req = urllib2.Request( 
@@ -434,7 +434,7 @@ ret = urllib2.urlopen(req).read()
 
 </code></pre><h3 id="绕过反盗链">绕过“反盗链”</h3>
 <p>某些网站（再比如糗事百科）图片会有所谓的反盗链设置，其实就是检查 HTTP 请求的 headers 里的 referer 是否来自该网站。所以只需改下 headers:</p>
-<pre><code>headers = {'Referer': 'http://www.qiushibai.com' } 
+<pre tabindex="0"><code>headers = {'Referer': 'http://www.qiushibai.com' } 
 req = urllib2.Request( 
     url = 'http://qiushibaike.com/', 
     headers = headers

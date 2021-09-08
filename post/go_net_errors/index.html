@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.88.0" />
 
   
 
@@ -389,7 +389,7 @@
       <p>之前遇到了很多 timeout，但是仔细看错误提示好像不完全一样，于是就做了个简单的试验：</p>
 <h4 id="client-上看到的错误">Client 上看到的错误</h4>
 <p>找不到服务器（<code>no such host</code>）的几种情况：</p>
-<pre><code class="language- sh" data-lang=" sh"># 域名不存在，瞄了下代码，应该是 dns 包返回的
+<pre tabindex="0"><code class="language- sh" data-lang=" sh"># 域名不存在，瞄了下代码，应该是 dns 包返回的
 Get http://a.b/abc: dial tcp: lookup a.b: no such host
 
 # ip 不合法不会直接检查，也会返回同样错误
@@ -398,18 +398,18 @@ Get http://127.0.0.1888:8080/abc: dial tcp: lookup 127.0.0.1888: no such host
 # 端口瞎填会直接报错，都不会发请求
 Get http://127.0.0.1:65536/abc: dial tcp: address 65536: invalid port
 </code></pre><p>拒绝连接，对方端口未监听、进程挂掉等等</p>
-<pre><code>Get http://127.0.0.1:8080/abc: dial tcp 127.0.0.1:8080: connect: connection refused
+<pre tabindex="0"><code>Get http://127.0.0.1:8080/abc: dial tcp 127.0.0.1:8080: connect: connection refused
 </code></pre><p>建立连接超时</p>
-<pre><code>Get http://127.0.0:8080/abc: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+<pre tabindex="0"><code>Get http://127.0.0:8080/abc: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
 </code></pre><p>等待返回 header， 一般是接口还在处理逻辑，没有返回任何数据；或者对方只是个普通的 tcp 服务，但不是 http</p>
-<pre><code>Get http://127.0.0.1:8080/abc: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
+<pre tabindex="0"><code>Get http://127.0.0.1:8080/abc: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
 </code></pre><p>客户端读取超时：已建立好连接，已经开始返回数据，但是body 太大太慢：</p>
-<pre><code>wait_test.go:48: net/http: request canceled (Client.Timeout exceeded while reading body)
+<pre tabindex="0"><code>wait_test.go:48: net/http: request canceled (Client.Timeout exceeded while reading body)
 </code></pre><h4 id="server-上看到的错误">Server 上看到的错误</h4>
 <p>客户端主动断开连接，服务器端在调用 <code>Write(p []byte) (n int, err error)</code> 时会返回：</p>
-<pre><code>wait_test.go:21: write tcp 127.0.0.1:8080-&gt;127.0.0.1:49290: write: broken pipe
+<pre tabindex="0"><code>wait_test.go:21: write tcp 127.0.0.1:8080-&gt;127.0.0.1:49290: write: broken pipe
 </code></pre><p>客户端主动断开连接，通常会直接使用 <code>ctx.Done()</code> 检测到，这个时候 <code>ctx.Err()</code> 里会拿到这个信息：</p>
-<pre><code>context canceled
+<pre tabindex="0"><code>context canceled
 </code></pre><p>参考链接：</p>
 <ul>
 <li><a href="https://colobu.com/2016/07/01/the-complete-guide-to-golang-net-http-timeouts/">https://colobu.com/2016/07/01/the-complete-guide-to-golang-net-http-timeouts/</a></li>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.88.0" />
 
   
 
@@ -426,7 +426,7 @@ P-&gt;xx-&gt;a</p>
 </blockquote>
 <h3 id="build-xx-ambiguous-import-xx-in-multiple-modules">build xx: ambiguous import: xx in multiple modules:</h3>
 <p>通常是在没有使用语义化版本时，对一个包有不同版本的依赖导致。例如：</p>
-<pre><code>build xxx.com/com/projA: cannot load xxx.com/com/projB/model: ambiguous import: found xxx.com/com/projB/model in multiple modules:
+<pre tabindex="0"><code>build xxx.com/com/projA: cannot load xxx.com/com/projB/model: ambiguous import: found xxx.com/com/projB/model in multiple modules:
 	xxx.com/com/projB v0.0.0-20181119101949-92ae1f75b49a (.../pkg/mod/xxx.com/com/projB@v0.0.0-20181119101949-92ae1f75b49a/model)
 	xxx.com/com/projB/model v0.0.0-20190311082816-bfb94e79a84f (.../pkg/mod/xxx.com/com/projB/model@v0.0.0-20190311082816-bfb94e79a84f)
 </code></pre><p>可以通过下面方式来找</p>
