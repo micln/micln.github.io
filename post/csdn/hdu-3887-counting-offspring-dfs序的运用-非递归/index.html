@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.88.0" />
+  <meta name="generator" content="Hugo 0.90.0" />
 
   
 
@@ -517,9 +517,9 @@ tt = 0;</p>
     while (!st.empty()) {
         int v = st.top();
         if ( !b[v] ){
-            b[v] = 1;
-            pre[v] = gs(v);
-            update(v);
+        	b[v] = 1;
+        	pre[v] = gs(v);
+        	update(v);
             for ( int p(a[v].next); p; p=e[p].next) {
                 if ( !b[e[p].v] ) {
                     int u = e[p].v;
@@ -722,7 +722,7 @@ return 0;
   
 
   <p class="powered-by">
-    ©2021 在水异方 
+    ©2022 在水异方 
 
     &nbsp; &middot; &nbsp;
     <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>

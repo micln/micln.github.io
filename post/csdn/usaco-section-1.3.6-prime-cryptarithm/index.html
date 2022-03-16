@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.88.0" />
+  <meta name="generator" content="Hugo 0.90.0" />
 
   
 
@@ -537,11 +537,11 @@ int main(){
 	for (int i(111);i&lt;1000;i++){
 		if (hash(i)){
 			for (int j(11);j&lt;100;j++){
-<pre><code>            if (i*j&amp;lt;10000 &amp;amp;&amp;amp; i*(j/10)&amp;lt;1000 &amp;amp;&amp;amp; i*(j%10)&amp;lt;1000 &amp;amp;&amp;amp; hash(j) &amp;amp;&amp;amp; hash(i*(j%10)) &amp;amp;&amp;amp; hash(i*(j/10)) &amp;amp;&amp;amp; hash(i*j)) {
+<pre><code>			if (i*j&amp;lt;10000 &amp;amp;&amp;amp; i*(j/10)&amp;lt;1000 &amp;amp;&amp;amp; i*(j%10)&amp;lt;1000 &amp;amp;&amp;amp; hash(j) &amp;amp;&amp;amp; hash(i*(j%10)) &amp;amp;&amp;amp; hash(i*(j/10)) &amp;amp;&amp;amp; hash(i*j)) {
                     ans++;
                    // printf(&quot;%d * %d = %d0 + %d = %d \n&quot;,i,j,i*(j/10),i*(j%10),i*j);
-            }
-        }
+			}
+		}
 	}
 }
 printf(&quot;%d\n&quot;,ans);
@@ -752,7 +752,7 @@ return 0;
   
 
   <p class="powered-by">
-    ©2021 在水异方 
+    ©2022 在水异方 
 
     &nbsp; &middot; &nbsp;
     <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>

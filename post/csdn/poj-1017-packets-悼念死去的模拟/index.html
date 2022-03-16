@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.2.0">
-  <meta name="generator" content="Hugo 0.88.0" />
+  <meta name="generator" content="Hugo 0.90.0" />
 
   
 
@@ -457,7 +457,7 @@ int main(){
 			ts+=a[i];
 		}
 		if (!ts) break;
-<pre><code>    int s =a[6]+a[5]+a[4];
+<pre><code>	int s =a[6]+a[5]+a[4];
 
 	// a5
 	if (a[5]*11 &amp;gt;= a[1]) a[1] = 0;
@@ -465,29 +465,29 @@ int main(){
 
 	// a4
 	for ( int i(1);i&amp;lt;=a[4];i++){
-        t = push(20,2,5);
-        if (t) t = push(t,1,t);
+		t = push(20,2,5);
+		if (t) t = push(t,1,t);
 	}
 
 	// a3
 	s += a[3] / 4;		// 整装3
 	a[3] %= 4;
 	if (a[3]){									//	剩下的空间分情况装2
-        t = 36 - a[3]*9;
-        if ( a[3] == 1 ) t = push(t,2,5);
-        if ( a[3] == 2 ) t = push(t,2,3);
-        if ( a[3] == 3 ) t = push(t,2,1);
-        if (t) t = push(t,1,t);						//	剩下的空间都装1
-        s++;
+		t = 36 - a[3]*9;
+		if ( a[3] == 1 ) t = push(t,2,5);
+		if ( a[3] == 2 ) t = push(t,2,3);
+		if ( a[3] == 3 ) t = push(t,2,1);
+		if (t) t = push(t,1,t);						//	剩下的空间都装1
+		s++;
 	}
 
 	// a2
 	s += a[2] / 9;
 	a[2] %= 9;
 	if (a[2]){
-        t = 36 - a[2] * 4;
-        t = push(t,1,t);
-        s++;
+		t = 36 - a[2] * 4;
+		t = push(t,1,t);
+		s++;
 	}
 
 	// a1
@@ -703,7 +703,7 @@ return 0;
   
 
   <p class="powered-by">
-    ©2021 在水异方 
+    ©2022 在水异方 
 
     &nbsp; &middot; &nbsp;
     <a href="http://beian.miit.gov.cn/" target="_blank" >京ICP备17022923号-1</a>
